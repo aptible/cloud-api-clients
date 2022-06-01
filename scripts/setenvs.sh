@@ -1,0 +1,8 @@
+export SERVER_HOST="unnecessary-for-client-generation"
+export POSTGRES_SERVER="unnecessary-for-client-generation"
+export POSTGRES_USER="unnecessary-for-client-generation"
+export POSTGRES_PASSWORD="unnecessary-for-client-generation"
+export POSTGRES_DB="unnecessary-for-client-generation"
+export SQLALCHEMY_DATABASE_URI="postgresql://user:password@unnecessary-for-client-generation"
+export SERVER_NAME="unnecessary-for-client-generation"
+export SERVER_HOST="https://unnecessary-for-client-generation"

@@ -1,0 +1,24 @@
+[build-system]
+requires = [
+  "setuptools >= 62.1.0",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.isort]
+profile = "black"
+skip = [".venv"]
+src_paths = ["scripts"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38', 'py39', 'py310']
+
+[tool.mypy]
+plugins = ["pydantic.mypy", "sqlmypy"]
+exclude = [".venv"]
+follow_imports = "silent"
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+disallow_untyped_defs = true

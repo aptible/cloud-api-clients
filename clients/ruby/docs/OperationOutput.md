@@ -1,0 +1,38 @@
+# CloudApiClient::OperationOutput
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **environment_id** | **String** |  |  |
+| **user_id** | **String** |  |  |
+| **organization_id** | **String** |  |  |
+| **operation_type** | [**OperationType**](OperationType.md) |  | [optional] |
+| **status** | [**OperationStatus**](OperationStatus.md) |  | [optional] |
+| **asset_name** | **String** |  |  |
+| **asset_id** | **String** |  |  |
+| **asset_version** | **String** |  |  |
+| **asset_variables** | **Object** |  | [optional] |
+| **id** | **String** |  |  |
+| **run_id** | **String** |  | [optional] |
+
+## Example
+
+```ruby
+require 'cloud_api_client'
+
+instance = CloudApiClient::OperationOutput.new(
+  environment_id: null,
+  user_id: null,
+  organization_id: null,
+  operation_type: null,
+  status: null,
+  asset_name: null,
+  asset_id: null,
+  asset_version: null,
+  asset_variables: null,
+  id: null,
+  run_id: null
+)
+```
+

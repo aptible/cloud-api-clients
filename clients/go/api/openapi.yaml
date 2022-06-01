@@ -1,0 +1,1048 @@
+openapi: 3.0.2
+info:
+  title: Cloud API
+  version: 0.1.0
+servers:
+- url: /
+paths:
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}:
+    delete:
+      operationId: delete_asset_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__delete
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                title: Response Delete Asset By Id Api V1 Organizations  Organization
+                  Id  Environments  Environment Id  Assets  Asset Id  Delete
+                type: integer
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Delete Asset By Id
+      tags:
+      - assets
+    get:
+      operationId: get_asset_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__get
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get Asset By Id
+      tags:
+      - assets
+    put:
+      operationId: update_asset_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__put
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Update Asset By Id
+      tags:
+      - assets
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets:
+    get:
+      operationId: get_assets_api_v1_organizations__organization_id__environments__environment_id__assets_get
+      parameters:
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AssetOutput'
+                title: Response Get Assets Api V1 Organizations  Organization Id  Environments  Environment
+                  Id  Assets Get
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get Assets
+      tags:
+      - assets
+    post:
+      operationId: create_asset_api_v1_organizations__organization_id__environments__environment_id__assets_post
+      parameters:
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetInput'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Create Asset
+      tags:
+      - assets
+  /api/v1/organizations/{organization_id}/environments/{environment_id}:
+    delete:
+      operationId: delete_environment_by_id_api_v1_organizations__organization_id__environments__environment_id__delete
+      parameters:
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                title: Response Delete Environment By Id Api V1 Organizations  Organization
+                  Id  Environments  Environment Id  Delete
+                type: integer
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Delete Environment By Id
+      tags:
+      - environments
+    get:
+      operationId: get_environment_by_id_api_v1_organizations__organization_id__environments__environment_id__get
+      parameters:
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EnvironmentOutput'
+                title: Response Get Environment By Id Api V1 Organizations  Organization
+                  Id  Environments  Environment Id  Get
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get Environment By Id
+      tags:
+      - environments
+    put:
+      operationId: update_environment_api_v1_organizations__organization_id__environments__environment_id__put
+      parameters:
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnvironmentInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnvironmentOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Update Environment
+      tags:
+      - environments
+  /api/v1/organizations/{organization_id}/environments:
+    get:
+      operationId: get_environments_api_v1_organizations__organization_id__environments_get
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EnvironmentOutput'
+                title: Response Get Environments Api V1 Organizations  Organization
+                  Id  Environments Get
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get Environments
+      tags:
+      - environments
+    post:
+      operationId: create_environment_api_v1_organizations__organization_id__environments_post
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnvironmentInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnvironmentOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Create Environment
+      tags:
+      - environments
+  /api/v1/organizations/{organization_id}/operations/{operation_id}:
+    get:
+      operationId: get_operations_by_operation_id_api_v1_organizations__organization_id__operations__operation_id__get
+      parameters:
+      - explode: false
+        in: path
+        name: operation_id
+        required: true
+        schema:
+          format: uuid
+          title: Operation Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OperationOutput'
+                title: Response Get Operations By Operation Id Api V1 Organizations  Organization
+                  Id  Operations  Operation Id  Get
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get Operations By Operation Id
+      tags:
+      - operations
+  /api/v1/organizations/{organization_id}/operations/:
+    get:
+      operationId: get_operations_api_v1_organizations__organization_id__operations__get
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: asset_id
+        required: false
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: environment_id
+        required: false
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OperationOutput'
+                title: Response Get Operations Api V1 Organizations  Organization
+                  Id  Operations  Get
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get Operations
+      tags:
+      - operations
+  /api/v1/organizations/{organization_id}:
+    get:
+      operationId: get_organization_by_id_api_v1_organizations__organization_id__get
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get Organization By Id
+      tags:
+      - organizations
+    put:
+      operationId: put_organization_api_v1_organizations__organization_id__put
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Put Organization
+      tags:
+      - organizations
+  /api/v1/organizations/:
+    get:
+      operationId: get_organizations_api_v1_organizations__get
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrganizationOutput'
+                title: Response Get Organizations Api V1 Organizations  Get
+                type: array
+          description: Successful Response
+      security:
+      - HTTPBearer: []
+      summary: Get Organizations
+      tags:
+      - organizations
+  /api/v1/debug/user_auth:
+    get:
+      operationId: get_user_api_v1_debug_user_auth_get
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - HTTPBearer: []
+      summary: Get User
+      tags:
+      - utilities
+  /api/v1/debug/user_role_middleware_check:
+    get:
+      operationId: get_user_role_api_v1_debug_user_role_middleware_check_get
+      parameters:
+      - explode: true
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get User Role
+      tags:
+      - utilities
+  /api/v1/debug/ping:
+    get:
+      operationId: get_ping_api_v1_debug_ping_get
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextResponse'
+          description: Successful Response
+      summary: Get Ping
+      tags:
+      - utilities
+components:
+  schemas:
+    AssetInput:
+      example:
+        asset_version: asset_version
+        asset_variables: "{}"
+        asset: asset
+      properties:
+        asset:
+          title: Asset
+          type: string
+        asset_version:
+          title: Asset Version
+          type: string
+        asset_variables:
+          title: Asset Variables
+          type: object
+      required:
+      - asset
+      - asset_variables
+      - asset_version
+      title: AssetInput
+      type: object
+    AssetOutput:
+      example:
+        environment:
+          aws_account_id: aws_account_id
+          data: "{}"
+          organization:
+            aws_ou: aws_ou
+            baa_status: baa_status
+            name: name
+            contact_details: "{}"
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        user_defined: true
+        asset_version: asset_version
+        current_asset_variables:
+          data: "{}"
+          iteration: 0
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        asset: asset
+        status: status
+      properties:
+        asset:
+          title: Asset
+          type: string
+        asset_version:
+          title: Asset Version
+          type: string
+        id:
+          format: uuid
+          title: Id
+          type: string
+        status:
+          title: Status
+          type: string
+        environment:
+          $ref: '#/components/schemas/EnvironmentOutput'
+        current_asset_variables:
+          $ref: '#/components/schemas/AssetVariablesOutput'
+        user_defined:
+          title: User Defined
+          type: boolean
+      required:
+      - asset
+      - asset_version
+      - current_asset_variables
+      - environment
+      - id
+      - status
+      - user_defined
+      title: AssetOutput
+      type: object
+    AssetVariablesOutput:
+      example:
+        data: "{}"
+        iteration: 0
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        data:
+          title: Data
+          type: object
+        iteration:
+          title: Iteration
+          type: integer
+        id:
+          format: uuid
+          title: Id
+          type: string
+      required:
+      - data
+      - id
+      - iteration
+      title: AssetVariablesOutput
+      type: object
+    EnvironmentInput:
+      example:
+        aws_account_id: aws_account_id
+        data: "{}"
+        name: name
+        description: description
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        aws_account_id:
+          title: Aws Account Id
+          type: string
+        data:
+          title: Data
+          type: object
+      required:
+      - aws_account_id
+      - data
+      - name
+      title: EnvironmentInput
+      type: object
+    EnvironmentOutput:
+      example:
+        aws_account_id: aws_account_id
+        data: "{}"
+        organization:
+          aws_ou: aws_ou
+          baa_status: baa_status
+          name: name
+          contact_details: "{}"
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        aws_account_id:
+          title: Aws Account Id
+          type: string
+        data:
+          title: Data
+          type: object
+        id:
+          format: uuid
+          title: Id
+          type: string
+        organization:
+          $ref: '#/components/schemas/OrganizationOutput'
+      required:
+      - aws_account_id
+      - data
+      - id
+      - name
+      - organization
+      title: EnvironmentOutput
+      type: object
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          title: Detail
+          type: array
+      title: HTTPValidationError
+      type: object
+    OperationOutput:
+      example:
+        run_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        operation_type: ""
+        asset_name: asset_name
+        user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        asset_version: asset_version
+        asset_variables: "{}"
+        organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status: ""
+      properties:
+        environment_id:
+          format: uuid
+          title: Environment Id
+          type: string
+        user_id:
+          format: uuid
+          title: User Id
+          type: string
+        organization_id:
+          format: uuid
+          title: Organization Id
+          type: string
+        operation_type:
+          allOf:
+          - $ref: '#/components/schemas/OperationType'
+        status:
+          allOf:
+          - $ref: '#/components/schemas/OperationStatus'
+        asset_name:
+          title: Asset Name
+          type: string
+        asset_id:
+          format: uuid
+          title: Asset Id
+          type: string
+        asset_version:
+          title: Asset Version
+          type: string
+        asset_variables:
+          title: Asset Variables
+          type: object
+        id:
+          format: uuid
+          title: Id
+          type: string
+        run_id:
+          format: uuid
+          title: Run Id
+          type: string
+      required:
+      - asset_id
+      - asset_name
+      - asset_version
+      - environment_id
+      - id
+      - organization_id
+      - user_id
+      title: OperationOutput
+      type: object
+    OperationStatus:
+      description: An enumeration.
+      enum:
+      - FAILED
+      - REQUESTED
+      - PENDING
+      - PAUSED
+      - IN_PROGRESS
+      - CANCELED
+      - COMPLETE
+      title: OperationStatus
+      type: string
+    OperationType:
+      description: An enumeration.
+      enum:
+      - CREATE
+      - UPDATE
+      - DESTROY
+      title: OperationType
+      type: string
+    OrganizationInput:
+      example:
+        aws_ou: aws_ou
+        baa_status: baa_status
+        name: name
+        contact_details: "{}"
+      properties:
+        name:
+          title: Name
+          type: string
+        baa_status:
+          title: Baa Status
+          type: string
+        aws_ou:
+          title: Aws Ou
+          type: string
+        contact_details:
+          title: Contact Details
+          type: object
+      required:
+      - aws_ou
+      - baa_status
+      - contact_details
+      - name
+      title: OrganizationInput
+      type: object
+    OrganizationOutput:
+      example:
+        aws_ou: aws_ou
+        baa_status: baa_status
+        name: name
+        contact_details: "{}"
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        name:
+          title: Name
+          type: string
+        baa_status:
+          title: Baa Status
+          type: string
+        aws_ou:
+          title: Aws Ou
+          type: string
+        contact_details:
+          title: Contact Details
+          type: object
+        id:
+          format: uuid
+          title: Id
+          type: string
+      required:
+      - aws_ou
+      - baa_status
+      - contact_details
+      - id
+      - name
+      title: OrganizationOutput
+      type: object
+    TextResponse:
+      description: "Generic text responses on api in payload, no flair"
+      example:
+        payload: payload
+        error: error
+      properties:
+        error:
+          description: error message payload to bubble up to end user
+          title: Error
+          type: string
+        payload:
+          description: simple text response payload
+          title: Payload
+          type: string
+      required:
+      - payload
+      title: TextResponse
+      type: object
+    ValidationError:
+      properties:
+        loc:
+          items:
+            $ref: '#/components/schemas/Location_inner'
+          title: Location
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+      type: object
+    Location_inner:
+      anyOf:
+      - type: string
+      - type: integer
+  securitySchemes:
+    HTTPBearer:
+      scheme: bearer
+      type: http

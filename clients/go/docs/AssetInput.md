@@ -1,0 +1,93 @@
+# AssetInput
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Asset** | **string** |  | 
+**AssetVersion** | **string** |  | 
+**AssetVariables** | **map[string]interface{}** |  | 
+
+## Methods
+
+### NewAssetInput
+
+`func NewAssetInput(asset string, assetVersion string, assetVariables map[string]interface{}, ) *AssetInput`
+
+NewAssetInput instantiates a new AssetInput object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAssetInputWithDefaults
+
+`func NewAssetInputWithDefaults() *AssetInput`
+
+NewAssetInputWithDefaults instantiates a new AssetInput object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAsset
+
+`func (o *AssetInput) GetAsset() string`
+
+GetAsset returns the Asset field if non-nil, zero value otherwise.
+
+### GetAssetOk
+
+`func (o *AssetInput) GetAssetOk() (*string, bool)`
+
+GetAssetOk returns a tuple with the Asset field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAsset
+
+`func (o *AssetInput) SetAsset(v string)`
+
+SetAsset sets Asset field to given value.
+
+
+### GetAssetVersion
+
+`func (o *AssetInput) GetAssetVersion() string`
+
+GetAssetVersion returns the AssetVersion field if non-nil, zero value otherwise.
+
+### GetAssetVersionOk
+
+`func (o *AssetInput) GetAssetVersionOk() (*string, bool)`
+
+GetAssetVersionOk returns a tuple with the AssetVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssetVersion
+
+`func (o *AssetInput) SetAssetVersion(v string)`
+
+SetAssetVersion sets AssetVersion field to given value.
+
+
+### GetAssetVariables
+
+`func (o *AssetInput) GetAssetVariables() map[string]interface{}`
+
+GetAssetVariables returns the AssetVariables field if non-nil, zero value otherwise.
+
+### GetAssetVariablesOk
+
+`func (o *AssetInput) GetAssetVariablesOk() (*map[string]interface{}, bool)`
+
+GetAssetVariablesOk returns a tuple with the AssetVariables field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssetVariables
+
+`func (o *AssetInput) SetAssetVariables(v map[string]interface{})`
+
+SetAssetVariables sets AssetVariables field to given value.
+
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

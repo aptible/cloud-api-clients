@@ -1,0 +1,21 @@
+name: Go Client Test
+
+on:
+  push:
+
+jobs:
+  go-client-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '>=1.13.0'
+      - run: go version
+#      # currently tests are not listed here for the go client
+#      - name: Build
+#        run: go build -v ./...
+#        working-directory: ./clients/go
+#      - name: Test
+#        run: go test -v ./...
+#        working-directory: ./clients/go
