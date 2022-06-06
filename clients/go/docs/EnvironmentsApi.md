@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet
 
-> []EnvironmentOutput GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(ctx, environmentId, organizationId).Execute()
+> EnvironmentOutput GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(ctx, environmentId, organizationId).Execute()
 
 Get Environment By Id
 
@@ -182,7 +182,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet`: []EnvironmentOutput
+    // response from `GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet`: EnvironmentOutput
     fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet`: %v\n", resp)
 }
 ```
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]EnvironmentOutput**](EnvironmentOutput.md)
+[**EnvironmentOutput**](EnvironmentOutput.md)
 
 ### Authorization
 

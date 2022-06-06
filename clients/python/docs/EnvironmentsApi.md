@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful Response |  -  |
+**201** | Successful Response |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get**
-> [EnvironmentOutput] get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get(environment_id, organization_id)
+> EnvironmentOutput get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get(environment_id, organization_id)
 
 Get Environment By Id
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[EnvironmentOutput]**](EnvironmentOutput.md)
+[**EnvironmentOutput**](EnvironmentOutput.md)
 
 ### Authorization
 

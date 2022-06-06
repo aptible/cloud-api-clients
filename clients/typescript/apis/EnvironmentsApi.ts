@@ -275,7 +275,7 @@ export class EnvironmentsApiResponseProcessor {
      */
      public async createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(response: ResponseContext): Promise<EnvironmentOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
+        if (isCodeInRange("201", response.httpStatusCode)) {
             const body: EnvironmentOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "EnvironmentOutput", ""
@@ -345,13 +345,13 @@ export class EnvironmentsApiResponseProcessor {
      * @params response Response returned by the server for a request to getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(response: ResponseContext): Promise<Array<EnvironmentOutput> > {
+     public async getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(response: ResponseContext): Promise<EnvironmentOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<EnvironmentOutput> = ObjectSerializer.deserialize(
+            const body: EnvironmentOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<EnvironmentOutput>", ""
-            ) as Array<EnvironmentOutput>;
+                "EnvironmentOutput", ""
+            ) as EnvironmentOutput;
             return body;
         }
         if (isCodeInRange("422", response.httpStatusCode)) {
@@ -364,10 +364,10 @@ export class EnvironmentsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<EnvironmentOutput> = ObjectSerializer.deserialize(
+            const body: EnvironmentOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<EnvironmentOutput>", ""
-            ) as Array<EnvironmentOutput>;
+                "EnvironmentOutput", ""
+            ) as EnvironmentOutput;
             return body;
         }
 

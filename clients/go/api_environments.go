@@ -265,7 +265,7 @@ type ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmen
 	organizationId string
 }
 
-func (r ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest) Execute() ([]EnvironmentOutput, *http.Response, error) {
+func (r ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest) Execute() (*EnvironmentOutput, *http.Response, error) {
 	return r.ApiService.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute(r)
 }
 
@@ -287,13 +287,13 @@ func (a *EnvironmentsApiService) GetEnvironmentByIdApiV1OrganizationsOrganizatio
 }
 
 // Execute executes the request
-//  @return []EnvironmentOutput
-func (a *EnvironmentsApiService) GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute(r ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest) ([]EnvironmentOutput, *http.Response, error) {
+//  @return EnvironmentOutput
+func (a *EnvironmentsApiService) GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute(r ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest) (*EnvironmentOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []EnvironmentOutput
+		localVarReturnValue  *EnvironmentOutput
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet")

@@ -151,7 +151,7 @@ end
 
 ## get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get
 
-> <Array<EnvironmentOutput>> get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get(environment_id, organization_id)
+> <EnvironmentOutput> get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get(environment_id, organization_id)
 
 Get Environment By Id
 
@@ -183,7 +183,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<EnvironmentOutput>>, Integer, Hash)> get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info(environment_id, organization_id)
+> <Array(<EnvironmentOutput>, Integer, Hash)> get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info(environment_id, organization_id)
 
 ```ruby
 begin
@@ -191,7 +191,7 @@ begin
   data, status_code, headers = api_instance.get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info(environment_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<EnvironmentOutput>>
+  p data # => <EnvironmentOutput>
 rescue CloudApiClient::ApiError => e
   puts "Error when calling EnvironmentsApi->get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info: #{e}"
 end
@@ -206,7 +206,7 @@ end
 
 ### Return type
 
-[**Array&lt;EnvironmentOutput&gt;**](EnvironmentOutput.md)
+[**EnvironmentOutput**](EnvironmentOutput.md)
 
 ### Authorization
 

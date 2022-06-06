@@ -230,7 +230,7 @@ export class ObservableEnvironmentsApi {
      * @param environmentId 
      * @param organizationId 
      */
-    public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId: string, organizationId: string, _options?: Configuration): Observable<Array<EnvironmentOutput>> {
+    public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId: string, organizationId: string, _options?: Configuration): Observable<EnvironmentOutput> {
         const requestContextPromise = this.requestFactory.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId, organizationId, _options);
 
         // build promise chain
