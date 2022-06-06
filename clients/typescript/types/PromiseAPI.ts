@@ -129,7 +129,7 @@ export class PromiseEnvironmentsApi {
      * @param environmentId 
      * @param organizationId 
      */
-    public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<EnvironmentOutput>> {
+    public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<EnvironmentOutput> {
         const result = this.api.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId, organizationId, _options);
         return result.toPromise();
     }

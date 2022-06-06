@@ -279,7 +279,7 @@ export class ObjectEnvironmentsApi {
      * Get Environment By Id
      * @param param the request object
      */
-    public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(param: EnvironmentsApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest, options?: Configuration): Promise<Array<EnvironmentOutput>> {
+    public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(param: EnvironmentsApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest, options?: Configuration): Promise<EnvironmentOutput> {
         return this.api.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(param.environmentId, param.organizationId,  options).toPromise();
     }
 

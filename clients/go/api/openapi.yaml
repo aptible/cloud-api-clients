@@ -315,11 +315,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/EnvironmentOutput'
-                title: Response Get Environment By Id Api V1 Organizations  Organization
-                  Id  Environments  Environment Id  Get
-                type: array
+                $ref: '#/components/schemas/EnvironmentOutput'
           description: Successful Response
         "422":
           content:
@@ -431,7 +427,7 @@ paths:
               $ref: '#/components/schemas/EnvironmentInput'
         required: true
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:

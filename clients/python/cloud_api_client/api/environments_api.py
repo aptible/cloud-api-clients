@@ -154,7 +154,7 @@ class EnvironmentsApi(object):
         )
         self.get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([EnvironmentOutput],),
+                'response_type': (EnvironmentOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
@@ -548,7 +548,7 @@ class EnvironmentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [EnvironmentOutput]
+            EnvironmentOutput
                 If the method is called asynchronously, returns the request
                 thread.
         """

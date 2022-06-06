@@ -61,7 +61,7 @@ describe 'EnvironmentsApi' do
   # @param environment_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
-  # @return [Array<EnvironmentOutput>]
+  # @return [EnvironmentOutput]
   describe 'get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
