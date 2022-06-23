@@ -19,12 +19,51 @@ import (
 )
 
 
+type UtilitiesApi interface {
+
+	/*
+	GetPingApiV1DebugPingGet Get Ping
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetPingApiV1DebugPingGetRequest
+	*/
+	GetPingApiV1DebugPingGet(ctx context.Context) ApiGetPingApiV1DebugPingGetRequest
+
+	// GetPingApiV1DebugPingGetExecute executes the request
+	//  @return TextResponse
+	GetPingApiV1DebugPingGetExecute(r ApiGetPingApiV1DebugPingGetRequest) (*TextResponse, *http.Response, error)
+
+	/*
+	GetUserApiV1DebugUserAuthGet Get User
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetUserApiV1DebugUserAuthGetRequest
+	*/
+	GetUserApiV1DebugUserAuthGet(ctx context.Context) ApiGetUserApiV1DebugUserAuthGetRequest
+
+	// GetUserApiV1DebugUserAuthGetExecute executes the request
+	//  @return interface{}
+	GetUserApiV1DebugUserAuthGetExecute(r ApiGetUserApiV1DebugUserAuthGetRequest) (interface{}, *http.Response, error)
+
+	/*
+	GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet Get User Role
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest
+	*/
+	GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet(ctx context.Context) ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest
+
+	// GetUserRoleApiV1DebugUserRoleMiddlewareCheckGetExecute executes the request
+	//  @return interface{}
+	GetUserRoleApiV1DebugUserRoleMiddlewareCheckGetExecute(r ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest) (interface{}, *http.Response, error)
+}
+
 // UtilitiesApiService UtilitiesApi service
 type UtilitiesApiService service
 
 type ApiGetPingApiV1DebugPingGetRequest struct {
 	ctx context.Context
-	ApiService *UtilitiesApiService
+	ApiService UtilitiesApi
 }
 
 func (r ApiGetPingApiV1DebugPingGetRequest) Execute() (*TextResponse, *http.Response, error) {
@@ -121,7 +160,7 @@ func (a *UtilitiesApiService) GetPingApiV1DebugPingGetExecute(r ApiGetPingApiV1D
 
 type ApiGetUserApiV1DebugUserAuthGetRequest struct {
 	ctx context.Context
-	ApiService *UtilitiesApiService
+	ApiService UtilitiesApi
 }
 
 func (r ApiGetUserApiV1DebugUserAuthGetRequest) Execute() (interface{}, *http.Response, error) {
@@ -218,7 +257,7 @@ func (a *UtilitiesApiService) GetUserApiV1DebugUserAuthGetExecute(r ApiGetUserAp
 
 type ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest struct {
 	ctx context.Context
-	ApiService *UtilitiesApiService
+	ApiService UtilitiesApi
 	organizationId *string
 }
 

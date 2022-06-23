@@ -20,12 +20,83 @@ import (
 )
 
 
+type EnvironmentsApi interface {
+
+	/*
+	CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost Create Environment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param organizationId
+	@return ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest
+	*/
+	CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(ctx context.Context, organizationId string) ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest
+
+	// CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostExecute executes the request
+	//  @return EnvironmentOutput
+	CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostExecute(r ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest) (*EnvironmentOutput, *http.Response, error)
+
+	/*
+	DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete Delete Environment By Id
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environmentId
+	@param organizationId
+	@return ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest
+	*/
+	DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(ctx context.Context, environmentId string, organizationId string) ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest
+
+	// DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteExecute executes the request
+	//  @return int32
+	DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteExecute(r ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest) (int32, *http.Response, error)
+
+	/*
+	GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet Get Environment By Id
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environmentId
+	@param organizationId
+	@return ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest
+	*/
+	GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(ctx context.Context, environmentId string, organizationId string) ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest
+
+	// GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute executes the request
+	//  @return EnvironmentOutput
+	GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute(r ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest) (*EnvironmentOutput, *http.Response, error)
+
+	/*
+	GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet Get Environments
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param organizationId
+	@return ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest
+	*/
+	GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(ctx context.Context, organizationId string) ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest
+
+	// GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetExecute executes the request
+	//  @return []EnvironmentOutput
+	GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetExecute(r ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest) ([]EnvironmentOutput, *http.Response, error)
+
+	/*
+	UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut Update Environment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environmentId
+	@param organizationId
+	@return ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest
+	*/
+	UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(ctx context.Context, environmentId string, organizationId string) ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest
+
+	// UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutExecute executes the request
+	//  @return EnvironmentOutput
+	UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutExecute(r ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest) (*EnvironmentOutput, *http.Response, error)
+}
+
 // EnvironmentsApiService EnvironmentsApi service
 type EnvironmentsApiService service
 
 type ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest struct {
 	ctx context.Context
-	ApiService *EnvironmentsApiService
+	ApiService EnvironmentsApi
 	organizationId string
 	environmentInput *EnvironmentInput
 }
@@ -146,7 +217,7 @@ func (a *EnvironmentsApiService) CreateEnvironmentApiV1OrganizationsOrganization
 
 type ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *EnvironmentsApiService
+	ApiService EnvironmentsApi
 	environmentId string
 	organizationId string
 }
@@ -260,7 +331,7 @@ func (a *EnvironmentsApiService) DeleteEnvironmentByIdApiV1OrganizationsOrganiza
 
 type ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest struct {
 	ctx context.Context
-	ApiService *EnvironmentsApiService
+	ApiService EnvironmentsApi
 	environmentId string
 	organizationId string
 }
@@ -374,7 +445,7 @@ func (a *EnvironmentsApiService) GetEnvironmentByIdApiV1OrganizationsOrganizatio
 
 type ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest struct {
 	ctx context.Context
-	ApiService *EnvironmentsApiService
+	ApiService EnvironmentsApi
 	organizationId string
 }
 
@@ -484,7 +555,7 @@ func (a *EnvironmentsApiService) GetEnvironmentsApiV1OrganizationsOrganizationId
 
 type ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest struct {
 	ctx context.Context
-	ApiService *EnvironmentsApiService
+	ApiService EnvironmentsApi
 	environmentId string
 	organizationId string
 	environmentInput *EnvironmentInput
