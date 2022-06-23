@@ -56,7 +56,11 @@ generate_go_client:
 	  -i /local/openapi.json \
 	  -g go \
 	  -o /local/clients/go \
-	  --additional-properties packageName=cloud_api_client
+	  --additional-properties packageName=cloud_api_client \
+	  --additional-properties=generateInterfaces=true \
+	  --additional-properties=GoSubmodule=true \
+	  --git-user-id=aptible \
+	  --git-repo-id=cloud-api-clients/clients/go
 
 generate_typescript_client:
 	docker run --rm \

@@ -20,12 +20,53 @@ import (
 )
 
 
+type OrganizationsApi interface {
+
+	/*
+	GetOrganizationByIdApiV1OrganizationsOrganizationIdGet Get Organization By Id
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param organizationId
+	@return ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest
+	*/
+	GetOrganizationByIdApiV1OrganizationsOrganizationIdGet(ctx context.Context, organizationId string) ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest
+
+	// GetOrganizationByIdApiV1OrganizationsOrganizationIdGetExecute executes the request
+	//  @return OrganizationOutput
+	GetOrganizationByIdApiV1OrganizationsOrganizationIdGetExecute(r ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest) (*OrganizationOutput, *http.Response, error)
+
+	/*
+	GetOrganizationsApiV1OrganizationsGet Get Organizations
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetOrganizationsApiV1OrganizationsGetRequest
+	*/
+	GetOrganizationsApiV1OrganizationsGet(ctx context.Context) ApiGetOrganizationsApiV1OrganizationsGetRequest
+
+	// GetOrganizationsApiV1OrganizationsGetExecute executes the request
+	//  @return []OrganizationOutput
+	GetOrganizationsApiV1OrganizationsGetExecute(r ApiGetOrganizationsApiV1OrganizationsGetRequest) ([]OrganizationOutput, *http.Response, error)
+
+	/*
+	PutOrganizationApiV1OrganizationsOrganizationIdPut Put Organization
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param organizationId
+	@return ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest
+	*/
+	PutOrganizationApiV1OrganizationsOrganizationIdPut(ctx context.Context, organizationId string) ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest
+
+	// PutOrganizationApiV1OrganizationsOrganizationIdPutExecute executes the request
+	//  @return OrganizationOutput
+	PutOrganizationApiV1OrganizationsOrganizationIdPutExecute(r ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest) (*OrganizationOutput, *http.Response, error)
+}
+
 // OrganizationsApiService OrganizationsApi service
 type OrganizationsApiService service
 
 type ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest struct {
 	ctx context.Context
-	ApiService *OrganizationsApiService
+	ApiService OrganizationsApi
 	organizationId string
 }
 
@@ -135,7 +176,7 @@ func (a *OrganizationsApiService) GetOrganizationByIdApiV1OrganizationsOrganizat
 
 type ApiGetOrganizationsApiV1OrganizationsGetRequest struct {
 	ctx context.Context
-	ApiService *OrganizationsApiService
+	ApiService OrganizationsApi
 }
 
 func (r ApiGetOrganizationsApiV1OrganizationsGetRequest) Execute() ([]OrganizationOutput, *http.Response, error) {
@@ -232,7 +273,7 @@ func (a *OrganizationsApiService) GetOrganizationsApiV1OrganizationsGetExecute(r
 
 type ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest struct {
 	ctx context.Context
-	ApiService *OrganizationsApiService
+	ApiService OrganizationsApi
 	organizationId string
 	organizationInput *OrganizationInput
 }

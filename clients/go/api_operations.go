@@ -20,12 +20,42 @@ import (
 )
 
 
+type OperationsApi interface {
+
+	/*
+	GetOperationsApiV1OrganizationsOrganizationIdOperationsGet Get Operations
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param organizationId
+	@return ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest
+	*/
+	GetOperationsApiV1OrganizationsOrganizationIdOperationsGet(ctx context.Context, organizationId string) ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest
+
+	// GetOperationsApiV1OrganizationsOrganizationIdOperationsGetExecute executes the request
+	//  @return []OperationOutput
+	GetOperationsApiV1OrganizationsOrganizationIdOperationsGetExecute(r ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest) ([]OperationOutput, *http.Response, error)
+
+	/*
+	GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet Get Operations By Operation Id
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param operationId
+	@param organizationId
+	@return ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest
+	*/
+	GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(ctx context.Context, operationId string, organizationId string) ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest
+
+	// GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetExecute executes the request
+	//  @return []OperationOutput
+	GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetExecute(r ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest) ([]OperationOutput, *http.Response, error)
+}
+
 // OperationsApiService OperationsApi service
 type OperationsApiService service
 
 type ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest struct {
 	ctx context.Context
-	ApiService *OperationsApiService
+	ApiService OperationsApi
 	organizationId string
 	assetId *string
 	environmentId *string
@@ -153,7 +183,7 @@ func (a *OperationsApiService) GetOperationsApiV1OrganizationsOrganizationIdOper
 
 type ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest struct {
 	ctx context.Context
-	ApiService *OperationsApiService
+	ApiService OperationsApi
 	operationId string
 	organizationId string
 }
