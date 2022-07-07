@@ -3,7 +3,7 @@ import sys
 
 from fastapi.openapi.utils import get_openapi
 
-from server.main import app
+from cloud_api.main import app
 
 
 # borrowed heavily from: https://github.com/tiangolo/fastapi/issues/1173
