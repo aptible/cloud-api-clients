@@ -12,6 +12,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0'
+      - name: Generate gemspec
+        run: gem build cloud_api_client.gemspec
+        working-directory: ./clients/ruby
       - name: Install dependencies
         run: bundle install
         working-directory: ./clients/ruby
