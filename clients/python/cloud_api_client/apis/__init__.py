@@ -19,3 +19,4 @@ from cloud_api_client.api.environments_api import EnvironmentsApi
 from cloud_api_client.api.operations_api import OperationsApi
 from cloud_api_client.api.organizations_api import OrganizationsApi
 from cloud_api_client.api.utilities_api import UtilitiesApi
+from cloud_api_client.api.worker_api import WorkerApi

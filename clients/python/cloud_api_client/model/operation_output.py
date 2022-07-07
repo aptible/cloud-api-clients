@@ -98,7 +98,7 @@ class OperationOutput(ModelNormal):
             'id': (str,),  # noqa: E501
             'operation_type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'status': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'asset_variables': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'asset_parameters': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'run_id': (str,),  # noqa: E501
         }
 
@@ -117,7 +117,7 @@ class OperationOutput(ModelNormal):
         'id': 'id',  # noqa: E501
         'operation_type': 'operation_type',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'asset_variables': 'asset_variables',  # noqa: E501
+        'asset_parameters': 'asset_parameters',  # noqa: E501
         'run_id': 'run_id',  # noqa: E501
     }
 
@@ -173,7 +173,7 @@ class OperationOutput(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             operation_type (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             status (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            asset_variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            asset_parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             run_id (str): [optional]  # noqa: E501
         """
 
@@ -278,7 +278,7 @@ class OperationOutput(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             operation_type (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             status (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            asset_variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            asset_parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             run_id (str): [optional]  # noqa: E501
         """
 

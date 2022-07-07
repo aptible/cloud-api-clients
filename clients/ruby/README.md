@@ -65,7 +65,7 @@ end
 api_instance = CloudApiClient::AssetsApi.new
 environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_variables: 3.56}) # AssetInput | 
+asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_parameters: 3.56}) # AssetInput | 
 
 begin
   #Create Asset
@@ -95,19 +95,21 @@ Class | Method | HTTP request | Description
 *CloudApiClient::EnvironmentsApi* | [**update_environment_api_v1_organizations_organization_id_environments_environment_id_put**](docs/EnvironmentsApi.md#update_environment_api_v1_organizations_organization_id_environments_environment_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
 *CloudApiClient::OperationsApi* | [**get_operations_api_v1_organizations_organization_id_operations_get**](docs/OperationsApi.md#get_operations_api_v1_organizations_organization_id_operations_get) | **GET** /api/v1/organizations/{organization_id}/operations/ | Get Operations
 *CloudApiClient::OperationsApi* | [**get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get**](docs/OperationsApi.md#get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get) | **GET** /api/v1/organizations/{organization_id}/operations/{operation_id} | Get Operations By Operation Id
+*CloudApiClient::OrganizationsApi* | [**delete_api_v1_organizations_organization_id_delete**](docs/OrganizationsApi.md#delete_api_v1_organizations_organization_id_delete) | **DELETE** /api/v1/organizations/{organization_id} | Delete
 *CloudApiClient::OrganizationsApi* | [**get_organization_by_id_api_v1_organizations_organization_id_get**](docs/OrganizationsApi.md#get_organization_by_id_api_v1_organizations_organization_id_get) | **GET** /api/v1/organizations/{organization_id} | Get Organization By Id
 *CloudApiClient::OrganizationsApi* | [**get_organizations_api_v1_organizations_get**](docs/OrganizationsApi.md#get_organizations_api_v1_organizations_get) | **GET** /api/v1/organizations/ | Get Organizations
 *CloudApiClient::OrganizationsApi* | [**put_organization_api_v1_organizations_organization_id_put**](docs/OrganizationsApi.md#put_organization_api_v1_organizations_organization_id_put) | **PUT** /api/v1/organizations/{organization_id} | Put Organization
 *CloudApiClient::UtilitiesApi* | [**get_ping_api_v1_debug_ping_get**](docs/UtilitiesApi.md#get_ping_api_v1_debug_ping_get) | **GET** /api/v1/debug/ping | Get Ping
 *CloudApiClient::UtilitiesApi* | [**get_user_api_v1_debug_user_auth_get**](docs/UtilitiesApi.md#get_user_api_v1_debug_user_auth_get) | **GET** /api/v1/debug/user_auth | Get User
 *CloudApiClient::UtilitiesApi* | [**get_user_role_api_v1_debug_user_role_middleware_check_get**](docs/UtilitiesApi.md#get_user_role_api_v1_debug_user_role_middleware_check_get) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
+*CloudApiClient::WorkerApi* | [**update_operation_api_v1_operations_operation_id_operation_status_put**](docs/WorkerApi.md#update_operation_api_v1_operations_operation_id_operation_status_put) | **PUT** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
 
 
 ## Documentation for Models
 
  - [CloudApiClient::AssetInput](docs/AssetInput.md)
  - [CloudApiClient::AssetOutput](docs/AssetOutput.md)
- - [CloudApiClient::AssetVariablesOutput](docs/AssetVariablesOutput.md)
+ - [CloudApiClient::AssetParametersOutput](docs/AssetParametersOutput.md)
  - [CloudApiClient::EnvironmentInput](docs/EnvironmentInput.md)
  - [CloudApiClient::EnvironmentOutput](docs/EnvironmentOutput.md)
  - [CloudApiClient::HTTPValidationError](docs/HTTPValidationError.md)

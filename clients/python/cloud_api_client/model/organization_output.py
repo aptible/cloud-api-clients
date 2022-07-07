@@ -83,9 +83,9 @@ class OrganizationOutput(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'baa_status': (str,),  # noqa: E501
-            'aws_ou': (str,),  # noqa: E501
             'contact_details': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'aws_ou': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -96,9 +96,9 @@ class OrganizationOutput(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'baa_status': 'baa_status',  # noqa: E501
-        'aws_ou': 'aws_ou',  # noqa: E501
         'contact_details': 'contact_details',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'aws_ou': 'aws_ou',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,13 +108,12 @@ class OrganizationOutput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, baa_status, aws_ou, contact_details, id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, baa_status, contact_details, id, *args, **kwargs):  # noqa: E501
         """OrganizationOutput - a model defined in OpenAPI
 
         Args:
             name (str):
             baa_status (str):
-            aws_ou (str):
             contact_details ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             id (str):
 
@@ -149,6 +148,7 @@ class OrganizationOutput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            aws_ou (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -182,7 +182,6 @@ class OrganizationOutput(ModelNormal):
 
         self.name = name
         self.baa_status = baa_status
-        self.aws_ou = aws_ou
         self.contact_details = contact_details
         self.id = id
         for var_name, var_value in kwargs.items():
@@ -205,13 +204,12 @@ class OrganizationOutput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, baa_status, aws_ou, contact_details, id, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, baa_status, contact_details, id, *args, **kwargs):  # noqa: E501
         """OrganizationOutput - a model defined in OpenAPI
 
         Args:
             name (str):
             baa_status (str):
-            aws_ou (str):
             contact_details ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             id (str):
 
@@ -246,6 +244,7 @@ class OrganizationOutput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            aws_ou (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,7 +276,6 @@ class OrganizationOutput(ModelNormal):
 
         self.name = name
         self.baa_status = baa_status
-        self.aws_ou = aws_ou
         self.contact_details = contact_details
         self.id = id
         for var_name, var_value in kwargs.items():

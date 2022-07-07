@@ -4,7 +4,7 @@ import { Configuration} from '../configuration'
 
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
-import { AssetVariablesOutput } from '../models/AssetVariablesOutput';
+import { AssetParametersOutput } from '../models/AssetParametersOutput';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
@@ -214,6 +214,15 @@ export class PromiseOrganizationsApi {
     }
 
     /**
+     * Delete
+     * @param organizationId 
+     */
+    public deleteApiV1OrganizationsOrganizationIdDelete(organizationId: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteApiV1OrganizationsOrganizationIdDelete(organizationId, _options);
+        return result.toPromise();
+    }
+
+    /**
      * Get Organization By Id
      * @param organizationId 
      */
@@ -281,6 +290,35 @@ export class PromiseUtilitiesApi {
      */
     public getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(organizationId: string, _options?: Configuration): Promise<any> {
         const result = this.api.getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(organizationId, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableWorkerApi } from './ObservableAPI';
+
+import { WorkerApiRequestFactory, WorkerApiResponseProcessor} from "../apis/WorkerApi";
+export class PromiseWorkerApi {
+    private api: ObservableWorkerApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: WorkerApiRequestFactory,
+        responseProcessor?: WorkerApiResponseProcessor
+    ) {
+        this.api = new ObservableWorkerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Update Operation
+     * @param operationId 
+     * @param operationStatus 
+     */
+    public updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId: string, operationStatus: OperationStatus, _options?: Configuration): Promise<any> {
+        const result = this.api.updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId, operationStatus, _options);
         return result.toPromise();
     }
 

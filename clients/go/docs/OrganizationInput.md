@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **BaaStatus** | **string** |  | 
-**AwsOu** | **string** |  | 
+**AwsOu** | Pointer to **string** |  | [optional] 
 **ContactDetails** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewOrganizationInput
 
-`func NewOrganizationInput(name string, baaStatus string, awsOu string, contactDetails map[string]interface{}, ) *OrganizationInput`
+`func NewOrganizationInput(name string, baaStatus string, contactDetails map[string]interface{}, ) *OrganizationInput`
 
 NewOrganizationInput instantiates a new OrganizationInput object
 This constructor will assign default values to properties that have it defined,
@@ -87,6 +87,11 @@ and a boolean to check if the value has been set.
 
 SetAwsOu sets AwsOu field to given value.
 
+### HasAwsOu
+
+`func (o *OrganizationInput) HasAwsOu() bool`
+
+HasAwsOu returns a boolean if a field has been set.
 
 ### GetContactDetails
 

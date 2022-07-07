@@ -83,7 +83,7 @@ class AssetInput(ModelNormal):
         return {
             'asset': (str,),  # noqa: E501
             'asset_version': (str,),  # noqa: E501
-            'asset_variables': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'asset_parameters': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -94,7 +94,7 @@ class AssetInput(ModelNormal):
     attribute_map = {
         'asset': 'asset',  # noqa: E501
         'asset_version': 'asset_version',  # noqa: E501
-        'asset_variables': 'asset_variables',  # noqa: E501
+        'asset_parameters': 'asset_parameters',  # noqa: E501
     }
 
     read_only_vars = {
@@ -104,13 +104,13 @@ class AssetInput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, asset, asset_version, asset_variables, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, asset, asset_version, asset_parameters, *args, **kwargs):  # noqa: E501
         """AssetInput - a model defined in OpenAPI
 
         Args:
             asset (str):
             asset_version (str):
-            asset_variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            asset_parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -176,7 +176,7 @@ class AssetInput(ModelNormal):
 
         self.asset = asset
         self.asset_version = asset_version
-        self.asset_variables = asset_variables
+        self.asset_parameters = asset_parameters
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -197,13 +197,13 @@ class AssetInput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, asset, asset_version, asset_variables, *args, **kwargs):  # noqa: E501
+    def __init__(self, asset, asset_version, asset_parameters, *args, **kwargs):  # noqa: E501
         """AssetInput - a model defined in OpenAPI
 
         Args:
             asset (str):
             asset_version (str):
-            asset_variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            asset_parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -267,7 +267,7 @@ class AssetInput(ModelNormal):
 
         self.asset = asset
         self.asset_version = asset_version
-        self.asset_variables = asset_variables
+        self.asset_parameters = asset_parameters
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

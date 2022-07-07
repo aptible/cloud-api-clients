@@ -6,7 +6,6 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **description** | **String** |  | [optional] |
-| **aws_account_id** | **String** |  |  |
 | **data** | **Object** |  |  |
 
 ## Example
@@ -17,7 +16,6 @@ require 'cloud_api_client'
 instance = CloudApiClient::EnvironmentInput.new(
   name: null,
   description: null,
-  aws_account_id: null,
   data: null
 )
 ```

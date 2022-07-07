@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 export class OrganizationOutput {
     'name': string;
     'baaStatus': string;
-    'awsOu': string;
+    'awsOu'?: string;
     'contactDetails': any;
     'id': string;
 

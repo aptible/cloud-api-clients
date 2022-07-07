@@ -53,7 +53,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     asset_input = AssetInput(
         asset="asset_example",
         asset_version="asset_version_example",
-        asset_variables={},
+        asset_parameters={},
     ) # AssetInput | 
 
     # example passing only required values which don't have defaults set
@@ -380,7 +380,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     asset_input = AssetInput(
         asset="asset_example",
         asset_version="asset_version_example",
-        asset_variables={},
+        asset_parameters={},
     ) # AssetInput | 
 
     # example passing only required values which don't have defaults set

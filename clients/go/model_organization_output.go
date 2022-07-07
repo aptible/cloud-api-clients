@@ -18,7 +18,7 @@ import (
 type OrganizationOutput struct {
 	Name string `json:"name"`
 	BaaStatus string `json:"baa_status"`
-	AwsOu string `json:"aws_ou"`
+	AwsOu *string `json:"aws_ou,omitempty"`
 	ContactDetails map[string]interface{} `json:"contact_details"`
 	Id string `json:"id"`
 }
@@ -27,11 +27,10 @@ type OrganizationOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrganizationOutput(name string, baaStatus string, awsOu string, contactDetails map[string]interface{}, id string) *OrganizationOutput {
+func NewOrganizationOutput(name string, baaStatus string, contactDetails map[string]interface{}, id string) *OrganizationOutput {
 	this := OrganizationOutput{}
 	this.Name = name
 	this.BaaStatus = baaStatus
-	this.AwsOu = awsOu
 	this.ContactDetails = contactDetails
 	this.Id = id
 	return &this
@@ -93,28 +92,36 @@ func (o *OrganizationOutput) SetBaaStatus(v string) {
 	o.BaaStatus = v
 }
 
-// GetAwsOu returns the AwsOu field value
+// GetAwsOu returns the AwsOu field value if set, zero value otherwise.
 func (o *OrganizationOutput) GetAwsOu() string {
-	if o == nil {
+	if o == nil || o.AwsOu == nil {
 		var ret string
 		return ret
 	}
-
-	return o.AwsOu
+	return *o.AwsOu
 }
 
-// GetAwsOuOk returns a tuple with the AwsOu field value
+// GetAwsOuOk returns a tuple with the AwsOu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OrganizationOutput) GetAwsOuOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.AwsOu == nil {
 		return nil, false
 	}
-	return &o.AwsOu, true
+	return o.AwsOu, true
 }
 
-// SetAwsOu sets field value
+// HasAwsOu returns a boolean if a field has been set.
+func (o *OrganizationOutput) HasAwsOu() bool {
+	if o != nil && o.AwsOu != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAwsOu gets a reference to the given string and assigns it to the AwsOu field.
 func (o *OrganizationOutput) SetAwsOu(v string) {
-	o.AwsOu = v
+	o.AwsOu = &v
 }
 
 // GetContactDetails returns the ContactDetails field value
@@ -173,7 +180,7 @@ func (o OrganizationOutput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["baa_status"] = o.BaaStatus
 	}
-	if true {
+	if o.AwsOu != nil {
 		toSerialize["aws_ou"] = o.AwsOu
 	}
 	if true {

@@ -4,10 +4,65 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteApiV1OrganizationsOrganizationIdDelete**](OrganizationsApi.md#deleteApiV1OrganizationsOrganizationIdDelete) | **DELETE** /api/v1/organizations/{organization_id} | Delete
 [**getOrganizationByIdApiV1OrganizationsOrganizationIdGet**](OrganizationsApi.md#getOrganizationByIdApiV1OrganizationsOrganizationIdGet) | **GET** /api/v1/organizations/{organization_id} | Get Organization By Id
 [**getOrganizationsApiV1OrganizationsGet**](OrganizationsApi.md#getOrganizationsApiV1OrganizationsGet) | **GET** /api/v1/organizations/ | Get Organizations
 [**putOrganizationApiV1OrganizationsOrganizationIdPut**](OrganizationsApi.md#putOrganizationApiV1OrganizationsOrganizationIdPut) | **PUT** /api/v1/organizations/{organization_id} | Put Organization
 
+
+# **deleteApiV1OrganizationsOrganizationIdDelete**
+> any deleteApiV1OrganizationsOrganizationIdDelete()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .OrganizationsApi(configuration);
+
+let body:.OrganizationsApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest = {
+  // string
+  organizationId: "organization_id_example",
+};
+
+apiInstance.deleteApiV1OrganizationsOrganizationIdDelete(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+[HTTPBearer](README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getOrganizationByIdApiV1OrganizationsOrganizationIdGet**
 > OrganizationOutput getOrganizationByIdApiV1OrganizationsOrganizationIdGet()

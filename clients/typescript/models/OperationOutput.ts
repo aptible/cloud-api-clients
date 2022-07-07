@@ -23,7 +23,7 @@ export class OperationOutput {
     'assetName': string;
     'assetId': string;
     'assetVersion': string;
-    'assetVariables'?: any;
+    'assetParameters'?: any;
     'id': string;
     'runId'?: string;
 
@@ -79,8 +79,8 @@ export class OperationOutput {
             "format": ""
         },
         {
-            "name": "assetVariables",
-            "baseName": "asset_variables",
+            "name": "assetParameters",
+            "baseName": "asset_parameters",
             "type": "any",
             "format": ""
         },

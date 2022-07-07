@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **status** | **str** |  | 
 **environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  | 
-**current_asset_variables** | [**AssetVariablesOutput**](AssetVariablesOutput.md) |  | 
+**current_asset_parameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  | 
 **user_defined** | **bool** |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**AwsAccountId** | **string** |  | 
 **Data** | **map[string]interface{}** |  | 
 **Id** | **string** |  | 
 **Organization** | [**OrganizationOutput**](OrganizationOutput.md) |  | 
@@ -15,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewEnvironmentOutput
 
-`func NewEnvironmentOutput(name string, awsAccountId string, data map[string]interface{}, id string, organization OrganizationOutput, ) *EnvironmentOutput`
+`func NewEnvironmentOutput(name string, data map[string]interface{}, id string, organization OrganizationOutput, ) *EnvironmentOutput`
 
 NewEnvironmentOutput instantiates a new EnvironmentOutput object
 This constructor will assign default values to properties that have it defined,
@@ -74,26 +73,6 @@ SetDescription sets Description field to given value.
 `func (o *EnvironmentOutput) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetAwsAccountId
-
-`func (o *EnvironmentOutput) GetAwsAccountId() string`
-
-GetAwsAccountId returns the AwsAccountId field if non-nil, zero value otherwise.
-
-### GetAwsAccountIdOk
-
-`func (o *EnvironmentOutput) GetAwsAccountIdOk() (*string, bool)`
-
-GetAwsAccountIdOk returns a tuple with the AwsAccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAwsAccountId
-
-`func (o *EnvironmentOutput) SetAwsAccountId(v string)`
-
-SetAwsAccountId sets AwsAccountId field to given value.
-
 
 ### GetData
 

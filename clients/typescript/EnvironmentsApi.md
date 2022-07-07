@@ -32,7 +32,6 @@ let body:.EnvironmentsApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnviro
   environmentInput: {
     name: "name_example",
     description: "description_example",
-    awsAccountId: "awsAccountId_example",
     data: {},
   },
 };
@@ -264,7 +263,6 @@ let body:.EnvironmentsApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnviro
   environmentInput: {
     name: "name_example",
     description: "description_example",
-    awsAccountId: "awsAccountId_example",
     data: {},
   },
 };

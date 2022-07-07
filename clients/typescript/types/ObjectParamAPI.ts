@@ -4,7 +4,7 @@ import { Configuration} from '../configuration'
 
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
-import { AssetVariablesOutput } from '../models/AssetVariablesOutput';
+import { AssetParametersOutput } from '../models/AssetParametersOutput';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
@@ -368,6 +368,15 @@ export class ObjectOperationsApi {
 import { ObservableOrganizationsApi } from "./ObservableAPI";
 import { OrganizationsApiRequestFactory, OrganizationsApiResponseProcessor} from "../apis/OrganizationsApi";
 
+export interface OrganizationsApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest {
+    /**
+     * 
+     * @type string
+     * @memberof OrganizationsApideleteApiV1OrganizationsOrganizationIdDelete
+     */
+    organizationId: string
+}
+
 export interface OrganizationsApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest {
     /**
      * 
@@ -400,6 +409,14 @@ export class ObjectOrganizationsApi {
 
     public constructor(configuration: Configuration, requestFactory?: OrganizationsApiRequestFactory, responseProcessor?: OrganizationsApiResponseProcessor) {
         this.api = new ObservableOrganizationsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Delete
+     * @param param the request object
+     */
+    public deleteApiV1OrganizationsOrganizationIdDelete(param: OrganizationsApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest, options?: Configuration): Promise<any> {
+        return this.api.deleteApiV1OrganizationsOrganizationIdDelete(param.organizationId,  options).toPromise();
     }
 
     /**
@@ -475,6 +492,41 @@ export class ObjectUtilitiesApi {
      */
     public getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(param: UtilitiesApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest, options?: Configuration): Promise<any> {
         return this.api.getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(param.organizationId,  options).toPromise();
+    }
+
+}
+
+import { ObservableWorkerApi } from "./ObservableAPI";
+import { WorkerApiRequestFactory, WorkerApiResponseProcessor} from "../apis/WorkerApi";
+
+export interface WorkerApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest {
+    /**
+     * 
+     * @type string
+     * @memberof WorkerApiupdateOperationApiV1OperationsOperationIdOperationStatusPut
+     */
+    operationId: string
+    /**
+     * 
+     * @type OperationStatus
+     * @memberof WorkerApiupdateOperationApiV1OperationsOperationIdOperationStatusPut
+     */
+    operationStatus: OperationStatus
+}
+
+export class ObjectWorkerApi {
+    private api: ObservableWorkerApi
+
+    public constructor(configuration: Configuration, requestFactory?: WorkerApiRequestFactory, responseProcessor?: WorkerApiResponseProcessor) {
+        this.api = new ObservableWorkerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Update Operation
+     * @param param the request object
+     */
+    public updateOperationApiV1OperationsOperationIdOperationStatusPut(param: WorkerApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest, options?: Configuration): Promise<any> {
+        return this.api.updateOperationApiV1OperationsOperationIdOperationStatusPut(param.operationId, param.operationStatus,  options).toPromise();
     }
 
 }

@@ -18,7 +18,6 @@ import (
 type EnvironmentOutput struct {
 	Name string `json:"name"`
 	Description *string `json:"description,omitempty"`
-	AwsAccountId string `json:"aws_account_id"`
 	Data map[string]interface{} `json:"data"`
 	Id string `json:"id"`
 	Organization OrganizationOutput `json:"organization"`
@@ -28,10 +27,9 @@ type EnvironmentOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentOutput(name string, awsAccountId string, data map[string]interface{}, id string, organization OrganizationOutput) *EnvironmentOutput {
+func NewEnvironmentOutput(name string, data map[string]interface{}, id string, organization OrganizationOutput) *EnvironmentOutput {
 	this := EnvironmentOutput{}
 	this.Name = name
-	this.AwsAccountId = awsAccountId
 	this.Data = data
 	this.Id = id
 	this.Organization = organization
@@ -100,30 +98,6 @@ func (o *EnvironmentOutput) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *EnvironmentOutput) SetDescription(v string) {
 	o.Description = &v
-}
-
-// GetAwsAccountId returns the AwsAccountId field value
-func (o *EnvironmentOutput) GetAwsAccountId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AwsAccountId
-}
-
-// GetAwsAccountIdOk returns a tuple with the AwsAccountId field value
-// and a boolean to check if the value has been set.
-func (o *EnvironmentOutput) GetAwsAccountIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AwsAccountId, true
-}
-
-// SetAwsAccountId sets field value
-func (o *EnvironmentOutput) SetAwsAccountId(v string) {
-	o.AwsAccountId = v
 }
 
 // GetData returns the Data field value
@@ -205,9 +179,6 @@ func (o EnvironmentOutput) MarshalJSON() ([]byte, error) {
 	}
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
-	}
-	if true {
-		toSerialize["aws_account_id"] = o.AwsAccountId
 	}
 	if true {
 		toSerialize["data"] = o.Data

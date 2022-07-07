@@ -82,7 +82,6 @@ class EnvironmentInput(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
-            'aws_account_id': (str,),  # noqa: E501
             'data': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'description': (str,),  # noqa: E501
         }
@@ -94,7 +93,6 @@ class EnvironmentInput(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'aws_account_id': 'aws_account_id',  # noqa: E501
         'data': 'data',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
@@ -106,12 +104,11 @@ class EnvironmentInput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, aws_account_id, data, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, data, *args, **kwargs):  # noqa: E501
         """EnvironmentInput - a model defined in OpenAPI
 
         Args:
             name (str):
-            aws_account_id (str):
             data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
@@ -178,7 +175,6 @@ class EnvironmentInput(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.aws_account_id = aws_account_id
         self.data = data
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -200,12 +196,11 @@ class EnvironmentInput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, aws_account_id, data, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, data, *args, **kwargs):  # noqa: E501
         """EnvironmentInput - a model defined in OpenAPI
 
         Args:
             name (str):
-            aws_account_id (str):
             data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
@@ -270,7 +265,6 @@ class EnvironmentInput(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.aws_account_id = aws_account_id
         self.data = data
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

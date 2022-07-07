@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 export class AssetInput {
     'asset': string;
     'assetVersion': string;
-    'assetVariables': any;
+    'assetParameters': any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -33,8 +33,8 @@ export class AssetInput {
             "format": ""
         },
         {
-            "name": "assetVariables",
-            "baseName": "asset_variables",
+            "name": "assetParameters",
+            "baseName": "asset_parameters",
             "type": "any",
             "format": ""
         }    ];

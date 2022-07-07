@@ -58,6 +58,8 @@ type APIClient struct {
 	OrganizationsApi OrganizationsApi
 
 	UtilitiesApi UtilitiesApi
+
+	WorkerApi WorkerApi
 }
 
 type service struct {
@@ -81,6 +83,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.OperationsApi = (*OperationsApiService)(&c.common)
 	c.OrganizationsApi = (*OrganizationsApiService)(&c.common)
 	c.UtilitiesApi = (*UtilitiesApiService)(&c.common)
+	c.WorkerApi = (*WorkerApiService)(&c.common)
 
 	return c
 }
@@ -116,7 +119,7 @@ func selectHeaderAccept(accepts []string) string {
 // contains is a case insensitive match, finding needle in a haystack
 func contains(haystack []string, needle string) bool {
 	for _, a := range haystack {
-		if strings.ToLower(a) == strings.ToLower(needle) {
+		if strings.EqualFold(a, needle) {
 			return true
 		}
 	}

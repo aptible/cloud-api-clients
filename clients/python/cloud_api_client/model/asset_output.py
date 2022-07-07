@@ -30,9 +30,9 @@ from cloud_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from cloud_api_client.model.asset_variables_output import AssetVariablesOutput
+    from cloud_api_client.model.asset_parameters_output import AssetParametersOutput
     from cloud_api_client.model.environment_output import EnvironmentOutput
-    globals()['AssetVariablesOutput'] = AssetVariablesOutput
+    globals()['AssetParametersOutput'] = AssetParametersOutput
     globals()['EnvironmentOutput'] = EnvironmentOutput
 
 
@@ -94,7 +94,7 @@ class AssetOutput(ModelNormal):
             'id': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'environment': (EnvironmentOutput,),  # noqa: E501
-            'current_asset_variables': (AssetVariablesOutput,),  # noqa: E501
+            'current_asset_parameters': (AssetParametersOutput,),  # noqa: E501
             'user_defined': (bool,),  # noqa: E501
         }
 
@@ -109,7 +109,7 @@ class AssetOutput(ModelNormal):
         'id': 'id',  # noqa: E501
         'status': 'status',  # noqa: E501
         'environment': 'environment',  # noqa: E501
-        'current_asset_variables': 'current_asset_variables',  # noqa: E501
+        'current_asset_parameters': 'current_asset_parameters',  # noqa: E501
         'user_defined': 'user_defined',  # noqa: E501
     }
 
@@ -120,7 +120,7 @@ class AssetOutput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, asset, asset_version, id, status, environment, current_asset_variables, user_defined, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, asset, asset_version, id, status, environment, current_asset_parameters, user_defined, *args, **kwargs):  # noqa: E501
         """AssetOutput - a model defined in OpenAPI
 
         Args:
@@ -129,7 +129,7 @@ class AssetOutput(ModelNormal):
             id (str):
             status (str):
             environment (EnvironmentOutput):
-            current_asset_variables (AssetVariablesOutput):
+            current_asset_parameters (AssetParametersOutput):
             user_defined (bool):
 
         Keyword Args:
@@ -199,7 +199,7 @@ class AssetOutput(ModelNormal):
         self.id = id
         self.status = status
         self.environment = environment
-        self.current_asset_variables = current_asset_variables
+        self.current_asset_parameters = current_asset_parameters
         self.user_defined = user_defined
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -221,7 +221,7 @@ class AssetOutput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, asset, asset_version, id, status, environment, current_asset_variables, user_defined, *args, **kwargs):  # noqa: E501
+    def __init__(self, asset, asset_version, id, status, environment, current_asset_parameters, user_defined, *args, **kwargs):  # noqa: E501
         """AssetOutput - a model defined in OpenAPI
 
         Args:
@@ -230,7 +230,7 @@ class AssetOutput(ModelNormal):
             id (str):
             status (str):
             environment (EnvironmentOutput):
-            current_asset_variables (AssetVariablesOutput):
+            current_asset_parameters (AssetParametersOutput):
             user_defined (bool):
 
         Keyword Args:
@@ -298,7 +298,7 @@ class AssetOutput(ModelNormal):
         self.id = id
         self.status = status
         self.environment = environment
-        self.current_asset_variables = current_asset_variables
+        self.current_asset_parameters = current_asset_parameters
         self.user_defined = user_defined
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

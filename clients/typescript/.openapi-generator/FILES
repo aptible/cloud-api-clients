@@ -6,11 +6,13 @@ OperationsApi.md
 OrganizationsApi.md
 README.md
 UtilitiesApi.md
+WorkerApi.md
 apis/AssetsApi.ts
 apis/EnvironmentsApi.ts
 apis/OperationsApi.ts
 apis/OrganizationsApi.ts
 apis/UtilitiesApi.ts
+apis/WorkerApi.ts
 apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
@@ -22,7 +24,7 @@ index.ts
 middleware.ts
 models/AssetInput.ts
 models/AssetOutput.ts
-models/AssetVariablesOutput.ts
+models/AssetParametersOutput.ts
 models/EnvironmentInput.ts
 models/EnvironmentOutput.ts
 models/HTTPValidationError.ts

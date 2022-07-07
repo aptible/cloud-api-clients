@@ -52,7 +52,6 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     environment_input = EnvironmentInput(
         name="name_example",
         description="description_example",
-        aws_account_id="aws_account_id_example",
         data={},
     ) # EnvironmentInput | 
 
@@ -372,7 +371,6 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     environment_input = EnvironmentInput(
         name="name_example",
         description="description_example",
-        aws_account_id="aws_account_id_example",
         data={},
     ) # EnvironmentInput | 
 

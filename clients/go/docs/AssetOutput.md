@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Status** | **string** |  | 
 **Environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  | 
-**CurrentAssetVariables** | [**AssetVariablesOutput**](AssetVariablesOutput.md) |  | 
+**CurrentAssetParameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  | 
 **UserDefined** | **bool** |  | 
 
 ## Methods
 
 ### NewAssetOutput
 
-`func NewAssetOutput(asset string, assetVersion string, id string, status string, environment EnvironmentOutput, currentAssetVariables AssetVariablesOutput, userDefined bool, ) *AssetOutput`
+`func NewAssetOutput(asset string, assetVersion string, id string, status string, environment EnvironmentOutput, currentAssetParameters AssetParametersOutput, userDefined bool, ) *AssetOutput`
 
 NewAssetOutput instantiates a new AssetOutput object
 This constructor will assign default values to properties that have it defined,
@@ -131,24 +131,24 @@ and a boolean to check if the value has been set.
 SetEnvironment sets Environment field to given value.
 
 
-### GetCurrentAssetVariables
+### GetCurrentAssetParameters
 
-`func (o *AssetOutput) GetCurrentAssetVariables() AssetVariablesOutput`
+`func (o *AssetOutput) GetCurrentAssetParameters() AssetParametersOutput`
 
-GetCurrentAssetVariables returns the CurrentAssetVariables field if non-nil, zero value otherwise.
+GetCurrentAssetParameters returns the CurrentAssetParameters field if non-nil, zero value otherwise.
 
-### GetCurrentAssetVariablesOk
+### GetCurrentAssetParametersOk
 
-`func (o *AssetOutput) GetCurrentAssetVariablesOk() (*AssetVariablesOutput, bool)`
+`func (o *AssetOutput) GetCurrentAssetParametersOk() (*AssetParametersOutput, bool)`
 
-GetCurrentAssetVariablesOk returns a tuple with the CurrentAssetVariables field if it's non-nil, zero value otherwise
+GetCurrentAssetParametersOk returns a tuple with the CurrentAssetParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrentAssetVariables
+### SetCurrentAssetParameters
 
-`func (o *AssetOutput) SetCurrentAssetVariables(v AssetVariablesOutput)`
+`func (o *AssetOutput) SetCurrentAssetParameters(v AssetParametersOutput)`
 
-SetCurrentAssetVariables sets CurrentAssetVariables field to given value.
+SetCurrentAssetParameters sets CurrentAssetParameters field to given value.
 
 
 ### GetUserDefined

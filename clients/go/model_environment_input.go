@@ -18,7 +18,6 @@ import (
 type EnvironmentInput struct {
 	Name string `json:"name"`
 	Description *string `json:"description,omitempty"`
-	AwsAccountId string `json:"aws_account_id"`
 	Data map[string]interface{} `json:"data"`
 }
 
@@ -26,10 +25,9 @@ type EnvironmentInput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentInput(name string, awsAccountId string, data map[string]interface{}) *EnvironmentInput {
+func NewEnvironmentInput(name string, data map[string]interface{}) *EnvironmentInput {
 	this := EnvironmentInput{}
 	this.Name = name
-	this.AwsAccountId = awsAccountId
 	this.Data = data
 	return &this
 }
@@ -98,30 +96,6 @@ func (o *EnvironmentInput) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetAwsAccountId returns the AwsAccountId field value
-func (o *EnvironmentInput) GetAwsAccountId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AwsAccountId
-}
-
-// GetAwsAccountIdOk returns a tuple with the AwsAccountId field value
-// and a boolean to check if the value has been set.
-func (o *EnvironmentInput) GetAwsAccountIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AwsAccountId, true
-}
-
-// SetAwsAccountId sets field value
-func (o *EnvironmentInput) SetAwsAccountId(v string) {
-	o.AwsAccountId = v
-}
-
 // GetData returns the Data field value
 func (o *EnvironmentInput) GetData() map[string]interface{} {
 	if o == nil {
@@ -153,9 +127,6 @@ func (o EnvironmentInput) MarshalJSON() ([]byte, error) {
 	}
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
-	}
-	if true {
-		toSerialize["aws_account_id"] = o.AwsAccountId
 	}
 	if true {
 		toSerialize["data"] = o.Data

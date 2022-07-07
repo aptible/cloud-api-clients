@@ -1,6 +1,6 @@
 export * from './AssetInput';
 export * from './AssetOutput';
-export * from './AssetVariablesOutput';
+export * from './AssetParametersOutput';
 export * from './EnvironmentInput';
 export * from './EnvironmentOutput';
 export * from './HTTPValidationError';
@@ -15,7 +15,7 @@ export * from './ValidationError';
 
 import { AssetInput } from './AssetInput';
 import { AssetOutput } from './AssetOutput';
-import { AssetVariablesOutput } from './AssetVariablesOutput';
+import { AssetParametersOutput } from './AssetParametersOutput';
 import { EnvironmentInput } from './EnvironmentInput';
 import { EnvironmentOutput } from './EnvironmentOutput';
 import { HTTPValidationError } from './HTTPValidationError';
@@ -55,7 +55,7 @@ let enumsMap: Set<string> = new Set<string>([
 let typeMap: {[index: string]: any} = {
     "AssetInput": AssetInput,
     "AssetOutput": AssetOutput,
-    "AssetVariablesOutput": AssetVariablesOutput,
+    "AssetParametersOutput": AssetParametersOutput,
     "EnvironmentInput": EnvironmentInput,
     "EnvironmentOutput": EnvironmentOutput,
     "HTTPValidationError": HTTPValidationError,

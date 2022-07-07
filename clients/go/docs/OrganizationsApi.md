@@ -4,10 +4,79 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DeleteApiV1OrganizationsOrganizationIdDelete**](OrganizationsApi.md#DeleteApiV1OrganizationsOrganizationIdDelete) | **Delete** /api/v1/organizations/{organization_id} | Delete
 [**GetOrganizationByIdApiV1OrganizationsOrganizationIdGet**](OrganizationsApi.md#GetOrganizationByIdApiV1OrganizationsOrganizationIdGet) | **Get** /api/v1/organizations/{organization_id} | Get Organization By Id
 [**GetOrganizationsApiV1OrganizationsGet**](OrganizationsApi.md#GetOrganizationsApiV1OrganizationsGet) | **Get** /api/v1/organizations/ | Get Organizations
 [**PutOrganizationApiV1OrganizationsOrganizationIdPut**](OrganizationsApi.md#PutOrganizationApiV1OrganizationsOrganizationIdPut) | **Put** /api/v1/organizations/{organization_id} | Put Organization
 
+
+
+## DeleteApiV1OrganizationsOrganizationIdDelete
+
+> interface{} DeleteApiV1OrganizationsOrganizationIdDelete(ctx, organizationId).Execute()
+
+Delete
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.OrganizationsApi.DeleteApiV1OrganizationsOrganizationIdDelete(context.Background(), organizationId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsApi.DeleteApiV1OrganizationsOrganizationIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteApiV1OrganizationsOrganizationIdDelete`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `OrganizationsApi.DeleteApiV1OrganizationsOrganizationIdDelete`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**organizationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteApiV1OrganizationsOrganizationIdDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+**interface{}**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## GetOrganizationByIdApiV1OrganizationsOrganizationIdGet
@@ -157,7 +226,7 @@ import (
 
 func main() {
     organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    organizationInput := *openapiclient.NewOrganizationInput("Name_example", "BaaStatus_example", "AwsOu_example", map[string]interface{}(123)) // OrganizationInput | 
+    organizationInput := *openapiclient.NewOrganizationInput("Name_example", "BaaStatus_example", map[string]interface{}(123)) // OrganizationInput | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

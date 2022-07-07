@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **AssetName** | **string** |  | 
 **AssetId** | **string** |  | 
 **AssetVersion** | **string** |  | 
-**AssetVariables** | Pointer to **map[string]interface{}** |  | [optional] 
+**AssetParameters** | Pointer to **map[string]interface{}** |  | [optional] 
 **Id** | **string** |  | 
 **RunId** | Pointer to **string** |  | [optional] 
 
@@ -225,30 +225,30 @@ and a boolean to check if the value has been set.
 SetAssetVersion sets AssetVersion field to given value.
 
 
-### GetAssetVariables
+### GetAssetParameters
 
-`func (o *OperationOutput) GetAssetVariables() map[string]interface{}`
+`func (o *OperationOutput) GetAssetParameters() map[string]interface{}`
 
-GetAssetVariables returns the AssetVariables field if non-nil, zero value otherwise.
+GetAssetParameters returns the AssetParameters field if non-nil, zero value otherwise.
 
-### GetAssetVariablesOk
+### GetAssetParametersOk
 
-`func (o *OperationOutput) GetAssetVariablesOk() (*map[string]interface{}, bool)`
+`func (o *OperationOutput) GetAssetParametersOk() (*map[string]interface{}, bool)`
 
-GetAssetVariablesOk returns a tuple with the AssetVariables field if it's non-nil, zero value otherwise
+GetAssetParametersOk returns a tuple with the AssetParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAssetVariables
+### SetAssetParameters
 
-`func (o *OperationOutput) SetAssetVariables(v map[string]interface{})`
+`func (o *OperationOutput) SetAssetParameters(v map[string]interface{})`
 
-SetAssetVariables sets AssetVariables field to given value.
+SetAssetParameters sets AssetParameters field to given value.
 
-### HasAssetVariables
+### HasAssetParameters
 
-`func (o *OperationOutput) HasAssetVariables() bool`
+`func (o *OperationOutput) HasAssetParameters() bool`
 
-HasAssetVariables returns a boolean if a field has been set.
+HasAssetParameters returns a boolean if a field has been set.
 
 ### GetId
 

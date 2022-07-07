@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { AssetVariablesOutput } from './AssetVariablesOutput';
+import { AssetParametersOutput } from './AssetParametersOutput';
 import { EnvironmentOutput } from './EnvironmentOutput';
 import { HttpFile } from '../http/http';
 
@@ -20,7 +20,7 @@ export class AssetOutput {
     'id': string;
     'status': string;
     'environment': EnvironmentOutput;
-    'currentAssetVariables': AssetVariablesOutput;
+    'currentAssetParameters': AssetParametersOutput;
     'userDefined': boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -57,9 +57,9 @@ export class AssetOutput {
             "format": ""
         },
         {
-            "name": "currentAssetVariables",
-            "baseName": "current_asset_variables",
-            "type": "AssetVariablesOutput",
+            "name": "currentAssetParameters",
+            "baseName": "current_asset_parameters",
+            "type": "AssetParametersOutput",
             "format": ""
         },
         {

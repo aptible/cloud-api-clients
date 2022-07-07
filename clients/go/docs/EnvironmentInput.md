@@ -6,14 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**AwsAccountId** | **string** |  | 
 **Data** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewEnvironmentInput
 
-`func NewEnvironmentInput(name string, awsAccountId string, data map[string]interface{}, ) *EnvironmentInput`
+`func NewEnvironmentInput(name string, data map[string]interface{}, ) *EnvironmentInput`
 
 NewEnvironmentInput instantiates a new EnvironmentInput object
 This constructor will assign default values to properties that have it defined,
@@ -72,26 +71,6 @@ SetDescription sets Description field to given value.
 `func (o *EnvironmentInput) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetAwsAccountId
-
-`func (o *EnvironmentInput) GetAwsAccountId() string`
-
-GetAwsAccountId returns the AwsAccountId field if non-nil, zero value otherwise.
-
-### GetAwsAccountIdOk
-
-`func (o *EnvironmentInput) GetAwsAccountIdOk() (*string, bool)`
-
-GetAwsAccountIdOk returns a tuple with the AwsAccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAwsAccountId
-
-`func (o *EnvironmentInput) SetAwsAccountId(v string)`
-
-SetAwsAccountId sets AwsAccountId field to given value.
-
 
 ### GetData
 

@@ -12,11 +12,11 @@ import sys
 import unittest
 
 import cloud_api_client
-from cloud_api_client.model.asset_variables_output import AssetVariablesOutput
+from cloud_api_client.model.asset_parameters_output import AssetParametersOutput
 
 
-class TestAssetVariablesOutput(unittest.TestCase):
-    """AssetVariablesOutput unit test stubs"""
+class TestAssetParametersOutput(unittest.TestCase):
+    """AssetParametersOutput unit test stubs"""
 
     def setUp(self):
         pass
@@ -24,10 +24,10 @@ class TestAssetVariablesOutput(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAssetVariablesOutput(self):
-        """Test AssetVariablesOutput"""
+    def testAssetParametersOutput(self):
+        """Test AssetParametersOutput"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = AssetVariablesOutput()  # noqa: E501
+        # model = AssetParametersOutput()  # noqa: E501
         pass
 
 

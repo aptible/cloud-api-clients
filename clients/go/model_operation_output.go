@@ -24,7 +24,7 @@ type OperationOutput struct {
 	AssetName string `json:"asset_name"`
 	AssetId string `json:"asset_id"`
 	AssetVersion string `json:"asset_version"`
-	AssetVariables map[string]interface{} `json:"asset_variables,omitempty"`
+	AssetParameters map[string]interface{} `json:"asset_parameters,omitempty"`
 	Id string `json:"id"`
 	RunId *string `json:"run_id,omitempty"`
 }
@@ -281,36 +281,36 @@ func (o *OperationOutput) SetAssetVersion(v string) {
 	o.AssetVersion = v
 }
 
-// GetAssetVariables returns the AssetVariables field value if set, zero value otherwise.
-func (o *OperationOutput) GetAssetVariables() map[string]interface{} {
-	if o == nil || o.AssetVariables == nil {
+// GetAssetParameters returns the AssetParameters field value if set, zero value otherwise.
+func (o *OperationOutput) GetAssetParameters() map[string]interface{} {
+	if o == nil || o.AssetParameters == nil {
 		var ret map[string]interface{}
 		return ret
 	}
-	return o.AssetVariables
+	return o.AssetParameters
 }
 
-// GetAssetVariablesOk returns a tuple with the AssetVariables field value if set, nil otherwise
+// GetAssetParametersOk returns a tuple with the AssetParameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OperationOutput) GetAssetVariablesOk() (map[string]interface{}, bool) {
-	if o == nil || o.AssetVariables == nil {
+func (o *OperationOutput) GetAssetParametersOk() (map[string]interface{}, bool) {
+	if o == nil || o.AssetParameters == nil {
 		return nil, false
 	}
-	return o.AssetVariables, true
+	return o.AssetParameters, true
 }
 
-// HasAssetVariables returns a boolean if a field has been set.
-func (o *OperationOutput) HasAssetVariables() bool {
-	if o != nil && o.AssetVariables != nil {
+// HasAssetParameters returns a boolean if a field has been set.
+func (o *OperationOutput) HasAssetParameters() bool {
+	if o != nil && o.AssetParameters != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAssetVariables gets a reference to the given map[string]interface{} and assigns it to the AssetVariables field.
-func (o *OperationOutput) SetAssetVariables(v map[string]interface{}) {
-	o.AssetVariables = v
+// SetAssetParameters gets a reference to the given map[string]interface{} and assigns it to the AssetParameters field.
+func (o *OperationOutput) SetAssetParameters(v map[string]interface{}) {
+	o.AssetParameters = v
 }
 
 // GetId returns the Id field value
@@ -395,8 +395,8 @@ func (o OperationOutput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["asset_version"] = o.AssetVersion
 	}
-	if o.AssetVariables != nil {
-		toSerialize["asset_variables"] = o.AssetVariables
+	if o.AssetParameters != nil {
+		toSerialize["asset_parameters"] = o.AssetParameters
 	}
 	if true {
 		toSerialize["id"] = o.Id

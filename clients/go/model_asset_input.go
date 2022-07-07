@@ -18,18 +18,18 @@ import (
 type AssetInput struct {
 	Asset string `json:"asset"`
 	AssetVersion string `json:"asset_version"`
-	AssetVariables map[string]interface{} `json:"asset_variables"`
+	AssetParameters map[string]interface{} `json:"asset_parameters"`
 }
 
 // NewAssetInput instantiates a new AssetInput object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetInput(asset string, assetVersion string, assetVariables map[string]interface{}) *AssetInput {
+func NewAssetInput(asset string, assetVersion string, assetParameters map[string]interface{}) *AssetInput {
 	this := AssetInput{}
 	this.Asset = asset
 	this.AssetVersion = assetVersion
-	this.AssetVariables = assetVariables
+	this.AssetParameters = assetParameters
 	return &this
 }
 
@@ -89,28 +89,28 @@ func (o *AssetInput) SetAssetVersion(v string) {
 	o.AssetVersion = v
 }
 
-// GetAssetVariables returns the AssetVariables field value
-func (o *AssetInput) GetAssetVariables() map[string]interface{} {
+// GetAssetParameters returns the AssetParameters field value
+func (o *AssetInput) GetAssetParameters() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
 
-	return o.AssetVariables
+	return o.AssetParameters
 }
 
-// GetAssetVariablesOk returns a tuple with the AssetVariables field value
+// GetAssetParametersOk returns a tuple with the AssetParameters field value
 // and a boolean to check if the value has been set.
-func (o *AssetInput) GetAssetVariablesOk() (map[string]interface{}, bool) {
+func (o *AssetInput) GetAssetParametersOk() (map[string]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AssetVariables, true
+	return o.AssetParameters, true
 }
 
-// SetAssetVariables sets field value
-func (o *AssetInput) SetAssetVariables(v map[string]interface{}) {
-	o.AssetVariables = v
+// SetAssetParameters sets field value
+func (o *AssetInput) SetAssetParameters(v map[string]interface{}) {
+	o.AssetParameters = v
 }
 
 func (o AssetInput) MarshalJSON() ([]byte, error) {
@@ -122,7 +122,7 @@ func (o AssetInput) MarshalJSON() ([]byte, error) {
 		toSerialize["asset_version"] = o.AssetVersion
 	}
 	if true {
-		toSerialize["asset_variables"] = o.AssetVariables
+		toSerialize["asset_parameters"] = o.AssetParameters
 	}
 	return json.Marshal(toSerialize)
 }

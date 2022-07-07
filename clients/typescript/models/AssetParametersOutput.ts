@@ -12,7 +12,7 @@
 
 import { HttpFile } from '../http/http';
 
-export class AssetVariablesOutput {
+export class AssetParametersOutput {
     'data': any;
     'iteration': number;
     'id': string;
@@ -40,7 +40,7 @@ export class AssetVariablesOutput {
         }    ];
 
     static getAttributeTypeMap() {
-        return AssetVariablesOutput.attributeTypeMap;
+        return AssetParametersOutput.attributeTypeMap;
     }
 
     public constructor() {

@@ -90,19 +90,21 @@ Class | Method | HTTP request | Description
 *EnvironmentsApi* | [**UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut**](docs/EnvironmentsApi.md#updateenvironmentapiv1organizationsorganizationidenvironmentsenvironmentidput) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
 *OperationsApi* | [**GetOperationsApiV1OrganizationsOrganizationIdOperationsGet**](docs/OperationsApi.md#getoperationsapiv1organizationsorganizationidoperationsget) | **Get** /api/v1/organizations/{organization_id}/operations/ | Get Operations
 *OperationsApi* | [**GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet**](docs/OperationsApi.md#getoperationsbyoperationidapiv1organizationsorganizationidoperationsoperationidget) | **Get** /api/v1/organizations/{organization_id}/operations/{operation_id} | Get Operations By Operation Id
+*OrganizationsApi* | [**DeleteApiV1OrganizationsOrganizationIdDelete**](docs/OrganizationsApi.md#deleteapiv1organizationsorganizationiddelete) | **Delete** /api/v1/organizations/{organization_id} | Delete
 *OrganizationsApi* | [**GetOrganizationByIdApiV1OrganizationsOrganizationIdGet**](docs/OrganizationsApi.md#getorganizationbyidapiv1organizationsorganizationidget) | **Get** /api/v1/organizations/{organization_id} | Get Organization By Id
 *OrganizationsApi* | [**GetOrganizationsApiV1OrganizationsGet**](docs/OrganizationsApi.md#getorganizationsapiv1organizationsget) | **Get** /api/v1/organizations/ | Get Organizations
 *OrganizationsApi* | [**PutOrganizationApiV1OrganizationsOrganizationIdPut**](docs/OrganizationsApi.md#putorganizationapiv1organizationsorganizationidput) | **Put** /api/v1/organizations/{organization_id} | Put Organization
 *UtilitiesApi* | [**GetPingApiV1DebugPingGet**](docs/UtilitiesApi.md#getpingapiv1debugpingget) | **Get** /api/v1/debug/ping | Get Ping
 *UtilitiesApi* | [**GetUserApiV1DebugUserAuthGet**](docs/UtilitiesApi.md#getuserapiv1debuguserauthget) | **Get** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet**](docs/UtilitiesApi.md#getuserroleapiv1debuguserrolemiddlewarecheckget) | **Get** /api/v1/debug/user_role_middleware_check | Get User Role
+*WorkerApi* | [**UpdateOperationApiV1OperationsOperationIdOperationStatusPut**](docs/WorkerApi.md#updateoperationapiv1operationsoperationidoperationstatusput) | **Put** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
 
 
 ## Documentation For Models
 
  - [AssetInput](docs/AssetInput.md)
  - [AssetOutput](docs/AssetOutput.md)
- - [AssetVariablesOutput](docs/AssetVariablesOutput.md)
+ - [AssetParametersOutput](docs/AssetParametersOutput.md)
  - [EnvironmentInput](docs/EnvironmentInput.md)
  - [EnvironmentOutput](docs/EnvironmentOutput.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
