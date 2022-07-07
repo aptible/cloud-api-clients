@@ -79,7 +79,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     asset_input = AssetInput(
         asset="asset_example",
         asset_version="asset_version_example",
-        asset_variables={},
+        asset_parameters={},
     ) # AssetInput | 
 
     try:
@@ -108,19 +108,21 @@ Class | Method | HTTP request | Description
 *EnvironmentsApi* | [**update_environment_api_v1_organizations_organization_id_environments_environment_id_put**](docs/EnvironmentsApi.md#update_environment_api_v1_organizations_organization_id_environments_environment_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
 *OperationsApi* | [**get_operations_api_v1_organizations_organization_id_operations_get**](docs/OperationsApi.md#get_operations_api_v1_organizations_organization_id_operations_get) | **GET** /api/v1/organizations/{organization_id}/operations/ | Get Operations
 *OperationsApi* | [**get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get**](docs/OperationsApi.md#get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get) | **GET** /api/v1/organizations/{organization_id}/operations/{operation_id} | Get Operations By Operation Id
+*OrganizationsApi* | [**delete_api_v1_organizations_organization_id_delete**](docs/OrganizationsApi.md#delete_api_v1_organizations_organization_id_delete) | **DELETE** /api/v1/organizations/{organization_id} | Delete
 *OrganizationsApi* | [**get_organization_by_id_api_v1_organizations_organization_id_get**](docs/OrganizationsApi.md#get_organization_by_id_api_v1_organizations_organization_id_get) | **GET** /api/v1/organizations/{organization_id} | Get Organization By Id
 *OrganizationsApi* | [**get_organizations_api_v1_organizations_get**](docs/OrganizationsApi.md#get_organizations_api_v1_organizations_get) | **GET** /api/v1/organizations/ | Get Organizations
 *OrganizationsApi* | [**put_organization_api_v1_organizations_organization_id_put**](docs/OrganizationsApi.md#put_organization_api_v1_organizations_organization_id_put) | **PUT** /api/v1/organizations/{organization_id} | Put Organization
 *UtilitiesApi* | [**get_ping_api_v1_debug_ping_get**](docs/UtilitiesApi.md#get_ping_api_v1_debug_ping_get) | **GET** /api/v1/debug/ping | Get Ping
 *UtilitiesApi* | [**get_user_api_v1_debug_user_auth_get**](docs/UtilitiesApi.md#get_user_api_v1_debug_user_auth_get) | **GET** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**get_user_role_api_v1_debug_user_role_middleware_check_get**](docs/UtilitiesApi.md#get_user_role_api_v1_debug_user_role_middleware_check_get) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
+*WorkerApi* | [**update_operation_api_v1_operations_operation_id_operation_status_put**](docs/WorkerApi.md#update_operation_api_v1_operations_operation_id_operation_status_put) | **PUT** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
 
 
 ## Documentation For Models
 
  - [AssetInput](docs/AssetInput.md)
  - [AssetOutput](docs/AssetOutput.md)
- - [AssetVariablesOutput](docs/AssetVariablesOutput.md)
+ - [AssetParametersOutput](docs/AssetParametersOutput.md)
  - [EnvironmentInput](docs/EnvironmentInput.md)
  - [EnvironmentOutput](docs/EnvironmentOutput.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)

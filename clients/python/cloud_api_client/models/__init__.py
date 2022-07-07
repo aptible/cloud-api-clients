@@ -11,7 +11,7 @@
 
 from cloud_api_client.model.asset_input import AssetInput
 from cloud_api_client.model.asset_output import AssetOutput
-from cloud_api_client.model.asset_variables_output import AssetVariablesOutput
+from cloud_api_client.model.asset_parameters_output import AssetParametersOutput
 from cloud_api_client.model.environment_input import EnvironmentInput
 from cloud_api_client.model.environment_output import EnvironmentOutput
 from cloud_api_client.model.http_validation_error import HTTPValidationError

@@ -30,7 +30,7 @@ end
 
 api_instance = CloudApiClient::EnvironmentsApi.new
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-environment_input = CloudApiClient::EnvironmentInput.new({name: 'name_example', aws_account_id: 'aws_account_id_example', data: 3.56}) # EnvironmentInput | 
+environment_input = CloudApiClient::EnvironmentInput.new({name: 'name_example', data: 3.56}) # EnvironmentInput | 
 
 begin
   # Create Environment
@@ -305,7 +305,7 @@ end
 api_instance = CloudApiClient::EnvironmentsApi.new
 environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-environment_input = CloudApiClient::EnvironmentInput.new({name: 'name_example', aws_account_id: 'aws_account_id_example', data: 3.56}) # EnvironmentInput | 
+environment_input = CloudApiClient::EnvironmentInput.new({name: 'name_example', data: 3.56}) # EnvironmentInput | 
 
 begin
   # Update Environment

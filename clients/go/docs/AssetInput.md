@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Asset** | **string** |  | 
 **AssetVersion** | **string** |  | 
-**AssetVariables** | **map[string]interface{}** |  | 
+**AssetParameters** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewAssetInput
 
-`func NewAssetInput(asset string, assetVersion string, assetVariables map[string]interface{}, ) *AssetInput`
+`func NewAssetInput(asset string, assetVersion string, assetParameters map[string]interface{}, ) *AssetInput`
 
 NewAssetInput instantiates a new AssetInput object
 This constructor will assign default values to properties that have it defined,
@@ -67,24 +67,24 @@ and a boolean to check if the value has been set.
 SetAssetVersion sets AssetVersion field to given value.
 
 
-### GetAssetVariables
+### GetAssetParameters
 
-`func (o *AssetInput) GetAssetVariables() map[string]interface{}`
+`func (o *AssetInput) GetAssetParameters() map[string]interface{}`
 
-GetAssetVariables returns the AssetVariables field if non-nil, zero value otherwise.
+GetAssetParameters returns the AssetParameters field if non-nil, zero value otherwise.
 
-### GetAssetVariablesOk
+### GetAssetParametersOk
 
-`func (o *AssetInput) GetAssetVariablesOk() (*map[string]interface{}, bool)`
+`func (o *AssetInput) GetAssetParametersOk() (*map[string]interface{}, bool)`
 
-GetAssetVariablesOk returns a tuple with the AssetVariables field if it's non-nil, zero value otherwise
+GetAssetParametersOk returns a tuple with the AssetParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAssetVariables
+### SetAssetParameters
 
-`func (o *AssetInput) SetAssetVariables(v map[string]interface{})`
+`func (o *AssetInput) SetAssetParameters(v map[string]interface{})`
 
-SetAssetVariables sets AssetVariables field to given value.
+SetAssetParameters sets AssetParameters field to given value.
 
 
 

@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 export class OrganizationInput {
     'name': string;
     'baaStatus': string;
-    'awsOu': string;
+    'awsOu'?: string;
     'contactDetails': any;
 
     static readonly discriminator: string | undefined = undefined;

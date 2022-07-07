@@ -23,6 +23,13 @@ class TestOrganizationsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_delete_api_v1_organizations_organization_id_delete(self):
+        """Test case for delete_api_v1_organizations_organization_id_delete
+
+        Delete  # noqa: E501
+        """
+        pass
+
     def test_get_organization_by_id_api_v1_organizations_organization_id_get(self):
         """Test case for get_organization_by_id_api_v1_organizations_organization_id_get
 

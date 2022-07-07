@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **baa_status** | **String** |  |  |
-| **aws_ou** | **String** |  |  |
+| **aws_ou** | **String** |  | [optional] |
 | **contact_details** | **Object** |  |  |
 
 ## Example

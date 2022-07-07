@@ -1,4 +1,4 @@
-# AssetVariablesOutput
+# AssetParametersOutput
 
 
 ## Properties

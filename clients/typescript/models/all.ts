@@ -1,6 +1,6 @@
 export * from './AssetInput'
 export * from './AssetOutput'
-export * from './AssetVariablesOutput'
+export * from './AssetParametersOutput'
 export * from './EnvironmentInput'
 export * from './EnvironmentOutput'
 export * from './HTTPValidationError'

@@ -34,7 +34,7 @@ let body:.AssetsApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnviro
   assetInput: {
     asset: "asset_example",
     assetVersion: "assetVersion_example",
-    assetVariables: {},
+    assetParameters: {},
   },
 };
 
@@ -277,7 +277,7 @@ let body:.AssetsApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEn
   assetInput: {
     asset: "asset_example",
     assetVersion: "assetVersion_example",
-    assetVariables: {},
+    assetParameters: {},
   },
 };
 

@@ -12,7 +12,7 @@
 | **asset_name** | **String** |  |  |
 | **asset_id** | **String** |  |  |
 | **asset_version** | **String** |  |  |
-| **asset_variables** | **Object** |  | [optional] |
+| **asset_parameters** | **Object** |  | [optional] |
 | **id** | **String** |  |  |
 | **run_id** | **String** |  | [optional] |
 
@@ -30,7 +30,7 @@ instance = CloudApiClient::OperationOutput.new(
   asset_name: null,
   asset_id: null,
   asset_version: null,
-  asset_variables: null,
+  asset_parameters: null,
   id: null,
   run_id: null
 )

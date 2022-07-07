@@ -14,35 +14,35 @@ import (
 	"encoding/json"
 )
 
-// AssetVariablesOutput struct for AssetVariablesOutput
-type AssetVariablesOutput struct {
+// AssetParametersOutput struct for AssetParametersOutput
+type AssetParametersOutput struct {
 	Data map[string]interface{} `json:"data"`
 	Iteration int32 `json:"iteration"`
 	Id string `json:"id"`
 }
 
-// NewAssetVariablesOutput instantiates a new AssetVariablesOutput object
+// NewAssetParametersOutput instantiates a new AssetParametersOutput object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetVariablesOutput(data map[string]interface{}, iteration int32, id string) *AssetVariablesOutput {
-	this := AssetVariablesOutput{}
+func NewAssetParametersOutput(data map[string]interface{}, iteration int32, id string) *AssetParametersOutput {
+	this := AssetParametersOutput{}
 	this.Data = data
 	this.Iteration = iteration
 	this.Id = id
 	return &this
 }
 
-// NewAssetVariablesOutputWithDefaults instantiates a new AssetVariablesOutput object
+// NewAssetParametersOutputWithDefaults instantiates a new AssetParametersOutput object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAssetVariablesOutputWithDefaults() *AssetVariablesOutput {
-	this := AssetVariablesOutput{}
+func NewAssetParametersOutputWithDefaults() *AssetParametersOutput {
+	this := AssetParametersOutput{}
 	return &this
 }
 
 // GetData returns the Data field value
-func (o *AssetVariablesOutput) GetData() map[string]interface{} {
+func (o *AssetParametersOutput) GetData() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -53,7 +53,7 @@ func (o *AssetVariablesOutput) GetData() map[string]interface{} {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *AssetVariablesOutput) GetDataOk() (map[string]interface{}, bool) {
+func (o *AssetParametersOutput) GetDataOk() (map[string]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -61,12 +61,12 @@ func (o *AssetVariablesOutput) GetDataOk() (map[string]interface{}, bool) {
 }
 
 // SetData sets field value
-func (o *AssetVariablesOutput) SetData(v map[string]interface{}) {
+func (o *AssetParametersOutput) SetData(v map[string]interface{}) {
 	o.Data = v
 }
 
 // GetIteration returns the Iteration field value
-func (o *AssetVariablesOutput) GetIteration() int32 {
+func (o *AssetParametersOutput) GetIteration() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -77,7 +77,7 @@ func (o *AssetVariablesOutput) GetIteration() int32 {
 
 // GetIterationOk returns a tuple with the Iteration field value
 // and a boolean to check if the value has been set.
-func (o *AssetVariablesOutput) GetIterationOk() (*int32, bool) {
+func (o *AssetParametersOutput) GetIterationOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -85,12 +85,12 @@ func (o *AssetVariablesOutput) GetIterationOk() (*int32, bool) {
 }
 
 // SetIteration sets field value
-func (o *AssetVariablesOutput) SetIteration(v int32) {
+func (o *AssetParametersOutput) SetIteration(v int32) {
 	o.Iteration = v
 }
 
 // GetId returns the Id field value
-func (o *AssetVariablesOutput) GetId() string {
+func (o *AssetParametersOutput) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -101,7 +101,7 @@ func (o *AssetVariablesOutput) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *AssetVariablesOutput) GetIdOk() (*string, bool) {
+func (o *AssetParametersOutput) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -109,11 +109,11 @@ func (o *AssetVariablesOutput) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *AssetVariablesOutput) SetId(v string) {
+func (o *AssetParametersOutput) SetId(v string) {
 	o.Id = v
 }
 
-func (o AssetVariablesOutput) MarshalJSON() ([]byte, error) {
+func (o AssetParametersOutput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["data"] = o.Data
@@ -127,38 +127,38 @@ func (o AssetVariablesOutput) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableAssetVariablesOutput struct {
-	value *AssetVariablesOutput
+type NullableAssetParametersOutput struct {
+	value *AssetParametersOutput
 	isSet bool
 }
 
-func (v NullableAssetVariablesOutput) Get() *AssetVariablesOutput {
+func (v NullableAssetParametersOutput) Get() *AssetParametersOutput {
 	return v.value
 }
 
-func (v *NullableAssetVariablesOutput) Set(val *AssetVariablesOutput) {
+func (v *NullableAssetParametersOutput) Set(val *AssetParametersOutput) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAssetVariablesOutput) IsSet() bool {
+func (v NullableAssetParametersOutput) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAssetVariablesOutput) Unset() {
+func (v *NullableAssetParametersOutput) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAssetVariablesOutput(val *AssetVariablesOutput) *NullableAssetVariablesOutput {
-	return &NullableAssetVariablesOutput{value: val, isSet: true}
+func NewNullableAssetParametersOutput(val *AssetParametersOutput) *NullableAssetParametersOutput {
+	return &NullableAssetParametersOutput{value: val, isSet: true}
 }
 
-func (v NullableAssetVariablesOutput) MarshalJSON() ([]byte, error) {
+func (v NullableAssetParametersOutput) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAssetVariablesOutput) UnmarshalJSON(src []byte) error {
+func (v *NullableAssetParametersOutput) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

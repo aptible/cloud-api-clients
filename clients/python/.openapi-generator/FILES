@@ -10,6 +10,7 @@ cloud_api_client/api/environments_api.py
 cloud_api_client/api/operations_api.py
 cloud_api_client/api/organizations_api.py
 cloud_api_client/api/utilities_api.py
+cloud_api_client/api/worker_api.py
 cloud_api_client/api_client.py
 cloud_api_client/apis/__init__.py
 cloud_api_client/configuration.py
@@ -17,7 +18,7 @@ cloud_api_client/exceptions.py
 cloud_api_client/model/__init__.py
 cloud_api_client/model/asset_input.py
 cloud_api_client/model/asset_output.py
-cloud_api_client/model/asset_variables_output.py
+cloud_api_client/model/asset_parameters_output.py
 cloud_api_client/model/environment_input.py
 cloud_api_client/model/environment_output.py
 cloud_api_client/model/http_validation_error.py
@@ -34,7 +35,7 @@ cloud_api_client/models/__init__.py
 cloud_api_client/rest.py
 docs/AssetInput.md
 docs/AssetOutput.md
-docs/AssetVariablesOutput.md
+docs/AssetParametersOutput.md
 docs/AssetsApi.md
 docs/EnvironmentInput.md
 docs/EnvironmentOutput.md
@@ -51,6 +52,7 @@ docs/OrganizationsApi.md
 docs/TextResponse.md
 docs/UtilitiesApi.md
 docs/ValidationError.md
+docs/WorkerApi.md
 git_push.sh
 requirements.txt
 setup.cfg
@@ -59,7 +61,7 @@ test-requirements.txt
 test/__init__.py
 test/test_asset_input.py
 test/test_asset_output.py
-test/test_asset_variables_output.py
+test/test_asset_parameters_output.py
 test/test_assets_api.py
 test/test_environment_input.py
 test/test_environment_output.py
@@ -76,4 +78,5 @@ test/test_organizations_api.py
 test/test_text_response.py
 test/test_utilities_api.py
 test/test_validation_error.py
+test/test_worker_api.py
 tox.ini

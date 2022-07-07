@@ -15,7 +15,6 @@ import { HttpFile } from '../http/http';
 export class EnvironmentInput {
     'name': string;
     'description'?: string;
-    'awsAccountId': string;
     'data': any;
 
     static readonly discriminator: string | undefined = undefined;
@@ -30,12 +29,6 @@ export class EnvironmentInput {
         {
             "name": "description",
             "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "awsAccountId",
-            "baseName": "aws_account_id",
             "type": "string",
             "format": ""
         },

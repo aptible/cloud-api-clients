@@ -12,9 +12,9 @@ import sys
 import unittest
 
 import cloud_api_client
-from cloud_api_client.model.asset_variables_output import AssetVariablesOutput
+from cloud_api_client.model.asset_parameters_output import AssetParametersOutput
 from cloud_api_client.model.environment_output import EnvironmentOutput
-globals()['AssetVariablesOutput'] = AssetVariablesOutput
+globals()['AssetParametersOutput'] = AssetParametersOutput
 globals()['EnvironmentOutput'] = EnvironmentOutput
 from cloud_api_client.model.asset_output import AssetOutput
 

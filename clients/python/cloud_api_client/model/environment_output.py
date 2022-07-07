@@ -88,7 +88,6 @@ class EnvironmentOutput(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'aws_account_id': (str,),  # noqa: E501
             'data': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'id': (str,),  # noqa: E501
             'organization': (OrganizationOutput,),  # noqa: E501
@@ -102,7 +101,6 @@ class EnvironmentOutput(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'aws_account_id': 'aws_account_id',  # noqa: E501
         'data': 'data',  # noqa: E501
         'id': 'id',  # noqa: E501
         'organization': 'organization',  # noqa: E501
@@ -116,12 +114,11 @@ class EnvironmentOutput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, aws_account_id, data, id, organization, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, data, id, organization, *args, **kwargs):  # noqa: E501
         """EnvironmentOutput - a model defined in OpenAPI
 
         Args:
             name (str):
-            aws_account_id (str):
             data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             id (str):
             organization (OrganizationOutput):
@@ -190,7 +187,6 @@ class EnvironmentOutput(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.aws_account_id = aws_account_id
         self.data = data
         self.id = id
         self.organization = organization
@@ -214,12 +210,11 @@ class EnvironmentOutput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, aws_account_id, data, id, organization, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, data, id, organization, *args, **kwargs):  # noqa: E501
         """EnvironmentOutput - a model defined in OpenAPI
 
         Args:
             name (str):
-            aws_account_id (str):
             data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             id (str):
             organization (OrganizationOutput):
@@ -286,7 +281,6 @@ class EnvironmentOutput(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.aws_account_id = aws_account_id
         self.data = data
         self.id = id
         self.organization = organization

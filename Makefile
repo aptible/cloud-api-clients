@@ -41,6 +41,10 @@ generate_python_client:
 	  -g python \
 	  -o /local/clients/python \
 	  --additional-properties packageName=cloud_api_client
+	touch ./clients/python/cloud_api_client/py.typed
+	# affix this so py.typed is discoverable
+	echo "[options.package_data]" >> ./clients/python/setup.cfg
+	echo "cloud_api_client = py.typed" >> ./clients/python/setup.cfg
 
 generate_ruby_client:
 	docker run --rm \

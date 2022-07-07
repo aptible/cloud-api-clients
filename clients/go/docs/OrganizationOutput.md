@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **BaaStatus** | **string** |  | 
-**AwsOu** | **string** |  | 
+**AwsOu** | Pointer to **string** |  | [optional] 
 **ContactDetails** | **map[string]interface{}** |  | 
 **Id** | **string** |  | 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewOrganizationOutput
 
-`func NewOrganizationOutput(name string, baaStatus string, awsOu string, contactDetails map[string]interface{}, id string, ) *OrganizationOutput`
+`func NewOrganizationOutput(name string, baaStatus string, contactDetails map[string]interface{}, id string, ) *OrganizationOutput`
 
 NewOrganizationOutput instantiates a new OrganizationOutput object
 This constructor will assign default values to properties that have it defined,
@@ -88,6 +88,11 @@ and a boolean to check if the value has been set.
 
 SetAwsOu sets AwsOu field to given value.
 
+### HasAwsOu
+
+`func (o *OrganizationOutput) HasAwsOu() bool`
+
+HasAwsOu returns a boolean if a field has been set.
 
 ### GetContactDetails
 

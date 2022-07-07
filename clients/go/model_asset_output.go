@@ -21,7 +21,7 @@ type AssetOutput struct {
 	Id string `json:"id"`
 	Status string `json:"status"`
 	Environment EnvironmentOutput `json:"environment"`
-	CurrentAssetVariables AssetVariablesOutput `json:"current_asset_variables"`
+	CurrentAssetParameters AssetParametersOutput `json:"current_asset_parameters"`
 	UserDefined bool `json:"user_defined"`
 }
 
@@ -29,14 +29,14 @@ type AssetOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetOutput(asset string, assetVersion string, id string, status string, environment EnvironmentOutput, currentAssetVariables AssetVariablesOutput, userDefined bool) *AssetOutput {
+func NewAssetOutput(asset string, assetVersion string, id string, status string, environment EnvironmentOutput, currentAssetParameters AssetParametersOutput, userDefined bool) *AssetOutput {
 	this := AssetOutput{}
 	this.Asset = asset
 	this.AssetVersion = assetVersion
 	this.Id = id
 	this.Status = status
 	this.Environment = environment
-	this.CurrentAssetVariables = currentAssetVariables
+	this.CurrentAssetParameters = currentAssetParameters
 	this.UserDefined = userDefined
 	return &this
 }
@@ -169,28 +169,28 @@ func (o *AssetOutput) SetEnvironment(v EnvironmentOutput) {
 	o.Environment = v
 }
 
-// GetCurrentAssetVariables returns the CurrentAssetVariables field value
-func (o *AssetOutput) GetCurrentAssetVariables() AssetVariablesOutput {
+// GetCurrentAssetParameters returns the CurrentAssetParameters field value
+func (o *AssetOutput) GetCurrentAssetParameters() AssetParametersOutput {
 	if o == nil {
-		var ret AssetVariablesOutput
+		var ret AssetParametersOutput
 		return ret
 	}
 
-	return o.CurrentAssetVariables
+	return o.CurrentAssetParameters
 }
 
-// GetCurrentAssetVariablesOk returns a tuple with the CurrentAssetVariables field value
+// GetCurrentAssetParametersOk returns a tuple with the CurrentAssetParameters field value
 // and a boolean to check if the value has been set.
-func (o *AssetOutput) GetCurrentAssetVariablesOk() (*AssetVariablesOutput, bool) {
+func (o *AssetOutput) GetCurrentAssetParametersOk() (*AssetParametersOutput, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CurrentAssetVariables, true
+	return &o.CurrentAssetParameters, true
 }
 
-// SetCurrentAssetVariables sets field value
-func (o *AssetOutput) SetCurrentAssetVariables(v AssetVariablesOutput) {
-	o.CurrentAssetVariables = v
+// SetCurrentAssetParameters sets field value
+func (o *AssetOutput) SetCurrentAssetParameters(v AssetParametersOutput) {
+	o.CurrentAssetParameters = v
 }
 
 // GetUserDefined returns the UserDefined field value
@@ -235,7 +235,7 @@ func (o AssetOutput) MarshalJSON() ([]byte, error) {
 		toSerialize["environment"] = o.Environment
 	}
 	if true {
-		toSerialize["current_asset_variables"] = o.CurrentAssetVariables
+		toSerialize["current_asset_parameters"] = o.CurrentAssetParameters
 	}
 	if true {
 		toSerialize["user_defined"] = o.UserDefined

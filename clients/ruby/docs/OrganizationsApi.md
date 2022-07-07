@@ -4,9 +4,77 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**delete_api_v1_organizations_organization_id_delete**](OrganizationsApi.md#delete_api_v1_organizations_organization_id_delete) | **DELETE** /api/v1/organizations/{organization_id} | Delete |
 | [**get_organization_by_id_api_v1_organizations_organization_id_get**](OrganizationsApi.md#get_organization_by_id_api_v1_organizations_organization_id_get) | **GET** /api/v1/organizations/{organization_id} | Get Organization By Id |
 | [**get_organizations_api_v1_organizations_get**](OrganizationsApi.md#get_organizations_api_v1_organizations_get) | **GET** /api/v1/organizations/ | Get Organizations |
 | [**put_organization_api_v1_organizations_organization_id_put**](OrganizationsApi.md#put_organization_api_v1_organizations_organization_id_put) | **PUT** /api/v1/organizations/{organization_id} | Put Organization |
+
+
+## delete_api_v1_organizations_organization_id_delete
+
+> Object delete_api_v1_organizations_organization_id_delete(organization_id)
+
+Delete
+
+### Examples
+
+```ruby
+require 'time'
+require 'cloud_api_client'
+# setup authorization
+CloudApiClient.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = CloudApiClient::OrganizationsApi.new
+organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
+
+begin
+  # Delete
+  result = api_instance.delete_api_v1_organizations_organization_id_delete(organization_id)
+  p result
+rescue CloudApiClient::ApiError => e
+  puts "Error when calling OrganizationsApi->delete_api_v1_organizations_organization_id_delete: #{e}"
+end
+```
+
+#### Using the delete_api_v1_organizations_organization_id_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> delete_api_v1_organizations_organization_id_delete_with_http_info(organization_id)
+
+```ruby
+begin
+  # Delete
+  data, status_code, headers = api_instance.delete_api_v1_organizations_organization_id_delete_with_http_info(organization_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue CloudApiClient::ApiError => e
+  puts "Error when calling OrganizationsApi->delete_api_v1_organizations_organization_id_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **organization_id** | **String** |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## get_organization_by_id_api_v1_organizations_organization_id_get
@@ -159,7 +227,7 @@ end
 
 api_instance = CloudApiClient::OrganizationsApi.new
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-organization_input = CloudApiClient::OrganizationInput.new({name: 'name_example', baa_status: 'baa_status_example', aws_ou: 'aws_ou_example', contact_details: 3.56}) # OrganizationInput | 
+organization_input = CloudApiClient::OrganizationInput.new({name: 'name_example', baa_status: 'baa_status_example', contact_details: 3.56}) # OrganizationInput | 
 
 begin
   # Put Organization

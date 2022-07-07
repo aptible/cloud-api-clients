@@ -1,4 +1,4 @@
-# CloudApiClient::AssetVariablesOutput
+# CloudApiClient::AssetParametersOutput
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'cloud_api_client'
 
-instance = CloudApiClient::AssetVariablesOutput.new(
+instance = CloudApiClient::AssetParametersOutput.new(
   data: null,
   iteration: null,
   id: null

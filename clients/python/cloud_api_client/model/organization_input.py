@@ -83,8 +83,8 @@ class OrganizationInput(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'baa_status': (str,),  # noqa: E501
-            'aws_ou': (str,),  # noqa: E501
             'contact_details': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'aws_ou': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,8 +95,8 @@ class OrganizationInput(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'baa_status': 'baa_status',  # noqa: E501
-        'aws_ou': 'aws_ou',  # noqa: E501
         'contact_details': 'contact_details',  # noqa: E501
+        'aws_ou': 'aws_ou',  # noqa: E501
     }
 
     read_only_vars = {
@@ -106,13 +106,12 @@ class OrganizationInput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, baa_status, aws_ou, contact_details, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, baa_status, contact_details, *args, **kwargs):  # noqa: E501
         """OrganizationInput - a model defined in OpenAPI
 
         Args:
             name (str):
             baa_status (str):
-            aws_ou (str):
             contact_details ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
@@ -146,6 +145,7 @@ class OrganizationInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            aws_ou (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,7 +179,6 @@ class OrganizationInput(ModelNormal):
 
         self.name = name
         self.baa_status = baa_status
-        self.aws_ou = aws_ou
         self.contact_details = contact_details
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -201,13 +200,12 @@ class OrganizationInput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, baa_status, aws_ou, contact_details, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, baa_status, contact_details, *args, **kwargs):  # noqa: E501
         """OrganizationInput - a model defined in OpenAPI
 
         Args:
             name (str):
             baa_status (str):
-            aws_ou (str):
             contact_details ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
@@ -241,6 +239,7 @@ class OrganizationInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            aws_ou (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,7 +271,6 @@ class OrganizationInput(ModelNormal):
 
         self.name = name
         self.baa_status = baa_status
-        self.aws_ou = aws_ou
         self.contact_details = contact_details
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

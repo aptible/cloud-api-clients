@@ -31,7 +31,7 @@ end
 api_instance = CloudApiClient::AssetsApi.new
 environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_variables: 3.56}) # AssetInput | 
+asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_parameters: 3.56}) # AssetInput | 
 
 begin
   # Create Asset
@@ -314,7 +314,7 @@ api_instance = CloudApiClient::AssetsApi.new
 asset_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_variables: 3.56}) # AssetInput | 
+asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_parameters: 3.56}) # AssetInput | 
 
 begin
   # Update Asset By Id

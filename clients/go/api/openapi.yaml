@@ -53,6 +53,7 @@ paths:
           description: Validation Error
       security:
       - HTTPBearer: []
+      - HTTPBearer: []
       summary: Delete Asset By Id
       tags:
       - assets
@@ -100,6 +101,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       security:
+      - HTTPBearer: []
       - HTTPBearer: []
       summary: Get Asset By Id
       tags:
@@ -154,6 +156,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       security:
+      - HTTPBearer: []
       - HTTPBearer: []
       summary: Update Asset By Id
       tags:
@@ -244,6 +247,7 @@ paths:
           description: Validation Error
       security:
       - HTTPBearer: []
+      - HTTPBearer: []
       summary: Create Asset
       tags:
       - assets
@@ -286,6 +290,7 @@ paths:
           description: Validation Error
       security:
       - HTTPBearer: []
+      - HTTPBearer: []
       summary: Delete Environment By Id
       tags:
       - environments
@@ -324,6 +329,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       security:
+      - HTTPBearer: []
       - HTTPBearer: []
       summary: Get Environment By Id
       tags:
@@ -369,6 +375,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       security:
+      - HTTPBearer: []
       - HTTPBearer: []
       summary: Update Environment
       tags:
@@ -441,9 +448,47 @@ paths:
           description: Validation Error
       security:
       - HTTPBearer: []
+      - HTTPBearer: []
       summary: Create Environment
       tags:
       - environments
+  /api/v1/operations/{operation_id}/{operation_status}:
+    put:
+      operationId: update_operation_api_v1_operations__operation_id___operation_status__put
+      parameters:
+      - explode: false
+        in: path
+        name: operation_id
+        required: true
+        schema:
+          format: uuid
+          title: Operation Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: operation_status
+        required: true
+        schema:
+          $ref: '#/components/schemas/OperationStatus'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Update Operation
+      tags:
+      - worker
   /api/v1/organizations/{organization_id}/operations/{operation_id}:
     get:
       operationId: get_operations_by_operation_id_api_v1_organizations__organization_id__operations__operation_id__get
@@ -484,6 +529,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       security:
+      - HTTPBearer: []
       - HTTPBearer: []
       summary: Get Operations By Operation Id
       tags:
@@ -538,10 +584,40 @@ paths:
           description: Validation Error
       security:
       - HTTPBearer: []
+      - HTTPBearer: []
       summary: Get Operations
       tags:
       - operations
   /api/v1/organizations/{organization_id}:
+    delete:
+      operationId: delete_api_v1_organizations__organization_id__delete
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Delete
+      tags:
+      - organizations
     get:
       operationId: get_organization_by_id_api_v1_organizations__organization_id__get
       parameters:
@@ -568,6 +644,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       security:
+      - HTTPBearer: []
       - HTTPBearer: []
       summary: Get Organization By Id
       tags:
@@ -604,6 +681,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       security:
+      - HTTPBearer: []
       - HTTPBearer: []
       summary: Put Organization
       tags:
@@ -687,8 +765,8 @@ components:
   schemas:
     AssetInput:
       example:
+        asset_parameters: "{}"
         asset_version: asset_version
-        asset_variables: "{}"
         asset: asset
       properties:
         asset:
@@ -697,19 +775,18 @@ components:
         asset_version:
           title: Asset Version
           type: string
-        asset_variables:
-          title: Asset Variables
+        asset_parameters:
+          title: Asset Parameters
           type: object
       required:
       - asset
-      - asset_variables
+      - asset_parameters
       - asset_version
       title: AssetInput
       type: object
     AssetOutput:
       example:
         environment:
-          aws_account_id: aws_account_id
           data: "{}"
           organization:
             aws_ou: aws_ou
@@ -722,12 +799,12 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         user_defined: true
         asset_version: asset_version
-        current_asset_variables:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        asset: asset
+        current_asset_parameters:
           data: "{}"
           iteration: 0
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        asset: asset
         status: status
       properties:
         asset:
@@ -745,22 +822,22 @@ components:
           type: string
         environment:
           $ref: '#/components/schemas/EnvironmentOutput'
-        current_asset_variables:
-          $ref: '#/components/schemas/AssetVariablesOutput'
+        current_asset_parameters:
+          $ref: '#/components/schemas/AssetParametersOutput'
         user_defined:
           title: User Defined
           type: boolean
       required:
       - asset
       - asset_version
-      - current_asset_variables
+      - current_asset_parameters
       - environment
       - id
       - status
       - user_defined
       title: AssetOutput
       type: object
-    AssetVariablesOutput:
+    AssetParametersOutput:
       example:
         data: "{}"
         iteration: 0
@@ -780,11 +857,10 @@ components:
       - data
       - id
       - iteration
-      title: AssetVariablesOutput
+      title: AssetParametersOutput
       type: object
     EnvironmentInput:
       example:
-        aws_account_id: aws_account_id
         data: "{}"
         name: name
         description: description
@@ -795,21 +871,16 @@ components:
         description:
           title: Description
           type: string
-        aws_account_id:
-          title: Aws Account Id
-          type: string
         data:
           title: Data
           type: object
       required:
-      - aws_account_id
       - data
       - name
       title: EnvironmentInput
       type: object
     EnvironmentOutput:
       example:
-        aws_account_id: aws_account_id
         data: "{}"
         organization:
           aws_ou: aws_ou
@@ -827,9 +898,6 @@ components:
         description:
           title: Description
           type: string
-        aws_account_id:
-          title: Aws Account Id
-          type: string
         data:
           title: Data
           type: object
@@ -840,7 +908,6 @@ components:
         organization:
           $ref: '#/components/schemas/OrganizationOutput'
       required:
-      - aws_account_id
       - data
       - id
       - name
@@ -862,9 +929,9 @@ components:
         environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         operation_type: ""
         asset_name: asset_name
+        asset_parameters: "{}"
         user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset_version: asset_version
-        asset_variables: "{}"
         organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -898,8 +965,8 @@ components:
         asset_version:
           title: Asset Version
           type: string
-        asset_variables:
-          title: Asset Variables
+        asset_parameters:
+          title: Asset Parameters
           type: object
         id:
           format: uuid
@@ -959,7 +1026,6 @@ components:
           title: Contact Details
           type: object
       required:
-      - aws_ou
       - baa_status
       - contact_details
       - name
@@ -990,7 +1056,6 @@ components:
           title: Id
           type: string
       required:
-      - aws_ou
       - baa_status
       - contact_details
       - id

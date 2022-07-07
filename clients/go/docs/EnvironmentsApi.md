@@ -32,7 +32,7 @@ import (
 
 func main() {
     organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    environmentInput := *openapiclient.NewEnvironmentInput("Name_example", "AwsAccountId_example", map[string]interface{}(123)) // EnvironmentInput | 
+    environmentInput := *openapiclient.NewEnvironmentInput("Name_example", map[string]interface{}(123)) // EnvironmentInput | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -313,7 +313,7 @@ import (
 func main() {
     environmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
     organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    environmentInput := *openapiclient.NewEnvironmentInput("Name_example", "AwsAccountId_example", map[string]interface{}(123)) // EnvironmentInput | 
+    environmentInput := *openapiclient.NewEnvironmentInput("Name_example", map[string]interface{}(123)) // EnvironmentInput | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
