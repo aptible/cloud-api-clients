@@ -5,22 +5,9 @@ with the [cloud-api](https://github.com/aptible/cloud-api) service.
 
 ## Golang usage
 
-These have been tested with `go >=1.18`.
+This has been tested with `go >=1.18`.
 
-Install it with `go get github.com/aptible/cloud-api-clients/clients/go`. 
-
-By adding to go mod, use this library in a golang application, and edit as follows with a `go mod tidy`:
-
-```go
-module <YOUR MODULE NAME>
-
-go 1.18
-
-require (
-	github.com/aptible/cloud-api-clients/clients/go
-	...
-)
-```
+Install it with `go get github.com/aptible/cloud-api-clients/clients/go`.
 
 See the documentation [here for go usage](https://github.com/aptible/cloud-api-clients/tree/main/clients/go#configuration-of-server-url).
 
