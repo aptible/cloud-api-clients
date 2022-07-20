@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **AssetVersion** | **string** |  | 
 **AssetParameters** | Pointer to **map[string]interface{}** |  | [optional] 
 **Id** | **string** |  | 
-**RunId** | Pointer to **string** |  | [optional] 
+**ExecutionId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -270,30 +270,30 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetRunId
+### GetExecutionId
 
-`func (o *OperationOutput) GetRunId() string`
+`func (o *OperationOutput) GetExecutionId() string`
 
-GetRunId returns the RunId field if non-nil, zero value otherwise.
+GetExecutionId returns the ExecutionId field if non-nil, zero value otherwise.
 
-### GetRunIdOk
+### GetExecutionIdOk
 
-`func (o *OperationOutput) GetRunIdOk() (*string, bool)`
+`func (o *OperationOutput) GetExecutionIdOk() (*string, bool)`
 
-GetRunIdOk returns a tuple with the RunId field if it's non-nil, zero value otherwise
+GetExecutionIdOk returns a tuple with the ExecutionId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRunId
+### SetExecutionId
 
-`func (o *OperationOutput) SetRunId(v string)`
+`func (o *OperationOutput) SetExecutionId(v string)`
 
-SetRunId sets RunId field to given value.
+SetExecutionId sets ExecutionId field to given value.
 
-### HasRunId
+### HasExecutionId
 
-`func (o *OperationOutput) HasRunId() bool`
+`func (o *OperationOutput) HasExecutionId() bool`
 
-HasRunId returns a boolean if a field has been set.
+HasExecutionId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *AssetsApi* | [**update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put**](docs/AssetsApi.md#update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
 *EnvironmentsApi* | [**create_environment_api_v1_organizations_organization_id_environments_post**](docs/EnvironmentsApi.md#create_environment_api_v1_organizations_organization_id_environments_post) | **POST** /api/v1/organizations/{organization_id}/environments | Create Environment
 *EnvironmentsApi* | [**delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete**](docs/EnvironmentsApi.md#delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
+*EnvironmentsApi* | [**get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get**](docs/EnvironmentsApi.md#get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
 *EnvironmentsApi* | [**get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get**](docs/EnvironmentsApi.md#get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
 *EnvironmentsApi* | [**get_environments_api_v1_organizations_organization_id_environments_get**](docs/EnvironmentsApi.md#get_environments_api_v1_organizations_organization_id_environments_get) | **GET** /api/v1/organizations/{organization_id}/environments | Get Environments
 *EnvironmentsApi* | [**update_environment_api_v1_organizations_organization_id_environments_environment_id_put**](docs/EnvironmentsApi.md#update_environment_api_v1_organizations_organization_id_environments_environment_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
@@ -116,16 +117,19 @@ Class | Method | HTTP request | Description
 *UtilitiesApi* | [**get_user_api_v1_debug_user_auth_get**](docs/UtilitiesApi.md#get_user_api_v1_debug_user_auth_get) | **GET** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**get_user_role_api_v1_debug_user_role_middleware_check_get**](docs/UtilitiesApi.md#get_user_role_api_v1_debug_user_role_middleware_check_get) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
 *WorkerApi* | [**update_operation_api_v1_operations_operation_id_operation_status_put**](docs/WorkerApi.md#update_operation_api_v1_operations_operation_id_operation_status_put) | **PUT** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
+*WorkerApi* | [**worker_health_check_api_v1_worker_health_check_post**](docs/WorkerApi.md#worker_health_check_api_v1_worker_health_check_post) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
 ## Documentation For Models
 
+ - [AssetBundle](docs/AssetBundle.md)
  - [AssetInput](docs/AssetInput.md)
  - [AssetOutput](docs/AssetOutput.md)
  - [AssetParametersOutput](docs/AssetParametersOutput.md)
  - [EnvironmentInput](docs/EnvironmentInput.md)
  - [EnvironmentOutput](docs/EnvironmentOutput.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [HealthCheckFromWorker](docs/HealthCheckFromWorker.md)
  - [LocationInner](docs/LocationInner.md)
  - [OperationOutput](docs/OperationOutput.md)
  - [OperationStatus](docs/OperationStatus.md)

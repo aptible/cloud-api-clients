@@ -44,4 +44,15 @@ describe 'WorkerApi' do
     end
   end
 
+  # unit tests for worker_health_check_api_v1_worker_health_check_post
+  # Worker Health Check
+  # @param health_check_from_worker 
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'worker_health_check_api_v1_worker_health_check_post test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

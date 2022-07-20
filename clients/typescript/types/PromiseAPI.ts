@@ -2,12 +2,14 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
 import { AssetParametersOutput } from '../models/AssetParametersOutput';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
+import { HealthCheckFromWorker } from '../models/HealthCheckFromWorker';
 import { LocationInner } from '../models/LocationInner';
 import { OperationOutput } from '../models/OperationOutput';
 import { OperationStatus } from '../models/OperationStatus';
@@ -121,6 +123,16 @@ export class PromiseEnvironmentsApi {
      */
     public deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId: string, organizationId: string, _options?: Configuration): Promise<number> {
         const result = this.api.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId, organizationId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get Environment Allowed Assets
+     * @param environmentId 
+     * @param organizationId 
+     */
+    public getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<AssetBundle>> {
+        const result = this.api.getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId, organizationId, _options);
         return result.toPromise();
     }
 
@@ -319,6 +331,15 @@ export class PromiseWorkerApi {
      */
     public updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId: string, operationStatus: OperationStatus, _options?: Configuration): Promise<any> {
         const result = this.api.updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId, operationStatus, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Worker Health Check
+     * @param healthCheckFromWorker 
+     */
+    public workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker: HealthCheckFromWorker, _options?: Configuration): Promise<any> {
+        const result = this.api.workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker, _options);
         return result.toPromise();
     }
 

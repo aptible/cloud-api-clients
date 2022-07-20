@@ -11,6 +11,7 @@ api_utilities.go
 api_worker.go
 client.go
 configuration.go
+docs/AssetBundle.md
 docs/AssetInput.md
 docs/AssetOutput.md
 docs/AssetParametersOutput.md
@@ -19,6 +20,7 @@ docs/EnvironmentInput.md
 docs/EnvironmentOutput.md
 docs/EnvironmentsApi.md
 docs/HTTPValidationError.md
+docs/HealthCheckFromWorker.md
 docs/LocationInner.md
 docs/OperationOutput.md
 docs/OperationStatus.md
@@ -34,11 +36,13 @@ docs/WorkerApi.md
 git_push.sh
 go.mod
 go.sum
+model_asset_bundle.go
 model_asset_input.go
 model_asset_output.go
 model_asset_parameters_output.go
 model_environment_input.go
 model_environment_output.go
+model_health_check_from_worker.go
 model_http_validation_error.go
 model_location_inner.go
 model_operation_output.go

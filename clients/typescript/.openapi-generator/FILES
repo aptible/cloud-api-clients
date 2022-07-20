@@ -22,12 +22,14 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/AssetBundle.ts
 models/AssetInput.ts
 models/AssetOutput.ts
 models/AssetParametersOutput.ts
 models/EnvironmentInput.ts
 models/EnvironmentOutput.ts
 models/HTTPValidationError.ts
+models/HealthCheckFromWorker.ts
 models/LocationInner.ts
 models/ObjectSerializer.ts
 models/OperationOutput.ts

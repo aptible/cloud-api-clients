@@ -25,7 +25,7 @@ export class OperationOutput {
     'assetVersion': string;
     'assetParameters'?: any;
     'id': string;
-    'runId'?: string;
+    'executionId'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -91,8 +91,8 @@ export class OperationOutput {
             "format": "uuid"
         },
         {
-            "name": "runId",
-            "baseName": "run_id",
+            "name": "executionId",
+            "baseName": "execution_id",
             "type": "string",
             "format": "uuid"
         }    ];

@@ -1,9 +1,11 @@
+export * from './AssetBundle';
 export * from './AssetInput';
 export * from './AssetOutput';
 export * from './AssetParametersOutput';
 export * from './EnvironmentInput';
 export * from './EnvironmentOutput';
 export * from './HTTPValidationError';
+export * from './HealthCheckFromWorker';
 export * from './LocationInner';
 export * from './OperationOutput';
 export * from './OperationStatus';
@@ -13,12 +15,14 @@ export * from './OrganizationOutput';
 export * from './TextResponse';
 export * from './ValidationError';
 
+import { AssetBundle } from './AssetBundle';
 import { AssetInput } from './AssetInput';
 import { AssetOutput } from './AssetOutput';
 import { AssetParametersOutput } from './AssetParametersOutput';
 import { EnvironmentInput } from './EnvironmentInput';
 import { EnvironmentOutput } from './EnvironmentOutput';
 import { HTTPValidationError } from './HTTPValidationError';
+import { HealthCheckFromWorker } from './HealthCheckFromWorker';
 import { LocationInner } from './LocationInner';
 import { OperationOutput } from './OperationOutput';
 import { OperationStatus } from './OperationStatus';
@@ -53,12 +57,14 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "AssetBundle": AssetBundle,
     "AssetInput": AssetInput,
     "AssetOutput": AssetOutput,
     "AssetParametersOutput": AssetParametersOutput,
     "EnvironmentInput": EnvironmentInput,
     "EnvironmentOutput": EnvironmentOutput,
     "HTTPValidationError": HTTPValidationError,
+    "HealthCheckFromWorker": HealthCheckFromWorker,
     "LocationInner": LocationInner,
     "OperationOutput": OperationOutput,
     "OrganizationInput": OrganizationInput,
@@ -236,6 +242,10 @@ export class ObjectSerializer {
      * Convert data to a string according the given media type
      */
     public static stringify(data: any, mediaType: string): string {
+        if (mediaType === "text/plain") {
+            return String(data);
+        }
+
         if (mediaType === "application/json") {
             return JSON.stringify(data);
         }

@@ -2,12 +2,14 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
 import { AssetParametersOutput } from '../models/AssetParametersOutput';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
+import { HealthCheckFromWorker } from '../models/HealthCheckFromWorker';
 import { LocationInner } from '../models/LocationInner';
 import { OperationOutput } from '../models/OperationOutput';
 import { OperationStatus } from '../models/OperationStatus';
@@ -207,6 +209,21 @@ export interface EnvironmentsApiDeleteEnvironmentByIdApiV1OrganizationsOrganizat
     organizationId: string
 }
 
+export interface EnvironmentsApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest {
+    /**
+     * 
+     * @type string
+     * @memberof EnvironmentsApigetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet
+     */
+    environmentId: string
+    /**
+     * 
+     * @type string
+     * @memberof EnvironmentsApigetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet
+     */
+    organizationId: string
+}
+
 export interface EnvironmentsApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest {
     /**
      * 
@@ -273,6 +290,14 @@ export class ObjectEnvironmentsApi {
      */
     public deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(param: EnvironmentsApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest, options?: Configuration): Promise<number> {
         return this.api.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(param.environmentId, param.organizationId,  options).toPromise();
+    }
+
+    /**
+     * Get Environment Allowed Assets
+     * @param param the request object
+     */
+    public getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(param: EnvironmentsApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest, options?: Configuration): Promise<Array<AssetBundle>> {
+        return this.api.getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(param.environmentId, param.organizationId,  options).toPromise();
     }
 
     /**
@@ -514,6 +539,15 @@ export interface WorkerApiUpdateOperationApiV1OperationsOperationIdOperationStat
     operationStatus: OperationStatus
 }
 
+export interface WorkerApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest {
+    /**
+     * 
+     * @type HealthCheckFromWorker
+     * @memberof WorkerApiworkerHealthCheckApiV1WorkerHealthCheckPost
+     */
+    healthCheckFromWorker: HealthCheckFromWorker
+}
+
 export class ObjectWorkerApi {
     private api: ObservableWorkerApi
 
@@ -527,6 +561,14 @@ export class ObjectWorkerApi {
      */
     public updateOperationApiV1OperationsOperationIdOperationStatusPut(param: WorkerApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest, options?: Configuration): Promise<any> {
         return this.api.updateOperationApiV1OperationsOperationIdOperationStatusPut(param.operationId, param.operationStatus,  options).toPromise();
+    }
+
+    /**
+     * Worker Health Check
+     * @param param the request object
+     */
+    public workerHealthCheckApiV1WorkerHealthCheckPost(param: WorkerApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest, options?: Configuration): Promise<any> {
+        return this.api.workerHealthCheckApiV1WorkerHealthCheckPost(param.healthCheckFromWorker,  options).toPromise();
     }
 
 }

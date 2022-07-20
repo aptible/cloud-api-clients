@@ -30,6 +30,13 @@ class TestWorkerApi(unittest.TestCase):
         """
         pass
 
+    def test_worker_health_check_api_v1_worker_health_check_post(self):
+        """Test case for worker_health_check_api_v1_worker_health_check_post
+
+        Worker Health Check  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

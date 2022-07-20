@@ -85,5 +85,71 @@ module CloudApiClient
       end
       return data, status_code, headers
     end
+
+    # Worker Health Check
+    # @param health_check_from_worker [HealthCheckFromWorker] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def worker_health_check_api_v1_worker_health_check_post(health_check_from_worker, opts = {})
+      data, _status_code, _headers = worker_health_check_api_v1_worker_health_check_post_with_http_info(health_check_from_worker, opts)
+      data
+    end
+
+    # Worker Health Check
+    # @param health_check_from_worker [HealthCheckFromWorker] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def worker_health_check_api_v1_worker_health_check_post_with_http_info(health_check_from_worker, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkerApi.worker_health_check_api_v1_worker_health_check_post ...'
+      end
+      # verify the required parameter 'health_check_from_worker' is set
+      if @api_client.config.client_side_validation && health_check_from_worker.nil?
+        fail ArgumentError, "Missing the required parameter 'health_check_from_worker' when calling WorkerApi.worker_health_check_api_v1_worker_health_check_post"
+      end
+      # resource path
+      local_var_path = '/api/v1/worker/health-check'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(health_check_from_worker)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"WorkerApi.worker_health_check_api_v1_worker_health_check_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkerApi#worker_health_check_api_v1_worker_health_check_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

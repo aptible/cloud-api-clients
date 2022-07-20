@@ -9,6 +9,7 @@
 | **data** | **Object** |  |  |
 | **id** | **String** |  |  |
 | **organization** | [**OrganizationOutput**](OrganizationOutput.md) |  |  |
+| **aws_account_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = CloudApiClient::EnvironmentOutput.new(
   description: null,
   data: null,
   id: null,
-  organization: null
+  organization: null,
+  aws_account_id: null
 )
 ```
 

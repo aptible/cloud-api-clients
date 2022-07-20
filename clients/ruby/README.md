@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 *CloudApiClient::AssetsApi* | [**update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put**](docs/AssetsApi.md#update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
 *CloudApiClient::EnvironmentsApi* | [**create_environment_api_v1_organizations_organization_id_environments_post**](docs/EnvironmentsApi.md#create_environment_api_v1_organizations_organization_id_environments_post) | **POST** /api/v1/organizations/{organization_id}/environments | Create Environment
 *CloudApiClient::EnvironmentsApi* | [**delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete**](docs/EnvironmentsApi.md#delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
+*CloudApiClient::EnvironmentsApi* | [**get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get**](docs/EnvironmentsApi.md#get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
 *CloudApiClient::EnvironmentsApi* | [**get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get**](docs/EnvironmentsApi.md#get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
 *CloudApiClient::EnvironmentsApi* | [**get_environments_api_v1_organizations_organization_id_environments_get**](docs/EnvironmentsApi.md#get_environments_api_v1_organizations_organization_id_environments_get) | **GET** /api/v1/organizations/{organization_id}/environments | Get Environments
 *CloudApiClient::EnvironmentsApi* | [**update_environment_api_v1_organizations_organization_id_environments_environment_id_put**](docs/EnvironmentsApi.md#update_environment_api_v1_organizations_organization_id_environments_environment_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
@@ -103,16 +104,19 @@ Class | Method | HTTP request | Description
 *CloudApiClient::UtilitiesApi* | [**get_user_api_v1_debug_user_auth_get**](docs/UtilitiesApi.md#get_user_api_v1_debug_user_auth_get) | **GET** /api/v1/debug/user_auth | Get User
 *CloudApiClient::UtilitiesApi* | [**get_user_role_api_v1_debug_user_role_middleware_check_get**](docs/UtilitiesApi.md#get_user_role_api_v1_debug_user_role_middleware_check_get) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
 *CloudApiClient::WorkerApi* | [**update_operation_api_v1_operations_operation_id_operation_status_put**](docs/WorkerApi.md#update_operation_api_v1_operations_operation_id_operation_status_put) | **PUT** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
+*CloudApiClient::WorkerApi* | [**worker_health_check_api_v1_worker_health_check_post**](docs/WorkerApi.md#worker_health_check_api_v1_worker_health_check_post) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
 ## Documentation for Models
 
+ - [CloudApiClient::AssetBundle](docs/AssetBundle.md)
  - [CloudApiClient::AssetInput](docs/AssetInput.md)
  - [CloudApiClient::AssetOutput](docs/AssetOutput.md)
  - [CloudApiClient::AssetParametersOutput](docs/AssetParametersOutput.md)
  - [CloudApiClient::EnvironmentInput](docs/EnvironmentInput.md)
  - [CloudApiClient::EnvironmentOutput](docs/EnvironmentOutput.md)
  - [CloudApiClient::HTTPValidationError](docs/HTTPValidationError.md)
+ - [CloudApiClient::HealthCheckFromWorker](docs/HealthCheckFromWorker.md)
  - [CloudApiClient::LocationInner](docs/LocationInner.md)
  - [CloudApiClient::OperationOutput](docs/OperationOutput.md)
  - [CloudApiClient::OperationStatus](docs/OperationStatus.md)

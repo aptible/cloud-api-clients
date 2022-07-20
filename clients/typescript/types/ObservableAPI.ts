@@ -3,12 +3,14 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
+import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
 import { AssetParametersOutput } from '../models/AssetParametersOutput';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
+import { HealthCheckFromWorker } from '../models/HealthCheckFromWorker';
 import { LocationInner } from '../models/LocationInner';
 import { OperationOutput } from '../models/OperationOutput';
 import { OperationStatus } from '../models/OperationStatus';
@@ -222,6 +224,30 @@ export class ObservableEnvironmentsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(rsp)));
+            }));
+    }
+
+    /**
+     * Get Environment Allowed Assets
+     * @param environmentId 
+     * @param organizationId 
+     */
+    public getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId: string, organizationId: string, _options?: Configuration): Observable<Array<AssetBundle>> {
+        const requestContextPromise = this.requestFactory.getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId, organizationId, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(rsp)));
             }));
     }
 
@@ -598,6 +624,29 @@ export class ObservableWorkerApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateOperationApiV1OperationsOperationIdOperationStatusPut(rsp)));
+            }));
+    }
+
+    /**
+     * Worker Health Check
+     * @param healthCheckFromWorker 
+     */
+    public workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker: HealthCheckFromWorker, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.workerHealthCheckApiV1WorkerHealthCheckPost(rsp)));
             }));
     }
 

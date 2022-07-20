@@ -251,6 +251,51 @@ paths:
       summary: Create Asset
       tags:
       - assets
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles:
+    get:
+      operationId: get_environment_allowed_assets_api_v1_organizations__organization_id__environments__environment_id__asset_bundles_get
+      parameters:
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AssetBundle'
+                title: Response Get Environment Allowed Assets Api V1 Organizations  Organization
+                  Id  Environments  Environment Id  Asset Bundles Get
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Get Environment Allowed Assets
+      tags:
+      - environments
   /api/v1/organizations/{organization_id}/environments/{environment_id}:
     delete:
       operationId: delete_environment_by_id_api_v1_organizations__organization_id__environments__environment_id__delete
@@ -452,6 +497,30 @@ paths:
       summary: Create Environment
       tags:
       - environments
+  /api/v1/worker/health-check:
+    post:
+      operationId: worker_health_check_api_v1_worker_health_check_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HealthCheckFromWorker'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Worker Health Check
+      tags:
+      - worker
   /api/v1/operations/{operation_id}/{operation_status}:
     put:
       operationId: update_operation_api_v1_operations__operation_id___operation_status__put
@@ -763,6 +832,36 @@ paths:
       - utilities
 components:
   schemas:
+    AssetBundle:
+      example:
+        identifier: identifier
+        types:
+        - types
+        - types
+        name: name
+        description: description
+      properties:
+        identifier:
+          title: Identifier
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        types:
+          items:
+            type: string
+          title: Types
+          type: array
+      required:
+      - description
+      - identifier
+      - name
+      - types
+      title: AssetBundle
+      type: object
     AssetInput:
       example:
         asset_parameters: "{}"
@@ -788,6 +887,7 @@ components:
       example:
         environment:
           data: "{}"
+          aws_account_id: aws_account_id
           organization:
             aws_ou: aws_ou
             baa_status: baa_status
@@ -882,6 +982,7 @@ components:
     EnvironmentOutput:
       example:
         data: "{}"
+        aws_account_id: aws_account_id
         organization:
           aws_ou: aws_ou
           baa_status: baa_status
@@ -907,6 +1008,9 @@ components:
           type: string
         organization:
           $ref: '#/components/schemas/OrganizationOutput'
+        aws_account_id:
+          title: Aws Account Id
+          type: string
       required:
       - data
       - id
@@ -923,9 +1027,37 @@ components:
           type: array
       title: HTTPValidationError
       type: object
+    HealthCheckFromWorker:
+      example:
+        execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        message_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        message: message
+      properties:
+        environment_id:
+          format: uuid
+          title: Environment Id
+          type: string
+        message_id:
+          format: uuid
+          title: Message Id
+          type: string
+        execution_id:
+          format: uuid
+          title: Execution Id
+          type: string
+        message:
+          title: Message
+          type: string
+      required:
+      - environment_id
+      - execution_id
+      - message
+      title: HealthCheckFromWorker
+      type: object
     OperationOutput:
       example:
-        run_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         operation_type: ""
         asset_name: asset_name
@@ -972,9 +1104,9 @@ components:
           format: uuid
           title: Id
           type: string
-        run_id:
+        execution_id:
           format: uuid
-          title: Run Id
+          title: Execution Id
           type: string
       required:
       - asset_id
