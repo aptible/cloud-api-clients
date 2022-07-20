@@ -10,20 +10,23 @@
  * Do not edit the class manually.
  */
 
-import { OrganizationOutput } from './OrganizationOutput';
 import { HttpFile } from '../http/http';
 
-export class EnvironmentOutput {
+export class AssetBundle {
+    'identifier': string;
     'name': string;
-    'description'?: string;
-    'data': any;
-    'id': string;
-    'organization': OrganizationOutput;
-    'awsAccountId'?: string;
+    'description': string;
+    'types': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "identifier",
+            "baseName": "identifier",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "name",
             "baseName": "name",
@@ -37,32 +40,14 @@ export class EnvironmentOutput {
             "format": ""
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": "uuid"
-        },
-        {
-            "name": "organization",
-            "baseName": "organization",
-            "type": "OrganizationOutput",
-            "format": ""
-        },
-        {
-            "name": "awsAccountId",
-            "baseName": "aws_account_id",
-            "type": "string",
+            "name": "types",
+            "baseName": "types",
+            "type": "Array<string>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return EnvironmentOutput.attributeTypeMap;
+        return AssetBundle.attributeTypeMap;
     }
 
     public constructor() {

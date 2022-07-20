@@ -14,28 +14,22 @@ require 'date'
 require 'time'
 
 module CloudApiClient
-  class EnvironmentOutput
-    attr_accessor :name
+  class HealthCheckFromWorker
+    attr_accessor :environment_id
 
-    attr_accessor :description
+    attr_accessor :message_id
 
-    attr_accessor :data
+    attr_accessor :execution_id
 
-    attr_accessor :id
-
-    attr_accessor :organization
-
-    attr_accessor :aws_account_id
+    attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'description' => :'description',
-        :'data' => :'data',
-        :'id' => :'id',
-        :'organization' => :'organization',
-        :'aws_account_id' => :'aws_account_id'
+        :'environment_id' => :'environment_id',
+        :'message_id' => :'message_id',
+        :'execution_id' => :'execution_id',
+        :'message' => :'message'
       }
     end
 
@@ -47,12 +41,10 @@ module CloudApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'description' => :'String',
-        :'data' => :'Object',
-        :'id' => :'String',
-        :'organization' => :'OrganizationOutput',
-        :'aws_account_id' => :'String'
+        :'environment_id' => :'String',
+        :'message_id' => :'String',
+        :'execution_id' => :'String',
+        :'message' => :'String'
       }
     end
 
@@ -66,39 +58,31 @@ module CloudApiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `CloudApiClient::EnvironmentOutput` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `CloudApiClient::HealthCheckFromWorker` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `CloudApiClient::EnvironmentOutput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `CloudApiClient::HealthCheckFromWorker`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'environment_id')
+        self.environment_id = attributes[:'environment_id']
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'message_id')
+        self.message_id = attributes[:'message_id']
       end
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.key?(:'execution_id')
+        self.execution_id = attributes[:'execution_id']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'organization')
-        self.organization = attributes[:'organization']
-      end
-
-      if attributes.key?(:'aws_account_id')
-        self.aws_account_id = attributes[:'aws_account_id']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
     end
 
@@ -106,20 +90,16 @@ module CloudApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @environment_id.nil?
+        invalid_properties.push('invalid value for "environment_id", environment_id cannot be nil.')
       end
 
-      if @data.nil?
-        invalid_properties.push('invalid value for "data", data cannot be nil.')
+      if @execution_id.nil?
+        invalid_properties.push('invalid value for "execution_id", execution_id cannot be nil.')
       end
 
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @organization.nil?
-        invalid_properties.push('invalid value for "organization", organization cannot be nil.')
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
       end
 
       invalid_properties
@@ -128,10 +108,9 @@ module CloudApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @data.nil?
-      return false if @id.nil?
-      return false if @organization.nil?
+      return false if @environment_id.nil?
+      return false if @execution_id.nil?
+      return false if @message.nil?
       true
     end
 
@@ -140,12 +119,10 @@ module CloudApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          description == o.description &&
-          data == o.data &&
-          id == o.id &&
-          organization == o.organization &&
-          aws_account_id == o.aws_account_id
+          environment_id == o.environment_id &&
+          message_id == o.message_id &&
+          execution_id == o.execution_id &&
+          message == o.message
     end
 
     # @see the `==` method
@@ -157,7 +134,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, data, id, organization, aws_account_id].hash
+      [environment_id, message_id, execution_id, message].hash
     end
 
     # Builds the object from hash

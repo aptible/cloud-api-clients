@@ -35,7 +35,7 @@ module CloudApiClient
 
     attr_accessor :id
 
-    attr_accessor :run_id
+    attr_accessor :execution_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -50,7 +50,7 @@ module CloudApiClient
         :'asset_version' => :'asset_version',
         :'asset_parameters' => :'asset_parameters',
         :'id' => :'id',
-        :'run_id' => :'run_id'
+        :'execution_id' => :'execution_id'
       }
     end
 
@@ -72,7 +72,7 @@ module CloudApiClient
         :'asset_version' => :'String',
         :'asset_parameters' => :'Object',
         :'id' => :'String',
-        :'run_id' => :'String'
+        :'execution_id' => :'String'
       }
     end
 
@@ -139,8 +139,8 @@ module CloudApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'run_id')
-        self.run_id = attributes[:'run_id']
+      if attributes.key?(:'execution_id')
+        self.execution_id = attributes[:'execution_id']
       end
     end
 
@@ -207,7 +207,7 @@ module CloudApiClient
           asset_version == o.asset_version &&
           asset_parameters == o.asset_parameters &&
           id == o.id &&
-          run_id == o.run_id
+          execution_id == o.execution_id
     end
 
     # @see the `==` method
@@ -219,7 +219,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [environment_id, user_id, organization_id, operation_type, status, asset_name, asset_id, asset_version, asset_parameters, id, run_id].hash
+      [environment_id, user_id, organization_id, operation_type, status, asset_name, asset_id, asset_version, asset_parameters, id, execution_id].hash
     end
 
     # Builds the object from hash

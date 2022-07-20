@@ -14,7 +14,7 @@
 | **asset_version** | **String** |  |  |
 | **asset_parameters** | **Object** |  | [optional] |
 | **id** | **String** |  |  |
-| **run_id** | **String** |  | [optional] |
+| **execution_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -32,7 +32,7 @@ instance = CloudApiClient::OperationOutput.new(
   asset_version: null,
   asset_parameters: null,
   id: null,
-  run_id: null
+  execution_id: null
 )
 ```
 

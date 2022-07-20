@@ -56,6 +56,18 @@ describe 'EnvironmentsApi' do
     end
   end
 
+  # unit tests for get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get
+  # Get Environment Allowed Assets
+  # @param environment_id 
+  # @param organization_id 
+  # @param [Hash] opts the optional parameters
+  # @return [Array<AssetBundle>]
+  describe 'get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get
   # Get Environment By Id
   # @param environment_id 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Data** | **map[string]interface{}** |  | 
 **Id** | **string** |  | 
 **Organization** | [**OrganizationOutput**](OrganizationOutput.md) |  | 
+**AwsAccountId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -133,6 +134,31 @@ and a boolean to check if the value has been set.
 
 SetOrganization sets Organization field to given value.
 
+
+### GetAwsAccountId
+
+`func (o *EnvironmentOutput) GetAwsAccountId() string`
+
+GetAwsAccountId returns the AwsAccountId field if non-nil, zero value otherwise.
+
+### GetAwsAccountIdOk
+
+`func (o *EnvironmentOutput) GetAwsAccountIdOk() (*string, bool)`
+
+GetAwsAccountIdOk returns a tuple with the AwsAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAwsAccountId
+
+`func (o *EnvironmentOutput) SetAwsAccountId(v string)`
+
+SetAwsAccountId sets AwsAccountId field to given value.
+
+### HasAwsAccountId
+
+`func (o *EnvironmentOutput) HasAwsAccountId() bool`
+
+HasAwsAccountId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

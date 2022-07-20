@@ -26,7 +26,7 @@ type OperationOutput struct {
 	AssetVersion string `json:"asset_version"`
 	AssetParameters map[string]interface{} `json:"asset_parameters,omitempty"`
 	Id string `json:"id"`
-	RunId *string `json:"run_id,omitempty"`
+	ExecutionId *string `json:"execution_id,omitempty"`
 }
 
 // NewOperationOutput instantiates a new OperationOutput object
@@ -337,36 +337,36 @@ func (o *OperationOutput) SetId(v string) {
 	o.Id = v
 }
 
-// GetRunId returns the RunId field value if set, zero value otherwise.
-func (o *OperationOutput) GetRunId() string {
-	if o == nil || o.RunId == nil {
+// GetExecutionId returns the ExecutionId field value if set, zero value otherwise.
+func (o *OperationOutput) GetExecutionId() string {
+	if o == nil || o.ExecutionId == nil {
 		var ret string
 		return ret
 	}
-	return *o.RunId
+	return *o.ExecutionId
 }
 
-// GetRunIdOk returns a tuple with the RunId field value if set, nil otherwise
+// GetExecutionIdOk returns a tuple with the ExecutionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OperationOutput) GetRunIdOk() (*string, bool) {
-	if o == nil || o.RunId == nil {
+func (o *OperationOutput) GetExecutionIdOk() (*string, bool) {
+	if o == nil || o.ExecutionId == nil {
 		return nil, false
 	}
-	return o.RunId, true
+	return o.ExecutionId, true
 }
 
-// HasRunId returns a boolean if a field has been set.
-func (o *OperationOutput) HasRunId() bool {
-	if o != nil && o.RunId != nil {
+// HasExecutionId returns a boolean if a field has been set.
+func (o *OperationOutput) HasExecutionId() bool {
+	if o != nil && o.ExecutionId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetRunId gets a reference to the given string and assigns it to the RunId field.
-func (o *OperationOutput) SetRunId(v string) {
-	o.RunId = &v
+// SetExecutionId gets a reference to the given string and assigns it to the ExecutionId field.
+func (o *OperationOutput) SetExecutionId(v string) {
+	o.ExecutionId = &v
 }
 
 func (o OperationOutput) MarshalJSON() ([]byte, error) {
@@ -401,8 +401,8 @@ func (o OperationOutput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.RunId != nil {
-		toSerialize["run_id"] = o.RunId
+	if o.ExecutionId != nil {
+		toSerialize["execution_id"] = o.ExecutionId
 	}
 	return json.Marshal(toSerialize)
 }
