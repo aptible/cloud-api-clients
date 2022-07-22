@@ -7,16 +7,17 @@ Name | Type | Description | Notes
 **Asset** | **string** |  | 
 **AssetVersion** | **string** |  | 
 **Id** | **string** |  | 
-**Status** | **string** |  | 
-**Environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  | 
+**Connections** | Pointer to [**[]ConnectionOutput**](ConnectionOutput.md) |  | [optional] 
 **CurrentAssetParameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  | 
+**Environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  | 
+**Status** | **string** |  | 
 **UserDefined** | **bool** |  | 
 
 ## Methods
 
 ### NewAssetOutput
 
-`func NewAssetOutput(asset string, assetVersion string, id string, status string, environment EnvironmentOutput, currentAssetParameters AssetParametersOutput, userDefined bool, ) *AssetOutput`
+`func NewAssetOutput(asset string, assetVersion string, id string, currentAssetParameters AssetParametersOutput, environment EnvironmentOutput, status string, userDefined bool, ) *AssetOutput`
 
 NewAssetOutput instantiates a new AssetOutput object
 This constructor will assign default values to properties that have it defined,
@@ -91,24 +92,49 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetStatus
+### GetConnections
 
-`func (o *AssetOutput) GetStatus() string`
+`func (o *AssetOutput) GetConnections() []ConnectionOutput`
 
-GetStatus returns the Status field if non-nil, zero value otherwise.
+GetConnections returns the Connections field if non-nil, zero value otherwise.
 
-### GetStatusOk
+### GetConnectionsOk
 
-`func (o *AssetOutput) GetStatusOk() (*string, bool)`
+`func (o *AssetOutput) GetConnectionsOk() (*[]ConnectionOutput, bool)`
 
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+GetConnectionsOk returns a tuple with the Connections field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStatus
+### SetConnections
 
-`func (o *AssetOutput) SetStatus(v string)`
+`func (o *AssetOutput) SetConnections(v []ConnectionOutput)`
 
-SetStatus sets Status field to given value.
+SetConnections sets Connections field to given value.
+
+### HasConnections
+
+`func (o *AssetOutput) HasConnections() bool`
+
+HasConnections returns a boolean if a field has been set.
+
+### GetCurrentAssetParameters
+
+`func (o *AssetOutput) GetCurrentAssetParameters() AssetParametersOutput`
+
+GetCurrentAssetParameters returns the CurrentAssetParameters field if non-nil, zero value otherwise.
+
+### GetCurrentAssetParametersOk
+
+`func (o *AssetOutput) GetCurrentAssetParametersOk() (*AssetParametersOutput, bool)`
+
+GetCurrentAssetParametersOk returns a tuple with the CurrentAssetParameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentAssetParameters
+
+`func (o *AssetOutput) SetCurrentAssetParameters(v AssetParametersOutput)`
+
+SetCurrentAssetParameters sets CurrentAssetParameters field to given value.
 
 
 ### GetEnvironment
@@ -131,24 +157,24 @@ and a boolean to check if the value has been set.
 SetEnvironment sets Environment field to given value.
 
 
-### GetCurrentAssetParameters
+### GetStatus
 
-`func (o *AssetOutput) GetCurrentAssetParameters() AssetParametersOutput`
+`func (o *AssetOutput) GetStatus() string`
 
-GetCurrentAssetParameters returns the CurrentAssetParameters field if non-nil, zero value otherwise.
+GetStatus returns the Status field if non-nil, zero value otherwise.
 
-### GetCurrentAssetParametersOk
+### GetStatusOk
 
-`func (o *AssetOutput) GetCurrentAssetParametersOk() (*AssetParametersOutput, bool)`
+`func (o *AssetOutput) GetStatusOk() (*string, bool)`
 
-GetCurrentAssetParametersOk returns a tuple with the CurrentAssetParameters field if it's non-nil, zero value otherwise
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrentAssetParameters
+### SetStatus
 
-`func (o *AssetOutput) SetCurrentAssetParameters(v AssetParametersOutput)`
+`func (o *AssetOutput) SetStatus(v string)`
 
-SetCurrentAssetParameters sets CurrentAssetParameters field to given value.
+SetStatus sets Status field to given value.
 
 
 ### GetUserDefined

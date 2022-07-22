@@ -83,10 +83,14 @@ Class | Method | HTTP request | Description
 *AssetsApi* | [**GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet**](docs/AssetsApi.md#getassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
 *AssetsApi* | [**GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet**](docs/AssetsApi.md#getassetsapiv1organizationsorganizationidenvironmentsenvironmentidassetsget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
 *AssetsApi* | [**UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut**](docs/AssetsApi.md#updateassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidput) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
+*ConnectionsApi* | [**CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost**](docs/ConnectionsApi.md#createconnectionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionspost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Create Connection
+*ConnectionsApi* | [**DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete**](docs/ConnectionsApi.md#deleteconnectionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionsconnectioniddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Delete Connection
+*ConnectionsApi* | [**GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet**](docs/ConnectionsApi.md#getconnectionbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionsconnectionidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Get Connection By Id
 *EnvironmentsApi* | [**CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost**](docs/EnvironmentsApi.md#createenvironmentapiv1organizationsorganizationidenvironmentspost) | **Post** /api/v1/organizations/{organization_id}/environments | Create Environment
 *EnvironmentsApi* | [**DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete**](docs/EnvironmentsApi.md#deleteenvironmentbyidapiv1organizationsorganizationidenvironmentsenvironmentiddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
 *EnvironmentsApi* | [**GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet**](docs/EnvironmentsApi.md#getenvironmentallowedassetsapiv1organizationsorganizationidenvironmentsenvironmentidassetbundlesget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
 *EnvironmentsApi* | [**GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet**](docs/EnvironmentsApi.md#getenvironmentbyidapiv1organizationsorganizationidenvironmentsenvironmentidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
+*EnvironmentsApi* | [**GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet**](docs/EnvironmentsApi.md#getenvironmentconnectionsapiv1organizationsorganizationidenvironmentsenvironmentidconnectionsget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Get Environment Connections
 *EnvironmentsApi* | [**GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet**](docs/EnvironmentsApi.md#getenvironmentsapiv1organizationsorganizationidenvironmentsget) | **Get** /api/v1/organizations/{organization_id}/environments | Get Environments
 *EnvironmentsApi* | [**UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut**](docs/EnvironmentsApi.md#updateenvironmentapiv1organizationsorganizationidenvironmentsenvironmentidput) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
 *OperationsApi* | [**GetOperationsApiV1OrganizationsOrganizationIdOperationsGet**](docs/OperationsApi.md#getoperationsapiv1organizationsorganizationidoperationsget) | **Get** /api/v1/organizations/{organization_id}/operations/ | Get Operations
@@ -104,10 +108,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AssetAction](docs/AssetAction.md)
  - [AssetBundle](docs/AssetBundle.md)
  - [AssetInput](docs/AssetInput.md)
  - [AssetOutput](docs/AssetOutput.md)
  - [AssetParametersOutput](docs/AssetParametersOutput.md)
+ - [ConnectionInput](docs/ConnectionInput.md)
+ - [ConnectionOutput](docs/ConnectionOutput.md)
+ - [ConnectionStatus](docs/ConnectionStatus.md)
  - [EnvironmentInput](docs/EnvironmentInput.md)
  - [EnvironmentOutput](docs/EnvironmentOutput.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)

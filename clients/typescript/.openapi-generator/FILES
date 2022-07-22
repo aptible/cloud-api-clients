@@ -1,6 +1,7 @@
 .gitignore
 .openapi-generator-ignore
 AssetsApi.md
+ConnectionsApi.md
 EnvironmentsApi.md
 OperationsApi.md
 OrganizationsApi.md
@@ -8,6 +9,7 @@ README.md
 UtilitiesApi.md
 WorkerApi.md
 apis/AssetsApi.ts
+apis/ConnectionsApi.ts
 apis/EnvironmentsApi.ts
 apis/OperationsApi.ts
 apis/OrganizationsApi.ts
@@ -22,10 +24,14 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/AssetAction.ts
 models/AssetBundle.ts
 models/AssetInput.ts
 models/AssetOutput.ts
 models/AssetParametersOutput.ts
+models/ConnectionInput.ts
+models/ConnectionOutput.ts
+models/ConnectionStatus.ts
 models/EnvironmentInput.ts
 models/EnvironmentOutput.ts
 models/HTTPValidationError.ts

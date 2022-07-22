@@ -23,13 +23,19 @@ module CloudApiClient
 
     attr_accessor :types
 
+    attr_accessor :actions
+
+    attr_accessor :user_parameters
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'identifier' => :'identifier',
         :'name' => :'name',
         :'description' => :'description',
-        :'types' => :'types'
+        :'types' => :'types',
+        :'actions' => :'actions',
+        :'user_parameters' => :'user_parameters'
       }
     end
 
@@ -44,13 +50,16 @@ module CloudApiClient
         :'identifier' => :'String',
         :'name' => :'String',
         :'description' => :'String',
-        :'types' => :'Array<String>'
+        :'types' => :'Array<String>',
+        :'actions' => :'Hash<String, AssetAction>',
+        :'user_parameters' => :'Object'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'user_parameters'
       ])
     end
 
@@ -86,6 +95,16 @@ module CloudApiClient
           self.types = value
         end
       end
+
+      if attributes.key?(:'actions')
+        if (value = attributes[:'actions']).is_a?(Hash)
+          self.actions = value
+        end
+      end
+
+      if attributes.key?(:'user_parameters')
+        self.user_parameters = attributes[:'user_parameters']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -108,6 +127,10 @@ module CloudApiClient
         invalid_properties.push('invalid value for "types", types cannot be nil.')
       end
 
+      if @actions.nil?
+        invalid_properties.push('invalid value for "actions", actions cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -118,6 +141,7 @@ module CloudApiClient
       return false if @name.nil?
       return false if @description.nil?
       return false if @types.nil?
+      return false if @actions.nil?
       true
     end
 
@@ -129,7 +153,9 @@ module CloudApiClient
           identifier == o.identifier &&
           name == o.name &&
           description == o.description &&
-          types == o.types
+          types == o.types &&
+          actions == o.actions &&
+          user_parameters == o.user_parameters
     end
 
     # @see the `==` method
@@ -141,7 +167,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [identifier, name, description, types].hash
+      [identifier, name, description, types, actions, user_parameters].hash
     end
 
     # Builds the object from hash

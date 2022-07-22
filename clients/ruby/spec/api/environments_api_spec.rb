@@ -80,6 +80,18 @@ describe 'EnvironmentsApi' do
     end
   end
 
+  # unit tests for get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get
+  # Get Environment Connections
+  # @param environment_id 
+  # @param organization_id 
+  # @param [Hash] opts the optional parameters
+  # @return [Array<ConnectionOutput>]
+  describe 'get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_environments_api_v1_organizations_organization_id_environments_get
   # Get Environments
   # @param organization_id 

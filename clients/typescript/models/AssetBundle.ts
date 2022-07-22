@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { AssetAction } from './AssetAction';
 import { HttpFile } from '../http/http';
 
 export class AssetBundle {
@@ -17,6 +18,8 @@ export class AssetBundle {
     'name': string;
     'description': string;
     'types': Array<string>;
+    'actions': { [key: string]: AssetAction; };
+    'userParameters'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,6 +46,18 @@ export class AssetBundle {
             "name": "types",
             "baseName": "types",
             "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "actions",
+            "baseName": "actions",
+            "type": "{ [key: string]: AssetAction; }",
+            "format": ""
+        },
+        {
+            "name": "userParameters",
+            "baseName": "user_parameters",
+            "type": "any",
             "format": ""
         }    ];
 

@@ -15,6 +15,7 @@
 
 # Import APIs into API package:
 from cloud_api_client.api.assets_api import AssetsApi
+from cloud_api_client.api.connections_api import ConnectionsApi
 from cloud_api_client.api.environments_api import EnvironmentsApi
 from cloud_api_client.api.operations_api import OperationsApi
 from cloud_api_client.api.organizations_api import OrganizationsApi

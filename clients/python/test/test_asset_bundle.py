@@ -12,6 +12,8 @@ import sys
 import unittest
 
 import cloud_api_client
+from cloud_api_client.model.asset_action import AssetAction
+globals()['AssetAction'] = AssetAction
 from cloud_api_client.model.asset_bundle import AssetBundle
 
 

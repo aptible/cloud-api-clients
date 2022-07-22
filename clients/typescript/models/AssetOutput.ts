@@ -11,6 +11,7 @@
  */
 
 import { AssetParametersOutput } from './AssetParametersOutput';
+import { ConnectionOutput } from './ConnectionOutput';
 import { EnvironmentOutput } from './EnvironmentOutput';
 import { HttpFile } from '../http/http';
 
@@ -18,9 +19,10 @@ export class AssetOutput {
     'asset': string;
     'assetVersion': string;
     'id': string;
-    'status': string;
-    'environment': EnvironmentOutput;
+    'connections'?: Array<ConnectionOutput>;
     'currentAssetParameters': AssetParametersOutput;
+    'environment': EnvironmentOutput;
+    'status': string;
     'userDefined': boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -45,9 +47,15 @@ export class AssetOutput {
             "format": "uuid"
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "string",
+            "name": "connections",
+            "baseName": "connections",
+            "type": "Array<ConnectionOutput>",
+            "format": ""
+        },
+        {
+            "name": "currentAssetParameters",
+            "baseName": "current_asset_parameters",
+            "type": "AssetParametersOutput",
             "format": ""
         },
         {
@@ -57,9 +65,9 @@ export class AssetOutput {
             "format": ""
         },
         {
-            "name": "currentAssetParameters",
-            "baseName": "current_asset_parameters",
-            "type": "AssetParametersOutput",
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
             "format": ""
         },
         {

@@ -43,7 +43,13 @@ describe CloudApiClient::AssetOutput do
     end
   end
 
-  describe 'test attribute "status"' do
+  describe 'test attribute "connections"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "current_asset_parameters"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -55,7 +61,7 @@ describe CloudApiClient::AssetOutput do
     end
   end
 
-  describe 'test attribute "current_asset_parameters"' do
+  describe 'test attribute "status"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

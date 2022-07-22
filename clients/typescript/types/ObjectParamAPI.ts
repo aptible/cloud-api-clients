@@ -2,10 +2,14 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { AssetAction } from '../models/AssetAction';
 import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
 import { AssetParametersOutput } from '../models/AssetParametersOutput';
+import { ConnectionInput } from '../models/ConnectionInput';
+import { ConnectionOutput } from '../models/ConnectionOutput';
+import { ConnectionStatus } from '../models/ConnectionStatus';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
@@ -176,6 +180,117 @@ export class ObjectAssetsApi {
 
 }
 
+import { ObservableConnectionsApi } from "./ObservableAPI";
+import { ConnectionsApiRequestFactory, ConnectionsApiResponseProcessor} from "../apis/ConnectionsApi";
+
+export interface ConnectionsApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApicreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost
+     */
+    assetId: string
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApicreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost
+     */
+    environmentId: string
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApicreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost
+     */
+    organizationId: string
+    /**
+     * 
+     * @type ConnectionInput
+     * @memberof ConnectionsApicreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost
+     */
+    connectionInput: ConnectionInput
+}
+
+export interface ConnectionsApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApideleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete
+     */
+    assetId: string
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApideleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete
+     */
+    connectionId: string
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApideleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete
+     */
+    environmentId: string
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApideleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete
+     */
+    organizationId: string
+}
+
+export interface ConnectionsApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApigetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet
+     */
+    assetId: string
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApigetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet
+     */
+    environmentId: string
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApigetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet
+     */
+    organizationId: string
+}
+
+export class ObjectConnectionsApi {
+    private api: ObservableConnectionsApi
+
+    public constructor(configuration: Configuration, requestFactory?: ConnectionsApiRequestFactory, responseProcessor?: ConnectionsApiResponseProcessor) {
+        this.api = new ObservableConnectionsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create Connection
+     * @param param the request object
+     */
+    public createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(param: ConnectionsApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest, options?: Configuration): Promise<ConnectionOutput> {
+        return this.api.createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(param.assetId, param.environmentId, param.organizationId, param.connectionInput,  options).toPromise();
+    }
+
+    /**
+     * Delete Connection
+     * @param param the request object
+     */
+    public deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(param: ConnectionsApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest, options?: Configuration): Promise<any> {
+        return this.api.deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(param.assetId, param.connectionId, param.environmentId, param.organizationId,  options).toPromise();
+    }
+
+    /**
+     * Get Connection By Id
+     * @param param the request object
+     */
+    public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(param: ConnectionsApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest, options?: Configuration): Promise<ConnectionOutput> {
+        return this.api.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(param.assetId, param.environmentId, param.organizationId,  options).toPromise();
+    }
+
+}
+
 import { ObservableEnvironmentsApi } from "./ObservableAPI";
 import { EnvironmentsApiRequestFactory, EnvironmentsApiResponseProcessor} from "../apis/EnvironmentsApi";
 
@@ -235,6 +350,21 @@ export interface EnvironmentsApiGetEnvironmentByIdApiV1OrganizationsOrganization
      * 
      * @type string
      * @memberof EnvironmentsApigetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet
+     */
+    organizationId: string
+}
+
+export interface EnvironmentsApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest {
+    /**
+     * 
+     * @type string
+     * @memberof EnvironmentsApigetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet
+     */
+    environmentId: string
+    /**
+     * 
+     * @type string
+     * @memberof EnvironmentsApigetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet
      */
     organizationId: string
 }
@@ -306,6 +436,14 @@ export class ObjectEnvironmentsApi {
      */
     public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(param: EnvironmentsApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest, options?: Configuration): Promise<EnvironmentOutput> {
         return this.api.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(param.environmentId, param.organizationId,  options).toPromise();
+    }
+
+    /**
+     * Get Environment Connections
+     * @param param the request object
+     */
+    public getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(param: EnvironmentsApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest, options?: Configuration): Promise<Array<ConnectionOutput>> {
+        return this.api.getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(param.environmentId, param.organizationId,  options).toPromise();
     }
 
     /**

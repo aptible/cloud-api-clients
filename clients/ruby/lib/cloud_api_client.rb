@@ -17,10 +17,14 @@ require 'cloud_api_client/version'
 require 'cloud_api_client/configuration'
 
 # Models
+require 'cloud_api_client/models/asset_action'
 require 'cloud_api_client/models/asset_bundle'
 require 'cloud_api_client/models/asset_input'
 require 'cloud_api_client/models/asset_output'
 require 'cloud_api_client/models/asset_parameters_output'
+require 'cloud_api_client/models/connection_input'
+require 'cloud_api_client/models/connection_output'
+require 'cloud_api_client/models/connection_status'
 require 'cloud_api_client/models/environment_input'
 require 'cloud_api_client/models/environment_output'
 require 'cloud_api_client/models/http_validation_error'
@@ -36,6 +40,7 @@ require 'cloud_api_client/models/validation_error'
 
 # APIs
 require 'cloud_api_client/api/assets_api'
+require 'cloud_api_client/api/connections_api'
 require 'cloud_api_client/api/environments_api'
 require 'cloud_api_client/api/operations_api'
 require 'cloud_api_client/api/organizations_api'
