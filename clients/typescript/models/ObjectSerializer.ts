@@ -1,7 +1,11 @@
+export * from './AssetAction';
 export * from './AssetBundle';
 export * from './AssetInput';
 export * from './AssetOutput';
 export * from './AssetParametersOutput';
+export * from './ConnectionInput';
+export * from './ConnectionOutput';
+export * from './ConnectionStatus';
 export * from './EnvironmentInput';
 export * from './EnvironmentOutput';
 export * from './HTTPValidationError';
@@ -15,10 +19,14 @@ export * from './OrganizationOutput';
 export * from './TextResponse';
 export * from './ValidationError';
 
+import { AssetAction } from './AssetAction';
 import { AssetBundle } from './AssetBundle';
 import { AssetInput } from './AssetInput';
 import { AssetOutput } from './AssetOutput';
 import { AssetParametersOutput } from './AssetParametersOutput';
+import { ConnectionInput } from './ConnectionInput';
+import { ConnectionOutput } from './ConnectionOutput';
+import { ConnectionStatus } from './ConnectionStatus';
 import { EnvironmentInput } from './EnvironmentInput';
 import { EnvironmentOutput } from './EnvironmentOutput';
 import { HTTPValidationError } from './HTTPValidationError';
@@ -52,15 +60,19 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
+    "ConnectionStatus",
     "OperationStatus",
     "OperationType",
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "AssetAction": AssetAction,
     "AssetBundle": AssetBundle,
     "AssetInput": AssetInput,
     "AssetOutput": AssetOutput,
     "AssetParametersOutput": AssetParametersOutput,
+    "ConnectionInput": ConnectionInput,
+    "ConnectionOutput": ConnectionOutput,
     "EnvironmentInput": EnvironmentInput,
     "EnvironmentOutput": EnvironmentOutput,
     "HTTPValidationError": HTTPValidationError,

@@ -251,6 +251,169 @@ paths:
       summary: Create Asset
       tags:
       - assets
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/:
+    post:
+      operationId: create_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__post
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConnectionInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Create Connection
+      tags:
+      - connections
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}:
+    delete:
+      operationId: delete_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__connection_id__delete
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: connection_id
+        required: true
+        schema:
+          format: uuid
+          title: Connection Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Delete Connection
+      tags:
+      - connections
+    get:
+      operationId: get_connection_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__connection_id__get
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Get Connection By Id
+      tags:
+      - connections
   /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles:
     get:
       operationId: get_environment_allowed_assets_api_v1_organizations__organization_id__environments__environment_id__asset_bundles_get
@@ -294,6 +457,51 @@ paths:
       - HTTPBearer: []
       - HTTPBearer: []
       summary: Get Environment Allowed Assets
+      tags:
+      - environments
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/connections:
+    get:
+      operationId: get_environment_connections_api_v1_organizations__organization_id__environments__environment_id__connections_get
+      parameters:
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ConnectionOutput'
+                title: Response Get Environment Connections Api V1 Organizations  Organization
+                  Id  Environments  Environment Id  Connections Get
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Get Environment Connections
       tags:
       - environments
   /api/v1/organizations/{organization_id}/environments/{environment_id}:
@@ -832,14 +1040,38 @@ paths:
       - utilities
 components:
   schemas:
+    AssetAction:
+      example:
+        user_parameters: ""
+        name: name
+        description: description
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        user_parameters:
+          title: User Parameters
+      required:
+      - name
+      title: AssetAction
+      type: object
     AssetBundle:
       example:
         identifier: identifier
         types:
         - types
         - types
+        user_parameters: ""
         name: name
         description: description
+        actions:
+          key:
+            user_parameters: ""
+            name: name
+            description: description
       properties:
         identifier:
           title: Identifier
@@ -855,7 +1087,15 @@ components:
             type: string
           title: Types
           type: array
+        actions:
+          additionalProperties:
+            $ref: '#/components/schemas/AssetAction'
+          title: Actions
+          type: object
+        user_parameters:
+          title: User Parameters
       required:
+      - actions
       - description
       - identifier
       - name
@@ -901,6 +1141,15 @@ components:
         asset_version: asset_version
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset: asset
+        connections:
+        - incoming_asset: null
+          outgoing_asset: null
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: null
+        - incoming_asset: null
+          outgoing_asset: null
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: null
         current_asset_parameters:
           data: "{}"
           iteration: 0
@@ -917,13 +1166,18 @@ components:
           format: uuid
           title: Id
           type: string
+        connections:
+          items:
+            $ref: '#/components/schemas/ConnectionOutput'
+          title: Connections
+          type: array
+        current_asset_parameters:
+          $ref: '#/components/schemas/AssetParametersOutput'
+        environment:
+          $ref: '#/components/schemas/EnvironmentOutput'
         status:
           title: Status
           type: string
-        environment:
-          $ref: '#/components/schemas/EnvironmentOutput'
-        current_asset_parameters:
-          $ref: '#/components/schemas/AssetParametersOutput'
         user_defined:
           title: User Defined
           type: boolean
@@ -959,6 +1213,55 @@ components:
       - iteration
       title: AssetParametersOutput
       type: object
+    ConnectionInput:
+      example:
+        outgoing_asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
+      properties:
+        description:
+          title: Description
+          type: string
+        outgoing_asset_id:
+          format: uuid
+          title: Outgoing Asset Id
+          type: string
+      required:
+      - outgoing_asset_id
+      title: ConnectionInput
+      type: object
+    ConnectionOutput:
+      example:
+        incoming_asset: null
+        outgoing_asset: null
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status: null
+      properties:
+        id:
+          format: uuid
+          title: Id
+          type: string
+        incoming_asset:
+          $ref: '#/components/schemas/AssetOutput'
+        outgoing_asset:
+          $ref: '#/components/schemas/AssetOutput'
+        status:
+          $ref: '#/components/schemas/ConnectionStatus'
+      required:
+      - id
+      - incoming_asset
+      - outgoing_asset
+      - status
+      title: ConnectionOutput
+      type: object
+    ConnectionStatus:
+      description: An enumeration.
+      enum:
+      - ACTIVE
+      - DELETED
+      - FAILED
+      - PENDING
+      title: ConnectionStatus
+      type: string
     EnvironmentInput:
       example:
         data: "{}"

@@ -21,11 +21,13 @@ module CloudApiClient
 
     attr_accessor :id
 
-    attr_accessor :status
+    attr_accessor :connections
+
+    attr_accessor :current_asset_parameters
 
     attr_accessor :environment
 
-    attr_accessor :current_asset_parameters
+    attr_accessor :status
 
     attr_accessor :user_defined
 
@@ -35,9 +37,10 @@ module CloudApiClient
         :'asset' => :'asset',
         :'asset_version' => :'asset_version',
         :'id' => :'id',
-        :'status' => :'status',
-        :'environment' => :'environment',
+        :'connections' => :'connections',
         :'current_asset_parameters' => :'current_asset_parameters',
+        :'environment' => :'environment',
+        :'status' => :'status',
         :'user_defined' => :'user_defined'
       }
     end
@@ -53,9 +56,10 @@ module CloudApiClient
         :'asset' => :'String',
         :'asset_version' => :'String',
         :'id' => :'String',
-        :'status' => :'String',
-        :'environment' => :'EnvironmentOutput',
+        :'connections' => :'Array<ConnectionOutput>',
         :'current_asset_parameters' => :'AssetParametersOutput',
+        :'environment' => :'EnvironmentOutput',
+        :'status' => :'String',
         :'user_defined' => :'Boolean'
       }
     end
@@ -93,16 +97,22 @@ module CloudApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'connections')
+        if (value = attributes[:'connections']).is_a?(Array)
+          self.connections = value
+        end
+      end
+
+      if attributes.key?(:'current_asset_parameters')
+        self.current_asset_parameters = attributes[:'current_asset_parameters']
       end
 
       if attributes.key?(:'environment')
         self.environment = attributes[:'environment']
       end
 
-      if attributes.key?(:'current_asset_parameters')
-        self.current_asset_parameters = attributes[:'current_asset_parameters']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
       if attributes.key?(:'user_defined')
@@ -126,16 +136,16 @@ module CloudApiClient
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      if @current_asset_parameters.nil?
+        invalid_properties.push('invalid value for "current_asset_parameters", current_asset_parameters cannot be nil.')
       end
 
       if @environment.nil?
         invalid_properties.push('invalid value for "environment", environment cannot be nil.')
       end
 
-      if @current_asset_parameters.nil?
-        invalid_properties.push('invalid value for "current_asset_parameters", current_asset_parameters cannot be nil.')
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
 
       if @user_defined.nil?
@@ -151,9 +161,9 @@ module CloudApiClient
       return false if @asset.nil?
       return false if @asset_version.nil?
       return false if @id.nil?
-      return false if @status.nil?
-      return false if @environment.nil?
       return false if @current_asset_parameters.nil?
+      return false if @environment.nil?
+      return false if @status.nil?
       return false if @user_defined.nil?
       true
     end
@@ -166,9 +176,10 @@ module CloudApiClient
           asset == o.asset &&
           asset_version == o.asset_version &&
           id == o.id &&
-          status == o.status &&
-          environment == o.environment &&
+          connections == o.connections &&
           current_asset_parameters == o.current_asset_parameters &&
+          environment == o.environment &&
+          status == o.status &&
           user_defined == o.user_defined
     end
 
@@ -181,7 +192,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [asset, asset_version, id, status, environment, current_asset_parameters, user_defined].hash
+      [asset, asset_version, id, connections, current_asset_parameters, environment, status, user_defined].hash
     end
 
     # Builds the object from hash

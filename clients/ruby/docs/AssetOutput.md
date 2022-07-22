@@ -7,9 +7,10 @@
 | **asset** | **String** |  |  |
 | **asset_version** | **String** |  |  |
 | **id** | **String** |  |  |
-| **status** | **String** |  |  |
-| **environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  |  |
+| **connections** | [**Array&lt;ConnectionOutput&gt;**](ConnectionOutput.md) |  | [optional] |
 | **current_asset_parameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  |  |
+| **environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  |  |
+| **status** | **String** |  |  |
 | **user_defined** | **Boolean** |  |  |
 
 ## Example
@@ -21,9 +22,10 @@ instance = CloudApiClient::AssetOutput.new(
   asset: null,
   asset_version: null,
   id: null,
-  status: null,
-  environment: null,
+  connections: null,
   current_asset_parameters: null,
+  environment: null,
+  status: null,
   user_defined: null
 )
 ```

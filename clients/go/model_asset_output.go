@@ -19,9 +19,10 @@ type AssetOutput struct {
 	Asset string `json:"asset"`
 	AssetVersion string `json:"asset_version"`
 	Id string `json:"id"`
-	Status string `json:"status"`
-	Environment EnvironmentOutput `json:"environment"`
+	Connections []ConnectionOutput `json:"connections,omitempty"`
 	CurrentAssetParameters AssetParametersOutput `json:"current_asset_parameters"`
+	Environment EnvironmentOutput `json:"environment"`
+	Status string `json:"status"`
 	UserDefined bool `json:"user_defined"`
 }
 
@@ -29,14 +30,14 @@ type AssetOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetOutput(asset string, assetVersion string, id string, status string, environment EnvironmentOutput, currentAssetParameters AssetParametersOutput, userDefined bool) *AssetOutput {
+func NewAssetOutput(asset string, assetVersion string, id string, currentAssetParameters AssetParametersOutput, environment EnvironmentOutput, status string, userDefined bool) *AssetOutput {
 	this := AssetOutput{}
 	this.Asset = asset
 	this.AssetVersion = assetVersion
 	this.Id = id
-	this.Status = status
-	this.Environment = environment
 	this.CurrentAssetParameters = currentAssetParameters
+	this.Environment = environment
+	this.Status = status
 	this.UserDefined = userDefined
 	return &this
 }
@@ -121,28 +122,60 @@ func (o *AssetOutput) SetId(v string) {
 	o.Id = v
 }
 
-// GetStatus returns the Status field value
-func (o *AssetOutput) GetStatus() string {
+// GetConnections returns the Connections field value if set, zero value otherwise.
+func (o *AssetOutput) GetConnections() []ConnectionOutput {
+	if o == nil || o.Connections == nil {
+		var ret []ConnectionOutput
+		return ret
+	}
+	return o.Connections
+}
+
+// GetConnectionsOk returns a tuple with the Connections field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssetOutput) GetConnectionsOk() ([]ConnectionOutput, bool) {
+	if o == nil || o.Connections == nil {
+		return nil, false
+	}
+	return o.Connections, true
+}
+
+// HasConnections returns a boolean if a field has been set.
+func (o *AssetOutput) HasConnections() bool {
+	if o != nil && o.Connections != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConnections gets a reference to the given []ConnectionOutput and assigns it to the Connections field.
+func (o *AssetOutput) SetConnections(v []ConnectionOutput) {
+	o.Connections = v
+}
+
+// GetCurrentAssetParameters returns the CurrentAssetParameters field value
+func (o *AssetOutput) GetCurrentAssetParameters() AssetParametersOutput {
 	if o == nil {
-		var ret string
+		var ret AssetParametersOutput
 		return ret
 	}
 
-	return o.Status
+	return o.CurrentAssetParameters
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetCurrentAssetParametersOk returns a tuple with the CurrentAssetParameters field value
 // and a boolean to check if the value has been set.
-func (o *AssetOutput) GetStatusOk() (*string, bool) {
+func (o *AssetOutput) GetCurrentAssetParametersOk() (*AssetParametersOutput, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Status, true
+	return &o.CurrentAssetParameters, true
 }
 
-// SetStatus sets field value
-func (o *AssetOutput) SetStatus(v string) {
-	o.Status = v
+// SetCurrentAssetParameters sets field value
+func (o *AssetOutput) SetCurrentAssetParameters(v AssetParametersOutput) {
+	o.CurrentAssetParameters = v
 }
 
 // GetEnvironment returns the Environment field value
@@ -169,28 +202,28 @@ func (o *AssetOutput) SetEnvironment(v EnvironmentOutput) {
 	o.Environment = v
 }
 
-// GetCurrentAssetParameters returns the CurrentAssetParameters field value
-func (o *AssetOutput) GetCurrentAssetParameters() AssetParametersOutput {
+// GetStatus returns the Status field value
+func (o *AssetOutput) GetStatus() string {
 	if o == nil {
-		var ret AssetParametersOutput
+		var ret string
 		return ret
 	}
 
-	return o.CurrentAssetParameters
+	return o.Status
 }
 
-// GetCurrentAssetParametersOk returns a tuple with the CurrentAssetParameters field value
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *AssetOutput) GetCurrentAssetParametersOk() (*AssetParametersOutput, bool) {
+func (o *AssetOutput) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CurrentAssetParameters, true
+	return &o.Status, true
 }
 
-// SetCurrentAssetParameters sets field value
-func (o *AssetOutput) SetCurrentAssetParameters(v AssetParametersOutput) {
-	o.CurrentAssetParameters = v
+// SetStatus sets field value
+func (o *AssetOutput) SetStatus(v string) {
+	o.Status = v
 }
 
 // GetUserDefined returns the UserDefined field value
@@ -228,14 +261,17 @@ func (o AssetOutput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
+	if o.Connections != nil {
+		toSerialize["connections"] = o.Connections
+	}
 	if true {
-		toSerialize["status"] = o.Status
+		toSerialize["current_asset_parameters"] = o.CurrentAssetParameters
 	}
 	if true {
 		toSerialize["environment"] = o.Environment
 	}
 	if true {
-		toSerialize["current_asset_parameters"] = o.CurrentAssetParameters
+		toSerialize["status"] = o.Status
 	}
 	if true {
 		toSerialize["user_defined"] = o.UserDefined

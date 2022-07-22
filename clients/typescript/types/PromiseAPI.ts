@@ -2,10 +2,14 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { AssetAction } from '../models/AssetAction';
 import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
 import { AssetParametersOutput } from '../models/AssetParametersOutput';
+import { ConnectionInput } from '../models/ConnectionInput';
+import { ConnectionOutput } from '../models/ConnectionOutput';
+import { ConnectionStatus } from '../models/ConnectionStatus';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
@@ -92,6 +96,60 @@ export class PromiseAssetsApi {
 
 
 
+import { ObservableConnectionsApi } from './ObservableAPI';
+
+import { ConnectionsApiRequestFactory, ConnectionsApiResponseProcessor} from "../apis/ConnectionsApi";
+export class PromiseConnectionsApi {
+    private api: ObservableConnectionsApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: ConnectionsApiRequestFactory,
+        responseProcessor?: ConnectionsApiResponseProcessor
+    ) {
+        this.api = new ObservableConnectionsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create Connection
+     * @param assetId 
+     * @param environmentId 
+     * @param organizationId 
+     * @param connectionInput 
+     */
+    public createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(assetId: string, environmentId: string, organizationId: string, connectionInput: ConnectionInput, _options?: Configuration): Promise<ConnectionOutput> {
+        const result = this.api.createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(assetId, environmentId, organizationId, connectionInput, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete Connection
+     * @param assetId 
+     * @param connectionId 
+     * @param environmentId 
+     * @param organizationId 
+     */
+    public deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(assetId: string, connectionId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(assetId, connectionId, environmentId, organizationId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get Connection By Id
+     * @param assetId 
+     * @param environmentId 
+     * @param organizationId 
+     */
+    public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<ConnectionOutput> {
+        const result = this.api.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId, environmentId, organizationId, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
 import { ObservableEnvironmentsApi } from './ObservableAPI';
 
 import { EnvironmentsApiRequestFactory, EnvironmentsApiResponseProcessor} from "../apis/EnvironmentsApi";
@@ -143,6 +201,16 @@ export class PromiseEnvironmentsApi {
      */
     public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<EnvironmentOutput> {
         const result = this.api.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId, organizationId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get Environment Connections
+     * @param environmentId 
+     * @param organizationId 
+     */
+    public getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<ConnectionOutput>> {
+        const result = this.api.getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(environmentId, organizationId, _options);
         return result.toPromise();
     }
 

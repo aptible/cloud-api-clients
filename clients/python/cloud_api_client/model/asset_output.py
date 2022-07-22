@@ -31,8 +31,10 @@ from cloud_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from cloud_api_client.model.asset_parameters_output import AssetParametersOutput
+    from cloud_api_client.model.connection_output import ConnectionOutput
     from cloud_api_client.model.environment_output import EnvironmentOutput
     globals()['AssetParametersOutput'] = AssetParametersOutput
+    globals()['ConnectionOutput'] = ConnectionOutput
     globals()['EnvironmentOutput'] = EnvironmentOutput
 
 
@@ -92,10 +94,11 @@ class AssetOutput(ModelNormal):
             'asset': (str,),  # noqa: E501
             'asset_version': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'status': (str,),  # noqa: E501
-            'environment': (EnvironmentOutput,),  # noqa: E501
             'current_asset_parameters': (AssetParametersOutput,),  # noqa: E501
+            'environment': (EnvironmentOutput,),  # noqa: E501
+            'status': (str,),  # noqa: E501
             'user_defined': (bool,),  # noqa: E501
+            'connections': ([ConnectionOutput],),  # noqa: E501
         }
 
     @cached_property
@@ -107,10 +110,11 @@ class AssetOutput(ModelNormal):
         'asset': 'asset',  # noqa: E501
         'asset_version': 'asset_version',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'status': 'status',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
         'current_asset_parameters': 'current_asset_parameters',  # noqa: E501
+        'environment': 'environment',  # noqa: E501
+        'status': 'status',  # noqa: E501
         'user_defined': 'user_defined',  # noqa: E501
+        'connections': 'connections',  # noqa: E501
     }
 
     read_only_vars = {
@@ -120,16 +124,16 @@ class AssetOutput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, asset, asset_version, id, status, environment, current_asset_parameters, user_defined, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, asset, asset_version, id, current_asset_parameters, environment, status, user_defined, *args, **kwargs):  # noqa: E501
         """AssetOutput - a model defined in OpenAPI
 
         Args:
             asset (str):
             asset_version (str):
             id (str):
-            status (str):
-            environment (EnvironmentOutput):
             current_asset_parameters (AssetParametersOutput):
+            environment (EnvironmentOutput):
+            status (str):
             user_defined (bool):
 
         Keyword Args:
@@ -163,6 +167,7 @@ class AssetOutput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            connections ([ConnectionOutput]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -197,9 +202,9 @@ class AssetOutput(ModelNormal):
         self.asset = asset
         self.asset_version = asset_version
         self.id = id
-        self.status = status
-        self.environment = environment
         self.current_asset_parameters = current_asset_parameters
+        self.environment = environment
+        self.status = status
         self.user_defined = user_defined
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -221,16 +226,16 @@ class AssetOutput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, asset, asset_version, id, status, environment, current_asset_parameters, user_defined, *args, **kwargs):  # noqa: E501
+    def __init__(self, asset, asset_version, id, current_asset_parameters, environment, status, user_defined, *args, **kwargs):  # noqa: E501
         """AssetOutput - a model defined in OpenAPI
 
         Args:
             asset (str):
             asset_version (str):
             id (str):
-            status (str):
-            environment (EnvironmentOutput):
             current_asset_parameters (AssetParametersOutput):
+            environment (EnvironmentOutput):
+            status (str):
             user_defined (bool):
 
         Keyword Args:
@@ -264,6 +269,7 @@ class AssetOutput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            connections ([ConnectionOutput]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -296,9 +302,9 @@ class AssetOutput(ModelNormal):
         self.asset = asset
         self.asset_version = asset_version
         self.id = id
-        self.status = status
-        self.environment = environment
         self.current_asset_parameters = current_asset_parameters
+        self.environment = environment
+        self.status = status
         self.user_defined = user_defined
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

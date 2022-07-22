@@ -9,10 +9,14 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from cloud_api_client.model.asset_action import AssetAction
 from cloud_api_client.model.asset_bundle import AssetBundle
 from cloud_api_client.model.asset_input import AssetInput
 from cloud_api_client.model.asset_output import AssetOutput
 from cloud_api_client.model.asset_parameters_output import AssetParametersOutput
+from cloud_api_client.model.connection_input import ConnectionInput
+from cloud_api_client.model.connection_output import ConnectionOutput
+from cloud_api_client.model.connection_status import ConnectionStatus
 from cloud_api_client.model.environment_input import EnvironmentInput
 from cloud_api_client.model.environment_output import EnvironmentOutput
 from cloud_api_client.model.http_validation_error import HTTPValidationError

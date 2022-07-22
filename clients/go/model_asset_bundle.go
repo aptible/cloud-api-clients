@@ -20,18 +20,21 @@ type AssetBundle struct {
 	Name string `json:"name"`
 	Description string `json:"description"`
 	Types []string `json:"types"`
+	Actions map[string]AssetAction `json:"actions"`
+	UserParameters interface{} `json:"user_parameters,omitempty"`
 }
 
 // NewAssetBundle instantiates a new AssetBundle object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetBundle(identifier string, name string, description string, types []string) *AssetBundle {
+func NewAssetBundle(identifier string, name string, description string, types []string, actions map[string]AssetAction) *AssetBundle {
 	this := AssetBundle{}
 	this.Identifier = identifier
 	this.Name = name
 	this.Description = description
 	this.Types = types
+	this.Actions = actions
 	return &this
 }
 
@@ -139,6 +142,63 @@ func (o *AssetBundle) SetTypes(v []string) {
 	o.Types = v
 }
 
+// GetActions returns the Actions field value
+func (o *AssetBundle) GetActions() map[string]AssetAction {
+	if o == nil {
+		var ret map[string]AssetAction
+		return ret
+	}
+
+	return o.Actions
+}
+
+// GetActionsOk returns a tuple with the Actions field value
+// and a boolean to check if the value has been set.
+func (o *AssetBundle) GetActionsOk() (*map[string]AssetAction, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Actions, true
+}
+
+// SetActions sets field value
+func (o *AssetBundle) SetActions(v map[string]AssetAction) {
+	o.Actions = v
+}
+
+// GetUserParameters returns the UserParameters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AssetBundle) GetUserParameters() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.UserParameters
+}
+
+// GetUserParametersOk returns a tuple with the UserParameters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AssetBundle) GetUserParametersOk() (*interface{}, bool) {
+	if o == nil || o.UserParameters == nil {
+		return nil, false
+	}
+	return &o.UserParameters, true
+}
+
+// HasUserParameters returns a boolean if a field has been set.
+func (o *AssetBundle) HasUserParameters() bool {
+	if o != nil && o.UserParameters != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUserParameters gets a reference to the given interface{} and assigns it to the UserParameters field.
+func (o *AssetBundle) SetUserParameters(v interface{}) {
+	o.UserParameters = v
+}
+
 func (o AssetBundle) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -152,6 +212,12 @@ func (o AssetBundle) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["types"] = o.Types
+	}
+	if true {
+		toSerialize["actions"] = o.Actions
+	}
+	if o.UserParameters != nil {
+		toSerialize["user_parameters"] = o.UserParameters
 	}
 	return json.Marshal(toSerialize)
 }

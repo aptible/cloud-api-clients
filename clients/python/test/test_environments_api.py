@@ -51,6 +51,13 @@ class TestEnvironmentsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get(self):
+        """Test case for get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get
+
+        Get Environment Connections  # noqa: E501
+        """
+        pass
+
     def test_get_environments_api_v1_organizations_organization_id_environments_get(self):
         """Test case for get_environments_api_v1_organizations_organization_id_environments_get
 
