@@ -18,6 +18,7 @@ export * from './OperationActionUpdate';
 export * from './OperationAssetUpdate';
 export * from './OperationOutput';
 export * from './OperationStatus';
+export * from './OperationTerraformRunUpdate';
 export * from './OperationType';
 export * from './OperationUpdate';
 export * from './OrganizationInput';
@@ -45,6 +46,7 @@ import { OperationActionUpdate } from './OperationActionUpdate';
 import { OperationAssetUpdate } from './OperationAssetUpdate';
 import { OperationOutput } from './OperationOutput';
 import { OperationStatus } from './OperationStatus';
+import { OperationTerraformRunUpdate } from './OperationTerraformRunUpdate';
 import { OperationType } from './OperationType';
 import { OperationUpdate } from './OperationUpdate';
 import { OrganizationInput } from './OrganizationInput';
@@ -96,6 +98,7 @@ let typeMap: {[index: string]: any} = {
     "OperationActionUpdate": OperationActionUpdate,
     "OperationAssetUpdate": OperationAssetUpdate,
     "OperationOutput": OperationOutput,
+    "OperationTerraformRunUpdate": OperationTerraformRunUpdate,
     "OperationUpdate": OperationUpdate,
     "OrganizationInput": OrganizationInput,
     "OrganizationOutput": OrganizationOutput,

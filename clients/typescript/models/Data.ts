@@ -12,14 +12,15 @@
 
 import { OperationActionUpdate } from './OperationActionUpdate';
 import { OperationAssetUpdate } from './OperationAssetUpdate';
+import { OperationTerraformRunUpdate } from './OperationTerraformRunUpdate';
 import { HttpFile } from '../http/http';
 
 export class Data {
     'actionOutput'?: any;
     'actionErrors'?: string;
-    'terraformStdout': Array<any>;
-    'terraformStdin': Array<any>;
-    'terraformReturnCode': number;
+    'terraformInit'?: OperationTerraformRunUpdate;
+    'terraformPlan'?: OperationTerraformRunUpdate;
+    'terraformApply'?: OperationTerraformRunUpdate;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -37,21 +38,21 @@ export class Data {
             "format": ""
         },
         {
-            "name": "terraformStdout",
-            "baseName": "terraform_stdout",
-            "type": "Array<any>",
+            "name": "terraformInit",
+            "baseName": "terraform_init",
+            "type": "OperationTerraformRunUpdate",
             "format": ""
         },
         {
-            "name": "terraformStdin",
-            "baseName": "terraform_stdin",
-            "type": "Array<any>",
+            "name": "terraformPlan",
+            "baseName": "terraform_plan",
+            "type": "OperationTerraformRunUpdate",
             "format": ""
         },
         {
-            "name": "terraformReturnCode",
-            "baseName": "terraform_return_code",
-            "type": "number",
+            "name": "terraformApply",
+            "baseName": "terraform_apply",
+            "type": "OperationTerraformRunUpdate",
             "format": ""
         }    ];
 

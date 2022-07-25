@@ -10,38 +10,37 @@
  * Do not edit the class manually.
  */
 
-import { OperationTerraformRunUpdate } from './OperationTerraformRunUpdate';
 import { HttpFile } from '../http/http';
 
-export class OperationAssetUpdate {
-    'terraformInit'?: OperationTerraformRunUpdate;
-    'terraformPlan'?: OperationTerraformRunUpdate;
-    'terraformApply'?: OperationTerraformRunUpdate;
+export class OperationTerraformRunUpdate {
+    'terraformStdout': Array<any>;
+    'terraformStdin': Array<any>;
+    'terraformReturnCode': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "terraformInit",
-            "baseName": "terraform_init",
-            "type": "OperationTerraformRunUpdate",
+            "name": "terraformStdout",
+            "baseName": "terraform_stdout",
+            "type": "Array<any>",
             "format": ""
         },
         {
-            "name": "terraformPlan",
-            "baseName": "terraform_plan",
-            "type": "OperationTerraformRunUpdate",
+            "name": "terraformStdin",
+            "baseName": "terraform_stdin",
+            "type": "Array<any>",
             "format": ""
         },
         {
-            "name": "terraformApply",
-            "baseName": "terraform_apply",
-            "type": "OperationTerraformRunUpdate",
+            "name": "terraformReturnCode",
+            "baseName": "terraform_return_code",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return OperationAssetUpdate.attributeTypeMap;
+        return OperationTerraformRunUpdate.attributeTypeMap;
     }
 
     public constructor() {

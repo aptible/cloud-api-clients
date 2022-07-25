@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **action_output** | **Object** |  | [optional] |
 | **action_errors** | **String** |  | [optional] |
-| **terraform_stdout** | **Array&lt;Object&gt;** |  |  |
-| **terraform_stdin** | **Array&lt;Object&gt;** |  |  |
-| **terraform_return_code** | **Integer** |  |  |
+| **terraform_init** | [**OperationTerraformRunUpdate**](OperationTerraformRunUpdate.md) |  | [optional] |
+| **terraform_plan** | [**OperationTerraformRunUpdate**](OperationTerraformRunUpdate.md) |  | [optional] |
+| **terraform_apply** | [**OperationTerraformRunUpdate**](OperationTerraformRunUpdate.md) |  | [optional] |
 
 ## Example
 
@@ -18,9 +18,9 @@ require 'cloud_api_client'
 instance = CloudApiClient::Data.new(
   action_output: null,
   action_errors: null,
-  terraform_stdout: null,
-  terraform_stdin: null,
-  terraform_return_code: null
+  terraform_init: null,
+  terraform_plan: null,
+  terraform_apply: null
 )
 ```
 

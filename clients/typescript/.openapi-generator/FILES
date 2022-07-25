@@ -47,6 +47,7 @@ models/OperationActionUpdate.ts
 models/OperationAssetUpdate.ts
 models/OperationOutput.ts
 models/OperationStatus.ts
+models/OperationTerraformRunUpdate.ts
 models/OperationType.ts
 models/OperationUpdate.ts
 models/OrganizationInput.ts

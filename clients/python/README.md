@@ -148,6 +148,7 @@ Class | Method | HTTP request | Description
  - [OperationAssetUpdate](docs/OperationAssetUpdate.md)
  - [OperationOutput](docs/OperationOutput.md)
  - [OperationStatus](docs/OperationStatus.md)
+ - [OperationTerraformRunUpdate](docs/OperationTerraformRunUpdate.md)
  - [OperationType](docs/OperationType.md)
  - [OperationUpdate](docs/OperationUpdate.md)
  - [OrganizationInput](docs/OrganizationInput.md)

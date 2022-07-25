@@ -12,17 +12,11 @@ import sys
 import unittest
 
 import cloud_api_client
-from cloud_api_client.model.operation_action_update import OperationActionUpdate
-from cloud_api_client.model.operation_asset_update import OperationAssetUpdate
 from cloud_api_client.model.operation_terraform_run_update import OperationTerraformRunUpdate
-globals()['OperationActionUpdate'] = OperationActionUpdate
-globals()['OperationAssetUpdate'] = OperationAssetUpdate
-globals()['OperationTerraformRunUpdate'] = OperationTerraformRunUpdate
-from cloud_api_client.model.data import Data
 
 
-class TestData(unittest.TestCase):
-    """Data unit test stubs"""
+class TestOperationTerraformRunUpdate(unittest.TestCase):
+    """OperationTerraformRunUpdate unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,10 +24,10 @@ class TestData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testData(self):
-        """Test Data"""
+    def testOperationTerraformRunUpdate(self):
+        """Test OperationTerraformRunUpdate"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = Data()  # noqa: E501
+        # model = OperationTerraformRunUpdate()  # noqa: E501
         pass
 
 

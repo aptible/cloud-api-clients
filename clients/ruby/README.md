@@ -136,6 +136,7 @@ Class | Method | HTTP request | Description
  - [CloudApiClient::OperationAssetUpdate](docs/OperationAssetUpdate.md)
  - [CloudApiClient::OperationOutput](docs/OperationOutput.md)
  - [CloudApiClient::OperationStatus](docs/OperationStatus.md)
+ - [CloudApiClient::OperationTerraformRunUpdate](docs/OperationTerraformRunUpdate.md)
  - [CloudApiClient::OperationType](docs/OperationType.md)
  - [CloudApiClient::OperationUpdate](docs/OperationUpdate.md)
  - [CloudApiClient::OrganizationInput](docs/OrganizationInput.md)

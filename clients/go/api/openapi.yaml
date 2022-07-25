@@ -1699,23 +1699,12 @@ components:
       type: object
     OperationAssetUpdate:
       properties:
-        terraform_stdout:
-          items:
-            type: object
-          title: Terraform Stdout
-          type: array
-        terraform_stdin:
-          items:
-            type: object
-          title: Terraform Stdin
-          type: array
-        terraform_return_code:
-          title: Terraform Return Code
-          type: integer
-      required:
-      - terraform_return_code
-      - terraform_stdin
-      - terraform_stdout
+        terraform_init:
+          $ref: '#/components/schemas/OperationTerraformRunUpdate'
+        terraform_plan:
+          $ref: '#/components/schemas/OperationTerraformRunUpdate'
+        terraform_apply:
+          $ref: '#/components/schemas/OperationTerraformRunUpdate'
       title: OperationAssetUpdate
       type: object
     OperationOutput:
@@ -1793,6 +1782,27 @@ components:
       - COMPLETE
       title: OperationStatus
       type: string
+    OperationTerraformRunUpdate:
+      properties:
+        terraform_stdout:
+          items:
+            type: object
+          title: Terraform Stdout
+          type: array
+        terraform_stdin:
+          items:
+            type: object
+          title: Terraform Stdin
+          type: array
+        terraform_return_code:
+          title: Terraform Return Code
+          type: integer
+      required:
+      - terraform_return_code
+      - terraform_stdin
+      - terraform_stdout
+      title: OperationTerraformRunUpdate
+      type: object
     OperationType:
       description: An enumeration.
       enum:

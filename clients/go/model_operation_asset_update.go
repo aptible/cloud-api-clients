@@ -16,20 +16,17 @@ import (
 
 // OperationAssetUpdate struct for OperationAssetUpdate
 type OperationAssetUpdate struct {
-	TerraformStdout []map[string]interface{} `json:"terraform_stdout"`
-	TerraformStdin []map[string]interface{} `json:"terraform_stdin"`
-	TerraformReturnCode int32 `json:"terraform_return_code"`
+	TerraformInit *OperationTerraformRunUpdate `json:"terraform_init,omitempty"`
+	TerraformPlan *OperationTerraformRunUpdate `json:"terraform_plan,omitempty"`
+	TerraformApply *OperationTerraformRunUpdate `json:"terraform_apply,omitempty"`
 }
 
 // NewOperationAssetUpdate instantiates a new OperationAssetUpdate object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOperationAssetUpdate(terraformStdout []map[string]interface{}, terraformStdin []map[string]interface{}, terraformReturnCode int32) *OperationAssetUpdate {
+func NewOperationAssetUpdate() *OperationAssetUpdate {
 	this := OperationAssetUpdate{}
-	this.TerraformStdout = terraformStdout
-	this.TerraformStdin = terraformStdin
-	this.TerraformReturnCode = terraformReturnCode
 	return &this
 }
 
@@ -41,88 +38,112 @@ func NewOperationAssetUpdateWithDefaults() *OperationAssetUpdate {
 	return &this
 }
 
-// GetTerraformStdout returns the TerraformStdout field value
-func (o *OperationAssetUpdate) GetTerraformStdout() []map[string]interface{} {
-	if o == nil {
-		var ret []map[string]interface{}
+// GetTerraformInit returns the TerraformInit field value if set, zero value otherwise.
+func (o *OperationAssetUpdate) GetTerraformInit() OperationTerraformRunUpdate {
+	if o == nil || o.TerraformInit == nil {
+		var ret OperationTerraformRunUpdate
 		return ret
 	}
-
-	return o.TerraformStdout
+	return *o.TerraformInit
 }
 
-// GetTerraformStdoutOk returns a tuple with the TerraformStdout field value
+// GetTerraformInitOk returns a tuple with the TerraformInit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OperationAssetUpdate) GetTerraformStdoutOk() ([]map[string]interface{}, bool) {
-	if o == nil {
+func (o *OperationAssetUpdate) GetTerraformInitOk() (*OperationTerraformRunUpdate, bool) {
+	if o == nil || o.TerraformInit == nil {
 		return nil, false
 	}
-	return o.TerraformStdout, true
+	return o.TerraformInit, true
 }
 
-// SetTerraformStdout sets field value
-func (o *OperationAssetUpdate) SetTerraformStdout(v []map[string]interface{}) {
-	o.TerraformStdout = v
+// HasTerraformInit returns a boolean if a field has been set.
+func (o *OperationAssetUpdate) HasTerraformInit() bool {
+	if o != nil && o.TerraformInit != nil {
+		return true
+	}
+
+	return false
 }
 
-// GetTerraformStdin returns the TerraformStdin field value
-func (o *OperationAssetUpdate) GetTerraformStdin() []map[string]interface{} {
-	if o == nil {
-		var ret []map[string]interface{}
+// SetTerraformInit gets a reference to the given OperationTerraformRunUpdate and assigns it to the TerraformInit field.
+func (o *OperationAssetUpdate) SetTerraformInit(v OperationTerraformRunUpdate) {
+	o.TerraformInit = &v
+}
+
+// GetTerraformPlan returns the TerraformPlan field value if set, zero value otherwise.
+func (o *OperationAssetUpdate) GetTerraformPlan() OperationTerraformRunUpdate {
+	if o == nil || o.TerraformPlan == nil {
+		var ret OperationTerraformRunUpdate
 		return ret
 	}
-
-	return o.TerraformStdin
+	return *o.TerraformPlan
 }
 
-// GetTerraformStdinOk returns a tuple with the TerraformStdin field value
+// GetTerraformPlanOk returns a tuple with the TerraformPlan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OperationAssetUpdate) GetTerraformStdinOk() ([]map[string]interface{}, bool) {
-	if o == nil {
+func (o *OperationAssetUpdate) GetTerraformPlanOk() (*OperationTerraformRunUpdate, bool) {
+	if o == nil || o.TerraformPlan == nil {
 		return nil, false
 	}
-	return o.TerraformStdin, true
+	return o.TerraformPlan, true
 }
 
-// SetTerraformStdin sets field value
-func (o *OperationAssetUpdate) SetTerraformStdin(v []map[string]interface{}) {
-	o.TerraformStdin = v
+// HasTerraformPlan returns a boolean if a field has been set.
+func (o *OperationAssetUpdate) HasTerraformPlan() bool {
+	if o != nil && o.TerraformPlan != nil {
+		return true
+	}
+
+	return false
 }
 
-// GetTerraformReturnCode returns the TerraformReturnCode field value
-func (o *OperationAssetUpdate) GetTerraformReturnCode() int32 {
-	if o == nil {
-		var ret int32
+// SetTerraformPlan gets a reference to the given OperationTerraformRunUpdate and assigns it to the TerraformPlan field.
+func (o *OperationAssetUpdate) SetTerraformPlan(v OperationTerraformRunUpdate) {
+	o.TerraformPlan = &v
+}
+
+// GetTerraformApply returns the TerraformApply field value if set, zero value otherwise.
+func (o *OperationAssetUpdate) GetTerraformApply() OperationTerraformRunUpdate {
+	if o == nil || o.TerraformApply == nil {
+		var ret OperationTerraformRunUpdate
 		return ret
 	}
-
-	return o.TerraformReturnCode
+	return *o.TerraformApply
 }
 
-// GetTerraformReturnCodeOk returns a tuple with the TerraformReturnCode field value
+// GetTerraformApplyOk returns a tuple with the TerraformApply field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OperationAssetUpdate) GetTerraformReturnCodeOk() (*int32, bool) {
-	if o == nil {
+func (o *OperationAssetUpdate) GetTerraformApplyOk() (*OperationTerraformRunUpdate, bool) {
+	if o == nil || o.TerraformApply == nil {
 		return nil, false
 	}
-	return &o.TerraformReturnCode, true
+	return o.TerraformApply, true
 }
 
-// SetTerraformReturnCode sets field value
-func (o *OperationAssetUpdate) SetTerraformReturnCode(v int32) {
-	o.TerraformReturnCode = v
+// HasTerraformApply returns a boolean if a field has been set.
+func (o *OperationAssetUpdate) HasTerraformApply() bool {
+	if o != nil && o.TerraformApply != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTerraformApply gets a reference to the given OperationTerraformRunUpdate and assigns it to the TerraformApply field.
+func (o *OperationAssetUpdate) SetTerraformApply(v OperationTerraformRunUpdate) {
+	o.TerraformApply = &v
 }
 
 func (o OperationAssetUpdate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["terraform_stdout"] = o.TerraformStdout
+	if o.TerraformInit != nil {
+		toSerialize["terraform_init"] = o.TerraformInit
 	}
-	if true {
-		toSerialize["terraform_stdin"] = o.TerraformStdin
+	if o.TerraformPlan != nil {
+		toSerialize["terraform_plan"] = o.TerraformPlan
 	}
-	if true {
-		toSerialize["terraform_return_code"] = o.TerraformReturnCode
+	if o.TerraformApply != nil {
+		toSerialize["terraform_apply"] = o.TerraformApply
 	}
 	return json.Marshal(toSerialize)
 }

@@ -38,6 +38,7 @@ cloud_api_client/model/operation_action_update.py
 cloud_api_client/model/operation_asset_update.py
 cloud_api_client/model/operation_output.py
 cloud_api_client/model/operation_status.py
+cloud_api_client/model/operation_terraform_run_update.py
 cloud_api_client/model/operation_type.py
 cloud_api_client/model/operation_update.py
 cloud_api_client/model/organization_input.py
@@ -71,6 +72,7 @@ docs/OperationActionUpdate.md
 docs/OperationAssetUpdate.md
 docs/OperationOutput.md
 docs/OperationStatus.md
+docs/OperationTerraformRunUpdate.md
 docs/OperationType.md
 docs/OperationUpdate.md
 docs/OperationsApi.md
@@ -111,6 +113,7 @@ test/test_operation_action_update.py
 test/test_operation_asset_update.py
 test/test_operation_output.py
 test/test_operation_status.py
+test/test_operation_terraform_run_update.py
 test/test_operation_type.py
 test/test_operation_update.py
 test/test_operations_api.py

@@ -29,6 +29,7 @@ from cloud_api_client.model.operation_action_update import OperationActionUpdate
 from cloud_api_client.model.operation_asset_update import OperationAssetUpdate
 from cloud_api_client.model.operation_output import OperationOutput
 from cloud_api_client.model.operation_status import OperationStatus
+from cloud_api_client.model.operation_terraform_run_update import OperationTerraformRunUpdate
 from cloud_api_client.model.operation_type import OperationType
 from cloud_api_client.model.operation_update import OperationUpdate
 from cloud_api_client.model.organization_input import OrganizationInput

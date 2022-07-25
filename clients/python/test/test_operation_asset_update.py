@@ -12,6 +12,8 @@ import sys
 import unittest
 
 import cloud_api_client
+from cloud_api_client.model.operation_terraform_run_update import OperationTerraformRunUpdate
+globals()['OperationTerraformRunUpdate'] = OperationTerraformRunUpdate
 from cloud_api_client.model.operation_asset_update import OperationAssetUpdate
 
 

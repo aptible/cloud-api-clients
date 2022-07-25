@@ -23,6 +23,7 @@ import { OperationActionUpdate } from '../models/OperationActionUpdate';
 import { OperationAssetUpdate } from '../models/OperationAssetUpdate';
 import { OperationOutput } from '../models/OperationOutput';
 import { OperationStatus } from '../models/OperationStatus';
+import { OperationTerraformRunUpdate } from '../models/OperationTerraformRunUpdate';
 import { OperationType } from '../models/OperationType';
 import { OperationUpdate } from '../models/OperationUpdate';
 import { OrganizationInput } from '../models/OrganizationInput';

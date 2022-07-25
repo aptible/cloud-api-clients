@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TerraformStdout** | **[]map[string]interface{}** |  | 
-**TerraformStdin** | **[]map[string]interface{}** |  | 
-**TerraformReturnCode** | **int32** |  | 
+**TerraformInit** | Pointer to [**OperationTerraformRunUpdate**](OperationTerraformRunUpdate.md) |  | [optional] 
+**TerraformPlan** | Pointer to [**OperationTerraformRunUpdate**](OperationTerraformRunUpdate.md) |  | [optional] 
+**TerraformApply** | Pointer to [**OperationTerraformRunUpdate**](OperationTerraformRunUpdate.md) |  | [optional] 
 
 ## Methods
 
 ### NewOperationAssetUpdate
 
-`func NewOperationAssetUpdate(terraformStdout []map[string]interface{}, terraformStdin []map[string]interface{}, terraformReturnCode int32, ) *OperationAssetUpdate`
+`func NewOperationAssetUpdate() *OperationAssetUpdate`
 
 NewOperationAssetUpdate instantiates a new OperationAssetUpdate object
 This constructor will assign default values to properties that have it defined,
@@ -27,65 +27,80 @@ NewOperationAssetUpdateWithDefaults instantiates a new OperationAssetUpdate obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTerraformStdout
+### GetTerraformInit
 
-`func (o *OperationAssetUpdate) GetTerraformStdout() []map[string]interface{}`
+`func (o *OperationAssetUpdate) GetTerraformInit() OperationTerraformRunUpdate`
 
-GetTerraformStdout returns the TerraformStdout field if non-nil, zero value otherwise.
+GetTerraformInit returns the TerraformInit field if non-nil, zero value otherwise.
 
-### GetTerraformStdoutOk
+### GetTerraformInitOk
 
-`func (o *OperationAssetUpdate) GetTerraformStdoutOk() (*[]map[string]interface{}, bool)`
+`func (o *OperationAssetUpdate) GetTerraformInitOk() (*OperationTerraformRunUpdate, bool)`
 
-GetTerraformStdoutOk returns a tuple with the TerraformStdout field if it's non-nil, zero value otherwise
+GetTerraformInitOk returns a tuple with the TerraformInit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTerraformStdout
+### SetTerraformInit
 
-`func (o *OperationAssetUpdate) SetTerraformStdout(v []map[string]interface{})`
+`func (o *OperationAssetUpdate) SetTerraformInit(v OperationTerraformRunUpdate)`
 
-SetTerraformStdout sets TerraformStdout field to given value.
+SetTerraformInit sets TerraformInit field to given value.
 
+### HasTerraformInit
 
-### GetTerraformStdin
+`func (o *OperationAssetUpdate) HasTerraformInit() bool`
 
-`func (o *OperationAssetUpdate) GetTerraformStdin() []map[string]interface{}`
+HasTerraformInit returns a boolean if a field has been set.
 
-GetTerraformStdin returns the TerraformStdin field if non-nil, zero value otherwise.
+### GetTerraformPlan
 
-### GetTerraformStdinOk
+`func (o *OperationAssetUpdate) GetTerraformPlan() OperationTerraformRunUpdate`
 
-`func (o *OperationAssetUpdate) GetTerraformStdinOk() (*[]map[string]interface{}, bool)`
+GetTerraformPlan returns the TerraformPlan field if non-nil, zero value otherwise.
 
-GetTerraformStdinOk returns a tuple with the TerraformStdin field if it's non-nil, zero value otherwise
+### GetTerraformPlanOk
+
+`func (o *OperationAssetUpdate) GetTerraformPlanOk() (*OperationTerraformRunUpdate, bool)`
+
+GetTerraformPlanOk returns a tuple with the TerraformPlan field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTerraformStdin
+### SetTerraformPlan
 
-`func (o *OperationAssetUpdate) SetTerraformStdin(v []map[string]interface{})`
+`func (o *OperationAssetUpdate) SetTerraformPlan(v OperationTerraformRunUpdate)`
 
-SetTerraformStdin sets TerraformStdin field to given value.
+SetTerraformPlan sets TerraformPlan field to given value.
 
+### HasTerraformPlan
 
-### GetTerraformReturnCode
+`func (o *OperationAssetUpdate) HasTerraformPlan() bool`
 
-`func (o *OperationAssetUpdate) GetTerraformReturnCode() int32`
+HasTerraformPlan returns a boolean if a field has been set.
 
-GetTerraformReturnCode returns the TerraformReturnCode field if non-nil, zero value otherwise.
+### GetTerraformApply
 
-### GetTerraformReturnCodeOk
+`func (o *OperationAssetUpdate) GetTerraformApply() OperationTerraformRunUpdate`
 
-`func (o *OperationAssetUpdate) GetTerraformReturnCodeOk() (*int32, bool)`
+GetTerraformApply returns the TerraformApply field if non-nil, zero value otherwise.
 
-GetTerraformReturnCodeOk returns a tuple with the TerraformReturnCode field if it's non-nil, zero value otherwise
+### GetTerraformApplyOk
+
+`func (o *OperationAssetUpdate) GetTerraformApplyOk() (*OperationTerraformRunUpdate, bool)`
+
+GetTerraformApplyOk returns a tuple with the TerraformApply field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTerraformReturnCode
+### SetTerraformApply
 
-`func (o *OperationAssetUpdate) SetTerraformReturnCode(v int32)`
+`func (o *OperationAssetUpdate) SetTerraformApply(v OperationTerraformRunUpdate)`
 
-SetTerraformReturnCode sets TerraformReturnCode field to given value.
+SetTerraformApply sets TerraformApply field to given value.
 
+### HasTerraformApply
+
+`func (o *OperationAssetUpdate) HasTerraformApply() bool`
+
+HasTerraformApply returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

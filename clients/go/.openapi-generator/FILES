@@ -37,6 +37,7 @@ docs/OperationActionUpdate.md
 docs/OperationAssetUpdate.md
 docs/OperationOutput.md
 docs/OperationStatus.md
+docs/OperationTerraformRunUpdate.md
 docs/OperationType.md
 docs/OperationUpdate.md
 docs/OperationsApi.md
@@ -70,6 +71,7 @@ model_operation_action_update.go
 model_operation_asset_update.go
 model_operation_output.go
 model_operation_status.go
+model_operation_terraform_run_update.go
 model_operation_type.go
 model_operation_update.go
 model_organization_input.go

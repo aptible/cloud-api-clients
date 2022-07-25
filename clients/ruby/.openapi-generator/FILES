@@ -32,6 +32,7 @@ docs/OperationActionUpdate.md
 docs/OperationAssetUpdate.md
 docs/OperationOutput.md
 docs/OperationStatus.md
+docs/OperationTerraformRunUpdate.md
 docs/OperationType.md
 docs/OperationUpdate.md
 docs/OperationsApi.md
@@ -75,6 +76,7 @@ lib/cloud_api_client/models/operation_action_update.rb
 lib/cloud_api_client/models/operation_asset_update.rb
 lib/cloud_api_client/models/operation_output.rb
 lib/cloud_api_client/models/operation_status.rb
+lib/cloud_api_client/models/operation_terraform_run_update.rb
 lib/cloud_api_client/models/operation_type.rb
 lib/cloud_api_client/models/operation_update.rb
 lib/cloud_api_client/models/organization_input.rb
@@ -112,6 +114,7 @@ spec/models/operation_action_update_spec.rb
 spec/models/operation_asset_update_spec.rb
 spec/models/operation_output_spec.rb
 spec/models/operation_status_spec.rb
+spec/models/operation_terraform_run_update_spec.rb
 spec/models/operation_type_spec.rb
 spec/models/operation_update_spec.rb
 spec/models/organization_input_spec.rb

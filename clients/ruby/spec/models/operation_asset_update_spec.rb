@@ -25,19 +25,19 @@ describe CloudApiClient::OperationAssetUpdate do
       expect(instance).to be_instance_of(CloudApiClient::OperationAssetUpdate)
     end
   end
-  describe 'test attribute "terraform_stdout"' do
+  describe 'test attribute "terraform_init"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "terraform_stdin"' do
+  describe 'test attribute "terraform_plan"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "terraform_return_code"' do
+  describe 'test attribute "terraform_apply"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

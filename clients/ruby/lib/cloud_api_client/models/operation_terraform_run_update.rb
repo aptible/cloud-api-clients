@@ -14,25 +14,19 @@ require 'date'
 require 'time'
 
 module CloudApiClient
-  class Data
-    attr_accessor :action_output
+  class OperationTerraformRunUpdate
+    attr_accessor :terraform_stdout
 
-    attr_accessor :action_errors
+    attr_accessor :terraform_stdin
 
-    attr_accessor :terraform_init
-
-    attr_accessor :terraform_plan
-
-    attr_accessor :terraform_apply
+    attr_accessor :terraform_return_code
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'action_output' => :'action_output',
-        :'action_errors' => :'action_errors',
-        :'terraform_init' => :'terraform_init',
-        :'terraform_plan' => :'terraform_plan',
-        :'terraform_apply' => :'terraform_apply'
+        :'terraform_stdout' => :'terraform_stdout',
+        :'terraform_stdin' => :'terraform_stdin',
+        :'terraform_return_code' => :'terraform_return_code'
       }
     end
 
@@ -44,62 +38,47 @@ module CloudApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'action_output' => :'Object',
-        :'action_errors' => :'String',
-        :'terraform_init' => :'OperationTerraformRunUpdate',
-        :'terraform_plan' => :'OperationTerraformRunUpdate',
-        :'terraform_apply' => :'OperationTerraformRunUpdate'
+        :'terraform_stdout' => :'Array<Object>',
+        :'terraform_stdin' => :'Array<Object>',
+        :'terraform_return_code' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'action_output',
       ])
-    end
-
-    # List of class defined in anyOf (OpenAPI v3)
-    def self.openapi_any_of
-      [
-      :'OperationActionUpdate',
-      :'OperationAssetUpdate'
-      ]
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `CloudApiClient::Data` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `CloudApiClient::OperationTerraformRunUpdate` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `CloudApiClient::Data`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `CloudApiClient::OperationTerraformRunUpdate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'action_output')
-        self.action_output = attributes[:'action_output']
+      if attributes.key?(:'terraform_stdout')
+        if (value = attributes[:'terraform_stdout']).is_a?(Array)
+          self.terraform_stdout = value
+        end
       end
 
-      if attributes.key?(:'action_errors')
-        self.action_errors = attributes[:'action_errors']
+      if attributes.key?(:'terraform_stdin')
+        if (value = attributes[:'terraform_stdin']).is_a?(Array)
+          self.terraform_stdin = value
+        end
       end
 
-      if attributes.key?(:'terraform_init')
-        self.terraform_init = attributes[:'terraform_init']
-      end
-
-      if attributes.key?(:'terraform_plan')
-        self.terraform_plan = attributes[:'terraform_plan']
-      end
-
-      if attributes.key?(:'terraform_apply')
-        self.terraform_apply = attributes[:'terraform_apply']
+      if attributes.key?(:'terraform_return_code')
+        self.terraform_return_code = attributes[:'terraform_return_code']
       end
     end
 
@@ -107,24 +86,27 @@ module CloudApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @terraform_stdout.nil?
+        invalid_properties.push('invalid value for "terraform_stdout", terraform_stdout cannot be nil.')
+      end
+
+      if @terraform_stdin.nil?
+        invalid_properties.push('invalid value for "terraform_stdin", terraform_stdin cannot be nil.')
+      end
+
+      if @terraform_return_code.nil?
+        invalid_properties.push('invalid value for "terraform_return_code", terraform_return_code cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      _any_of_found = false
-      self.class.openapi_any_of.each do |_class|
-        _any_of = CloudApiClient.const_get(_class).build_from_hash(self.to_hash)
-        if _any_of.valid?
-          _any_of_found = true
-        end
-      end
-
-      if !_any_of_found
-        return false
-      end
-
+      return false if @terraform_stdout.nil?
+      return false if @terraform_stdin.nil?
+      return false if @terraform_return_code.nil?
       true
     end
 
@@ -133,11 +115,9 @@ module CloudApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          action_output == o.action_output &&
-          action_errors == o.action_errors &&
-          terraform_init == o.terraform_init &&
-          terraform_plan == o.terraform_plan &&
-          terraform_apply == o.terraform_apply
+          terraform_stdout == o.terraform_stdout &&
+          terraform_stdin == o.terraform_stdin &&
+          terraform_return_code == o.terraform_return_code
     end
 
     # @see the `==` method
@@ -149,7 +129,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action_output, action_errors, terraform_init, terraform_plan, terraform_apply].hash
+      [terraform_stdout, terraform_stdin, terraform_return_code].hash
     end
 
     # Builds the object from hash
