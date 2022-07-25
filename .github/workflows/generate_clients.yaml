@@ -2,6 +2,9 @@ name: Generate clients
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - MR-sc-4320
 
 jobs:
   generate:
