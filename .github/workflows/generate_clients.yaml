@@ -40,6 +40,8 @@ jobs:
         run: |
           source ./scripts/setenvs.sh
           python -m scripts.openapi.generate openapi.json
+        env:
+          BUNDLE_DIRECTORY: "/home/runner/work/cloud-api-clients/cloud-api-clients/bundles"
 
       - uses: actions/setup-node@v3
         with:
