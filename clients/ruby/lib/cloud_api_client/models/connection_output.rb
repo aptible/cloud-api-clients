@@ -17,9 +17,11 @@ module CloudApiClient
   class ConnectionOutput
     attr_accessor :id
 
-    attr_accessor :incoming_asset
+    attr_accessor :incoming_connection_asset
 
-    attr_accessor :outgoing_asset
+    attr_accessor :operations
+
+    attr_accessor :outgoing_connection_asset
 
     attr_accessor :status
 
@@ -27,8 +29,9 @@ module CloudApiClient
     def self.attribute_map
       {
         :'id' => :'id',
-        :'incoming_asset' => :'incoming_asset',
-        :'outgoing_asset' => :'outgoing_asset',
+        :'incoming_connection_asset' => :'incoming_connection_asset',
+        :'operations' => :'operations',
+        :'outgoing_connection_asset' => :'outgoing_connection_asset',
         :'status' => :'status'
       }
     end
@@ -42,8 +45,9 @@ module CloudApiClient
     def self.openapi_types
       {
         :'id' => :'String',
-        :'incoming_asset' => :'AssetOutput',
-        :'outgoing_asset' => :'AssetOutput',
+        :'incoming_connection_asset' => :'AssetOutput',
+        :'operations' => :'Array<OperationOutput>',
+        :'outgoing_connection_asset' => :'AssetOutput',
         :'status' => :'ConnectionStatus'
       }
     end
@@ -73,12 +77,18 @@ module CloudApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'incoming_asset')
-        self.incoming_asset = attributes[:'incoming_asset']
+      if attributes.key?(:'incoming_connection_asset')
+        self.incoming_connection_asset = attributes[:'incoming_connection_asset']
       end
 
-      if attributes.key?(:'outgoing_asset')
-        self.outgoing_asset = attributes[:'outgoing_asset']
+      if attributes.key?(:'operations')
+        if (value = attributes[:'operations']).is_a?(Array)
+          self.operations = value
+        end
+      end
+
+      if attributes.key?(:'outgoing_connection_asset')
+        self.outgoing_connection_asset = attributes[:'outgoing_connection_asset']
       end
 
       if attributes.key?(:'status')
@@ -94,14 +104,6 @@ module CloudApiClient
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @incoming_asset.nil?
-        invalid_properties.push('invalid value for "incoming_asset", incoming_asset cannot be nil.')
-      end
-
-      if @outgoing_asset.nil?
-        invalid_properties.push('invalid value for "outgoing_asset", outgoing_asset cannot be nil.')
-      end
-
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
@@ -113,8 +115,6 @@ module CloudApiClient
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
-      return false if @incoming_asset.nil?
-      return false if @outgoing_asset.nil?
       return false if @status.nil?
       true
     end
@@ -125,8 +125,9 @@ module CloudApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          incoming_asset == o.incoming_asset &&
-          outgoing_asset == o.outgoing_asset &&
+          incoming_connection_asset == o.incoming_connection_asset &&
+          operations == o.operations &&
+          outgoing_connection_asset == o.outgoing_connection_asset &&
           status == o.status
     end
 
@@ -139,7 +140,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, incoming_asset, outgoing_asset, status].hash
+      [id, incoming_connection_asset, operations, outgoing_connection_asset, status].hash
     end
 
     # Builds the object from hash

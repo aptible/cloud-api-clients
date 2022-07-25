@@ -138,10 +138,11 @@ export class PromiseConnectionsApi {
      * Get Connection By Id
      * @param assetId 
      * @param environmentId 
+     * @param connectionId 
      * @param organizationId 
      */
-    public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<ConnectionOutput> {
-        const result = this.api.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId, environmentId, organizationId, _options);
+    public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Promise<ConnectionOutput> {
+        const result = this.api.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId, environmentId, connectionId, organizationId, _options);
         return result.toPromise();
     }
 

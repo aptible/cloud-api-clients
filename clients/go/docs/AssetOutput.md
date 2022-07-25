@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Asset** | **string** |  | 
 **AssetVersion** | **string** |  | 
 **Id** | **string** |  | 
-**Connections** | Pointer to [**[]ConnectionOutput**](ConnectionOutput.md) |  | [optional] 
+**Connections** | Pointer to [**[]ConnectionOutput**](ConnectionOutput.md) |  | [optional] [default to []]
 **CurrentAssetParameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  | 
 **Environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  | 
 **Status** | **string** |  | 

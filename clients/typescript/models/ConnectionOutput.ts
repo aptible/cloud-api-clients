@@ -12,12 +12,14 @@
 
 import { AssetOutput } from './AssetOutput';
 import { ConnectionStatus } from './ConnectionStatus';
+import { OperationOutput } from './OperationOutput';
 import { HttpFile } from '../http/http';
 
 export class ConnectionOutput {
     'id': string;
-    'incomingAsset': AssetOutput;
-    'outgoingAsset': AssetOutput;
+    'incomingConnectionAsset'?: AssetOutput;
+    'operations'?: Array<OperationOutput>;
+    'outgoingConnectionAsset'?: AssetOutput;
     'status': ConnectionStatus;
 
     static readonly discriminator: string | undefined = undefined;
@@ -30,14 +32,20 @@ export class ConnectionOutput {
             "format": "uuid"
         },
         {
-            "name": "incomingAsset",
-            "baseName": "incoming_asset",
+            "name": "incomingConnectionAsset",
+            "baseName": "incoming_connection_asset",
             "type": "AssetOutput",
             "format": ""
         },
         {
-            "name": "outgoingAsset",
-            "baseName": "outgoing_asset",
+            "name": "operations",
+            "baseName": "operations",
+            "type": "Array<OperationOutput>",
+            "format": ""
+        },
+        {
+            "name": "outgoingConnectionAsset",
+            "baseName": "outgoing_connection_asset",
             "type": "AssetOutput",
             "format": ""
         },

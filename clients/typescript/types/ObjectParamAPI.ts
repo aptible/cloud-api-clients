@@ -255,6 +255,12 @@ export interface ConnectionsApiGetConnectionByIdApiV1OrganizationsOrganizationId
      * @type string
      * @memberof ConnectionsApigetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet
      */
+    connectionId: string
+    /**
+     * 
+     * @type string
+     * @memberof ConnectionsApigetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet
+     */
     organizationId: string
 }
 
@@ -286,7 +292,7 @@ export class ObjectConnectionsApi {
      * @param param the request object
      */
     public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(param: ConnectionsApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest, options?: Configuration): Promise<ConnectionOutput> {
-        return this.api.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(param.assetId, param.environmentId, param.organizationId,  options).toPromise();
+        return this.api.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(param.assetId, param.environmentId, param.connectionId, param.organizationId,  options).toPromise();
     }
 
 }

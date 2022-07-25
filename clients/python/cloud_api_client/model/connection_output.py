@@ -32,8 +32,10 @@ from cloud_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from cloud_api_client.model.asset_output import AssetOutput
     from cloud_api_client.model.connection_status import ConnectionStatus
+    from cloud_api_client.model.operation_output import OperationOutput
     globals()['AssetOutput'] = AssetOutput
     globals()['ConnectionStatus'] = ConnectionStatus
+    globals()['OperationOutput'] = OperationOutput
 
 
 class ConnectionOutput(ModelNormal):
@@ -90,9 +92,10 @@ class ConnectionOutput(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'incoming_asset': (AssetOutput,),  # noqa: E501
-            'outgoing_asset': (AssetOutput,),  # noqa: E501
             'status': (ConnectionStatus,),  # noqa: E501
+            'incoming_connection_asset': (AssetOutput,),  # noqa: E501
+            'operations': ([OperationOutput],),  # noqa: E501
+            'outgoing_connection_asset': (AssetOutput,),  # noqa: E501
         }
 
     @cached_property
@@ -102,9 +105,10 @@ class ConnectionOutput(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'incoming_asset': 'incoming_asset',  # noqa: E501
-        'outgoing_asset': 'outgoing_asset',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'incoming_connection_asset': 'incoming_connection_asset',  # noqa: E501
+        'operations': 'operations',  # noqa: E501
+        'outgoing_connection_asset': 'outgoing_connection_asset',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,13 +118,11 @@ class ConnectionOutput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, incoming_asset, outgoing_asset, status, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, status, *args, **kwargs):  # noqa: E501
         """ConnectionOutput - a model defined in OpenAPI
 
         Args:
             id (str):
-            incoming_asset (AssetOutput):
-            outgoing_asset (AssetOutput):
             status (ConnectionStatus):
 
         Keyword Args:
@@ -154,6 +156,9 @@ class ConnectionOutput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            incoming_connection_asset (AssetOutput): [optional]  # noqa: E501
+            operations ([OperationOutput]): [optional]  # noqa: E501
+            outgoing_connection_asset (AssetOutput): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -186,8 +191,6 @@ class ConnectionOutput(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
-        self.incoming_asset = incoming_asset
-        self.outgoing_asset = outgoing_asset
         self.status = status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -209,13 +212,11 @@ class ConnectionOutput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, incoming_asset, outgoing_asset, status, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, status, *args, **kwargs):  # noqa: E501
         """ConnectionOutput - a model defined in OpenAPI
 
         Args:
             id (str):
-            incoming_asset (AssetOutput):
-            outgoing_asset (AssetOutput):
             status (ConnectionStatus):
 
         Keyword Args:
@@ -249,6 +250,9 @@ class ConnectionOutput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            incoming_connection_asset (AssetOutput): [optional]  # noqa: E501
+            operations ([OperationOutput]): [optional]  # noqa: E501
+            outgoing_connection_asset (AssetOutput): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -279,8 +283,6 @@ class ConnectionOutput(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
-        self.incoming_asset = incoming_asset
-        self.outgoing_asset = outgoing_asset
         self.status = status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

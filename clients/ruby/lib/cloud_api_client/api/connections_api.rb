@@ -185,21 +185,23 @@ module CloudApiClient
     # Get Connection By Id
     # @param asset_id [String] 
     # @param environment_id [String] 
+    # @param connection_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ConnectionOutput]
-    def get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, organization_id, opts = {})
-      data, _status_code, _headers = get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_with_http_info(asset_id, environment_id, organization_id, opts)
+    def get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id, opts = {})
+      data, _status_code, _headers = get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_with_http_info(asset_id, environment_id, connection_id, organization_id, opts)
       data
     end
 
     # Get Connection By Id
     # @param asset_id [String] 
     # @param environment_id [String] 
+    # @param connection_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ConnectionOutput, Integer, Hash)>] ConnectionOutput data, response status code and response headers
-    def get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_with_http_info(asset_id, environment_id, organization_id, opts = {})
+    def get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_with_http_info(asset_id, environment_id, connection_id, organization_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionsApi.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get ...'
       end
@@ -211,12 +213,16 @@ module CloudApiClient
       if @api_client.config.client_side_validation && environment_id.nil?
         fail ArgumentError, "Missing the required parameter 'environment_id' when calling ConnectionsApi.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get"
       end
+      # verify the required parameter 'connection_id' is set
+      if @api_client.config.client_side_validation && connection_id.nil?
+        fail ArgumentError, "Missing the required parameter 'connection_id' when calling ConnectionsApi.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get"
+      end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
         fail ArgumentError, "Missing the required parameter 'organization_id' when calling ConnectionsApi.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get"
       end
       # resource path
-      local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}'.sub('{' + 'asset_id' + '}', CGI.escape(asset_id.to_s)).sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
+      local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}'.sub('{' + 'asset_id' + '}', CGI.escape(asset_id.to_s)).sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'connection_id' + '}', CGI.escape(connection_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
