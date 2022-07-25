@@ -33,6 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          make reclone
           pip install -e .[dev]
 
       - name: generate openapi.json for reuse

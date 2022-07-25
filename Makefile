@@ -4,7 +4,7 @@ PYTHON := ${PYTHON_ENV} && python
 DEFAULT_BUNDLE_DIR = $(realpath .)
 BUNDLE_DIRECTORY="$(DEFAULT_BUNDLE_DIR)/bundles"
 
-.PHONY: .venv install get_deps get_bundles bundles/terraform-aws-core get_cloud_api
+.PHONY: .venv install reclone clean_bundles get_bundles bundles/terraform-aws-core get_cloud_api
 
 .venv:
 	python -m venv .venv
@@ -12,7 +12,10 @@ BUNDLE_DIRECTORY="$(DEFAULT_BUNDLE_DIR)/bundles"
 install: .venv
 	$(PYTHON) -m pip install -e .[dev]
 
-get_deps: get_bundles
+reclone: clean_bundles get_bundles
+
+clean_bundles:
+	rm -Rf ./bundles/terraform-*
 
 get_bundles: bundles/terraform-aws-core
 
@@ -23,7 +26,7 @@ bundles/terraform-aws-core:
 
 .PHONY: generate_openapi_json generate_clients generate_python_client generate_ruby_client generate_go_client generate_typescript_client
 
-generate_clients: clean_clients get_deps generate_openapi_json generate_python_client generate_ruby_client generate_go_client generate_typescript_client
+generate_clients: clean_clients reclone generate_openapi_json generate_python_client generate_ruby_client generate_go_client generate_typescript_client
 
 clean_clients:
 	rm -rf ./clients
