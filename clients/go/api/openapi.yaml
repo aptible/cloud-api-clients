@@ -251,169 +251,6 @@ paths:
       summary: Create Asset
       tags:
       - assets
-  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/:
-    post:
-      operationId: create_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__post
-      parameters:
-      - explode: false
-        in: path
-        name: asset_id
-        required: true
-        schema:
-          format: uuid
-          title: Asset Id
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: environment_id
-        required: true
-        schema:
-          format: uuid
-          title: Environment Id
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: organization_id
-        required: true
-        schema:
-          format: uuid
-          title: Organization Id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConnectionInput'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConnectionOutput'
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      - HTTPBearer: []
-      summary: Create Connection
-      tags:
-      - connections
-  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}:
-    delete:
-      operationId: delete_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__connection_id__delete
-      parameters:
-      - explode: false
-        in: path
-        name: asset_id
-        required: true
-        schema:
-          format: uuid
-          title: Asset Id
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: connection_id
-        required: true
-        schema:
-          format: uuid
-          title: Connection Id
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: environment_id
-        required: true
-        schema:
-          format: uuid
-          title: Environment Id
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: organization_id
-        required: true
-        schema:
-          format: uuid
-          title: Organization Id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      - HTTPBearer: []
-      summary: Delete Connection
-      tags:
-      - connections
-    get:
-      operationId: get_connection_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__connection_id__get
-      parameters:
-      - explode: false
-        in: path
-        name: asset_id
-        required: true
-        schema:
-          format: uuid
-          title: Asset Id
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: environment_id
-        required: true
-        schema:
-          format: uuid
-          title: Environment Id
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: organization_id
-        required: true
-        schema:
-          format: uuid
-          title: Organization Id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConnectionOutput'
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      - HTTPBearer: []
-      summary: Get Connection By Id
-      tags:
-      - connections
   /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles:
     get:
       operationId: get_environment_allowed_assets_api_v1_organizations__organization_id__environments__environment_id__asset_bundles_get
@@ -766,6 +603,178 @@ paths:
       summary: Update Operation
       tags:
       - worker
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/:
+    post:
+      operationId: create_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__post
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConnectionInput'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Create Connection
+      tags:
+      - connections
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}:
+    delete:
+      operationId: delete_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__connection_id__delete
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: connection_id
+        required: true
+        schema:
+          format: uuid
+          title: Connection Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Delete Connection
+      tags:
+      - connections
+    get:
+      operationId: get_connection_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__connection_id__get
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: connection_id
+        required: true
+        schema:
+          format: uuid
+          title: Connection Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Get Connection By Id
+      tags:
+      - connections
   /api/v1/organizations/{organization_id}/operations/{operation_id}:
     get:
       operationId: get_operations_by_operation_id_api_v1_organizations__organization_id__operations__operation_id__get
@@ -1142,13 +1151,59 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset: asset
         connections:
-        - incoming_asset: null
-          outgoing_asset: null
+        - outgoing_connection_asset: null
+          operations:
+          - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            operation_type: ""
+            asset_name: asset_name
+            asset_parameters: "{}"
+            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_version: asset_version
+            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            status: ""
+          - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            operation_type: ""
+            asset_name: asset_name
+            asset_parameters: "{}"
+            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_version: asset_version
+            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            status: ""
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          incoming_connection_asset: null
           status: null
-        - incoming_asset: null
-          outgoing_asset: null
+        - outgoing_connection_asset: null
+          operations:
+          - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            operation_type: ""
+            asset_name: asset_name
+            asset_parameters: "{}"
+            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_version: asset_version
+            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            status: ""
+          - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            operation_type: ""
+            asset_name: asset_name
+            asset_parameters: "{}"
+            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_version: asset_version
+            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            status: ""
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          incoming_connection_asset: null
           status: null
         current_asset_parameters:
           data: "{}"
@@ -1167,6 +1222,7 @@ components:
           title: Id
           type: string
         connections:
+          default: []
           items:
             $ref: '#/components/schemas/ConnectionOutput'
           title: Connections
@@ -1231,25 +1287,51 @@ components:
       type: object
     ConnectionOutput:
       example:
-        incoming_asset: null
-        outgoing_asset: null
+        outgoing_connection_asset: null
+        operations:
+        - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          operation_type: ""
+          asset_name: asset_name
+          asset_parameters: "{}"
+          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_version: asset_version
+          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: ""
+        - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          operation_type: ""
+          asset_name: asset_name
+          asset_parameters: "{}"
+          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_version: asset_version
+          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: ""
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        incoming_connection_asset: null
         status: null
       properties:
         id:
           format: uuid
           title: Id
           type: string
-        incoming_asset:
+        incoming_connection_asset:
           $ref: '#/components/schemas/AssetOutput'
-        outgoing_asset:
+        operations:
+          items:
+            $ref: '#/components/schemas/OperationOutput'
+          title: Operations
+          type: array
+        outgoing_connection_asset:
           $ref: '#/components/schemas/AssetOutput'
         status:
           $ref: '#/components/schemas/ConnectionStatus'
       required:
       - id
-      - incoming_asset
-      - outgoing_asset
       - status
       title: ConnectionOutput
       type: object

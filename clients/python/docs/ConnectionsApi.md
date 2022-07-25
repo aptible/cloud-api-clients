@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful Response |  -  |
+**201** | Successful Response |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get**
-> ConnectionOutput get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, organization_id)
+> ConnectionOutput get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id)
 
 Get Connection By Id
 
@@ -216,12 +216,13 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     api_instance = connections_api.ConnectionsApi(api_client)
     asset_id = "asset_id_example" # str | 
     environment_id = "environment_id_example" # str | 
+    connection_id = "connection_id_example" # str | 
     organization_id = "organization_id_example" # str | 
 
     # example passing only required values which don't have defaults set
     try:
         # Get Connection By Id
-        api_response = api_instance.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, organization_id)
+        api_response = api_instance.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
         print("Exception when calling ConnectionsApi->get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get: %s\n" % e)
@@ -234,6 +235,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  |
  **environment_id** | **str**|  |
+ **connection_id** | **str**|  |
  **organization_id** | **str**|  |
 
 ### Return type

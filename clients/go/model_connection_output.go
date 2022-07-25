@@ -17,8 +17,9 @@ import (
 // ConnectionOutput struct for ConnectionOutput
 type ConnectionOutput struct {
 	Id string `json:"id"`
-	IncomingAsset AssetOutput `json:"incoming_asset"`
-	OutgoingAsset AssetOutput `json:"outgoing_asset"`
+	IncomingConnectionAsset *AssetOutput `json:"incoming_connection_asset,omitempty"`
+	Operations []OperationOutput `json:"operations,omitempty"`
+	OutgoingConnectionAsset *AssetOutput `json:"outgoing_connection_asset,omitempty"`
 	Status ConnectionStatus `json:"status"`
 }
 
@@ -26,11 +27,9 @@ type ConnectionOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnectionOutput(id string, incomingAsset AssetOutput, outgoingAsset AssetOutput, status ConnectionStatus) *ConnectionOutput {
+func NewConnectionOutput(id string, status ConnectionStatus) *ConnectionOutput {
 	this := ConnectionOutput{}
 	this.Id = id
-	this.IncomingAsset = incomingAsset
-	this.OutgoingAsset = outgoingAsset
 	this.Status = status
 	return &this
 }
@@ -67,52 +66,100 @@ func (o *ConnectionOutput) SetId(v string) {
 	o.Id = v
 }
 
-// GetIncomingAsset returns the IncomingAsset field value
-func (o *ConnectionOutput) GetIncomingAsset() AssetOutput {
-	if o == nil {
+// GetIncomingConnectionAsset returns the IncomingConnectionAsset field value if set, zero value otherwise.
+func (o *ConnectionOutput) GetIncomingConnectionAsset() AssetOutput {
+	if o == nil || o.IncomingConnectionAsset == nil {
 		var ret AssetOutput
 		return ret
 	}
-
-	return o.IncomingAsset
+	return *o.IncomingConnectionAsset
 }
 
-// GetIncomingAssetOk returns a tuple with the IncomingAsset field value
+// GetIncomingConnectionAssetOk returns a tuple with the IncomingConnectionAsset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConnectionOutput) GetIncomingAssetOk() (*AssetOutput, bool) {
-	if o == nil {
+func (o *ConnectionOutput) GetIncomingConnectionAssetOk() (*AssetOutput, bool) {
+	if o == nil || o.IncomingConnectionAsset == nil {
 		return nil, false
 	}
-	return &o.IncomingAsset, true
+	return o.IncomingConnectionAsset, true
 }
 
-// SetIncomingAsset sets field value
-func (o *ConnectionOutput) SetIncomingAsset(v AssetOutput) {
-	o.IncomingAsset = v
+// HasIncomingConnectionAsset returns a boolean if a field has been set.
+func (o *ConnectionOutput) HasIncomingConnectionAsset() bool {
+	if o != nil && o.IncomingConnectionAsset != nil {
+		return true
+	}
+
+	return false
 }
 
-// GetOutgoingAsset returns the OutgoingAsset field value
-func (o *ConnectionOutput) GetOutgoingAsset() AssetOutput {
-	if o == nil {
+// SetIncomingConnectionAsset gets a reference to the given AssetOutput and assigns it to the IncomingConnectionAsset field.
+func (o *ConnectionOutput) SetIncomingConnectionAsset(v AssetOutput) {
+	o.IncomingConnectionAsset = &v
+}
+
+// GetOperations returns the Operations field value if set, zero value otherwise.
+func (o *ConnectionOutput) GetOperations() []OperationOutput {
+	if o == nil || o.Operations == nil {
+		var ret []OperationOutput
+		return ret
+	}
+	return o.Operations
+}
+
+// GetOperationsOk returns a tuple with the Operations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectionOutput) GetOperationsOk() ([]OperationOutput, bool) {
+	if o == nil || o.Operations == nil {
+		return nil, false
+	}
+	return o.Operations, true
+}
+
+// HasOperations returns a boolean if a field has been set.
+func (o *ConnectionOutput) HasOperations() bool {
+	if o != nil && o.Operations != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOperations gets a reference to the given []OperationOutput and assigns it to the Operations field.
+func (o *ConnectionOutput) SetOperations(v []OperationOutput) {
+	o.Operations = v
+}
+
+// GetOutgoingConnectionAsset returns the OutgoingConnectionAsset field value if set, zero value otherwise.
+func (o *ConnectionOutput) GetOutgoingConnectionAsset() AssetOutput {
+	if o == nil || o.OutgoingConnectionAsset == nil {
 		var ret AssetOutput
 		return ret
 	}
-
-	return o.OutgoingAsset
+	return *o.OutgoingConnectionAsset
 }
 
-// GetOutgoingAssetOk returns a tuple with the OutgoingAsset field value
+// GetOutgoingConnectionAssetOk returns a tuple with the OutgoingConnectionAsset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConnectionOutput) GetOutgoingAssetOk() (*AssetOutput, bool) {
-	if o == nil {
+func (o *ConnectionOutput) GetOutgoingConnectionAssetOk() (*AssetOutput, bool) {
+	if o == nil || o.OutgoingConnectionAsset == nil {
 		return nil, false
 	}
-	return &o.OutgoingAsset, true
+	return o.OutgoingConnectionAsset, true
 }
 
-// SetOutgoingAsset sets field value
-func (o *ConnectionOutput) SetOutgoingAsset(v AssetOutput) {
-	o.OutgoingAsset = v
+// HasOutgoingConnectionAsset returns a boolean if a field has been set.
+func (o *ConnectionOutput) HasOutgoingConnectionAsset() bool {
+	if o != nil && o.OutgoingConnectionAsset != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOutgoingConnectionAsset gets a reference to the given AssetOutput and assigns it to the OutgoingConnectionAsset field.
+func (o *ConnectionOutput) SetOutgoingConnectionAsset(v AssetOutput) {
+	o.OutgoingConnectionAsset = &v
 }
 
 // GetStatus returns the Status field value
@@ -144,11 +191,14 @@ func (o ConnectionOutput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if true {
-		toSerialize["incoming_asset"] = o.IncomingAsset
+	if o.IncomingConnectionAsset != nil {
+		toSerialize["incoming_connection_asset"] = o.IncomingConnectionAsset
 	}
-	if true {
-		toSerialize["outgoing_asset"] = o.OutgoingAsset
+	if o.Operations != nil {
+		toSerialize["operations"] = o.Operations
+	}
+	if o.OutgoingConnectionAsset != nil {
+		toSerialize["outgoing_connection_asset"] = o.OutgoingConnectionAsset
 	}
 	if true {
 		toSerialize["status"] = o.Status

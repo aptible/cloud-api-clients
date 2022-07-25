@@ -5,8 +5,9 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
-| **incoming_asset** | [**AssetOutput**](AssetOutput.md) |  |  |
-| **outgoing_asset** | [**AssetOutput**](AssetOutput.md) |  |  |
+| **incoming_connection_asset** | [**AssetOutput**](AssetOutput.md) |  | [optional] |
+| **operations** | [**Array&lt;OperationOutput&gt;**](OperationOutput.md) |  | [optional] |
+| **outgoing_connection_asset** | [**AssetOutput**](AssetOutput.md) |  | [optional] |
 | **status** | [**ConnectionStatus**](ConnectionStatus.md) |  |  |
 
 ## Example
@@ -16,8 +17,9 @@ require 'cloud_api_client'
 
 instance = CloudApiClient::ConnectionOutput.new(
   id: null,
-  incoming_asset: null,
-  outgoing_asset: null,
+  incoming_connection_asset: null,
+  operations: null,
+  outgoing_connection_asset: null,
   status: null
 )
 ```

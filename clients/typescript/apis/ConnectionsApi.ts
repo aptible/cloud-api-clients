@@ -153,9 +153,10 @@ export class ConnectionsApiRequestFactory extends BaseAPIRequestFactory {
      * Get Connection By Id
      * @param assetId 
      * @param environmentId 
+     * @param connectionId 
      * @param organizationId 
      */
-    public async getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
@@ -170,6 +171,12 @@ export class ConnectionsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
+        // verify required parameter 'connectionId' is not null or undefined
+        if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError("ConnectionsApi", "getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet", "connectionId");
+        }
+
+
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
             throw new RequiredError("ConnectionsApi", "getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet", "organizationId");
@@ -180,6 +187,7 @@ export class ConnectionsApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}'
             .replace('{' + 'asset_id' + '}', encodeURIComponent(String(assetId)))
             .replace('{' + 'environment_id' + '}', encodeURIComponent(String(environmentId)))
+            .replace('{' + 'connection_id' + '}', encodeURIComponent(String(connectionId)))
             .replace('{' + 'organization_id' + '}', encodeURIComponent(String(organizationId)));
 
         // Make Request Context
@@ -215,7 +223,7 @@ export class ConnectionsApiResponseProcessor {
      */
      public async createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(response: ResponseContext): Promise<ConnectionOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
+        if (isCodeInRange("201", response.httpStatusCode)) {
             const body: ConnectionOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "ConnectionOutput", ""

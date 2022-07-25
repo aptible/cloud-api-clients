@@ -157,7 +157,7 @@ end
 
 ## get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get
 
-> <ConnectionOutput> get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, organization_id)
+> <ConnectionOutput> get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id)
 
 Get Connection By Id
 
@@ -175,11 +175,12 @@ end
 api_instance = CloudApiClient::ConnectionsApi.new
 asset_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
+connection_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 
 begin
   # Get Connection By Id
-  result = api_instance.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, organization_id)
+  result = api_instance.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id)
   p result
 rescue CloudApiClient::ApiError => e
   puts "Error when calling ConnectionsApi->get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get: #{e}"
@@ -190,12 +191,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ConnectionOutput>, Integer, Hash)> get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_with_http_info(asset_id, environment_id, organization_id)
+> <Array(<ConnectionOutput>, Integer, Hash)> get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_with_http_info(asset_id, environment_id, connection_id, organization_id)
 
 ```ruby
 begin
   # Get Connection By Id
-  data, status_code, headers = api_instance.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_with_http_info(asset_id, environment_id, organization_id)
+  data, status_code, headers = api_instance.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_with_http_info(asset_id, environment_id, connection_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ConnectionOutput>
@@ -210,6 +211,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **asset_id** | **String** |  |  |
 | **environment_id** | **String** |  |  |
+| **connection_id** | **String** |  |  |
 | **organization_id** | **String** |  |  |
 
 ### Return type

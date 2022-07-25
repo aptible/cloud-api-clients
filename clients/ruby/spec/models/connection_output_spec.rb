@@ -31,13 +31,19 @@ describe CloudApiClient::ConnectionOutput do
     end
   end
 
-  describe 'test attribute "incoming_asset"' do
+  describe 'test attribute "incoming_connection_asset"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "outgoing_asset"' do
+  describe 'test attribute "operations"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "outgoing_connection_asset"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

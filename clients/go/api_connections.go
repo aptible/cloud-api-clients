@@ -59,10 +59,11 @@ type ConnectionsApi interface {
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param environmentId
+	@param connectionId
 	@param organizationId
 	@return ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest
 	*/
-	GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx context.Context, assetId string, environmentId string, organizationId string) ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest
+	GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx context.Context, assetId string, environmentId string, connectionId string, organizationId string) ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest
 
 	// GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetExecute executes the request
 	//  @return ConnectionOutput
@@ -328,6 +329,7 @@ type ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironment
 	ApiService ConnectionsApi
 	assetId string
 	environmentId string
+	connectionId string
 	organizationId string
 }
 
@@ -341,15 +343,17 @@ GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssets
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param environmentId
+ @param connectionId
  @param organizationId
  @return ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest
 */
-func (a *ConnectionsApiService) GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx context.Context, assetId string, environmentId string, organizationId string) ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest {
+func (a *ConnectionsApiService) GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx context.Context, assetId string, environmentId string, connectionId string, organizationId string) ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest {
 	return ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
 		environmentId: environmentId,
+		connectionId: connectionId,
 		organizationId: organizationId,
 	}
 }
@@ -372,6 +376,7 @@ func (a *ConnectionsApiService) GetConnectionByIdApiV1OrganizationsOrganizationI
 	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"asset_id"+"}", url.PathEscape(parameterToString(r.assetId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"environment_id"+"}", url.PathEscape(parameterToString(r.environmentId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"connection_id"+"}", url.PathEscape(parameterToString(r.connectionId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"organization_id"+"}", url.PathEscape(parameterToString(r.organizationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

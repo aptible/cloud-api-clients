@@ -191,11 +191,13 @@ class ConnectionsApi(object):
                 'all': [
                     'asset_id',
                     'environment_id',
+                    'connection_id',
                     'organization_id',
                 ],
                 'required': [
                     'asset_id',
                     'environment_id',
+                    'connection_id',
                     'organization_id',
                 ],
                 'nullable': [
@@ -215,17 +217,21 @@ class ConnectionsApi(object):
                         (str,),
                     'environment_id':
                         (str,),
+                    'connection_id':
+                        (str,),
                     'organization_id':
                         (str,),
                 },
                 'attribute_map': {
                     'asset_id': 'asset_id',
                     'environment_id': 'environment_id',
+                    'connection_id': 'connection_id',
                     'organization_id': 'organization_id',
                 },
                 'location_map': {
                     'asset_id': 'path',
                     'environment_id': 'path',
+                    'connection_id': 'path',
                     'organization_id': 'path',
                 },
                 'collection_format_map': {
@@ -432,6 +438,7 @@ class ConnectionsApi(object):
         self,
         asset_id,
         environment_id,
+        connection_id,
         organization_id,
         **kwargs
     ):
@@ -440,12 +447,13 @@ class ConnectionsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, organization_id, async_req=True)
+        >>> thread = api.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             asset_id (str):
             environment_id (str):
+            connection_id (str):
             organization_id (str):
 
         Keyword Args:
@@ -514,6 +522,8 @@ class ConnectionsApi(object):
             asset_id
         kwargs['environment_id'] = \
             environment_id
+        kwargs['connection_id'] = \
+            connection_id
         kwargs['organization_id'] = \
             organization_id
         return self.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_endpoint.call_with_http_info(**kwargs)

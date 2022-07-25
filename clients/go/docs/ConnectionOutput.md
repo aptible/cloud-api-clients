@@ -5,15 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**IncomingAsset** | [**AssetOutput**](AssetOutput.md) |  | 
-**OutgoingAsset** | [**AssetOutput**](AssetOutput.md) |  | 
+**IncomingConnectionAsset** | Pointer to [**AssetOutput**](AssetOutput.md) |  | [optional] 
+**Operations** | Pointer to [**[]OperationOutput**](OperationOutput.md) |  | [optional] 
+**OutgoingConnectionAsset** | Pointer to [**AssetOutput**](AssetOutput.md) |  | [optional] 
 **Status** | [**ConnectionStatus**](ConnectionStatus.md) |  | 
 
 ## Methods
 
 ### NewConnectionOutput
 
-`func NewConnectionOutput(id string, incomingAsset AssetOutput, outgoingAsset AssetOutput, status ConnectionStatus, ) *ConnectionOutput`
+`func NewConnectionOutput(id string, status ConnectionStatus, ) *ConnectionOutput`
 
 NewConnectionOutput instantiates a new ConnectionOutput object
 This constructor will assign default values to properties that have it defined,
@@ -48,45 +49,80 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetIncomingAsset
+### GetIncomingConnectionAsset
 
-`func (o *ConnectionOutput) GetIncomingAsset() AssetOutput`
+`func (o *ConnectionOutput) GetIncomingConnectionAsset() AssetOutput`
 
-GetIncomingAsset returns the IncomingAsset field if non-nil, zero value otherwise.
+GetIncomingConnectionAsset returns the IncomingConnectionAsset field if non-nil, zero value otherwise.
 
-### GetIncomingAssetOk
+### GetIncomingConnectionAssetOk
 
-`func (o *ConnectionOutput) GetIncomingAssetOk() (*AssetOutput, bool)`
+`func (o *ConnectionOutput) GetIncomingConnectionAssetOk() (*AssetOutput, bool)`
 
-GetIncomingAssetOk returns a tuple with the IncomingAsset field if it's non-nil, zero value otherwise
+GetIncomingConnectionAssetOk returns a tuple with the IncomingConnectionAsset field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIncomingAsset
+### SetIncomingConnectionAsset
 
-`func (o *ConnectionOutput) SetIncomingAsset(v AssetOutput)`
+`func (o *ConnectionOutput) SetIncomingConnectionAsset(v AssetOutput)`
 
-SetIncomingAsset sets IncomingAsset field to given value.
+SetIncomingConnectionAsset sets IncomingConnectionAsset field to given value.
 
+### HasIncomingConnectionAsset
 
-### GetOutgoingAsset
+`func (o *ConnectionOutput) HasIncomingConnectionAsset() bool`
 
-`func (o *ConnectionOutput) GetOutgoingAsset() AssetOutput`
+HasIncomingConnectionAsset returns a boolean if a field has been set.
 
-GetOutgoingAsset returns the OutgoingAsset field if non-nil, zero value otherwise.
+### GetOperations
 
-### GetOutgoingAssetOk
+`func (o *ConnectionOutput) GetOperations() []OperationOutput`
 
-`func (o *ConnectionOutput) GetOutgoingAssetOk() (*AssetOutput, bool)`
+GetOperations returns the Operations field if non-nil, zero value otherwise.
 
-GetOutgoingAssetOk returns a tuple with the OutgoingAsset field if it's non-nil, zero value otherwise
+### GetOperationsOk
+
+`func (o *ConnectionOutput) GetOperationsOk() (*[]OperationOutput, bool)`
+
+GetOperationsOk returns a tuple with the Operations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOutgoingAsset
+### SetOperations
 
-`func (o *ConnectionOutput) SetOutgoingAsset(v AssetOutput)`
+`func (o *ConnectionOutput) SetOperations(v []OperationOutput)`
 
-SetOutgoingAsset sets OutgoingAsset field to given value.
+SetOperations sets Operations field to given value.
 
+### HasOperations
+
+`func (o *ConnectionOutput) HasOperations() bool`
+
+HasOperations returns a boolean if a field has been set.
+
+### GetOutgoingConnectionAsset
+
+`func (o *ConnectionOutput) GetOutgoingConnectionAsset() AssetOutput`
+
+GetOutgoingConnectionAsset returns the OutgoingConnectionAsset field if non-nil, zero value otherwise.
+
+### GetOutgoingConnectionAssetOk
+
+`func (o *ConnectionOutput) GetOutgoingConnectionAssetOk() (*AssetOutput, bool)`
+
+GetOutgoingConnectionAssetOk returns a tuple with the OutgoingConnectionAsset field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutgoingConnectionAsset
+
+`func (o *ConnectionOutput) SetOutgoingConnectionAsset(v AssetOutput)`
+
+SetOutgoingConnectionAsset sets OutgoingConnectionAsset field to given value.
+
+### HasOutgoingConnectionAsset
+
+`func (o *ConnectionOutput) HasOutgoingConnectionAsset() bool`
+
+HasOutgoingConnectionAsset returns a boolean if a field has been set.
 
 ### GetStatus
 

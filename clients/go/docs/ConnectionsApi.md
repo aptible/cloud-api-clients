@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ## GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet
 
-> ConnectionOutput GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx, assetId, environmentId, organizationId).Execute()
+> ConnectionOutput GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx, assetId, environmentId, connectionId, organizationId).Execute()
 
 Get Connection By Id
 
@@ -184,11 +184,12 @@ import (
 func main() {
     assetId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
     environmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    connectionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
     organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionsApi.GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(context.Background(), assetId, environmentId, organizationId).Execute()
+    resp, r, err := apiClient.ConnectionsApi.GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(context.Background(), assetId, environmentId, connectionId, organizationId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectionsApi.GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -206,6 +207,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **assetId** | **string** |  | 
 **environmentId** | **string** |  | 
+**connectionId** | **string** |  | 
 **organizationId** | **string** |  | 
 
 ### Other Parameters
@@ -215,6 +217,7 @@ Other parameters are passed through a pointer to a apiGetConnectionByIdApiV1Orga
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
 

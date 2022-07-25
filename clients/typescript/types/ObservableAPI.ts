@@ -239,10 +239,11 @@ export class ObservableConnectionsApi {
      * Get Connection By Id
      * @param assetId 
      * @param environmentId 
+     * @param connectionId 
      * @param organizationId 
      */
-    public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<ConnectionOutput> {
-        const requestContextPromise = this.requestFactory.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId, environmentId, organizationId, _options);
+    public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Observable<ConnectionOutput> {
+        const requestContextPromise = this.requestFactory.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId, environmentId, connectionId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

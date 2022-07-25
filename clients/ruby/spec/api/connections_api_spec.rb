@@ -64,6 +64,7 @@ describe 'ConnectionsApi' do
   # Get Connection By Id
   # @param asset_id 
   # @param environment_id 
+  # @param connection_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [ConnectionOutput]
