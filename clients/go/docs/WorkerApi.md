@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UpdateOperationApiV1OperationsOperationIdOperationStatusPut**](WorkerApi.md#UpdateOperationApiV1OperationsOperationIdOperationStatusPut) | **Put** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
+[**UpdateOperationApiV1OperationsOperationIdPut**](WorkerApi.md#UpdateOperationApiV1OperationsOperationIdPut) | **Put** /api/v1/operations/{operation_id} | Update Operation
 [**WorkerHealthCheckApiV1WorkerHealthCheckPost**](WorkerApi.md#WorkerHealthCheckApiV1WorkerHealthCheckPost) | **Post** /api/v1/worker/health-check | Worker Health Check
 
 
 
-## UpdateOperationApiV1OperationsOperationIdOperationStatusPut
+## UpdateOperationApiV1OperationsOperationIdPut
 
-> interface{} UpdateOperationApiV1OperationsOperationIdOperationStatusPut(ctx, operationId, operationStatus).Execute()
+> interface{} UpdateOperationApiV1OperationsOperationIdPut(ctx, operationId).OperationUpdate(operationUpdate).Execute()
 
 Update Operation
 
@@ -29,17 +29,17 @@ import (
 
 func main() {
     operationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    operationStatus := openapiclient.OperationStatus("FAILED") // OperationStatus | 
+    operationUpdate := *openapiclient.NewOperationUpdate("Id_example", openapiclient.OperationStatus("FAILED")) // OperationUpdate | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkerApi.UpdateOperationApiV1OperationsOperationIdOperationStatusPut(context.Background(), operationId, operationStatus).Execute()
+    resp, r, err := apiClient.WorkerApi.UpdateOperationApiV1OperationsOperationIdPut(context.Background(), operationId).OperationUpdate(operationUpdate).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WorkerApi.UpdateOperationApiV1OperationsOperationIdOperationStatusPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkerApi.UpdateOperationApiV1OperationsOperationIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateOperationApiV1OperationsOperationIdOperationStatusPut`: interface{}
-    fmt.Fprintf(os.Stdout, "Response from `WorkerApi.UpdateOperationApiV1OperationsOperationIdOperationStatusPut`: %v\n", resp)
+    // response from `UpdateOperationApiV1OperationsOperationIdPut`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `WorkerApi.UpdateOperationApiV1OperationsOperationIdPut`: %v\n", resp)
 }
 ```
 
@@ -50,17 +50,16 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **operationId** | **string** |  | 
-**operationStatus** | [**OperationStatus**](.md) |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateOperationApiV1OperationsOperationIdPutRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
+ **operationUpdate** | [**OperationUpdate**](OperationUpdate.md) |  | 
 
 ### Return type
 
@@ -72,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

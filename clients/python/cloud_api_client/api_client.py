@@ -801,11 +801,11 @@ class Endpoint(object):
         """ This method is invoked when endpoints are called
         Example:
 
-        api_instance = AssetsApi()
-        api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post  # this is an instance of the class Endpoint
-        api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post()  # this invokes api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post.__call__()
+        api_instance = ActionsApi()
+        api_instance.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post  # this is an instance of the class Endpoint
+        api_instance.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post()  # this invokes api_instance.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post.callable or self.callable in this class
+        api_instance.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

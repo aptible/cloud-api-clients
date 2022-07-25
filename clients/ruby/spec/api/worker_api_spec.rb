@@ -32,13 +32,13 @@ describe 'WorkerApi' do
     end
   end
 
-  # unit tests for update_operation_api_v1_operations_operation_id_operation_status_put
+  # unit tests for update_operation_api_v1_operations_operation_id_put
   # Update Operation
   # @param operation_id 
-  # @param operation_status 
+  # @param operation_update 
   # @param [Hash] opts the optional parameters
   # @return [Object]
-  describe 'update_operation_api_v1_operations_operation_id_operation_status_put test' do
+  describe 'update_operation_api_v1_operations_operation_id_put test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

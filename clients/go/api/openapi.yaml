@@ -251,6 +251,121 @@ paths:
       summary: Create Asset
       tags:
       - assets
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action:
+    post:
+      operationId: create_action_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__action_post
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Create Action
+      tags:
+      - actions
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id}:
+    get:
+      operationId: get_action_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__action__action_id__get
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: action_id
+        required: true
+        schema:
+          format: uuid
+          title: Action Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Get Action
+      tags:
+      - actions
   /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles:
     get:
       operationId: get_environment_allowed_assets_api_v1_organizations__organization_id__environments__environment_id__asset_bundles_get
@@ -566,9 +681,9 @@ paths:
       summary: Worker Health Check
       tags:
       - worker
-  /api/v1/operations/{operation_id}/{operation_status}:
+  /api/v1/operations/{operation_id}:
     put:
-      operationId: update_operation_api_v1_operations__operation_id___operation_status__put
+      operationId: update_operation_api_v1_operations__operation_id__put
       parameters:
       - explode: false
         in: path
@@ -579,13 +694,12 @@ paths:
           title: Operation Id
           type: string
         style: simple
-      - explode: false
-        in: path
-        name: operation_status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationUpdate'
         required: true
-        schema:
-          $ref: '#/components/schemas/OperationStatus'
-        style: simple
       responses:
         "200":
           content:
@@ -1049,6 +1163,140 @@ paths:
       - utilities
 components:
   schemas:
+    ActionOutput:
+      example:
+        output: "{}"
+        action_name: action_name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        asset:
+          environment:
+            data: "{}"
+            aws_account_id: aws_account_id
+            organization:
+              aws_ou: aws_ou
+              baa_status: baa_status
+              name: name
+              contact_details: "{}"
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          user_defined: true
+          asset_version: asset_version
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset: asset
+          connections:
+          - outgoing_connection_asset: null
+            operations:
+            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              operation_type: ""
+              asset_name: asset_name
+              asset_parameters: "{}"
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_version: asset_version
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              status: ""
+            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              operation_type: ""
+              asset_name: asset_name
+              asset_parameters: "{}"
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_version: asset_version
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              status: ""
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            incoming_connection_asset: null
+            status: null
+          - outgoing_connection_asset: null
+            operations:
+            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              operation_type: ""
+              asset_name: asset_name
+              asset_parameters: "{}"
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_version: asset_version
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              status: ""
+            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              operation_type: ""
+              asset_name: asset_name
+              asset_parameters: "{}"
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_version: asset_version
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              status: ""
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            incoming_connection_asset: null
+            status: null
+          current_asset_parameters:
+            data: "{}"
+            iteration: 0
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: status
+        operation:
+          execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          operation_type: ""
+          asset_name: asset_name
+          asset_parameters: "{}"
+          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_version: asset_version
+          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: ""
+        parameters: "{}"
+      properties:
+        id:
+          format: uuid
+          title: Id
+          type: string
+        action_name:
+          title: Action Name
+          type: string
+        asset:
+          $ref: '#/components/schemas/AssetOutput'
+        operation:
+          $ref: '#/components/schemas/OperationOutput'
+        parameters:
+          title: Parameters
+          type: object
+        output:
+          title: Output
+          type: object
+      required:
+      - action_name
+      - asset
+      - id
+      - operation
+      title: ActionOutput
+      type: object
+    ActionRequest:
+      example:
+        action_name: action_name
+        parameters: ""
+      properties:
+        action_name:
+          title: Action Name
+          type: string
+        parameters:
+          title: Parameters
+      required:
+      - action_name
+      title: ActionRequest
+      type: object
     AssetAction:
       example:
         user_parameters: ""
@@ -1440,6 +1688,36 @@ components:
       - message
       title: HealthCheckFromWorker
       type: object
+    OperationActionUpdate:
+      properties:
+        action_output:
+          title: Action Output
+        action_errors:
+          title: Action Errors
+          type: string
+      title: OperationActionUpdate
+      type: object
+    OperationAssetUpdate:
+      properties:
+        terraform_stdout:
+          items:
+            type: object
+          title: Terraform Stdout
+          type: array
+        terraform_stdin:
+          items:
+            type: object
+          title: Terraform Stdin
+          type: array
+        terraform_return_code:
+          title: Terraform Return Code
+          type: integer
+      required:
+      - terraform_return_code
+      - terraform_stdin
+      - terraform_stdout
+      title: OperationAssetUpdate
+      type: object
     OperationOutput:
       example:
         execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1521,8 +1799,28 @@ components:
       - CREATE
       - UPDATE
       - DESTROY
+      - ACTION
       title: OperationType
       type: string
+    OperationUpdate:
+      example:
+        data: null
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status: null
+      properties:
+        id:
+          format: uuid
+          title: Id
+          type: string
+        status:
+          $ref: '#/components/schemas/OperationStatus'
+        data:
+          $ref: '#/components/schemas/Data'
+      required:
+      - id
+      - status
+      title: OperationUpdate
+      type: object
     OrganizationInput:
       example:
         aws_ou: aws_ou
@@ -1616,6 +1914,11 @@ components:
       - type
       title: ValidationError
       type: object
+    Data:
+      anyOf:
+      - $ref: '#/components/schemas/OperationActionUpdate'
+      - $ref: '#/components/schemas/OperationAssetUpdate'
+      title: Data
     Location_inner:
       anyOf:
       - type: string

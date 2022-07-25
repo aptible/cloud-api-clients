@@ -78,6 +78,8 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ActionsApi* | [**CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost**](docs/ActionsApi.md#createactionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidactionpost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Create Action
+*ActionsApi* | [**GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet**](docs/ActionsApi.md#getactionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidactionactionidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Get Action
 *AssetsApi* | [**CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost**](docs/AssetsApi.md#createassetapiv1organizationsorganizationidenvironmentsenvironmentidassetspost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset
 *AssetsApi* | [**DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete**](docs/AssetsApi.md#deleteassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetiddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id
 *AssetsApi* | [**GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet**](docs/AssetsApi.md#getassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
@@ -102,12 +104,14 @@ Class | Method | HTTP request | Description
 *UtilitiesApi* | [**GetPingApiV1DebugPingGet**](docs/UtilitiesApi.md#getpingapiv1debugpingget) | **Get** /api/v1/debug/ping | Get Ping
 *UtilitiesApi* | [**GetUserApiV1DebugUserAuthGet**](docs/UtilitiesApi.md#getuserapiv1debuguserauthget) | **Get** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet**](docs/UtilitiesApi.md#getuserroleapiv1debuguserrolemiddlewarecheckget) | **Get** /api/v1/debug/user_role_middleware_check | Get User Role
-*WorkerApi* | [**UpdateOperationApiV1OperationsOperationIdOperationStatusPut**](docs/WorkerApi.md#updateoperationapiv1operationsoperationidoperationstatusput) | **Put** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
+*WorkerApi* | [**UpdateOperationApiV1OperationsOperationIdPut**](docs/WorkerApi.md#updateoperationapiv1operationsoperationidput) | **Put** /api/v1/operations/{operation_id} | Update Operation
 *WorkerApi* | [**WorkerHealthCheckApiV1WorkerHealthCheckPost**](docs/WorkerApi.md#workerhealthcheckapiv1workerhealthcheckpost) | **Post** /api/v1/worker/health-check | Worker Health Check
 
 
 ## Documentation For Models
 
+ - [ActionOutput](docs/ActionOutput.md)
+ - [ActionRequest](docs/ActionRequest.md)
  - [AssetAction](docs/AssetAction.md)
  - [AssetBundle](docs/AssetBundle.md)
  - [AssetInput](docs/AssetInput.md)
@@ -116,14 +120,18 @@ Class | Method | HTTP request | Description
  - [ConnectionInput](docs/ConnectionInput.md)
  - [ConnectionOutput](docs/ConnectionOutput.md)
  - [ConnectionStatus](docs/ConnectionStatus.md)
+ - [Data](docs/Data.md)
  - [EnvironmentInput](docs/EnvironmentInput.md)
  - [EnvironmentOutput](docs/EnvironmentOutput.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HealthCheckFromWorker](docs/HealthCheckFromWorker.md)
  - [LocationInner](docs/LocationInner.md)
+ - [OperationActionUpdate](docs/OperationActionUpdate.md)
+ - [OperationAssetUpdate](docs/OperationAssetUpdate.md)
  - [OperationOutput](docs/OperationOutput.md)
  - [OperationStatus](docs/OperationStatus.md)
  - [OperationType](docs/OperationType.md)
+ - [OperationUpdate](docs/OperationUpdate.md)
  - [OrganizationInput](docs/OrganizationInput.md)
  - [OrganizationOutput](docs/OrganizationOutput.md)
  - [TextResponse](docs/TextResponse.md)

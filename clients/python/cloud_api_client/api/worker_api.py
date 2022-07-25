@@ -23,7 +23,7 @@ from cloud_api_client.model_utils import (  # noqa: F401
 )
 from cloud_api_client.model.http_validation_error import HTTPValidationError
 from cloud_api_client.model.health_check_from_worker import HealthCheckFromWorker
-from cloud_api_client.model.operation_status import OperationStatus
+from cloud_api_client.model.operation_update import OperationUpdate
 
 
 class WorkerApi(object):
@@ -37,25 +37,25 @@ class WorkerApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.update_operation_api_v1_operations_operation_id_operation_status_put_endpoint = _Endpoint(
+        self.update_operation_api_v1_operations_operation_id_put_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [
                     'HTTPBearer'
                 ],
-                'endpoint_path': '/api/v1/operations/{operation_id}/{operation_status}',
-                'operation_id': 'update_operation_api_v1_operations_operation_id_operation_status_put',
+                'endpoint_path': '/api/v1/operations/{operation_id}',
+                'operation_id': 'update_operation_api_v1_operations_operation_id_put',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'operation_id',
-                    'operation_status',
+                    'operation_update',
                 ],
                 'required': [
                     'operation_id',
-                    'operation_status',
+                    'operation_update',
                 ],
                 'nullable': [
                 ],
@@ -72,16 +72,15 @@ class WorkerApi(object):
                 'openapi_types': {
                     'operation_id':
                         (str,),
-                    'operation_status':
-                        (OperationStatus,),
+                    'operation_update':
+                        (OperationUpdate,),
                 },
                 'attribute_map': {
                     'operation_id': 'operation_id',
-                    'operation_status': 'operation_status',
                 },
                 'location_map': {
                     'operation_id': 'path',
-                    'operation_status': 'path',
+                    'operation_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -90,7 +89,9 @@ class WorkerApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -145,10 +146,10 @@ class WorkerApi(object):
             api_client=api_client
         )
 
-    def update_operation_api_v1_operations_operation_id_operation_status_put(
+    def update_operation_api_v1_operations_operation_id_put(
         self,
         operation_id,
-        operation_status,
+        operation_update,
         **kwargs
     ):
         """Update Operation  # noqa: E501
@@ -156,12 +157,12 @@ class WorkerApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_operation_api_v1_operations_operation_id_operation_status_put(operation_id, operation_status, async_req=True)
+        >>> thread = api.update_operation_api_v1_operations_operation_id_put(operation_id, operation_update, async_req=True)
         >>> result = thread.get()
 
         Args:
             operation_id (str):
-            operation_status (OperationStatus):
+            operation_update (OperationUpdate):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -227,9 +228,9 @@ class WorkerApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['operation_id'] = \
             operation_id
-        kwargs['operation_status'] = \
-            operation_status
-        return self.update_operation_api_v1_operations_operation_id_operation_status_put_endpoint.call_with_http_info(**kwargs)
+        kwargs['operation_update'] = \
+            operation_update
+        return self.update_operation_api_v1_operations_operation_id_put_endpoint.call_with_http_info(**kwargs)
 
     def worker_health_check_api_v1_worker_health_check_post(
         self,

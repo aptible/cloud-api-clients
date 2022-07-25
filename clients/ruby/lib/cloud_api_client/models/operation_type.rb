@@ -18,6 +18,7 @@ module CloudApiClient
     CREATE = "CREATE".freeze
     UPDATE = "UPDATE".freeze
     DESTROY = "DESTROY".freeze
+    ACTION = "ACTION".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

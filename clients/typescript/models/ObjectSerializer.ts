@@ -1,3 +1,5 @@
+export * from './ActionOutput';
+export * from './ActionRequest';
 export * from './AssetAction';
 export * from './AssetBundle';
 export * from './AssetInput';
@@ -6,19 +8,25 @@ export * from './AssetParametersOutput';
 export * from './ConnectionInput';
 export * from './ConnectionOutput';
 export * from './ConnectionStatus';
+export * from './Data';
 export * from './EnvironmentInput';
 export * from './EnvironmentOutput';
 export * from './HTTPValidationError';
 export * from './HealthCheckFromWorker';
 export * from './LocationInner';
+export * from './OperationActionUpdate';
+export * from './OperationAssetUpdate';
 export * from './OperationOutput';
 export * from './OperationStatus';
 export * from './OperationType';
+export * from './OperationUpdate';
 export * from './OrganizationInput';
 export * from './OrganizationOutput';
 export * from './TextResponse';
 export * from './ValidationError';
 
+import { ActionOutput } from './ActionOutput';
+import { ActionRequest } from './ActionRequest';
 import { AssetAction } from './AssetAction';
 import { AssetBundle } from './AssetBundle';
 import { AssetInput } from './AssetInput';
@@ -27,14 +35,18 @@ import { AssetParametersOutput } from './AssetParametersOutput';
 import { ConnectionInput } from './ConnectionInput';
 import { ConnectionOutput } from './ConnectionOutput';
 import { ConnectionStatus } from './ConnectionStatus';
+import { Data } from './Data';
 import { EnvironmentInput } from './EnvironmentInput';
 import { EnvironmentOutput } from './EnvironmentOutput';
 import { HTTPValidationError } from './HTTPValidationError';
 import { HealthCheckFromWorker } from './HealthCheckFromWorker';
 import { LocationInner } from './LocationInner';
+import { OperationActionUpdate } from './OperationActionUpdate';
+import { OperationAssetUpdate } from './OperationAssetUpdate';
 import { OperationOutput } from './OperationOutput';
 import { OperationStatus } from './OperationStatus';
 import { OperationType } from './OperationType';
+import { OperationUpdate } from './OperationUpdate';
 import { OrganizationInput } from './OrganizationInput';
 import { OrganizationOutput } from './OrganizationOutput';
 import { TextResponse } from './TextResponse';
@@ -66,6 +78,8 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "ActionOutput": ActionOutput,
+    "ActionRequest": ActionRequest,
     "AssetAction": AssetAction,
     "AssetBundle": AssetBundle,
     "AssetInput": AssetInput,
@@ -73,12 +87,16 @@ let typeMap: {[index: string]: any} = {
     "AssetParametersOutput": AssetParametersOutput,
     "ConnectionInput": ConnectionInput,
     "ConnectionOutput": ConnectionOutput,
+    "Data": Data,
     "EnvironmentInput": EnvironmentInput,
     "EnvironmentOutput": EnvironmentOutput,
     "HTTPValidationError": HTTPValidationError,
     "HealthCheckFromWorker": HealthCheckFromWorker,
     "LocationInner": LocationInner,
+    "OperationActionUpdate": OperationActionUpdate,
+    "OperationAssetUpdate": OperationAssetUpdate,
     "OperationOutput": OperationOutput,
+    "OperationUpdate": OperationUpdate,
     "OrganizationInput": OrganizationInput,
     "OrganizationOutput": OrganizationOutput,
     "TextResponse": TextResponse,

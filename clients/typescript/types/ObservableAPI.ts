@@ -3,6 +3,8 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
+import { ActionOutput } from '../models/ActionOutput';
+import { ActionRequest } from '../models/ActionRequest';
 import { AssetAction } from '../models/AssetAction';
 import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
@@ -11,18 +13,92 @@ import { AssetParametersOutput } from '../models/AssetParametersOutput';
 import { ConnectionInput } from '../models/ConnectionInput';
 import { ConnectionOutput } from '../models/ConnectionOutput';
 import { ConnectionStatus } from '../models/ConnectionStatus';
+import { Data } from '../models/Data';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
 import { HealthCheckFromWorker } from '../models/HealthCheckFromWorker';
 import { LocationInner } from '../models/LocationInner';
+import { OperationActionUpdate } from '../models/OperationActionUpdate';
+import { OperationAssetUpdate } from '../models/OperationAssetUpdate';
 import { OperationOutput } from '../models/OperationOutput';
 import { OperationStatus } from '../models/OperationStatus';
 import { OperationType } from '../models/OperationType';
+import { OperationUpdate } from '../models/OperationUpdate';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
 import { TextResponse } from '../models/TextResponse';
 import { ValidationError } from '../models/ValidationError';
+
+import { ActionsApiRequestFactory, ActionsApiResponseProcessor} from "../apis/ActionsApi";
+export class ObservableActionsApi {
+    private requestFactory: ActionsApiRequestFactory;
+    private responseProcessor: ActionsApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: ActionsApiRequestFactory,
+        responseProcessor?: ActionsApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new ActionsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new ActionsApiResponseProcessor();
+    }
+
+    /**
+     * Create Action
+     * @param assetId 
+     * @param environmentId 
+     * @param organizationId 
+     * @param actionRequest 
+     */
+    public createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId: string, environmentId: string, organizationId: string, actionRequest: ActionRequest, _options?: Configuration): Observable<ActionOutput> {
+        const requestContextPromise = this.requestFactory.createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId, environmentId, organizationId, actionRequest, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(rsp)));
+            }));
+    }
+
+    /**
+     * Get Action
+     * @param assetId 
+     * @param environmentId 
+     * @param actionId 
+     * @param organizationId 
+     */
+    public getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId: string, environmentId: string, actionId: string, organizationId: string, _options?: Configuration): Observable<ActionOutput> {
+        const requestContextPromise = this.requestFactory.getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId, environmentId, actionId, organizationId, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(rsp)));
+            }));
+    }
+
+}
 
 import { AssetsApiRequestFactory, AssetsApiResponseProcessor} from "../apis/AssetsApi";
 export class ObservableAssetsApi {
@@ -730,10 +806,10 @@ export class ObservableWorkerApi {
     /**
      * Update Operation
      * @param operationId 
-     * @param operationStatus 
+     * @param operationUpdate 
      */
-    public updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId: string, operationStatus: OperationStatus, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId, operationStatus, _options);
+    public updateOperationApiV1OperationsOperationIdPut(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.updateOperationApiV1OperationsOperationIdPut(operationId, operationUpdate, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -747,7 +823,7 @@ export class ObservableWorkerApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateOperationApiV1OperationsOperationIdOperationStatusPut(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateOperationApiV1OperationsOperationIdPut(rsp)));
             }));
     }
 
