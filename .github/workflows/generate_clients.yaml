@@ -9,6 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
       - name: add ssh key for use in deps installation
         run: |
           # this link below looks like it will mostly impact executioner, but that is a dep of cloud-api via client
@@ -24,10 +33,6 @@ jobs:
           ssh-private-key: ${{ secrets.APTIBLE_ROBOT_PRIVATE_SSH_KEY }}
 
       # 1- Install dependencies to setup the repo
-      - uses: actions/setup-python@v3
-        with:
-          python-version: '3.10'
-
       - name: Install dependencies
         run: |
           make reclone
@@ -40,9 +45,6 @@ jobs:
         env:
           BUNDLE_DIRECTORY: "/home/runner/work/cloud-api-clients/cloud-api-clients/bundles"
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
 
       # 2 - Generate the separate clients!
       - run: ./scripts/generate-clients-gha.sh
