@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 AssetsApi.md
 ConnectionsApi.md
 EnvironmentsApi.md
