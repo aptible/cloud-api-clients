@@ -11,6 +11,7 @@
  */
 
 import { AssetParametersOutput } from './AssetParametersOutput';
+import { AssetStatus } from './AssetStatus';
 import { ConnectionOutput } from './ConnectionOutput';
 import { EnvironmentOutput } from './EnvironmentOutput';
 import { HttpFile } from '../http/http';
@@ -22,7 +23,7 @@ export class AssetOutput {
     'connections'?: Array<ConnectionOutput>;
     'currentAssetParameters': AssetParametersOutput;
     'environment': EnvironmentOutput;
-    'status': string;
+    'status': AssetStatus;
     'userDefined': boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -67,7 +68,7 @@ export class AssetOutput {
         {
             "name": "status",
             "baseName": "status",
-            "type": "string",
+            "type": "AssetStatus",
             "format": ""
         },
         {

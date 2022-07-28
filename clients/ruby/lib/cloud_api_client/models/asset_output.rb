@@ -59,7 +59,7 @@ module CloudApiClient
         :'connections' => :'Array<ConnectionOutput>',
         :'current_asset_parameters' => :'AssetParametersOutput',
         :'environment' => :'EnvironmentOutput',
-        :'status' => :'String',
+        :'status' => :'AssetStatus',
         :'user_defined' => :'Boolean'
       }
     end

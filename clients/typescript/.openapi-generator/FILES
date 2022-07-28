@@ -28,6 +28,7 @@ models/AssetBundle.ts
 models/AssetInput.ts
 models/AssetOutput.ts
 models/AssetParametersOutput.ts
+models/AssetStatus.ts
 models/ConnectionInput.ts
 models/ConnectionOutput.ts
 models/ConnectionStatus.ts

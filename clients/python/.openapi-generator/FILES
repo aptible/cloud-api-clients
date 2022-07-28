@@ -21,6 +21,7 @@ cloud_api_client/model/asset_bundle.py
 cloud_api_client/model/asset_input.py
 cloud_api_client/model/asset_output.py
 cloud_api_client/model/asset_parameters_output.py
+cloud_api_client/model/asset_status.py
 cloud_api_client/model/connection_input.py
 cloud_api_client/model/connection_output.py
 cloud_api_client/model/connection_status.py
@@ -44,6 +45,7 @@ docs/AssetBundle.md
 docs/AssetInput.md
 docs/AssetOutput.md
 docs/AssetParametersOutput.md
+docs/AssetStatus.md
 docs/AssetsApi.md
 docs/ConnectionInput.md
 docs/ConnectionOutput.md
@@ -72,4 +74,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_asset_status.py
 tox.ini
