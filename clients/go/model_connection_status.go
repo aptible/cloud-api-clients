@@ -20,10 +20,10 @@ type ConnectionStatus string
 
 // List of ConnectionStatus
 const (
-	ACTIVE ConnectionStatus = "ACTIVE"
-	DELETED ConnectionStatus = "DELETED"
-	FAILED ConnectionStatus = "FAILED"
-	PENDING ConnectionStatus = "PENDING"
+	CONNECTIONSTATUS_ACTIVE ConnectionStatus = "ACTIVE"
+	CONNECTIONSTATUS_DELETED ConnectionStatus = "DELETED"
+	CONNECTIONSTATUS_FAILED ConnectionStatus = "FAILED"
+	CONNECTIONSTATUS_PENDING ConnectionStatus = "PENDING"
 )
 
 // All allowed values of ConnectionStatus enum

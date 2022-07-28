@@ -20,13 +20,13 @@ type OperationStatus string
 
 // List of OperationStatus
 const (
-	FAILED OperationStatus = "FAILED"
-	REQUESTED OperationStatus = "REQUESTED"
-	PENDING OperationStatus = "PENDING"
-	PAUSED OperationStatus = "PAUSED"
-	IN_PROGRESS OperationStatus = "IN_PROGRESS"
-	CANCELED OperationStatus = "CANCELED"
-	COMPLETE OperationStatus = "COMPLETE"
+	OPERATIONSTATUS_FAILED OperationStatus = "FAILED"
+	OPERATIONSTATUS_REQUESTED OperationStatus = "REQUESTED"
+	OPERATIONSTATUS_PENDING OperationStatus = "PENDING"
+	OPERATIONSTATUS_PAUSED OperationStatus = "PAUSED"
+	OPERATIONSTATUS_IN_PROGRESS OperationStatus = "IN_PROGRESS"
+	OPERATIONSTATUS_CANCELED OperationStatus = "CANCELED"
+	OPERATIONSTATUS_COMPLETE OperationStatus = "COMPLETE"
 )
 
 // All allowed values of OperationStatus enum
