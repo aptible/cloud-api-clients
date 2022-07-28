@@ -78,7 +78,8 @@ openapi-generator-cli generate --skip-validate-spec \
 	  -i openapi.json \
 	  -g go \
 	  -o clients/go \
-	  --additional-properties packageName=cloud_api_client \
+	  --additional-properties=packageName=cloud_api_client \
+	  --additional-properties=enumClassPrefix=true \
 	  --additional-properties=generateInterfaces=true \
 	  --additional-properties=GoSubmodule=true \
 	  --git-user-id=aptible \
