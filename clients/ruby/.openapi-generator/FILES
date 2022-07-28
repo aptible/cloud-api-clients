@@ -12,6 +12,7 @@ docs/AssetBundle.md
 docs/AssetInput.md
 docs/AssetOutput.md
 docs/AssetParametersOutput.md
+docs/AssetStatus.md
 docs/AssetsApi.md
 docs/ConnectionInput.md
 docs/ConnectionOutput.md
@@ -51,6 +52,7 @@ lib/cloud_api_client/models/asset_bundle.rb
 lib/cloud_api_client/models/asset_input.rb
 lib/cloud_api_client/models/asset_output.rb
 lib/cloud_api_client/models/asset_parameters_output.rb
+lib/cloud_api_client/models/asset_status.rb
 lib/cloud_api_client/models/connection_input.rb
 lib/cloud_api_client/models/connection_output.rb
 lib/cloud_api_client/models/connection_status.rb
@@ -69,4 +71,5 @@ lib/cloud_api_client/models/validation_error.rb
 lib/cloud_api_client/version.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
+spec/models/asset_status_spec.rb
 spec/spec_helper.rb

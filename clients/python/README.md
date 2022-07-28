@@ -131,6 +131,7 @@ Class | Method | HTTP request | Description
  - [AssetInput](docs/AssetInput.md)
  - [AssetOutput](docs/AssetOutput.md)
  - [AssetParametersOutput](docs/AssetParametersOutput.md)
+ - [AssetStatus](docs/AssetStatus.md)
  - [ConnectionInput](docs/ConnectionInput.md)
  - [ConnectionOutput](docs/ConnectionOutput.md)
  - [ConnectionStatus](docs/ConnectionStatus.md)

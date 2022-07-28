@@ -1209,7 +1209,7 @@ components:
           data: "{}"
           iteration: 0
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        status: status
+        status: null
       properties:
         asset:
           title: Asset
@@ -1232,8 +1232,7 @@ components:
         environment:
           $ref: '#/components/schemas/EnvironmentOutput'
         status:
-          title: Status
-          type: string
+          $ref: '#/components/schemas/AssetStatus'
         user_defined:
           title: User Defined
           type: boolean
@@ -1269,6 +1268,18 @@ components:
       - iteration
       title: AssetParametersOutput
       type: object
+    AssetStatus:
+      description: An enumeration.
+      enum:
+      - FAILED
+      - PENDING
+      - REQUESTED
+      - DEPLOYING
+      - DEPLOYED
+      - DESTROYED
+      - DESTROYING
+      title: AssetStatus
+      type: string
     ConnectionInput:
       example:
         outgoing_asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91

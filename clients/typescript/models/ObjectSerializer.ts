@@ -3,6 +3,7 @@ export * from './AssetBundle';
 export * from './AssetInput';
 export * from './AssetOutput';
 export * from './AssetParametersOutput';
+export * from './AssetStatus';
 export * from './ConnectionInput';
 export * from './ConnectionOutput';
 export * from './ConnectionStatus';
@@ -24,6 +25,7 @@ import { AssetBundle } from './AssetBundle';
 import { AssetInput } from './AssetInput';
 import { AssetOutput } from './AssetOutput';
 import { AssetParametersOutput } from './AssetParametersOutput';
+import { AssetStatus } from './AssetStatus';
 import { ConnectionInput } from './ConnectionInput';
 import { ConnectionOutput } from './ConnectionOutput';
 import { ConnectionStatus } from './ConnectionStatus';
@@ -60,6 +62,7 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
+    "AssetStatus",
     "ConnectionStatus",
     "OperationStatus",
     "OperationType",

@@ -8,6 +8,7 @@ import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
 import { AssetParametersOutput } from '../models/AssetParametersOutput';
+import { AssetStatus } from '../models/AssetStatus';
 import { ConnectionInput } from '../models/ConnectionInput';
 import { ConnectionOutput } from '../models/ConnectionOutput';
 import { ConnectionStatus } from '../models/ConnectionStatus';

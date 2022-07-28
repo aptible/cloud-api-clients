@@ -16,6 +16,7 @@ docs/AssetBundle.md
 docs/AssetInput.md
 docs/AssetOutput.md
 docs/AssetParametersOutput.md
+docs/AssetStatus.md
 docs/AssetsApi.md
 docs/ConnectionInput.md
 docs/ConnectionOutput.md
@@ -46,6 +47,7 @@ model_asset_bundle.go
 model_asset_input.go
 model_asset_output.go
 model_asset_parameters_output.go
+model_asset_status.go
 model_connection_input.go
 model_connection_output.go
 model_connection_status.go

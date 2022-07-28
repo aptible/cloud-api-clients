@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
  - [CloudApiClient::AssetInput](docs/AssetInput.md)
  - [CloudApiClient::AssetOutput](docs/AssetOutput.md)
  - [CloudApiClient::AssetParametersOutput](docs/AssetParametersOutput.md)
+ - [CloudApiClient::AssetStatus](docs/AssetStatus.md)
  - [CloudApiClient::ConnectionInput](docs/ConnectionInput.md)
  - [CloudApiClient::ConnectionOutput](docs/ConnectionOutput.md)
  - [CloudApiClient::ConnectionStatus](docs/ConnectionStatus.md)
