@@ -20,9 +20,9 @@ type OperationType string
 
 // List of OperationType
 const (
-	CREATE OperationType = "CREATE"
-	UPDATE OperationType = "UPDATE"
-	DESTROY OperationType = "DESTROY"
+	OPERATIONTYPE_CREATE OperationType = "CREATE"
+	OPERATIONTYPE_UPDATE OperationType = "UPDATE"
+	OPERATIONTYPE_DESTROY OperationType = "DESTROY"
 )
 
 // All allowed values of OperationType enum
