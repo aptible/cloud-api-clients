@@ -23,18 +23,17 @@ import (
 type WorkerApi interface {
 
 	/*
-	UpdateOperationApiV1OperationsOperationIdOperationStatusPut Update Operation
+	UpdateOperationApiV1OperationsOperationIdPut Update Operation
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId
-	@param operationStatus
-	@return ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest
+	@return ApiUpdateOperationApiV1OperationsOperationIdPutRequest
 	*/
-	UpdateOperationApiV1OperationsOperationIdOperationStatusPut(ctx context.Context, operationId string, operationStatus OperationStatus) ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest
+	UpdateOperationApiV1OperationsOperationIdPut(ctx context.Context, operationId string) ApiUpdateOperationApiV1OperationsOperationIdPutRequest
 
-	// UpdateOperationApiV1OperationsOperationIdOperationStatusPutExecute executes the request
+	// UpdateOperationApiV1OperationsOperationIdPutExecute executes the request
 	//  @return interface{}
-	UpdateOperationApiV1OperationsOperationIdOperationStatusPutExecute(r ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest) (interface{}, *http.Response, error)
+	UpdateOperationApiV1OperationsOperationIdPutExecute(r ApiUpdateOperationApiV1OperationsOperationIdPutRequest) (interface{}, *http.Response, error)
 
 	/*
 	WorkerHealthCheckApiV1WorkerHealthCheckPost Worker Health Check
@@ -52,37 +51,40 @@ type WorkerApi interface {
 // WorkerApiService WorkerApi service
 type WorkerApiService service
 
-type ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest struct {
+type ApiUpdateOperationApiV1OperationsOperationIdPutRequest struct {
 	ctx context.Context
 	ApiService WorkerApi
 	operationId string
-	operationStatus OperationStatus
+	operationUpdate *OperationUpdate
 }
 
-func (r ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.UpdateOperationApiV1OperationsOperationIdOperationStatusPutExecute(r)
+func (r ApiUpdateOperationApiV1OperationsOperationIdPutRequest) OperationUpdate(operationUpdate OperationUpdate) ApiUpdateOperationApiV1OperationsOperationIdPutRequest {
+	r.operationUpdate = &operationUpdate
+	return r
+}
+
+func (r ApiUpdateOperationApiV1OperationsOperationIdPutRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.UpdateOperationApiV1OperationsOperationIdPutExecute(r)
 }
 
 /*
-UpdateOperationApiV1OperationsOperationIdOperationStatusPut Update Operation
+UpdateOperationApiV1OperationsOperationIdPut Update Operation
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param operationId
- @param operationStatus
- @return ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest
+ @return ApiUpdateOperationApiV1OperationsOperationIdPutRequest
 */
-func (a *WorkerApiService) UpdateOperationApiV1OperationsOperationIdOperationStatusPut(ctx context.Context, operationId string, operationStatus OperationStatus) ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest {
-	return ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest{
+func (a *WorkerApiService) UpdateOperationApiV1OperationsOperationIdPut(ctx context.Context, operationId string) ApiUpdateOperationApiV1OperationsOperationIdPutRequest {
+	return ApiUpdateOperationApiV1OperationsOperationIdPutRequest{
 		ApiService: a,
 		ctx: ctx,
 		operationId: operationId,
-		operationStatus: operationStatus,
 	}
 }
 
 // Execute executes the request
 //  @return interface{}
-func (a *WorkerApiService) UpdateOperationApiV1OperationsOperationIdOperationStatusPutExecute(r ApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest) (interface{}, *http.Response, error) {
+func (a *WorkerApiService) UpdateOperationApiV1OperationsOperationIdPutExecute(r ApiUpdateOperationApiV1OperationsOperationIdPutRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -90,21 +92,23 @@ func (a *WorkerApiService) UpdateOperationApiV1OperationsOperationIdOperationSta
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkerApiService.UpdateOperationApiV1OperationsOperationIdOperationStatusPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkerApiService.UpdateOperationApiV1OperationsOperationIdPut")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/operations/{operation_id}/{operation_status}"
+	localVarPath := localBasePath + "/api/v1/operations/{operation_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"operation_id"+"}", url.PathEscape(parameterToString(r.operationId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"operation_status"+"}", url.PathEscape(parameterToString(r.operationStatus, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.operationUpdate == nil {
+		return localVarReturnValue, nil, reportError("operationUpdate is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -120,6 +124,8 @@ func (a *WorkerApiService) UpdateOperationApiV1OperationsOperationIdOperationSta
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.operationUpdate
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

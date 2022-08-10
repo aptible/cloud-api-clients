@@ -2,6 +2,8 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { ActionOutput } from '../models/ActionOutput';
+import { ActionRequest } from '../models/ActionRequest';
 import { AssetAction } from '../models/AssetAction';
 import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
@@ -11,18 +13,106 @@ import { AssetStatus } from '../models/AssetStatus';
 import { ConnectionInput } from '../models/ConnectionInput';
 import { ConnectionOutput } from '../models/ConnectionOutput';
 import { ConnectionStatus } from '../models/ConnectionStatus';
+import { Data } from '../models/Data';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
 import { HealthCheckFromWorker } from '../models/HealthCheckFromWorker';
 import { LocationInner } from '../models/LocationInner';
+import { OperationActionUpdate } from '../models/OperationActionUpdate';
+import { OperationAssetUpdate } from '../models/OperationAssetUpdate';
+import { OperationFailure } from '../models/OperationFailure';
 import { OperationOutput } from '../models/OperationOutput';
 import { OperationStatus } from '../models/OperationStatus';
+import { OperationTerraformRunUpdate } from '../models/OperationTerraformRunUpdate';
 import { OperationType } from '../models/OperationType';
+import { OperationUpdate } from '../models/OperationUpdate';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
 import { TextResponse } from '../models/TextResponse';
 import { ValidationError } from '../models/ValidationError';
+
+import { ObservableActionsApi } from "./ObservableAPI";
+import { ActionsApiRequestFactory, ActionsApiResponseProcessor} from "../apis/ActionsApi";
+
+export interface ActionsApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ActionsApicreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost
+     */
+    assetId: string
+    /**
+     * 
+     * @type string
+     * @memberof ActionsApicreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost
+     */
+    environmentId: string
+    /**
+     * 
+     * @type string
+     * @memberof ActionsApicreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost
+     */
+    organizationId: string
+    /**
+     * 
+     * @type ActionRequest
+     * @memberof ActionsApicreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost
+     */
+    actionRequest: ActionRequest
+}
+
+export interface ActionsApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ActionsApigetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet
+     */
+    assetId: string
+    /**
+     * 
+     * @type string
+     * @memberof ActionsApigetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet
+     */
+    environmentId: string
+    /**
+     * 
+     * @type string
+     * @memberof ActionsApigetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet
+     */
+    actionId: string
+    /**
+     * 
+     * @type string
+     * @memberof ActionsApigetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet
+     */
+    organizationId: string
+}
+
+export class ObjectActionsApi {
+    private api: ObservableActionsApi
+
+    public constructor(configuration: Configuration, requestFactory?: ActionsApiRequestFactory, responseProcessor?: ActionsApiResponseProcessor) {
+        this.api = new ObservableActionsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create Action
+     * @param param the request object
+     */
+    public createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(param: ActionsApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest, options?: Configuration): Promise<ActionOutput> {
+        return this.api.createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(param.assetId, param.environmentId, param.organizationId, param.actionRequest,  options).toPromise();
+    }
+
+    /**
+     * Get Action
+     * @param param the request object
+     */
+    public getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(param: ActionsApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest, options?: Configuration): Promise<ActionOutput> {
+        return this.api.getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(param.assetId, param.environmentId, param.actionId, param.organizationId,  options).toPromise();
+    }
+
+}
 
 import { ObservableAssetsApi } from "./ObservableAPI";
 import { AssetsApiRequestFactory, AssetsApiResponseProcessor} from "../apis/AssetsApi";
@@ -90,21 +180,6 @@ export interface AssetsApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmen
     organizationId: string
 }
 
-export interface AssetsApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest {
-    /**
-     * 
-     * @type string
-     * @memberof AssetsApigetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet
-     */
-    environmentId: string
-    /**
-     * 
-     * @type string
-     * @memberof AssetsApigetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet
-     */
-    organizationId: string
-}
-
 export interface AssetsApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest {
     /**
      * 
@@ -161,14 +236,6 @@ export class ObjectAssetsApi {
      */
     public getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(param: AssetsApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest, options?: Configuration): Promise<AssetOutput> {
         return this.api.getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(param.assetId, param.environmentId, param.organizationId,  options).toPromise();
-    }
-
-    /**
-     * Get Assets
-     * @param param the request object
-     */
-    public getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(param: AssetsApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest, options?: Configuration): Promise<Array<AssetOutput>> {
-        return this.api.getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(param.environmentId, param.organizationId,  options).toPromise();
     }
 
     /**
@@ -331,6 +398,21 @@ export interface EnvironmentsApiDeleteEnvironmentByIdApiV1OrganizationsOrganizat
     organizationId: string
 }
 
+export interface EnvironmentsApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest {
+    /**
+     * 
+     * @type string
+     * @memberof EnvironmentsApigetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet
+     */
+    environmentId: string
+    /**
+     * 
+     * @type string
+     * @memberof EnvironmentsApigetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet
+     */
+    organizationId: string
+}
+
 export interface EnvironmentsApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest {
     /**
      * 
@@ -427,6 +509,14 @@ export class ObjectEnvironmentsApi {
      */
     public deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(param: EnvironmentsApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest, options?: Configuration): Promise<number> {
         return this.api.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(param.environmentId, param.organizationId,  options).toPromise();
+    }
+
+    /**
+     * Get Assets
+     * @param param the request object
+     */
+    public getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(param: EnvironmentsApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest, options?: Configuration): Promise<Array<AssetOutput>> {
+        return this.api.getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(param.environmentId, param.organizationId,  options).toPromise();
     }
 
     /**
@@ -669,19 +759,19 @@ export class ObjectUtilitiesApi {
 import { ObservableWorkerApi } from "./ObservableAPI";
 import { WorkerApiRequestFactory, WorkerApiResponseProcessor} from "../apis/WorkerApi";
 
-export interface WorkerApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest {
+export interface WorkerApiUpdateOperationApiV1OperationsOperationIdPutRequest {
     /**
      * 
      * @type string
-     * @memberof WorkerApiupdateOperationApiV1OperationsOperationIdOperationStatusPut
+     * @memberof WorkerApiupdateOperationApiV1OperationsOperationIdPut
      */
     operationId: string
     /**
      * 
-     * @type OperationStatus
-     * @memberof WorkerApiupdateOperationApiV1OperationsOperationIdOperationStatusPut
+     * @type OperationUpdate
+     * @memberof WorkerApiupdateOperationApiV1OperationsOperationIdPut
      */
-    operationStatus: OperationStatus
+    operationUpdate: OperationUpdate
 }
 
 export interface WorkerApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest {
@@ -704,8 +794,8 @@ export class ObjectWorkerApi {
      * Update Operation
      * @param param the request object
      */
-    public updateOperationApiV1OperationsOperationIdOperationStatusPut(param: WorkerApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest, options?: Configuration): Promise<any> {
-        return this.api.updateOperationApiV1OperationsOperationIdOperationStatusPut(param.operationId, param.operationStatus,  options).toPromise();
+    public updateOperationApiV1OperationsOperationIdPut(param: WorkerApiUpdateOperationApiV1OperationsOperationIdPutRequest, options?: Configuration): Promise<any> {
+        return this.api.updateOperationApiV1OperationsOperationIdPut(param.operationId, param.operationUpdate,  options).toPromise();
     }
 
     /**

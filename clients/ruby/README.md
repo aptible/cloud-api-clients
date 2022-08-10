@@ -62,17 +62,18 @@ CloudApiClient.configure do |config|
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = CloudApiClient::AssetsApi.new
+api_instance = CloudApiClient::ActionsApi.new
+asset_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_parameters: 3.56}) # AssetInput | 
+action_request = CloudApiClient::ActionRequest.new({action_name: 'action_name_example'}) # ActionRequest | 
 
 begin
-  #Create Asset
-  result = api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(environment_id, organization_id, asset_input)
+  #Create Action
+  result = api_instance.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post(asset_id, environment_id, organization_id, action_request)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Exception when calling AssetsApi->create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post: #{e}"
+  puts "Exception when calling ActionsApi->create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post: #{e}"
 end
 
 ```
@@ -83,16 +84,18 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CloudApiClient::ActionsApi* | [**create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post**](docs/ActionsApi.md#create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Create Action
+*CloudApiClient::ActionsApi* | [**get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get**](docs/ActionsApi.md#get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Get Action
 *CloudApiClient::AssetsApi* | [**create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post**](docs/AssetsApi.md#create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset
 *CloudApiClient::AssetsApi* | [**delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete**](docs/AssetsApi.md#delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id
 *CloudApiClient::AssetsApi* | [**get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get**](docs/AssetsApi.md#get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
-*CloudApiClient::AssetsApi* | [**get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get**](docs/AssetsApi.md#get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
 *CloudApiClient::AssetsApi* | [**update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put**](docs/AssetsApi.md#update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
 *CloudApiClient::ConnectionsApi* | [**create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post**](docs/ConnectionsApi.md#create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Create Connection
 *CloudApiClient::ConnectionsApi* | [**delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete**](docs/ConnectionsApi.md#delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Delete Connection
 *CloudApiClient::ConnectionsApi* | [**get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get**](docs/ConnectionsApi.md#get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Get Connection By Id
 *CloudApiClient::EnvironmentsApi* | [**create_environment_api_v1_organizations_organization_id_environments_post**](docs/EnvironmentsApi.md#create_environment_api_v1_organizations_organization_id_environments_post) | **POST** /api/v1/organizations/{organization_id}/environments | Create Environment
 *CloudApiClient::EnvironmentsApi* | [**delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete**](docs/EnvironmentsApi.md#delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
+*CloudApiClient::EnvironmentsApi* | [**get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get**](docs/EnvironmentsApi.md#get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
 *CloudApiClient::EnvironmentsApi* | [**get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get**](docs/EnvironmentsApi.md#get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
 *CloudApiClient::EnvironmentsApi* | [**get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get**](docs/EnvironmentsApi.md#get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
 *CloudApiClient::EnvironmentsApi* | [**get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get**](docs/EnvironmentsApi.md#get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Get Environment Connections
@@ -107,12 +110,14 @@ Class | Method | HTTP request | Description
 *CloudApiClient::UtilitiesApi* | [**get_ping_api_v1_debug_ping_get**](docs/UtilitiesApi.md#get_ping_api_v1_debug_ping_get) | **GET** /api/v1/debug/ping | Get Ping
 *CloudApiClient::UtilitiesApi* | [**get_user_api_v1_debug_user_auth_get**](docs/UtilitiesApi.md#get_user_api_v1_debug_user_auth_get) | **GET** /api/v1/debug/user_auth | Get User
 *CloudApiClient::UtilitiesApi* | [**get_user_role_api_v1_debug_user_role_middleware_check_get**](docs/UtilitiesApi.md#get_user_role_api_v1_debug_user_role_middleware_check_get) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
-*CloudApiClient::WorkerApi* | [**update_operation_api_v1_operations_operation_id_operation_status_put**](docs/WorkerApi.md#update_operation_api_v1_operations_operation_id_operation_status_put) | **PUT** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
+*CloudApiClient::WorkerApi* | [**update_operation_api_v1_operations_operation_id_put**](docs/WorkerApi.md#update_operation_api_v1_operations_operation_id_put) | **PUT** /api/v1/operations/{operation_id} | Update Operation
 *CloudApiClient::WorkerApi* | [**worker_health_check_api_v1_worker_health_check_post**](docs/WorkerApi.md#worker_health_check_api_v1_worker_health_check_post) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
 ## Documentation for Models
 
+ - [CloudApiClient::ActionOutput](docs/ActionOutput.md)
+ - [CloudApiClient::ActionRequest](docs/ActionRequest.md)
  - [CloudApiClient::AssetAction](docs/AssetAction.md)
  - [CloudApiClient::AssetBundle](docs/AssetBundle.md)
  - [CloudApiClient::AssetInput](docs/AssetInput.md)
@@ -122,14 +127,20 @@ Class | Method | HTTP request | Description
  - [CloudApiClient::ConnectionInput](docs/ConnectionInput.md)
  - [CloudApiClient::ConnectionOutput](docs/ConnectionOutput.md)
  - [CloudApiClient::ConnectionStatus](docs/ConnectionStatus.md)
+ - [CloudApiClient::Data](docs/Data.md)
  - [CloudApiClient::EnvironmentInput](docs/EnvironmentInput.md)
  - [CloudApiClient::EnvironmentOutput](docs/EnvironmentOutput.md)
  - [CloudApiClient::HTTPValidationError](docs/HTTPValidationError.md)
  - [CloudApiClient::HealthCheckFromWorker](docs/HealthCheckFromWorker.md)
  - [CloudApiClient::LocationInner](docs/LocationInner.md)
+ - [CloudApiClient::OperationActionUpdate](docs/OperationActionUpdate.md)
+ - [CloudApiClient::OperationAssetUpdate](docs/OperationAssetUpdate.md)
+ - [CloudApiClient::OperationFailure](docs/OperationFailure.md)
  - [CloudApiClient::OperationOutput](docs/OperationOutput.md)
  - [CloudApiClient::OperationStatus](docs/OperationStatus.md)
+ - [CloudApiClient::OperationTerraformRunUpdate](docs/OperationTerraformRunUpdate.md)
  - [CloudApiClient::OperationType](docs/OperationType.md)
+ - [CloudApiClient::OperationUpdate](docs/OperationUpdate.md)
  - [CloudApiClient::OrganizationInput](docs/OrganizationInput.md)
  - [CloudApiClient::OrganizationOutput](docs/OrganizationOutput.md)
  - [CloudApiClient::TextResponse](docs/TextResponse.md)

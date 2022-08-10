@@ -1,4 +1,5 @@
 .gitignore
+ActionsApi.md
 AssetsApi.md
 ConnectionsApi.md
 EnvironmentsApi.md
@@ -7,6 +8,7 @@ OrganizationsApi.md
 README.md
 UtilitiesApi.md
 WorkerApi.md
+apis/ActionsApi.ts
 apis/AssetsApi.ts
 apis/ConnectionsApi.ts
 apis/EnvironmentsApi.ts
@@ -23,6 +25,8 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/ActionOutput.ts
+models/ActionRequest.ts
 models/AssetAction.ts
 models/AssetBundle.ts
 models/AssetInput.ts
@@ -32,15 +36,21 @@ models/AssetStatus.ts
 models/ConnectionInput.ts
 models/ConnectionOutput.ts
 models/ConnectionStatus.ts
+models/Data.ts
 models/EnvironmentInput.ts
 models/EnvironmentOutput.ts
 models/HTTPValidationError.ts
 models/HealthCheckFromWorker.ts
 models/LocationInner.ts
 models/ObjectSerializer.ts
+models/OperationActionUpdate.ts
+models/OperationAssetUpdate.ts
+models/OperationFailure.ts
 models/OperationOutput.ts
 models/OperationStatus.ts
+models/OperationTerraformRunUpdate.ts
 models/OperationType.ts
+models/OperationUpdate.ts
 models/OrganizationInput.ts
 models/OrganizationOutput.ts
 models/TextResponse.ts
