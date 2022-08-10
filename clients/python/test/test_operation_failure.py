@@ -12,16 +12,11 @@ import sys
 import unittest
 
 import cloud_api_client
-from cloud_api_client.model.operation_status import OperationStatus
-from cloud_api_client.model.operation_type import OperationType
-
-globals()['OperationStatus'] = OperationStatus
-globals()['OperationType'] = OperationType
-from cloud_api_client.model.operation_output import OperationOutput
+from cloud_api_client.model.operation_failure import OperationFailure
 
 
-class TestOperationOutput(unittest.TestCase):
-    """OperationOutput unit test stubs"""
+class TestOperationFailure(unittest.TestCase):
+    """OperationFailure unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +24,10 @@ class TestOperationOutput(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testOperationOutput(self):
-        """Test OperationOutput"""
+    def testOperationFailure(self):
+        """Test OperationFailure"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = OperationOutput()  # noqa: E501
+        # model = OperationFailure()  # noqa: E501
         pass
 
 

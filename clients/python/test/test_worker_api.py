@@ -23,8 +23,8 @@ class TestWorkerApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_update_operation_api_v1_operations_operation_id_operation_status_put(self):
-        """Test case for update_operation_api_v1_operations_operation_id_operation_status_put
+    def test_update_operation_api_v1_operations_operation_id_put(self):
+        """Test case for update_operation_api_v1_operations_operation_id_put
 
         Update Operation  # noqa: E501
         """

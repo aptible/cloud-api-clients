@@ -13,6 +13,7 @@ import unittest
 
 import cloud_api_client
 from cloud_api_client.model.validation_error import ValidationError
+
 globals()['ValidationError'] = ValidationError
 from cloud_api_client.model.http_validation_error import HTTPValidationError
 

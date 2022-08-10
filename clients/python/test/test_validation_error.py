@@ -13,6 +13,7 @@ import unittest
 
 import cloud_api_client
 from cloud_api_client.model.location_inner import LocationInner
+
 globals()['LocationInner'] = LocationInner
 from cloud_api_client.model.validation_error import ValidationError
 

@@ -37,6 +37,13 @@ class TestEnvironmentsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get(self):
+        """Test case for get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get
+
+        Get Assets  # noqa: E501
+        """
+        pass
+
     def test_get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get(self):
         """Test case for get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get
 

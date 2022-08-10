@@ -15,6 +15,7 @@ import cloud_api_client
 from cloud_api_client.model.asset_output import AssetOutput
 from cloud_api_client.model.connection_status import ConnectionStatus
 from cloud_api_client.model.operation_output import OperationOutput
+
 globals()['AssetOutput'] = AssetOutput
 globals()['ConnectionStatus'] = ConnectionStatus
 globals()['OperationOutput'] = OperationOutput

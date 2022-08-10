@@ -12,16 +12,16 @@ import sys
 import unittest
 
 import cloud_api_client
-from cloud_api_client.model.operation_status import OperationStatus
-from cloud_api_client.model.operation_type import OperationType
+from cloud_api_client.model.operation_terraform_run_update import (
+    OperationTerraformRunUpdate,
+)
 
-globals()['OperationStatus'] = OperationStatus
-globals()['OperationType'] = OperationType
-from cloud_api_client.model.operation_output import OperationOutput
+globals()['OperationTerraformRunUpdate'] = OperationTerraformRunUpdate
+from cloud_api_client.model.operation_asset_update import OperationAssetUpdate
 
 
-class TestOperationOutput(unittest.TestCase):
-    """OperationOutput unit test stubs"""
+class TestOperationAssetUpdate(unittest.TestCase):
+    """OperationAssetUpdate unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestOperationOutput(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testOperationOutput(self):
-        """Test OperationOutput"""
+    def testOperationAssetUpdate(self):
+        """Test OperationAssetUpdate"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = OperationOutput()  # noqa: E501
+        # model = OperationAssetUpdate()  # noqa: E501
         pass
 
 
