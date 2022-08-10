@@ -23,6 +23,7 @@ const (
 	OPERATIONTYPE_CREATE OperationType = "CREATE"
 	OPERATIONTYPE_UPDATE OperationType = "UPDATE"
 	OPERATIONTYPE_DESTROY OperationType = "DESTROY"
+	OPERATIONTYPE_ACTION OperationType = "ACTION"
 )
 
 // All allowed values of OperationType enum
@@ -30,6 +31,7 @@ var AllowedOperationTypeEnumValues = []OperationType{
 	"CREATE",
 	"UPDATE",
 	"DESTROY",
+	"ACTION",
 }
 
 func (v *OperationType) UnmarshalJSON(src []byte) error {

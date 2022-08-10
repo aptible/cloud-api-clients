@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from cloud_api_client.api.assets_api import AssetsApi
+#   from cloud_api_client.api.actions_api import ActionsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,6 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from cloud_api_client.api.actions_api import ActionsApi
 from cloud_api_client.api.assets_api import AssetsApi
 from cloud_api_client.api.connections_api import ConnectionsApi
 from cloud_api_client.api.environments_api import EnvironmentsApi

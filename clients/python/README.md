@@ -49,9 +49,9 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import cloud_api_client
 from pprint import pprint
-from cloud_api_client.api import assets_api
-from cloud_api_client.model.asset_input import AssetInput
-from cloud_api_client.model.asset_output import AssetOutput
+from cloud_api_client.api import actions_api
+from cloud_api_client.model.action_output import ActionOutput
+from cloud_api_client.model.action_request import ActionRequest
 from cloud_api_client.model.http_validation_error import HTTPValidationError
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -73,21 +73,21 @@ configuration = cloud_api_client.Configuration(
 # Enter a context with an instance of the API client
 with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets_api.AssetsApi(api_client)
+    api_instance = actions_api.ActionsApi(api_client)
+    asset_id = "asset_id_example" # str | 
     environment_id = "environment_id_example" # str | 
     organization_id = "organization_id_example" # str | 
-    asset_input = AssetInput(
-        asset="asset_example",
-        asset_version="asset_version_example",
-        asset_parameters={},
-    ) # AssetInput | 
+    action_request = ActionRequest(
+        action_name="action_name_example",
+        parameters=None,
+    ) # ActionRequest | 
 
     try:
-        # Create Asset
-        api_response = api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(environment_id, organization_id, asset_input)
+        # Create Action
+        api_response = api_instance.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post(asset_id, environment_id, organization_id, action_request)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling AssetsApi->create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post: %s\n" % e)
+        print("Exception when calling ActionsApi->create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -96,16 +96,18 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ActionsApi* | [**create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post**](docs/ActionsApi.md#create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Create Action
+*ActionsApi* | [**get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get**](docs/ActionsApi.md#get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Get Action
 *AssetsApi* | [**create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post**](docs/AssetsApi.md#create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset
 *AssetsApi* | [**delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete**](docs/AssetsApi.md#delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id
 *AssetsApi* | [**get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get**](docs/AssetsApi.md#get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
-*AssetsApi* | [**get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get**](docs/AssetsApi.md#get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
 *AssetsApi* | [**update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put**](docs/AssetsApi.md#update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
 *ConnectionsApi* | [**create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post**](docs/ConnectionsApi.md#create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Create Connection
 *ConnectionsApi* | [**delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete**](docs/ConnectionsApi.md#delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Delete Connection
 *ConnectionsApi* | [**get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get**](docs/ConnectionsApi.md#get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Get Connection By Id
 *EnvironmentsApi* | [**create_environment_api_v1_organizations_organization_id_environments_post**](docs/EnvironmentsApi.md#create_environment_api_v1_organizations_organization_id_environments_post) | **POST** /api/v1/organizations/{organization_id}/environments | Create Environment
 *EnvironmentsApi* | [**delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete**](docs/EnvironmentsApi.md#delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
+*EnvironmentsApi* | [**get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get**](docs/EnvironmentsApi.md#get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
 *EnvironmentsApi* | [**get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get**](docs/EnvironmentsApi.md#get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
 *EnvironmentsApi* | [**get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get**](docs/EnvironmentsApi.md#get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
 *EnvironmentsApi* | [**get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get**](docs/EnvironmentsApi.md#get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Get Environment Connections
@@ -120,12 +122,14 @@ Class | Method | HTTP request | Description
 *UtilitiesApi* | [**get_ping_api_v1_debug_ping_get**](docs/UtilitiesApi.md#get_ping_api_v1_debug_ping_get) | **GET** /api/v1/debug/ping | Get Ping
 *UtilitiesApi* | [**get_user_api_v1_debug_user_auth_get**](docs/UtilitiesApi.md#get_user_api_v1_debug_user_auth_get) | **GET** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**get_user_role_api_v1_debug_user_role_middleware_check_get**](docs/UtilitiesApi.md#get_user_role_api_v1_debug_user_role_middleware_check_get) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
-*WorkerApi* | [**update_operation_api_v1_operations_operation_id_operation_status_put**](docs/WorkerApi.md#update_operation_api_v1_operations_operation_id_operation_status_put) | **PUT** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
+*WorkerApi* | [**update_operation_api_v1_operations_operation_id_put**](docs/WorkerApi.md#update_operation_api_v1_operations_operation_id_put) | **PUT** /api/v1/operations/{operation_id} | Update Operation
 *WorkerApi* | [**worker_health_check_api_v1_worker_health_check_post**](docs/WorkerApi.md#worker_health_check_api_v1_worker_health_check_post) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
 ## Documentation For Models
 
+ - [ActionOutput](docs/ActionOutput.md)
+ - [ActionRequest](docs/ActionRequest.md)
  - [AssetAction](docs/AssetAction.md)
  - [AssetBundle](docs/AssetBundle.md)
  - [AssetInput](docs/AssetInput.md)
@@ -135,14 +139,20 @@ Class | Method | HTTP request | Description
  - [ConnectionInput](docs/ConnectionInput.md)
  - [ConnectionOutput](docs/ConnectionOutput.md)
  - [ConnectionStatus](docs/ConnectionStatus.md)
+ - [Data](docs/Data.md)
  - [EnvironmentInput](docs/EnvironmentInput.md)
  - [EnvironmentOutput](docs/EnvironmentOutput.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HealthCheckFromWorker](docs/HealthCheckFromWorker.md)
  - [LocationInner](docs/LocationInner.md)
+ - [OperationActionUpdate](docs/OperationActionUpdate.md)
+ - [OperationAssetUpdate](docs/OperationAssetUpdate.md)
+ - [OperationFailure](docs/OperationFailure.md)
  - [OperationOutput](docs/OperationOutput.md)
  - [OperationStatus](docs/OperationStatus.md)
+ - [OperationTerraformRunUpdate](docs/OperationTerraformRunUpdate.md)
  - [OperationType](docs/OperationType.md)
+ - [OperationUpdate](docs/OperationUpdate.md)
  - [OrganizationInput](docs/OrganizationInput.md)
  - [OrganizationOutput](docs/OrganizationOutput.md)
  - [TextResponse](docs/TextResponse.md)
