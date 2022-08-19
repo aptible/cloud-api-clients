@@ -8,5 +8,5 @@ export * from "./servers";
 export { RequiredError } from "./apis/baseapi";
 
 export { PromiseMiddleware as Middleware } from './middleware';
-export { PromiseActionsApi as ActionsApi,  PromiseAssetsApi as AssetsApi,  PromiseConnectionsApi as ConnectionsApi,  PromiseEnvironmentsApi as EnvironmentsApi,  PromiseOperationsApi as OperationsApi,  PromiseOrganizationsApi as OrganizationsApi,  PromiseUtilitiesApi as UtilitiesApi,  PromiseWorkerApi as WorkerApi } from './types/PromiseAPI';
+export { PromiseAssetsApi as AssetsApi,  PromiseConnectionsApi as ConnectionsApi,  PromiseEnvironmentsApi as EnvironmentsApi,  PromiseOperationsApi as OperationsApi,  PromiseOrganizationsApi as OrganizationsApi,  PromiseUtilitiesApi as UtilitiesApi,  PromiseWorkerApi as WorkerApi } from './types/PromiseAPI';
 

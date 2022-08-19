@@ -78,18 +78,16 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ActionsApi* | [**CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost**](docs/ActionsApi.md#createactionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidactionpost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Create Action
-*ActionsApi* | [**GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet**](docs/ActionsApi.md#getactionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidactionactionidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Get Action
 *AssetsApi* | [**CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost**](docs/AssetsApi.md#createassetapiv1organizationsorganizationidenvironmentsenvironmentidassetspost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset
 *AssetsApi* | [**DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete**](docs/AssetsApi.md#deleteassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetiddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id
 *AssetsApi* | [**GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet**](docs/AssetsApi.md#getassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
+*AssetsApi* | [**GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet**](docs/AssetsApi.md#getassetsapiv1organizationsorganizationidenvironmentsenvironmentidassetsget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
 *AssetsApi* | [**UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut**](docs/AssetsApi.md#updateassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidput) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
 *ConnectionsApi* | [**CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost**](docs/ConnectionsApi.md#createconnectionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionspost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Create Connection
 *ConnectionsApi* | [**DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete**](docs/ConnectionsApi.md#deleteconnectionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionsconnectioniddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Delete Connection
 *ConnectionsApi* | [**GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet**](docs/ConnectionsApi.md#getconnectionbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionsconnectionidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Get Connection By Id
 *EnvironmentsApi* | [**CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost**](docs/EnvironmentsApi.md#createenvironmentapiv1organizationsorganizationidenvironmentspost) | **Post** /api/v1/organizations/{organization_id}/environments | Create Environment
 *EnvironmentsApi* | [**DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete**](docs/EnvironmentsApi.md#deleteenvironmentbyidapiv1organizationsorganizationidenvironmentsenvironmentiddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
-*EnvironmentsApi* | [**GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet**](docs/EnvironmentsApi.md#getassetsapiv1organizationsorganizationidenvironmentsenvironmentidassetsget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
 *EnvironmentsApi* | [**GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet**](docs/EnvironmentsApi.md#getenvironmentallowedassetsapiv1organizationsorganizationidenvironmentsenvironmentidassetbundlesget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
 *EnvironmentsApi* | [**GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet**](docs/EnvironmentsApi.md#getenvironmentbyidapiv1organizationsorganizationidenvironmentsenvironmentidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
 *EnvironmentsApi* | [**GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet**](docs/EnvironmentsApi.md#getenvironmentconnectionsapiv1organizationsorganizationidenvironmentsenvironmentidconnectionsget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Get Environment Connections
@@ -104,37 +102,28 @@ Class | Method | HTTP request | Description
 *UtilitiesApi* | [**GetPingApiV1DebugPingGet**](docs/UtilitiesApi.md#getpingapiv1debugpingget) | **Get** /api/v1/debug/ping | Get Ping
 *UtilitiesApi* | [**GetUserApiV1DebugUserAuthGet**](docs/UtilitiesApi.md#getuserapiv1debuguserauthget) | **Get** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet**](docs/UtilitiesApi.md#getuserroleapiv1debuguserrolemiddlewarecheckget) | **Get** /api/v1/debug/user_role_middleware_check | Get User Role
-*WorkerApi* | [**UpdateOperationApiV1OperationsOperationIdPut**](docs/WorkerApi.md#updateoperationapiv1operationsoperationidput) | **Put** /api/v1/operations/{operation_id} | Update Operation
+*WorkerApi* | [**UpdateOperationApiV1OperationsOperationIdOperationStatusPut**](docs/WorkerApi.md#updateoperationapiv1operationsoperationidoperationstatusput) | **Put** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
 *WorkerApi* | [**WorkerHealthCheckApiV1WorkerHealthCheckPost**](docs/WorkerApi.md#workerhealthcheckapiv1workerhealthcheckpost) | **Post** /api/v1/worker/health-check | Worker Health Check
 
 
 ## Documentation For Models
 
- - [ActionOutput](docs/ActionOutput.md)
- - [ActionRequest](docs/ActionRequest.md)
  - [AssetAction](docs/AssetAction.md)
  - [AssetBundle](docs/AssetBundle.md)
  - [AssetInput](docs/AssetInput.md)
  - [AssetOutput](docs/AssetOutput.md)
  - [AssetParametersOutput](docs/AssetParametersOutput.md)
- - [AssetStatus](docs/AssetStatus.md)
  - [ConnectionInput](docs/ConnectionInput.md)
  - [ConnectionOutput](docs/ConnectionOutput.md)
  - [ConnectionStatus](docs/ConnectionStatus.md)
- - [Data](docs/Data.md)
  - [EnvironmentInput](docs/EnvironmentInput.md)
  - [EnvironmentOutput](docs/EnvironmentOutput.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HealthCheckFromWorker](docs/HealthCheckFromWorker.md)
  - [LocationInner](docs/LocationInner.md)
- - [OperationActionUpdate](docs/OperationActionUpdate.md)
- - [OperationAssetUpdate](docs/OperationAssetUpdate.md)
- - [OperationFailure](docs/OperationFailure.md)
  - [OperationOutput](docs/OperationOutput.md)
  - [OperationStatus](docs/OperationStatus.md)
- - [OperationTerraformRunUpdate](docs/OperationTerraformRunUpdate.md)
  - [OperationType](docs/OperationType.md)
- - [OperationUpdate](docs/OperationUpdate.md)
  - [OrganizationInput](docs/OrganizationInput.md)
  - [OrganizationOutput](docs/OrganizationOutput.md)
  - [TextResponse](docs/TextResponse.md)

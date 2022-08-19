@@ -1,79 +1,26 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
-import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
-import { ActionOutput } from '../models/ActionOutput';
-import { ActionRequest } from '../models/ActionRequest';
 import { AssetAction } from '../models/AssetAction';
 import { AssetBundle } from '../models/AssetBundle';
 import { AssetInput } from '../models/AssetInput';
 import { AssetOutput } from '../models/AssetOutput';
 import { AssetParametersOutput } from '../models/AssetParametersOutput';
-import { AssetStatus } from '../models/AssetStatus';
 import { ConnectionInput } from '../models/ConnectionInput';
 import { ConnectionOutput } from '../models/ConnectionOutput';
 import { ConnectionStatus } from '../models/ConnectionStatus';
-import { Data } from '../models/Data';
 import { EnvironmentInput } from '../models/EnvironmentInput';
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
 import { HealthCheckFromWorker } from '../models/HealthCheckFromWorker';
 import { LocationInner } from '../models/LocationInner';
-import { OperationActionUpdate } from '../models/OperationActionUpdate';
-import { OperationAssetUpdate } from '../models/OperationAssetUpdate';
-import { OperationFailure } from '../models/OperationFailure';
 import { OperationOutput } from '../models/OperationOutput';
 import { OperationStatus } from '../models/OperationStatus';
-import { OperationTerraformRunUpdate } from '../models/OperationTerraformRunUpdate';
 import { OperationType } from '../models/OperationType';
-import { OperationUpdate } from '../models/OperationUpdate';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
 import { TextResponse } from '../models/TextResponse';
 import { ValidationError } from '../models/ValidationError';
-import { ObservableActionsApi } from './ObservableAPI';
-
-import { ActionsApiRequestFactory, ActionsApiResponseProcessor} from "../apis/ActionsApi";
-export class PromiseActionsApi {
-    private api: ObservableActionsApi
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: ActionsApiRequestFactory,
-        responseProcessor?: ActionsApiResponseProcessor
-    ) {
-        this.api = new ObservableActionsApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * Create Action
-     * @param assetId 
-     * @param environmentId 
-     * @param organizationId 
-     * @param actionRequest 
-     */
-    public createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId: string, environmentId: string, organizationId: string, actionRequest: ActionRequest, _options?: Configuration): Promise<ActionOutput> {
-        const result = this.api.createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId, environmentId, organizationId, actionRequest, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Get Action
-     * @param assetId 
-     * @param environmentId 
-     * @param actionId 
-     * @param organizationId 
-     */
-    public getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId: string, environmentId: string, actionId: string, organizationId: string, _options?: Configuration): Promise<ActionOutput> {
-        const result = this.api.getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId, environmentId, actionId, organizationId, _options);
-        return result.toPromise();
-    }
-
-
-}
-
-
-
 import { ObservableAssetsApi } from './ObservableAPI';
 
 import { AssetsApiRequestFactory, AssetsApiResponseProcessor} from "../apis/AssetsApi";
@@ -118,6 +65,16 @@ export class PromiseAssetsApi {
      */
     public getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<AssetOutput> {
         const result = this.api.getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(assetId, environmentId, organizationId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get Assets
+     * @param environmentId 
+     * @param organizationId 
+     */
+    public getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<AssetOutput>> {
+        const result = this.api.getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId, organizationId, _options);
         return result.toPromise();
     }
 
@@ -224,16 +181,6 @@ export class PromiseEnvironmentsApi {
      */
     public deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId: string, organizationId: string, _options?: Configuration): Promise<number> {
         const result = this.api.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId, organizationId, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Get Assets
-     * @param environmentId 
-     * @param organizationId 
-     */
-    public getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<AssetOutput>> {
-        const result = this.api.getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId, organizationId, _options);
         return result.toPromise();
     }
 
@@ -448,10 +395,10 @@ export class PromiseWorkerApi {
     /**
      * Update Operation
      * @param operationId 
-     * @param operationUpdate 
+     * @param operationStatus 
      */
-    public updateOperationApiV1OperationsOperationIdPut(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Promise<any> {
-        const result = this.api.updateOperationApiV1OperationsOperationIdPut(operationId, operationUpdate, _options);
+    public updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId: string, operationStatus: OperationStatus, _options?: Configuration): Promise<any> {
+        const result = this.api.updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId, operationStatus, _options);
         return result.toPromise();
     }
 

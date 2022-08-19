@@ -10,7 +10,7 @@
 | **connections** | [**Array&lt;ConnectionOutput&gt;**](ConnectionOutput.md) |  | [optional] |
 | **current_asset_parameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  |  |
 | **environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  |  |
-| **status** | [**AssetStatus**](AssetStatus.md) |  |  |
+| **status** | **String** |  |  |
 | **user_defined** | **Boolean** |  |  |
 
 ## Example

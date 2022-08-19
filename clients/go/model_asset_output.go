@@ -22,7 +22,7 @@ type AssetOutput struct {
 	Connections []ConnectionOutput `json:"connections,omitempty"`
 	CurrentAssetParameters AssetParametersOutput `json:"current_asset_parameters"`
 	Environment EnvironmentOutput `json:"environment"`
-	Status AssetStatus `json:"status"`
+	Status string `json:"status"`
 	UserDefined bool `json:"user_defined"`
 }
 
@@ -30,7 +30,7 @@ type AssetOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetOutput(asset string, assetVersion string, id string, currentAssetParameters AssetParametersOutput, environment EnvironmentOutput, status AssetStatus, userDefined bool) *AssetOutput {
+func NewAssetOutput(asset string, assetVersion string, id string, currentAssetParameters AssetParametersOutput, environment EnvironmentOutput, status string, userDefined bool) *AssetOutput {
 	this := AssetOutput{}
 	this.Asset = asset
 	this.AssetVersion = assetVersion
@@ -203,9 +203,9 @@ func (o *AssetOutput) SetEnvironment(v EnvironmentOutput) {
 }
 
 // GetStatus returns the Status field value
-func (o *AssetOutput) GetStatus() AssetStatus {
+func (o *AssetOutput) GetStatus() string {
 	if o == nil {
-		var ret AssetStatus
+		var ret string
 		return ret
 	}
 
@@ -214,7 +214,7 @@ func (o *AssetOutput) GetStatus() AssetStatus {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *AssetOutput) GetStatusOk() (*AssetStatus, bool) {
+func (o *AssetOutput) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -222,7 +222,7 @@ func (o *AssetOutput) GetStatusOk() (*AssetStatus, bool) {
 }
 
 // SetStatus sets field value
-func (o *AssetOutput) SetStatus(v AssetStatus) {
+func (o *AssetOutput) SetStatus(v string) {
 	o.Status = v
 }
 

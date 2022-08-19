@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **Connections** | Pointer to [**[]ConnectionOutput**](ConnectionOutput.md) |  | [optional] [default to []]
 **CurrentAssetParameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  | 
 **Environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  | 
-**Status** | [**AssetStatus**](AssetStatus.md) |  | 
+**Status** | **string** |  | 
 **UserDefined** | **bool** |  | 
 
 ## Methods
 
 ### NewAssetOutput
 
-`func NewAssetOutput(asset string, assetVersion string, id string, currentAssetParameters AssetParametersOutput, environment EnvironmentOutput, status AssetStatus, userDefined bool, ) *AssetOutput`
+`func NewAssetOutput(asset string, assetVersion string, id string, currentAssetParameters AssetParametersOutput, environment EnvironmentOutput, status string, userDefined bool, ) *AssetOutput`
 
 NewAssetOutput instantiates a new AssetOutput object
 This constructor will assign default values to properties that have it defined,
@@ -159,20 +159,20 @@ SetEnvironment sets Environment field to given value.
 
 ### GetStatus
 
-`func (o *AssetOutput) GetStatus() AssetStatus`
+`func (o *AssetOutput) GetStatus() string`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *AssetOutput) GetStatusOk() (*AssetStatus, bool)`
+`func (o *AssetOutput) GetStatusOk() (*string, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *AssetOutput) SetStatus(v AssetStatus)`
+`func (o *AssetOutput) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
 

@@ -12,17 +12,22 @@ BUNDLE_DIRECTORY="$(DEFAULT_BUNDLE_DIR)/bundles"
 install: .venv
 	$(PYTHON) -m pip install -e .[dev]
 
-reclone: clean_bundles get_bundles
+.PHONY: clone reclone
+
+reclone: clean_bundles clone
+
+clone: bundles/terraform-aws-core bundles/terraform-null-core
+
+bundles/terraform-aws-core:
+	mkdir -p "$(BUNDLE_DIRECTORY)" || true
+	git clone git@github.com:aptible/terraform-aws-core.git "$(BUNDLE_DIRECTORY)/terraform-aws-core"
+
+bundles/terraform-null-core:
+	mkdir -p "$(BUNDLE_DIRECTORY)" || true
+	git clone git@github.com:aptible/terraform-null-core.git "$(BUNDLE_DIRECTORY)/terraform-null-core"
 
 clean_bundles:
 	rm -Rf ./bundles/terraform-*
-
-get_bundles: bundles/terraform-aws-core
-
-bundles/terraform-aws-core:
-	rm -rf "$(DEFAULT_BUNDLE_DIR)/bundles"
-	mkdir -p "$(DEFAULT_BUNDLE_DIR)/bundles"
-	git clone git@github.com:aptible/terraform-aws-core.git "$(DEFAULT_BUNDLE_DIR)/bundles/terraform-aws-core"
 
 .PHONY: generate_openapi_json generate_clients generate_python_client generate_ruby_client generate_go_client generate_typescript_client
 

@@ -1,62 +1,44 @@
-export * from './ActionOutput';
-export * from './ActionRequest';
-export * from './AssetAction';
-export * from './AssetBundle';
-export * from './AssetInput';
-export * from './AssetOutput';
-export * from './AssetParametersOutput';
-export * from './AssetStatus';
-export * from './ConnectionInput';
-export * from './ConnectionOutput';
-export * from './ConnectionStatus';
-export * from './Data';
-export * from './EnvironmentInput';
-export * from './EnvironmentOutput';
-export * from './HTTPValidationError';
-export * from './HealthCheckFromWorker';
-export * from './LocationInner';
-export * from './OperationActionUpdate';
-export * from './OperationAssetUpdate';
-export * from './OperationFailure';
-export * from './OperationOutput';
-export * from './OperationStatus';
-export * from './OperationTerraformRunUpdate';
-export * from './OperationType';
-export * from './OperationUpdate';
-export * from './OrganizationInput';
-export * from './OrganizationOutput';
-export * from './TextResponse';
-export * from './ValidationError';
+export * from '../models/AssetAction';
+export * from '../models/AssetBundle';
+export * from '../models/AssetInput';
+export * from '../models/AssetOutput';
+export * from '../models/AssetParametersOutput';
+export * from '../models/ConnectionInput';
+export * from '../models/ConnectionOutput';
+export * from '../models/ConnectionStatus';
+export * from '../models/EnvironmentInput';
+export * from '../models/EnvironmentOutput';
+export * from '../models/HTTPValidationError';
+export * from '../models/HealthCheckFromWorker';
+export * from '../models/LocationInner';
+export * from '../models/OperationOutput';
+export * from '../models/OperationStatus';
+export * from '../models/OperationType';
+export * from '../models/OrganizationInput';
+export * from '../models/OrganizationOutput';
+export * from '../models/TextResponse';
+export * from '../models/ValidationError';
 
-import { ActionOutput } from './ActionOutput';
-import { ActionRequest } from './ActionRequest';
-import { AssetAction } from './AssetAction';
-import { AssetBundle } from './AssetBundle';
-import { AssetInput } from './AssetInput';
-import { AssetOutput } from './AssetOutput';
-import { AssetParametersOutput } from './AssetParametersOutput';
-import { AssetStatus } from './AssetStatus';
-import { ConnectionInput } from './ConnectionInput';
-import { ConnectionOutput } from './ConnectionOutput';
-import { ConnectionStatus } from './ConnectionStatus';
-import { Data } from './Data';
-import { EnvironmentInput } from './EnvironmentInput';
-import { EnvironmentOutput } from './EnvironmentOutput';
-import { HTTPValidationError } from './HTTPValidationError';
-import { HealthCheckFromWorker } from './HealthCheckFromWorker';
-import { LocationInner } from './LocationInner';
-import { OperationActionUpdate } from './OperationActionUpdate';
-import { OperationAssetUpdate } from './OperationAssetUpdate';
-import { OperationFailure } from './OperationFailure';
-import { OperationOutput } from './OperationOutput';
-import { OperationStatus } from './OperationStatus';
-import { OperationTerraformRunUpdate } from './OperationTerraformRunUpdate';
-import { OperationType } from './OperationType';
-import { OperationUpdate } from './OperationUpdate';
-import { OrganizationInput } from './OrganizationInput';
-import { OrganizationOutput } from './OrganizationOutput';
-import { TextResponse } from './TextResponse';
-import { ValidationError } from './ValidationError';
+import { AssetAction } from '../models/AssetAction';
+import { AssetBundle } from '../models/AssetBundle';
+import { AssetInput } from '../models/AssetInput';
+import { AssetOutput } from '../models/AssetOutput';
+import { AssetParametersOutput } from '../models/AssetParametersOutput';
+import { ConnectionInput } from '../models/ConnectionInput';
+import { ConnectionOutput } from '../models/ConnectionOutput';
+import { ConnectionStatus } from '../models/ConnectionStatus';
+import { EnvironmentInput } from '../models/EnvironmentInput';
+import { EnvironmentOutput } from '../models/EnvironmentOutput';
+import { HTTPValidationError } from '../models/HTTPValidationError';
+import { HealthCheckFromWorker } from '../models/HealthCheckFromWorker';
+import { LocationInner } from '../models/LocationInner';
+import { OperationOutput } from '../models/OperationOutput';
+import { OperationStatus } from '../models/OperationStatus';
+import { OperationType } from '../models/OperationType';
+import { OrganizationInput } from '../models/OrganizationInput';
+import { OrganizationOutput } from '../models/OrganizationOutput';
+import { TextResponse } from '../models/TextResponse';
+import { ValidationError } from '../models/ValidationError';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -78,15 +60,12 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
-    "AssetStatus",
     "ConnectionStatus",
     "OperationStatus",
     "OperationType",
 ]);
 
 let typeMap: {[index: string]: any} = {
-    "ActionOutput": ActionOutput,
-    "ActionRequest": ActionRequest,
     "AssetAction": AssetAction,
     "AssetBundle": AssetBundle,
     "AssetInput": AssetInput,
@@ -94,18 +73,12 @@ let typeMap: {[index: string]: any} = {
     "AssetParametersOutput": AssetParametersOutput,
     "ConnectionInput": ConnectionInput,
     "ConnectionOutput": ConnectionOutput,
-    "Data": Data,
     "EnvironmentInput": EnvironmentInput,
     "EnvironmentOutput": EnvironmentOutput,
     "HTTPValidationError": HTTPValidationError,
     "HealthCheckFromWorker": HealthCheckFromWorker,
     "LocationInner": LocationInner,
-    "OperationActionUpdate": OperationActionUpdate,
-    "OperationAssetUpdate": OperationAssetUpdate,
-    "OperationFailure": OperationFailure,
     "OperationOutput": OperationOutput,
-    "OperationTerraformRunUpdate": OperationTerraformRunUpdate,
-    "OperationUpdate": OperationUpdate,
     "OrganizationInput": OrganizationInput,
     "OrganizationOutput": OrganizationOutput,
     "TextResponse": TextResponse,
@@ -281,6 +254,10 @@ export class ObjectSerializer {
      * Convert data to a string according the given media type
      */
     public static stringify(data: any, mediaType: string): string {
+        if (mediaType === "text/plain") {
+            return String(data);
+        }
+
         if (mediaType === "application/json") {
             return JSON.stringify(data);
         }
@@ -294,6 +271,10 @@ export class ObjectSerializer {
     public static parse(rawData: string, mediaType: string | undefined) {
         if (mediaType === undefined) {
             throw new Error("Cannot parse content. No Content-Type defined.");
+        }
+
+        if (mediaType === "text/plain") {
+            return rawData;
         }
 
         if (mediaType === "application/json") {

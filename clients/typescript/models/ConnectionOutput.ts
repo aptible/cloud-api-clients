@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 
-import { AssetOutput } from './AssetOutput';
-import { ConnectionStatus } from './ConnectionStatus';
-import { OperationOutput } from './OperationOutput';
+import { AssetOutput } from '../models/AssetOutput';
+import { ConnectionStatus } from '../models/ConnectionStatus';
+import { OperationOutput } from '../models/OperationOutput';
 import { HttpFile } from '../http/http';
 
 export class ConnectionOutput {

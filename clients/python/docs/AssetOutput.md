@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **current_asset_parameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  | 
 **environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  | 
-**status** | [**AssetStatus**](AssetStatus.md) |  | 
+**status** | **str** |  | 
 **user_defined** | **bool** |  | 
 **connections** | [**[ConnectionOutput]**](ConnectionOutput.md) |  | [optional]  if omitted the server will use the default value of []
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

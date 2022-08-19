@@ -31,11 +31,9 @@ from cloud_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from cloud_api_client.model.asset_parameters_output import AssetParametersOutput
-    from cloud_api_client.model.asset_status import AssetStatus
     from cloud_api_client.model.connection_output import ConnectionOutput
     from cloud_api_client.model.environment_output import EnvironmentOutput
     globals()['AssetParametersOutput'] = AssetParametersOutput
-    globals()['AssetStatus'] = AssetStatus
     globals()['ConnectionOutput'] = ConnectionOutput
     globals()['EnvironmentOutput'] = EnvironmentOutput
 
@@ -98,7 +96,7 @@ class AssetOutput(ModelNormal):
             'id': (str,),  # noqa: E501
             'current_asset_parameters': (AssetParametersOutput,),  # noqa: E501
             'environment': (EnvironmentOutput,),  # noqa: E501
-            'status': (AssetStatus,),  # noqa: E501
+            'status': (str,),  # noqa: E501
             'user_defined': (bool,),  # noqa: E501
             'connections': ([ConnectionOutput],),  # noqa: E501
         }
@@ -135,7 +133,7 @@ class AssetOutput(ModelNormal):
             id (str):
             current_asset_parameters (AssetParametersOutput):
             environment (EnvironmentOutput):
-            status (AssetStatus):
+            status (str):
             user_defined (bool):
 
         Keyword Args:
@@ -237,7 +235,7 @@ class AssetOutput(ModelNormal):
             id (str):
             current_asset_parameters (AssetParametersOutput):
             environment (EnvironmentOutput):
-            status (AssetStatus):
+            status (str):
             user_defined (bool):
 
         Keyword Args:

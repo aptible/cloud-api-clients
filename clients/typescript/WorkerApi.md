@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**updateOperationApiV1OperationsOperationIdPut**](WorkerApi.md#updateOperationApiV1OperationsOperationIdPut) | **PUT** /api/v1/operations/{operation_id} | Update Operation
+[**updateOperationApiV1OperationsOperationIdOperationStatusPut**](WorkerApi.md#updateOperationApiV1OperationsOperationIdOperationStatusPut) | **PUT** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
 [**workerHealthCheckApiV1WorkerHealthCheckPost**](WorkerApi.md#workerHealthCheckApiV1WorkerHealthCheckPost) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
-# **updateOperationApiV1OperationsOperationIdPut**
-> any updateOperationApiV1OperationsOperationIdPut(operationUpdate)
+# **updateOperationApiV1OperationsOperationIdOperationStatusPut**
+> any updateOperationApiV1OperationsOperationIdOperationStatusPut()
 
 
 ### Example
@@ -22,18 +22,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .WorkerApi(configuration);
 
-let body:.WorkerApiUpdateOperationApiV1OperationsOperationIdPutRequest = {
+let body:.WorkerApiUpdateOperationApiV1OperationsOperationIdOperationStatusPutRequest = {
   // string
   operationId: "operation_id_example",
-  // OperationUpdate
-  operationUpdate: {
-    id: "id_example",
-    status: "FAILED",
-    data: null,
-  },
+  // OperationStatus
+  operationStatus: "FAILED",
 };
 
-apiInstance.updateOperationApiV1OperationsOperationIdPut(body).then((data:any) => {
+apiInstance.updateOperationApiV1OperationsOperationIdOperationStatusPut(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -43,8 +39,8 @@ apiInstance.updateOperationApiV1OperationsOperationIdPut(body).then((data:any) =
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **operationUpdate** | **OperationUpdate**|  |
  **operationId** | [**string**] |  | defaults to undefined
+ **operationStatus** | **OperationStatus** |  | defaults to undefined
 
 
 ### Return type
@@ -57,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
