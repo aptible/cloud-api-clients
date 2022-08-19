@@ -22,15 +22,16 @@ type AssetOutput struct {
 	Connections []ConnectionOutput `json:"connections,omitempty"`
 	CurrentAssetParameters AssetParametersOutput `json:"current_asset_parameters"`
 	Environment EnvironmentOutput `json:"environment"`
-	Status string `json:"status"`
+	Status AssetStatus `json:"status"`
 	UserDefined bool `json:"user_defined"`
+	Outputs *map[string]AssetTerraformOutput `json:"outputs,omitempty"`
 }
 
 // NewAssetOutput instantiates a new AssetOutput object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetOutput(asset string, assetVersion string, id string, currentAssetParameters AssetParametersOutput, environment EnvironmentOutput, status string, userDefined bool) *AssetOutput {
+func NewAssetOutput(asset string, assetVersion string, id string, currentAssetParameters AssetParametersOutput, environment EnvironmentOutput, status AssetStatus, userDefined bool) *AssetOutput {
 	this := AssetOutput{}
 	this.Asset = asset
 	this.AssetVersion = assetVersion
@@ -203,9 +204,9 @@ func (o *AssetOutput) SetEnvironment(v EnvironmentOutput) {
 }
 
 // GetStatus returns the Status field value
-func (o *AssetOutput) GetStatus() string {
+func (o *AssetOutput) GetStatus() AssetStatus {
 	if o == nil {
-		var ret string
+		var ret AssetStatus
 		return ret
 	}
 
@@ -214,7 +215,7 @@ func (o *AssetOutput) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *AssetOutput) GetStatusOk() (*string, bool) {
+func (o *AssetOutput) GetStatusOk() (*AssetStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -222,7 +223,7 @@ func (o *AssetOutput) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *AssetOutput) SetStatus(v string) {
+func (o *AssetOutput) SetStatus(v AssetStatus) {
 	o.Status = v
 }
 
@@ -250,6 +251,38 @@ func (o *AssetOutput) SetUserDefined(v bool) {
 	o.UserDefined = v
 }
 
+// GetOutputs returns the Outputs field value if set, zero value otherwise.
+func (o *AssetOutput) GetOutputs() map[string]AssetTerraformOutput {
+	if o == nil || o.Outputs == nil {
+		var ret map[string]AssetTerraformOutput
+		return ret
+	}
+	return *o.Outputs
+}
+
+// GetOutputsOk returns a tuple with the Outputs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssetOutput) GetOutputsOk() (*map[string]AssetTerraformOutput, bool) {
+	if o == nil || o.Outputs == nil {
+		return nil, false
+	}
+	return o.Outputs, true
+}
+
+// HasOutputs returns a boolean if a field has been set.
+func (o *AssetOutput) HasOutputs() bool {
+	if o != nil && o.Outputs != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOutputs gets a reference to the given map[string]AssetTerraformOutput and assigns it to the Outputs field.
+func (o *AssetOutput) SetOutputs(v map[string]AssetTerraformOutput) {
+	o.Outputs = &v
+}
+
 func (o AssetOutput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -275,6 +308,9 @@ func (o AssetOutput) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["user_defined"] = o.UserDefined
+	}
+	if o.Outputs != nil {
+		toSerialize["outputs"] = o.Outputs
 	}
 	return json.Marshal(toSerialize)
 }

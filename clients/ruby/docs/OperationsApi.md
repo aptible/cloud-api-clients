@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost*
 | ------ | ------------ | ----------- |
 | [**get_operations_api_v1_organizations_organization_id_operations_get**](OperationsApi.md#get_operations_api_v1_organizations_organization_id_operations_get) | **GET** /api/v1/organizations/{organization_id}/operations/ | Get Operations |
 | [**get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get**](OperationsApi.md#get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get) | **GET** /api/v1/organizations/{organization_id}/operations/{operation_id} | Get Operations By Operation Id |
+| [**update_operation_api_v1_operations_operation_id_put**](OperationsApi.md#update_operation_api_v1_operations_operation_id_put) | **PUT** /api/v1/operations/{operation_id} | Update Operation |
 
 
 ## get_operations_api_v1_organizations_organization_id_operations_get
@@ -147,5 +148,74 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_operation_api_v1_operations_operation_id_put
+
+> Object update_operation_api_v1_operations_operation_id_put(operation_id, operation_update)
+
+Update Operation
+
+### Examples
+
+```ruby
+require 'time'
+require 'cloud_api_client'
+# setup authorization
+CloudApiClient.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = CloudApiClient::OperationsApi.new
+operation_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
+operation_update = CloudApiClient::OperationUpdate.new({id: 'id_example', status: CloudApiClient::OperationStatus::FAILED}) # OperationUpdate | 
+
+begin
+  # Update Operation
+  result = api_instance.update_operation_api_v1_operations_operation_id_put(operation_id, operation_update)
+  p result
+rescue CloudApiClient::ApiError => e
+  puts "Error when calling OperationsApi->update_operation_api_v1_operations_operation_id_put: #{e}"
+end
+```
+
+#### Using the update_operation_api_v1_operations_operation_id_put_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> update_operation_api_v1_operations_operation_id_put_with_http_info(operation_id, operation_update)
+
+```ruby
+begin
+  # Update Operation
+  data, status_code, headers = api_instance.update_operation_api_v1_operations_operation_id_put_with_http_info(operation_id, operation_update)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue CloudApiClient::ApiError => e
+  puts "Error when calling OperationsApi->update_operation_api_v1_operations_operation_id_put_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **operation_id** | **String** |  |  |
+| **operation_update** | [**OperationUpdate**](OperationUpdate.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

@@ -204,7 +204,7 @@ paths:
       - HTTPBearer: []
       summary: Get Assets
       tags:
-      - assets
+      - environments
     post:
       operationId: create_asset_api_v1_organizations__organization_id__environments__environment_id__assets_post
       parameters:
@@ -251,6 +251,121 @@ paths:
       summary: Create Asset
       tags:
       - assets
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action:
+    post:
+      operationId: create_action_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__action_post
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Create Action
+      tags:
+      - actions
+  /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id}:
+    get:
+      operationId: get_action_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__action__action_id__get
+      parameters:
+      - explode: false
+        in: path
+        name: asset_id
+        required: true
+        schema:
+          format: uuid
+          title: Asset Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment_id
+        required: true
+        schema:
+          format: uuid
+          title: Environment Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: action_id
+        required: true
+        schema:
+          format: uuid
+          title: Action Id
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Get Action
+      tags:
+      - actions
   /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles:
     get:
       operationId: get_environment_allowed_assets_api_v1_organizations__organization_id__environments__environment_id__asset_bundles_get
@@ -566,43 +681,6 @@ paths:
       summary: Worker Health Check
       tags:
       - worker
-  /api/v1/operations/{operation_id}/{operation_status}:
-    put:
-      operationId: update_operation_api_v1_operations__operation_id___operation_status__put
-      parameters:
-      - explode: false
-        in: path
-        name: operation_id
-        required: true
-        schema:
-          format: uuid
-          title: Operation Id
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: operation_status
-        required: true
-        schema:
-          $ref: '#/components/schemas/OperationStatus'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      summary: Update Operation
-      tags:
-      - worker
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/:
     post:
       operationId: create_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__post
@@ -874,6 +952,42 @@ paths:
       summary: Get Operations
       tags:
       - operations
+  /api/v1/operations/{operation_id}:
+    put:
+      operationId: update_operation_api_v1_operations__operation_id__put
+      parameters:
+      - explode: false
+        in: path
+        name: operation_id
+        required: true
+        schema:
+          format: uuid
+          title: Operation Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationUpdate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Update Operation
+      tags:
+      - operations
   /api/v1/organizations/{organization_id}:
     delete:
       operationId: delete_api_v1_organizations__organization_id__delete
@@ -1049,6 +1163,146 @@ paths:
       - utilities
 components:
   schemas:
+    ActionRequest:
+      example:
+        action_name: action_name
+        parameters: ""
+      properties:
+        action_name:
+          title: Action Name
+          type: string
+        parameters:
+          title: Parameters
+      required:
+      - action_name
+      title: ActionRequest
+      type: object
+    ActionResponse:
+      example:
+        output: "{}"
+        action_name: action_name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        asset:
+          outputs:
+            key:
+              data: ""
+              name: name
+              sensitive: true
+              structure: null
+          environment:
+            data: "{}"
+            aws_account_id: aws_account_id
+            organization:
+              aws_ou: aws_ou
+              baa_status: baa_status
+              name: name
+              contact_details: "{}"
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          user_defined: true
+          asset_version: asset_version
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset: asset
+          connections:
+          - outgoing_connection_asset: null
+            operations:
+            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              operation_type: ""
+              asset_name: asset_name
+              asset_parameters: "{}"
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_version: asset_version
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              status: ""
+            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              operation_type: ""
+              asset_name: asset_name
+              asset_parameters: "{}"
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_version: asset_version
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              status: ""
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            incoming_connection_asset: null
+            status: null
+          - outgoing_connection_asset: null
+            operations:
+            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              operation_type: ""
+              asset_name: asset_name
+              asset_parameters: "{}"
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_version: asset_version
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              status: ""
+            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              operation_type: ""
+              asset_name: asset_name
+              asset_parameters: "{}"
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_version: asset_version
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              status: ""
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            incoming_connection_asset: null
+            status: null
+          current_asset_parameters:
+            data: "{}"
+            iteration: 0
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: null
+        operation:
+          execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          operation_type: ""
+          asset_name: asset_name
+          asset_parameters: "{}"
+          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_version: asset_version
+          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: ""
+        parameters: "{}"
+      properties:
+        id:
+          format: uuid
+          title: Id
+          type: string
+        action_name:
+          title: Action Name
+          type: string
+        asset:
+          $ref: '#/components/schemas/AssetOutput'
+        operation:
+          $ref: '#/components/schemas/OperationOutput'
+        parameters:
+          title: Parameters
+          type: object
+        output:
+          title: Output
+          type: object
+      required:
+      - action_name
+      - asset
+      - id
+      - operation
+      title: ActionResponse
+      type: object
     AssetAction:
       example:
         user_parameters: ""
@@ -1134,6 +1388,12 @@ components:
       type: object
     AssetOutput:
       example:
+        outputs:
+          key:
+            data: ""
+            name: name
+            sensitive: true
+            structure: null
         environment:
           data: "{}"
           aws_account_id: aws_account_id
@@ -1209,7 +1469,7 @@ components:
           data: "{}"
           iteration: 0
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        status: status
+        status: null
       properties:
         asset:
           title: Asset
@@ -1232,11 +1492,16 @@ components:
         environment:
           $ref: '#/components/schemas/EnvironmentOutput'
         status:
-          title: Status
-          type: string
+          $ref: '#/components/schemas/AssetStatus'
         user_defined:
           title: User Defined
           type: boolean
+        outputs:
+          additionalProperties:
+            $ref: '#/components/schemas/AssetTerraformOutput'
+          default: {}
+          title: Outputs
+          type: object
       required:
       - asset
       - asset_version
@@ -1268,6 +1533,41 @@ components:
       - id
       - iteration
       title: AssetParametersOutput
+      type: object
+    AssetStatus:
+      description: An enumeration.
+      enum:
+      - FAILED
+      - PENDING
+      - REQUESTED
+      - DEPLOYING
+      - DEPLOYED
+      - DESTROYED
+      - DESTROYING
+      title: AssetStatus
+      type: string
+    AssetTerraformOutput:
+      example:
+        data: ""
+        name: name
+        sensitive: true
+        structure: null
+      properties:
+        name:
+          title: Name
+          type: string
+        sensitive:
+          title: Sensitive
+          type: boolean
+        structure:
+          $ref: '#/components/schemas/Structure'
+        data:
+          title: Data
+      required:
+      - name
+      - sensitive
+      - structure
+      title: AssetTerraformOutput
       type: object
     ConnectionInput:
       example:
@@ -1440,6 +1740,44 @@ components:
       - message
       title: HealthCheckFromWorker
       type: object
+    OperationActionUpdate:
+      properties:
+        action_output:
+          $ref: '#/components/schemas/Action_Output'
+        action_errors:
+          title: Action Errors
+          type: string
+      required:
+      - action_output
+      title: OperationActionUpdate
+      type: object
+    OperationAssetUpdate:
+      properties:
+        terraform_init:
+          $ref: '#/components/schemas/OperationTerraformRunUpdate'
+        terraform_plan:
+          $ref: '#/components/schemas/OperationTerraformRunUpdate'
+        terraform_apply:
+          $ref: '#/components/schemas/OperationTerraformRunUpdate'
+        terraform_plan_failures:
+          title: Terraform Plan Failures
+          type: string
+        terraform_apply_failures:
+          title: Terraform Apply Failures
+          type: string
+      required:
+      - terraform_init
+      title: OperationAssetUpdate
+      type: object
+    OperationFailure:
+      properties:
+        error:
+          title: Error
+          type: string
+      required:
+      - error
+      title: OperationFailure
+      type: object
     OperationOutput:
       example:
         execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1515,14 +1853,51 @@ components:
       - COMPLETE
       title: OperationStatus
       type: string
+    OperationTerraformRunUpdate:
+      properties:
+        terraform_stdout:
+          title: Terraform Stdout
+        terraform_stderr:
+          title: Terraform Stderr
+        terraform_return_code:
+          title: Terraform Return Code
+          type: integer
+        terraform_success:
+          title: Terraform Success
+          type: boolean
+      required:
+      - terraform_return_code
+      - terraform_success
+      title: OperationTerraformRunUpdate
+      type: object
     OperationType:
       description: An enumeration.
       enum:
       - CREATE
       - UPDATE
       - DESTROY
+      - ACTION
       title: OperationType
       type: string
+    OperationUpdate:
+      example:
+        data: null
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status: null
+      properties:
+        id:
+          format: uuid
+          title: Id
+          type: string
+        status:
+          $ref: '#/components/schemas/OperationStatus'
+        data:
+          $ref: '#/components/schemas/Data'
+      required:
+      - id
+      - status
+      title: OperationUpdate
+      type: object
     OrganizationInput:
       example:
         aws_ou: aws_ou
@@ -1616,6 +1991,25 @@ components:
       - type
       title: ValidationError
       type: object
+    Structure:
+      anyOf:
+      - maxItems: 2
+        minItems: 2
+        type: array
+      - type: string
+      title: Structure
+    Action_Output:
+      anyOf:
+      - type: object
+      - items: {}
+        type: array
+      title: Action Output
+    Data:
+      anyOf:
+      - $ref: '#/components/schemas/OperationFailure'
+      - $ref: '#/components/schemas/OperationAssetUpdate'
+      - $ref: '#/components/schemas/OperationActionUpdate'
+      title: Data
     Location_inner:
       anyOf:
       - type: string

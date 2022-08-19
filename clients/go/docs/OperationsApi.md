@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetOperationsApiV1OrganizationsOrganizationIdOperationsGet**](OperationsApi.md#GetOperationsApiV1OrganizationsOrganizationIdOperationsGet) | **Get** /api/v1/organizations/{organization_id}/operations/ | Get Operations
 [**GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet**](OperationsApi.md#GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet) | **Get** /api/v1/organizations/{organization_id}/operations/{operation_id} | Get Operations By Operation Id
+[**UpdateOperationApiV1OperationsOperationIdPut**](OperationsApi.md#UpdateOperationApiV1OperationsOperationIdPut) | **Put** /api/v1/operations/{operation_id} | Update Operation
 
 
 
@@ -145,6 +146,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateOperationApiV1OperationsOperationIdPut
+
+> interface{} UpdateOperationApiV1OperationsOperationIdPut(ctx, operationId).OperationUpdate(operationUpdate).Execute()
+
+Update Operation
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    operationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    operationUpdate := *openapiclient.NewOperationUpdate("Id_example", openapiclient.OperationStatus("FAILED")) // OperationUpdate | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.OperationsApi.UpdateOperationApiV1OperationsOperationIdPut(context.Background(), operationId).OperationUpdate(operationUpdate).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `OperationsApi.UpdateOperationApiV1OperationsOperationIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateOperationApiV1OperationsOperationIdPut`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `OperationsApi.UpdateOperationApiV1OperationsOperationIdPut`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**operationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateOperationApiV1OperationsOperationIdPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **operationUpdate** | [**OperationUpdate**](OperationUpdate.md) |  | 
+
+### Return type
+
+**interface{}**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
