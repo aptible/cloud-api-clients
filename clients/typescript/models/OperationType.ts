@@ -15,4 +15,4 @@ import { HttpFile } from '../http/http';
 /**
 * An enumeration.
 */
-export type OperationType = "CREATE" | "UPDATE" | "DESTROY" | "ACTION" ;
+export type OperationType = "CREATE" | "UPDATE" | "DESTROY" ;

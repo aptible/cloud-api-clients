@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**update_operation_api_v1_operations_operation_id_put**](WorkerApi.md#update_operation_api_v1_operations_operation_id_put) | **PUT** /api/v1/operations/{operation_id} | Update Operation
+[**update_operation_api_v1_operations_operation_id_operation_status_put**](WorkerApi.md#update_operation_api_v1_operations_operation_id_operation_status_put) | **PUT** /api/v1/operations/{operation_id}/{operation_status} | Update Operation
 [**worker_health_check_api_v1_worker_health_check_post**](WorkerApi.md#worker_health_check_api_v1_worker_health_check_post) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
-# **update_operation_api_v1_operations_operation_id_put**
-> bool, date, datetime, dict, float, int, list, str, none_type update_operation_api_v1_operations_operation_id_put(operation_id, operation_update)
+# **update_operation_api_v1_operations_operation_id_operation_status_put**
+> bool, date, datetime, dict, float, int, list, str, none_type update_operation_api_v1_operations_operation_id_operation_status_put(operation_id, operation_status)
 
 Update Operation
 
@@ -21,7 +21,7 @@ Update Operation
 import time
 import cloud_api_client
 from cloud_api_client.api import worker_api
-from cloud_api_client.model.operation_update import OperationUpdate
+from cloud_api_client.model.operation_status import OperationStatus
 from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -45,19 +45,15 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = worker_api.WorkerApi(api_client)
     operation_id = "operation_id_example" # str | 
-    operation_update = OperationUpdate(
-        id="id_example",
-        status=OperationStatus("FAILED"),
-        data=Data(None),
-    ) # OperationUpdate | 
+    operation_status = OperationStatus("FAILED") # OperationStatus | 
 
     # example passing only required values which don't have defaults set
     try:
         # Update Operation
-        api_response = api_instance.update_operation_api_v1_operations_operation_id_put(operation_id, operation_update)
+        api_response = api_instance.update_operation_api_v1_operations_operation_id_operation_status_put(operation_id, operation_status)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling WorkerApi->update_operation_api_v1_operations_operation_id_put: %s\n" % e)
+        print("Exception when calling WorkerApi->update_operation_api_v1_operations_operation_id_operation_status_put: %s\n" % e)
 ```
 
 
@@ -66,7 +62,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **operation_id** | **str**|  |
- **operation_update** | [**OperationUpdate**](OperationUpdate.md)|  |
+ **operation_status** | **OperationStatus**|  |
 
 ### Return type
 
@@ -78,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

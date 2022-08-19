@@ -10,10 +10,9 @@
  * Do not edit the class manually.
  */
 
-import { AssetParametersOutput } from './AssetParametersOutput';
-import { AssetStatus } from './AssetStatus';
-import { ConnectionOutput } from './ConnectionOutput';
-import { EnvironmentOutput } from './EnvironmentOutput';
+import { AssetParametersOutput } from '../models/AssetParametersOutput';
+import { ConnectionOutput } from '../models/ConnectionOutput';
+import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HttpFile } from '../http/http';
 
 export class AssetOutput {
@@ -23,7 +22,7 @@ export class AssetOutput {
     'connections'?: Array<ConnectionOutput>;
     'currentAssetParameters': AssetParametersOutput;
     'environment': EnvironmentOutput;
-    'status': AssetStatus;
+    'status': string;
     'userDefined': boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -68,7 +67,7 @@ export class AssetOutput {
         {
             "name": "status",
             "baseName": "status",
-            "type": "AssetStatus",
+            "type": "string",
             "format": ""
         },
         {

@@ -10,7 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { HTTPValidationError } from '../models/HTTPValidationError';
 import { HealthCheckFromWorker } from '../models/HealthCheckFromWorker';
-import { OperationUpdate } from '../models/OperationUpdate';
+import { OperationStatus } from '../models/OperationStatus';
 
 /**
  * no description
@@ -20,42 +20,32 @@ export class WorkerApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Update Operation
      * @param operationId 
-     * @param operationUpdate 
+     * @param operationStatus 
      */
-    public async updateOperationApiV1OperationsOperationIdPut(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Promise<RequestContext> {
+    public async updateOperationApiV1OperationsOperationIdOperationStatusPut(operationId: string, operationStatus: OperationStatus, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'operationId' is not null or undefined
         if (operationId === null || operationId === undefined) {
-            throw new RequiredError("WorkerApi", "updateOperationApiV1OperationsOperationIdPut", "operationId");
+            throw new RequiredError("WorkerApi", "updateOperationApiV1OperationsOperationIdOperationStatusPut", "operationId");
         }
 
 
-        // verify required parameter 'operationUpdate' is not null or undefined
-        if (operationUpdate === null || operationUpdate === undefined) {
-            throw new RequiredError("WorkerApi", "updateOperationApiV1OperationsOperationIdPut", "operationUpdate");
+        // verify required parameter 'operationStatus' is not null or undefined
+        if (operationStatus === null || operationStatus === undefined) {
+            throw new RequiredError("WorkerApi", "updateOperationApiV1OperationsOperationIdOperationStatusPut", "operationStatus");
         }
 
 
         // Path Params
-        const localVarPath = '/api/v1/operations/{operation_id}'
-            .replace('{' + 'operation_id' + '}', encodeURIComponent(String(operationId)));
+        const localVarPath = '/api/v1/operations/{operation_id}/{operation_status}'
+            .replace('{' + 'operation_id' + '}', encodeURIComponent(String(operationId)))
+            .replace('{' + 'operation_status' + '}', encodeURIComponent(String(operationStatus)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(operationUpdate, "OperationUpdate", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -121,10 +111,10 @@ export class WorkerApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to updateOperationApiV1OperationsOperationIdPut
+     * @params response Response returned by the server for a request to updateOperationApiV1OperationsOperationIdOperationStatusPut
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateOperationApiV1OperationsOperationIdPut(response: ResponseContext): Promise<any > {
+     public async updateOperationApiV1OperationsOperationIdOperationStatusPut(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
