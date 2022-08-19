@@ -10,8 +10,9 @@
 | **connections** | [**Array&lt;ConnectionOutput&gt;**](ConnectionOutput.md) |  | [optional] |
 | **current_asset_parameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  |  |
 | **environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  |  |
-| **status** | **String** |  |  |
+| **status** | [**AssetStatus**](AssetStatus.md) |  |  |
 | **user_defined** | **Boolean** |  |  |
+| **outputs** | [**Hash&lt;String, AssetTerraformOutput&gt;**](AssetTerraformOutput.md) |  | [optional] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = CloudApiClient::AssetOutput.new(
   current_asset_parameters: null,
   environment: null,
   status: null,
-  user_defined: null
+  user_defined: null,
+  outputs: null
 )
 ```
 
