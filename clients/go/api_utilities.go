@@ -22,62 +22,62 @@ import (
 type UtilitiesApi interface {
 
 	/*
-	GetPingApiV1DebugPingGet Get Ping
+	GetPing Get Ping
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPingApiV1DebugPingGetRequest
+	@return ApiGetPingRequest
 	*/
-	GetPingApiV1DebugPingGet(ctx context.Context) ApiGetPingApiV1DebugPingGetRequest
+	GetPing(ctx context.Context) ApiGetPingRequest
 
-	// GetPingApiV1DebugPingGetExecute executes the request
+	// GetPingExecute executes the request
 	//  @return TextResponse
-	GetPingApiV1DebugPingGetExecute(r ApiGetPingApiV1DebugPingGetRequest) (*TextResponse, *http.Response, error)
+	GetPingExecute(r ApiGetPingRequest) (*TextResponse, *http.Response, error)
 
 	/*
-	GetUserApiV1DebugUserAuthGet Get User
+	GetUser Get User
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserApiV1DebugUserAuthGetRequest
+	@return ApiGetUserRequest
 	*/
-	GetUserApiV1DebugUserAuthGet(ctx context.Context) ApiGetUserApiV1DebugUserAuthGetRequest
+	GetUser(ctx context.Context) ApiGetUserRequest
 
-	// GetUserApiV1DebugUserAuthGetExecute executes the request
+	// GetUserExecute executes the request
 	//  @return interface{}
-	GetUserApiV1DebugUserAuthGetExecute(r ApiGetUserApiV1DebugUserAuthGetRequest) (interface{}, *http.Response, error)
+	GetUserExecute(r ApiGetUserRequest) (interface{}, *http.Response, error)
 
 	/*
-	GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet Get User Role
+	GetUserRole Get User Role
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest
+	@return ApiGetUserRoleRequest
 	*/
-	GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet(ctx context.Context) ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest
+	GetUserRole(ctx context.Context) ApiGetUserRoleRequest
 
-	// GetUserRoleApiV1DebugUserRoleMiddlewareCheckGetExecute executes the request
+	// GetUserRoleExecute executes the request
 	//  @return interface{}
-	GetUserRoleApiV1DebugUserRoleMiddlewareCheckGetExecute(r ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest) (interface{}, *http.Response, error)
+	GetUserRoleExecute(r ApiGetUserRoleRequest) (interface{}, *http.Response, error)
 }
 
 // UtilitiesApiService UtilitiesApi service
 type UtilitiesApiService service
 
-type ApiGetPingApiV1DebugPingGetRequest struct {
+type ApiGetPingRequest struct {
 	ctx context.Context
 	ApiService UtilitiesApi
 }
 
-func (r ApiGetPingApiV1DebugPingGetRequest) Execute() (*TextResponse, *http.Response, error) {
-	return r.ApiService.GetPingApiV1DebugPingGetExecute(r)
+func (r ApiGetPingRequest) Execute() (*TextResponse, *http.Response, error) {
+	return r.ApiService.GetPingExecute(r)
 }
 
 /*
-GetPingApiV1DebugPingGet Get Ping
+GetPing Get Ping
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPingApiV1DebugPingGetRequest
+ @return ApiGetPingRequest
 */
-func (a *UtilitiesApiService) GetPingApiV1DebugPingGet(ctx context.Context) ApiGetPingApiV1DebugPingGetRequest {
-	return ApiGetPingApiV1DebugPingGetRequest{
+func (a *UtilitiesApiService) GetPing(ctx context.Context) ApiGetPingRequest {
+	return ApiGetPingRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -85,7 +85,7 @@ func (a *UtilitiesApiService) GetPingApiV1DebugPingGet(ctx context.Context) ApiG
 
 // Execute executes the request
 //  @return TextResponse
-func (a *UtilitiesApiService) GetPingApiV1DebugPingGetExecute(r ApiGetPingApiV1DebugPingGetRequest) (*TextResponse, *http.Response, error) {
+func (a *UtilitiesApiService) GetPingExecute(r ApiGetPingRequest) (*TextResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -93,7 +93,7 @@ func (a *UtilitiesApiService) GetPingApiV1DebugPingGetExecute(r ApiGetPingApiV1D
 		localVarReturnValue  *TextResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UtilitiesApiService.GetPingApiV1DebugPingGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UtilitiesApiService.GetPing")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -158,23 +158,23 @@ func (a *UtilitiesApiService) GetPingApiV1DebugPingGetExecute(r ApiGetPingApiV1D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserApiV1DebugUserAuthGetRequest struct {
+type ApiGetUserRequest struct {
 	ctx context.Context
 	ApiService UtilitiesApi
 }
 
-func (r ApiGetUserApiV1DebugUserAuthGetRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.GetUserApiV1DebugUserAuthGetExecute(r)
+func (r ApiGetUserRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.GetUserExecute(r)
 }
 
 /*
-GetUserApiV1DebugUserAuthGet Get User
+GetUser Get User
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetUserApiV1DebugUserAuthGetRequest
+ @return ApiGetUserRequest
 */
-func (a *UtilitiesApiService) GetUserApiV1DebugUserAuthGet(ctx context.Context) ApiGetUserApiV1DebugUserAuthGetRequest {
-	return ApiGetUserApiV1DebugUserAuthGetRequest{
+func (a *UtilitiesApiService) GetUser(ctx context.Context) ApiGetUserRequest {
+	return ApiGetUserRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -182,7 +182,7 @@ func (a *UtilitiesApiService) GetUserApiV1DebugUserAuthGet(ctx context.Context) 
 
 // Execute executes the request
 //  @return interface{}
-func (a *UtilitiesApiService) GetUserApiV1DebugUserAuthGetExecute(r ApiGetUserApiV1DebugUserAuthGetRequest) (interface{}, *http.Response, error) {
+func (a *UtilitiesApiService) GetUserExecute(r ApiGetUserRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -190,7 +190,7 @@ func (a *UtilitiesApiService) GetUserApiV1DebugUserAuthGetExecute(r ApiGetUserAp
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UtilitiesApiService.GetUserApiV1DebugUserAuthGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UtilitiesApiService.GetUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -255,29 +255,29 @@ func (a *UtilitiesApiService) GetUserApiV1DebugUserAuthGetExecute(r ApiGetUserAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest struct {
+type ApiGetUserRoleRequest struct {
 	ctx context.Context
 	ApiService UtilitiesApi
 	organizationId *string
 }
 
-func (r ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest) OrganizationId(organizationId string) ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest {
+func (r ApiGetUserRoleRequest) OrganizationId(organizationId string) ApiGetUserRoleRequest {
 	r.organizationId = &organizationId
 	return r
 }
 
-func (r ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.GetUserRoleApiV1DebugUserRoleMiddlewareCheckGetExecute(r)
+func (r ApiGetUserRoleRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.GetUserRoleExecute(r)
 }
 
 /*
-GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet Get User Role
+GetUserRole Get User Role
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest
+ @return ApiGetUserRoleRequest
 */
-func (a *UtilitiesApiService) GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet(ctx context.Context) ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest {
-	return ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest{
+func (a *UtilitiesApiService) GetUserRole(ctx context.Context) ApiGetUserRoleRequest {
+	return ApiGetUserRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -285,7 +285,7 @@ func (a *UtilitiesApiService) GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet(ct
 
 // Execute executes the request
 //  @return interface{}
-func (a *UtilitiesApiService) GetUserRoleApiV1DebugUserRoleMiddlewareCheckGetExecute(r ApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest) (interface{}, *http.Response, error) {
+func (a *UtilitiesApiService) GetUserRoleExecute(r ApiGetUserRoleRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -293,7 +293,7 @@ func (a *UtilitiesApiService) GetUserRoleApiV1DebugUserRoleMiddlewareCheckGetExe
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UtilitiesApiService.GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UtilitiesApiService.GetUserRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

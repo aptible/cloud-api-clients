@@ -32,85 +32,86 @@ describe 'EnvironmentsApi' do
     end
   end
 
-  # unit tests for create_environment_api_v1_organizations_organization_id_environments_post
-  # Create Environment
+  # unit tests for environment_create
+  # Environment Create
   # @param organization_id 
   # @param environment_input 
   # @param [Hash] opts the optional parameters
   # @return [EnvironmentOutput]
-  describe 'create_environment_api_v1_organizations_organization_id_environments_post test' do
+  describe 'environment_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete
-  # Delete Environment By Id
+  # unit tests for environment_delete
+  # Environment Delete
   # @param environment_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
-  # @return [Integer]
-  describe 'delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete test' do
+  # @return [Object]
+  describe 'environment_delete test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get
-  # Get Environment Allowed Assets
+  # unit tests for environment_get
+  # Environment Get
+  # @param environment_id 
+  # @param organization_id 
+  # @param [Hash] opts the optional parameters
+  # @return [EnvironmentOutput]
+  describe 'environment_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for environment_get_allowed_asset_bundles
+  # Environment Get Allowed Asset Bundles
   # @param environment_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [Array<AssetBundle>]
-  describe 'get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get test' do
+  describe 'environment_get_allowed_asset_bundles test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get
-  # Get Environment By Id
+  # unit tests for environment_get_assets
+  # Environment Get Assets
   # @param environment_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
-  # @return [EnvironmentOutput]
-  describe 'get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get test' do
+  # @return [Array<AssetOutput>]
+  describe 'environment_get_assets test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get
-  # Get Environment Connections
+  # unit tests for environment_get_connections
+  # Environment Get Connections
   # @param environment_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [Array<ConnectionOutput>]
-  describe 'get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get test' do
+  describe 'environment_get_connections test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_environments_api_v1_organizations_organization_id_environments_get
-  # Get Environments
-  # @param organization_id 
-  # @param [Hash] opts the optional parameters
-  # @return [Array<EnvironmentOutput>]
-  describe 'get_environments_api_v1_organizations_organization_id_environments_get test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for update_environment_api_v1_organizations_organization_id_environments_environment_id_put
-  # Update Environment
+  # unit tests for environment_update
+  # Environment Update
   # @param environment_id 
   # @param organization_id 
   # @param environment_input 
   # @param [Hash] opts the optional parameters
   # @return [EnvironmentOutput]
-  describe 'update_environment_api_v1_organizations_organization_id_environments_environment_id_put test' do
+  describe 'environment_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

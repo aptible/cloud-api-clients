@@ -120,6 +120,9 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**organization_get_operations**](docs/OrganizationsApi.md#organization_get_operations) | **GET** /api/v1/organizations/{organization_id}/operations/ | Organization Get Operations
 *OrganizationsApi* | [**organization_list**](docs/OrganizationsApi.md#organization_list) | **GET** /api/v1/organizations/ | Organization List
 *OrganizationsApi* | [**organization_update**](docs/OrganizationsApi.md#organization_update) | **PUT** /api/v1/organizations/{organization_id} | Organization Update
+*UtilitiesApi* | [**get_ping**](docs/UtilitiesApi.md#get_ping) | **GET** /api/v1/debug/ping | Get Ping
+*UtilitiesApi* | [**get_user**](docs/UtilitiesApi.md#get_user) | **GET** /api/v1/debug/user_auth | Get User
+*UtilitiesApi* | [**get_user_role**](docs/UtilitiesApi.md#get_user_role) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
 *WorkerApi* | [**worker_health_check**](docs/WorkerApi.md#worker_health_check) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
@@ -155,6 +158,7 @@ Class | Method | HTTP request | Description
  - [OrganizationInput](docs/OrganizationInput.md)
  - [OrganizationOutput](docs/OrganizationOutput.md)
  - [Structure](docs/Structure.md)
+ - [TextResponse](docs/TextResponse.md)
  - [ValidationError](docs/ValidationError.md)
 
 

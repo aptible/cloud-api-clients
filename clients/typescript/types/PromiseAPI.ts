@@ -1,5 +1,4 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
-import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
 import { ActionOutput } from '../models/ActionOutput';
@@ -32,6 +31,7 @@ import { OperationUpdate } from '../models/OperationUpdate';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
 import { Structure } from '../models/Structure';
+import { TextResponse } from '../models/TextResponse';
 import { ValidationError } from '../models/ValidationError';
 import { ObservableActionsApi } from './ObservableAPI';
 
@@ -391,6 +391,50 @@ export class PromiseOrganizationsApi {
      */
     public organizationUpdate(organizationId: string, organizationInput: OrganizationInput, _options?: Configuration): Promise<OrganizationOutput> {
         const result = this.api.organizationUpdate(organizationId, organizationInput, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableUtilitiesApi } from './ObservableAPI';
+
+import { UtilitiesApiRequestFactory, UtilitiesApiResponseProcessor} from "../apis/UtilitiesApi";
+export class PromiseUtilitiesApi {
+    private api: ObservableUtilitiesApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: UtilitiesApiRequestFactory,
+        responseProcessor?: UtilitiesApiResponseProcessor
+    ) {
+        this.api = new ObservableUtilitiesApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Get Ping
+     */
+    public getPing(_options?: Configuration): Promise<TextResponse> {
+        const result = this.api.getPing(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get User
+     */
+    public getUser(_options?: Configuration): Promise<any> {
+        const result = this.api.getUser(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get User Role
+     * @param organizationId 
+     */
+    public getUserRole(organizationId: string, _options?: Configuration): Promise<any> {
+        const result = this.api.getUserRole(organizationId, _options);
         return result.toPromise();
     }
 

@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetPingApiV1DebugPingGet**](UtilitiesApi.md#GetPingApiV1DebugPingGet) | **Get** /api/v1/debug/ping | Get Ping
-[**GetUserApiV1DebugUserAuthGet**](UtilitiesApi.md#GetUserApiV1DebugUserAuthGet) | **Get** /api/v1/debug/user_auth | Get User
-[**GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet**](UtilitiesApi.md#GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet) | **Get** /api/v1/debug/user_role_middleware_check | Get User Role
+[**GetPing**](UtilitiesApi.md#GetPing) | **Get** /api/v1/debug/ping | Get Ping
+[**GetUser**](UtilitiesApi.md#GetUser) | **Get** /api/v1/debug/user_auth | Get User
+[**GetUserRole**](UtilitiesApi.md#GetUserRole) | **Get** /api/v1/debug/user_role_middleware_check | Get User Role
 
 
 
-## GetPingApiV1DebugPingGet
+## GetPing
 
-> TextResponse GetPingApiV1DebugPingGet(ctx).Execute()
+> TextResponse GetPing(ctx).Execute()
 
 Get Ping
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UtilitiesApi.GetPingApiV1DebugPingGet(context.Background()).Execute()
+    resp, r, err := apiClient.UtilitiesApi.GetPing(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UtilitiesApi.GetPingApiV1DebugPingGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UtilitiesApi.GetPing``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetPingApiV1DebugPingGet`: TextResponse
-    fmt.Fprintf(os.Stdout, "Response from `UtilitiesApi.GetPingApiV1DebugPingGet`: %v\n", resp)
+    // response from `GetPing`: TextResponse
+    fmt.Fprintf(os.Stdout, "Response from `UtilitiesApi.GetPing`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetPingApiV1DebugPingGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetPingRequest struct via the builder pattern
 
 
 ### Return type
@@ -69,9 +69,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetUserApiV1DebugUserAuthGet
+## GetUser
 
-> interface{} GetUserApiV1DebugUserAuthGet(ctx).Execute()
+> interface{} GetUser(ctx).Execute()
 
 Get User
 
@@ -91,13 +91,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UtilitiesApi.GetUserApiV1DebugUserAuthGet(context.Background()).Execute()
+    resp, r, err := apiClient.UtilitiesApi.GetUser(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UtilitiesApi.GetUserApiV1DebugUserAuthGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UtilitiesApi.GetUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserApiV1DebugUserAuthGet`: interface{}
-    fmt.Fprintf(os.Stdout, "Response from `UtilitiesApi.GetUserApiV1DebugUserAuthGet`: %v\n", resp)
+    // response from `GetUser`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `UtilitiesApi.GetUser`: %v\n", resp)
 }
 ```
 
@@ -107,7 +107,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetUserApiV1DebugUserAuthGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUserRequest struct via the builder pattern
 
 
 ### Return type
@@ -128,9 +128,9 @@ Other parameters are passed through a pointer to a apiGetUserApiV1DebugUserAuthG
 [[Back to README]](../README.md)
 
 
-## GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet
+## GetUserRole
 
-> interface{} GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet(ctx).OrganizationId(organizationId).Execute()
+> interface{} GetUserRole(ctx).OrganizationId(organizationId).Execute()
 
 Get User Role
 
@@ -151,13 +151,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UtilitiesApi.GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet(context.Background()).OrganizationId(organizationId).Execute()
+    resp, r, err := apiClient.UtilitiesApi.GetUserRole(context.Background()).OrganizationId(organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UtilitiesApi.GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UtilitiesApi.GetUserRole``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet`: interface{}
-    fmt.Fprintf(os.Stdout, "Response from `UtilitiesApi.GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet`: %v\n", resp)
+    // response from `GetUserRole`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `UtilitiesApi.GetUserRole`: %v\n", resp)
 }
 ```
 
@@ -167,7 +167,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUserRoleRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

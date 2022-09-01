@@ -32,24 +32,12 @@ describe 'WorkerApi' do
     end
   end
 
-  # unit tests for update_operation_api_v1_operations_operation_id_operation_status_put
-  # Update Operation
-  # @param operation_id 
-  # @param operation_status 
-  # @param [Hash] opts the optional parameters
-  # @return [Object]
-  describe 'update_operation_api_v1_operations_operation_id_operation_status_put test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for worker_health_check_api_v1_worker_health_check_post
+  # unit tests for worker_health_check
   # Worker Health Check
   # @param health_check_from_worker 
   # @param [Hash] opts the optional parameters
   # @return [Object]
-  describe 'worker_health_check_api_v1_worker_health_check_post test' do
+  describe 'worker_health_check test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -19,7 +19,7 @@ export class UtilitiesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get Ping
      */
-    public async getPingApiV1DebugPingGet(_options?: Configuration): Promise<RequestContext> {
+    public async getPing(_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // Path Params
@@ -42,7 +42,7 @@ export class UtilitiesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get User
      */
-    public async getUserApiV1DebugUserAuthGet(_options?: Configuration): Promise<RequestContext> {
+    public async getUser(_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // Path Params
@@ -72,12 +72,12 @@ export class UtilitiesApiRequestFactory extends BaseAPIRequestFactory {
      * Get User Role
      * @param organizationId 
      */
-    public async getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async getUserRole(organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("UtilitiesApi", "getUserRoleApiV1DebugUserRoleMiddlewareCheckGet", "organizationId");
+            throw new RequiredError("UtilitiesApi", "getUserRole", "organizationId");
         }
 
 
@@ -117,10 +117,10 @@ export class UtilitiesApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getPingApiV1DebugPingGet
+     * @params response Response returned by the server for a request to getPing
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getPingApiV1DebugPingGet(response: ResponseContext): Promise<TextResponse > {
+     public async getPing(response: ResponseContext): Promise<TextResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: TextResponse = ObjectSerializer.deserialize(
@@ -146,10 +146,10 @@ export class UtilitiesApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getUserApiV1DebugUserAuthGet
+     * @params response Response returned by the server for a request to getUser
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getUserApiV1DebugUserAuthGet(response: ResponseContext): Promise<any > {
+     public async getUser(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
@@ -175,10 +175,10 @@ export class UtilitiesApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getUserRoleApiV1DebugUserRoleMiddlewareCheckGet
+     * @params response Response returned by the server for a request to getUserRole
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(response: ResponseContext): Promise<any > {
+     public async getUserRole(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(

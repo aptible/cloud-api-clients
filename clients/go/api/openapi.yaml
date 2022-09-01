@@ -1098,6 +1098,63 @@ paths:
       summary: Organization Get Operations
       tags:
       - organizations
+  /api/v1/debug/user_auth:
+    get:
+      operationId: get_user
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - HTTPBearer: []
+      summary: Get User
+      tags:
+      - utilities
+  /api/v1/debug/user_role_middleware_check:
+    get:
+      operationId: get_user_role
+      parameters:
+      - explode: true
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Get User Role
+      tags:
+      - utilities
+  /api/v1/debug/ping:
+    get:
+      operationId: get_ping
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextResponse'
+          description: Successful Response
+      summary: Get Ping
+      tags:
+      - utilities
 components:
   schemas:
     ActionRequest:
@@ -1890,6 +1947,24 @@ components:
       - id
       - name
       title: OrganizationOutput
+      type: object
+    TextResponse:
+      description: "Generic text responses on api in payload, no flair"
+      example:
+        payload: payload
+        error: error
+      properties:
+        error:
+          description: error message payload to bubble up to end user
+          title: Error
+          type: string
+        payload:
+          description: simple text response payload
+          title: Payload
+          type: string
+      required:
+      - payload
+      title: TextResponse
       type: object
     ValidationError:
       properties:

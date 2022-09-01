@@ -1,5 +1,4 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
-import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
 import { ActionOutput } from '../models/ActionOutput';
@@ -32,6 +31,7 @@ import { OperationUpdate } from '../models/OperationUpdate';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
 import { Structure } from '../models/Structure';
+import { TextResponse } from '../models/TextResponse';
 import { ValidationError } from '../models/ValidationError';
 
 import { ObservableActionsApi } from "./ObservableAPI";
@@ -726,6 +726,57 @@ export class ObjectOrganizationsApi {
      */
     public organizationUpdate(param: OrganizationsApiOrganizationUpdateRequest, options?: Configuration): Promise<OrganizationOutput> {
         return this.api.organizationUpdate(param.organizationId, param.organizationInput,  options).toPromise();
+    }
+
+}
+
+import { ObservableUtilitiesApi } from "./ObservableAPI";
+import { UtilitiesApiRequestFactory, UtilitiesApiResponseProcessor} from "../apis/UtilitiesApi";
+
+export interface UtilitiesApiGetPingRequest {
+}
+
+export interface UtilitiesApiGetUserRequest {
+}
+
+export interface UtilitiesApiGetUserRoleRequest {
+    /**
+     * 
+     * @type string
+     * @memberof UtilitiesApigetUserRole
+     */
+    organizationId: string
+}
+
+export class ObjectUtilitiesApi {
+    private api: ObservableUtilitiesApi
+
+    public constructor(configuration: Configuration, requestFactory?: UtilitiesApiRequestFactory, responseProcessor?: UtilitiesApiResponseProcessor) {
+        this.api = new ObservableUtilitiesApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Get Ping
+     * @param param the request object
+     */
+    public getPing(param: UtilitiesApiGetPingRequest = {}, options?: Configuration): Promise<TextResponse> {
+        return this.api.getPing( options).toPromise();
+    }
+
+    /**
+     * Get User
+     * @param param the request object
+     */
+    public getUser(param: UtilitiesApiGetUserRequest = {}, options?: Configuration): Promise<any> {
+        return this.api.getUser( options).toPromise();
+    }
+
+    /**
+     * Get User Role
+     * @param param the request object
+     */
+    public getUserRole(param: UtilitiesApiGetUserRoleRequest, options?: Configuration): Promise<any> {
+        return this.api.getUserRole(param.organizationId,  options).toPromise();
     }
 
 }

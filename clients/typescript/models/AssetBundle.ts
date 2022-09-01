@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { AssetAction } from './AssetAction';
+import { AssetAction } from '../models/AssetAction';
 import { HttpFile } from '../http/http';
 
 export class AssetBundle {

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 
-import { Data } from './Data';
-import { OperationStatus } from './OperationStatus';
+import { Data } from '../models/Data';
+import { OperationStatus } from '../models/OperationStatus';
 import { HttpFile } from '../http/http';
 
 export class OperationUpdate {

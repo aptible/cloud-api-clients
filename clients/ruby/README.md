@@ -108,6 +108,9 @@ Class | Method | HTTP request | Description
 *CloudApiClient::OrganizationsApi* | [**organization_get_operations**](docs/OrganizationsApi.md#organization_get_operations) | **GET** /api/v1/organizations/{organization_id}/operations/ | Organization Get Operations
 *CloudApiClient::OrganizationsApi* | [**organization_list**](docs/OrganizationsApi.md#organization_list) | **GET** /api/v1/organizations/ | Organization List
 *CloudApiClient::OrganizationsApi* | [**organization_update**](docs/OrganizationsApi.md#organization_update) | **PUT** /api/v1/organizations/{organization_id} | Organization Update
+*CloudApiClient::UtilitiesApi* | [**get_ping**](docs/UtilitiesApi.md#get_ping) | **GET** /api/v1/debug/ping | Get Ping
+*CloudApiClient::UtilitiesApi* | [**get_user**](docs/UtilitiesApi.md#get_user) | **GET** /api/v1/debug/user_auth | Get User
+*CloudApiClient::UtilitiesApi* | [**get_user_role**](docs/UtilitiesApi.md#get_user_role) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
 *CloudApiClient::WorkerApi* | [**worker_health_check**](docs/WorkerApi.md#worker_health_check) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
@@ -143,6 +146,7 @@ Class | Method | HTTP request | Description
  - [CloudApiClient::OrganizationInput](docs/OrganizationInput.md)
  - [CloudApiClient::OrganizationOutput](docs/OrganizationOutput.md)
  - [CloudApiClient::Structure](docs/Structure.md)
+ - [CloudApiClient::TextResponse](docs/TextResponse.md)
  - [CloudApiClient::ValidationError](docs/ValidationError.md)
 
 

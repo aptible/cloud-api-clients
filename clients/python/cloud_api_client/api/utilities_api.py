@@ -36,12 +36,12 @@ class UtilitiesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.get_ping_api_v1_debug_ping_get_endpoint = _Endpoint(
+        self.get_ping_endpoint = _Endpoint(
             settings={
                 'response_type': (TextResponse,),
                 'auth': [],
                 'endpoint_path': '/api/v1/debug/ping',
-                'operation_id': 'get_ping_api_v1_debug_ping_get',
+                'operation_id': 'get_ping',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -78,14 +78,14 @@ class UtilitiesApi(object):
             },
             api_client=api_client
         )
-        self.get_user_api_v1_debug_user_auth_get_endpoint = _Endpoint(
+        self.get_user_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/debug/user_auth',
-                'operation_id': 'get_user_api_v1_debug_user_auth_get',
+                'operation_id': 'get_user',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -122,14 +122,14 @@ class UtilitiesApi(object):
             },
             api_client=api_client
         )
-        self.get_user_role_api_v1_debug_user_role_middleware_check_get_endpoint = _Endpoint(
+        self.get_user_role_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/debug/user_role_middleware_check',
-                'operation_id': 'get_user_role_api_v1_debug_user_role_middleware_check_get',
+                'operation_id': 'get_user_role',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -174,7 +174,7 @@ class UtilitiesApi(object):
             api_client=api_client
         )
 
-    def get_ping_api_v1_debug_ping_get(
+    def get_ping(
         self,
         **kwargs
     ):
@@ -183,7 +183,7 @@ class UtilitiesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_ping_api_v1_debug_ping_get(async_req=True)
+        >>> thread = api.get_ping(async_req=True)
         >>> result = thread.get()
 
 
@@ -249,9 +249,9 @@ class UtilitiesApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        return self.get_ping_api_v1_debug_ping_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_ping_endpoint.call_with_http_info(**kwargs)
 
-    def get_user_api_v1_debug_user_auth_get(
+    def get_user(
         self,
         **kwargs
     ):
@@ -260,7 +260,7 @@ class UtilitiesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_user_api_v1_debug_user_auth_get(async_req=True)
+        >>> thread = api.get_user(async_req=True)
         >>> result = thread.get()
 
 
@@ -326,9 +326,9 @@ class UtilitiesApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        return self.get_user_api_v1_debug_user_auth_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_user_endpoint.call_with_http_info(**kwargs)
 
-    def get_user_role_api_v1_debug_user_role_middleware_check_get(
+    def get_user_role(
         self,
         organization_id,
         **kwargs
@@ -338,7 +338,7 @@ class UtilitiesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_user_role_api_v1_debug_user_role_middleware_check_get(organization_id, async_req=True)
+        >>> thread = api.get_user_role(organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -408,5 +408,5 @@ class UtilitiesApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
-        return self.get_user_role_api_v1_debug_user_role_middleware_check_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_user_role_endpoint.call_with_http_info(**kwargs)
 

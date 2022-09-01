@@ -32,43 +32,43 @@ describe 'ConnectionsApi' do
     end
   end
 
-  # unit tests for create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post
-  # Create Connection
+  # unit tests for connection_create
+  # Connection Create
   # @param asset_id 
   # @param environment_id 
   # @param organization_id 
   # @param connection_input 
   # @param [Hash] opts the optional parameters
   # @return [ConnectionOutput]
-  describe 'create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post test' do
+  describe 'connection_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete
-  # Delete Connection
+  # unit tests for connection_delete
+  # Connection Delete
   # @param asset_id 
   # @param connection_id 
   # @param environment_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [Object]
-  describe 'delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete test' do
+  describe 'connection_delete test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get
-  # Get Connection By Id
+  # unit tests for connection_get
+  # Connection Get
   # @param asset_id 
   # @param environment_id 
   # @param connection_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [ConnectionOutput]
-  describe 'get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get test' do
+  describe 'connection_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

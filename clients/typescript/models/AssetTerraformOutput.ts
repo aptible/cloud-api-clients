@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { Structure } from './Structure';
+import { Structure } from '../models/Structure';
 import { HttpFile } from '../http/http';
 
 export class AssetTerraformOutput {

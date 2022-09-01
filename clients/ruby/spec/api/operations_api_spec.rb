@@ -32,26 +32,25 @@ describe 'OperationsApi' do
     end
   end
 
-  # unit tests for get_operations_api_v1_organizations_organization_id_operations_get
-  # Get Operations
+  # unit tests for operation_get
+  # Operation Get
+  # @param operation_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :asset_id 
-  # @option opts [String] :environment_id 
   # @return [Array<OperationOutput>]
-  describe 'get_operations_api_v1_organizations_organization_id_operations_get test' do
+  describe 'operation_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get
-  # Get Operations By Operation Id
+  # unit tests for operation_update
+  # Operation Update
   # @param operation_id 
-  # @param organization_id 
+  # @param operation_update 
   # @param [Hash] opts the optional parameters
-  # @return [Array<OperationOutput>]
-  describe 'get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get test' do
+  # @return [Object]
+  describe 'operation_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

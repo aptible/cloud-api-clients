@@ -13,9 +13,13 @@ import unittest
 
 import cloud_api_client
 from cloud_api_client.model.asset_parameters_output import AssetParametersOutput
+from cloud_api_client.model.asset_status import AssetStatus
+from cloud_api_client.model.asset_terraform_output import AssetTerraformOutput
 from cloud_api_client.model.connection_output import ConnectionOutput
 from cloud_api_client.model.environment_output import EnvironmentOutput
 globals()['AssetParametersOutput'] = AssetParametersOutput
+globals()['AssetStatus'] = AssetStatus
+globals()['AssetTerraformOutput'] = AssetTerraformOutput
 globals()['ConnectionOutput'] = ConnectionOutput
 globals()['EnvironmentOutput'] = EnvironmentOutput
 from cloud_api_client.model.asset_output import AssetOutput

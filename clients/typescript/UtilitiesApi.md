@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPingApiV1DebugPingGet**](UtilitiesApi.md#getPingApiV1DebugPingGet) | **GET** /api/v1/debug/ping | Get Ping
-[**getUserApiV1DebugUserAuthGet**](UtilitiesApi.md#getUserApiV1DebugUserAuthGet) | **GET** /api/v1/debug/user_auth | Get User
-[**getUserRoleApiV1DebugUserRoleMiddlewareCheckGet**](UtilitiesApi.md#getUserRoleApiV1DebugUserRoleMiddlewareCheckGet) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
+[**getPing**](UtilitiesApi.md#getPing) | **GET** /api/v1/debug/ping | Get Ping
+[**getUser**](UtilitiesApi.md#getUser) | **GET** /api/v1/debug/user_auth | Get User
+[**getUserRole**](UtilitiesApi.md#getUserRole) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
 
 
-# **getPingApiV1DebugPingGet**
-> TextResponse getPingApiV1DebugPingGet()
+# **getPing**
+> TextResponse getPing()
 
 
 ### Example
@@ -25,7 +25,7 @@ const apiInstance = new .UtilitiesApi(configuration);
 
 let body:any = {};
 
-apiInstance.getPingApiV1DebugPingGet(body).then((data:any) => {
+apiInstance.getPing(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -56,8 +56,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getUserApiV1DebugUserAuthGet**
-> any getUserApiV1DebugUserAuthGet()
+# **getUser**
+> any getUser()
 
 
 ### Example
@@ -72,7 +72,7 @@ const apiInstance = new .UtilitiesApi(configuration);
 
 let body:any = {};
 
-apiInstance.getUserApiV1DebugUserAuthGet(body).then((data:any) => {
+apiInstance.getUser(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -103,8 +103,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getUserRoleApiV1DebugUserRoleMiddlewareCheckGet**
-> any getUserRoleApiV1DebugUserRoleMiddlewareCheckGet()
+# **getUserRole**
+> any getUserRole()
 
 
 ### Example
@@ -117,12 +117,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .UtilitiesApi(configuration);
 
-let body:.UtilitiesApiGetUserRoleApiV1DebugUserRoleMiddlewareCheckGetRequest = {
+let body:.UtilitiesApiGetUserRoleRequest = {
   // string
   organizationId: "organization_id_example",
 };
 
-apiInstance.getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(body).then((data:any) => {
+apiInstance.getUserRole(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

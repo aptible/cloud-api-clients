@@ -23,31 +23,45 @@ class TestOrganizationsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_delete_api_v1_organizations_organization_id_delete(self):
-        """Test case for delete_api_v1_organizations_organization_id_delete
+    def test_organization_delete(self):
+        """Test case for organization_delete
 
-        Delete  # noqa: E501
+        Organization Delete  # noqa: E501
         """
         pass
 
-    def test_get_organization_by_id_api_v1_organizations_organization_id_get(self):
-        """Test case for get_organization_by_id_api_v1_organizations_organization_id_get
+    def test_organization_get(self):
+        """Test case for organization_get
 
-        Get Organization By Id  # noqa: E501
+        Organization Get  # noqa: E501
         """
         pass
 
-    def test_get_organizations_api_v1_organizations_get(self):
-        """Test case for get_organizations_api_v1_organizations_get
+    def test_organization_get_environments(self):
+        """Test case for organization_get_environments
 
-        Get Organizations  # noqa: E501
+        Organization Get Environments  # noqa: E501
         """
         pass
 
-    def test_put_organization_api_v1_organizations_organization_id_put(self):
-        """Test case for put_organization_api_v1_organizations_organization_id_put
+    def test_organization_get_operations(self):
+        """Test case for organization_get_operations
 
-        Put Organization  # noqa: E501
+        Organization Get Operations  # noqa: E501
+        """
+        pass
+
+    def test_organization_list(self):
+        """Test case for organization_list
+
+        Organization List  # noqa: E501
+        """
+        pass
+
+    def test_organization_update(self):
+        """Test case for organization_update
+
+        Organization Update  # noqa: E501
         """
         pass
 

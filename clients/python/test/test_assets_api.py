@@ -23,38 +23,31 @@ class TestAssetsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(self):
-        """Test case for create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post
+    def test_asset_create(self):
+        """Test case for asset_create
 
-        Create Asset  # noqa: E501
+        Asset Create  # noqa: E501
         """
         pass
 
-    def test_delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete(self):
-        """Test case for delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete
+    def test_asset_delete(self):
+        """Test case for asset_delete
 
-        Delete Asset By Id  # noqa: E501
+        Asset Delete  # noqa: E501
         """
         pass
 
-    def test_get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get(self):
-        """Test case for get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get
+    def test_asset_get(self):
+        """Test case for asset_get
 
-        Get Asset By Id  # noqa: E501
+        Asset Get  # noqa: E501
         """
         pass
 
-    def test_get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get(self):
-        """Test case for get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get
+    def test_asset_update(self):
+        """Test case for asset_update
 
-        Get Assets  # noqa: E501
-        """
-        pass
-
-    def test_update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put(self):
-        """Test case for update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put
-
-        Update Asset By Id  # noqa: E501
+        Asset Update  # noqa: E501
         """
         pass
 

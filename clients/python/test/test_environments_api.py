@@ -23,52 +23,52 @@ class TestEnvironmentsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_environment_api_v1_organizations_organization_id_environments_post(self):
-        """Test case for create_environment_api_v1_organizations_organization_id_environments_post
+    def test_environment_create(self):
+        """Test case for environment_create
 
-        Create Environment  # noqa: E501
+        Environment Create  # noqa: E501
         """
         pass
 
-    def test_delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete(self):
-        """Test case for delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete
+    def test_environment_delete(self):
+        """Test case for environment_delete
 
-        Delete Environment By Id  # noqa: E501
+        Environment Delete  # noqa: E501
         """
         pass
 
-    def test_get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get(self):
-        """Test case for get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get
+    def test_environment_get(self):
+        """Test case for environment_get
 
-        Get Environment Allowed Assets  # noqa: E501
+        Environment Get  # noqa: E501
         """
         pass
 
-    def test_get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get(self):
-        """Test case for get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get
+    def test_environment_get_allowed_asset_bundles(self):
+        """Test case for environment_get_allowed_asset_bundles
 
-        Get Environment By Id  # noqa: E501
+        Environment Get Allowed Asset Bundles  # noqa: E501
         """
         pass
 
-    def test_get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get(self):
-        """Test case for get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get
+    def test_environment_get_assets(self):
+        """Test case for environment_get_assets
 
-        Get Environment Connections  # noqa: E501
+        Environment Get Assets  # noqa: E501
         """
         pass
 
-    def test_get_environments_api_v1_organizations_organization_id_environments_get(self):
-        """Test case for get_environments_api_v1_organizations_organization_id_environments_get
+    def test_environment_get_connections(self):
+        """Test case for environment_get_connections
 
-        Get Environments  # noqa: E501
+        Environment Get Connections  # noqa: E501
         """
         pass
 
-    def test_update_environment_api_v1_organizations_organization_id_environments_environment_id_put(self):
-        """Test case for update_environment_api_v1_organizations_organization_id_environments_environment_id_put
+    def test_environment_update(self):
+        """Test case for environment_update
 
-        Update Environment  # noqa: E501
+        Environment Update  # noqa: E501
         """
         pass
 
