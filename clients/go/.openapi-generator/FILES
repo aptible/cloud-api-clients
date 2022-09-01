@@ -8,7 +8,6 @@ api_connections.go
 api_environments.go
 api_operations.go
 api_organizations.go
-api_utilities.go
 api_worker.go
 client.go
 configuration.go
@@ -48,8 +47,6 @@ docs/OrganizationInput.md
 docs/OrganizationOutput.md
 docs/OrganizationsApi.md
 docs/Structure.md
-docs/TextResponse.md
-docs/UtilitiesApi.md
 docs/ValidationError.md
 docs/WorkerApi.md
 git_push.sh
@@ -85,7 +82,6 @@ model_operation_update.go
 model_organization_input.go
 model_organization_output.go
 model_structure.go
-model_text_response.go
 model_validation_error.go
 response.go
 utils.go

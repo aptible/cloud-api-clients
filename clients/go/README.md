@@ -78,34 +78,31 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ActionsApi* | [**CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost**](docs/ActionsApi.md#createactionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidactionpost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Create Action
-*ActionsApi* | [**GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet**](docs/ActionsApi.md#getactionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidactionactionidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Get Action
-*AssetsApi* | [**CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost**](docs/AssetsApi.md#createassetapiv1organizationsorganizationidenvironmentsenvironmentidassetspost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset
-*AssetsApi* | [**DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete**](docs/AssetsApi.md#deleteassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetiddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id
-*AssetsApi* | [**GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet**](docs/AssetsApi.md#getassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
-*AssetsApi* | [**UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut**](docs/AssetsApi.md#updateassetbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidput) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
-*ConnectionsApi* | [**CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost**](docs/ConnectionsApi.md#createconnectionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionspost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Create Connection
-*ConnectionsApi* | [**DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete**](docs/ConnectionsApi.md#deleteconnectionapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionsconnectioniddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Delete Connection
-*ConnectionsApi* | [**GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet**](docs/ConnectionsApi.md#getconnectionbyidapiv1organizationsorganizationidenvironmentsenvironmentidassetsassetidconnectionsconnectionidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Get Connection By Id
-*EnvironmentsApi* | [**CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost**](docs/EnvironmentsApi.md#createenvironmentapiv1organizationsorganizationidenvironmentspost) | **Post** /api/v1/organizations/{organization_id}/environments | Create Environment
-*EnvironmentsApi* | [**DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete**](docs/EnvironmentsApi.md#deleteenvironmentbyidapiv1organizationsorganizationidenvironmentsenvironmentiddelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
-*EnvironmentsApi* | [**GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet**](docs/EnvironmentsApi.md#getassetsapiv1organizationsorganizationidenvironmentsenvironmentidassetsget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
-*EnvironmentsApi* | [**GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet**](docs/EnvironmentsApi.md#getenvironmentallowedassetsapiv1organizationsorganizationidenvironmentsenvironmentidassetbundlesget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
-*EnvironmentsApi* | [**GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet**](docs/EnvironmentsApi.md#getenvironmentbyidapiv1organizationsorganizationidenvironmentsenvironmentidget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
-*EnvironmentsApi* | [**GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet**](docs/EnvironmentsApi.md#getenvironmentconnectionsapiv1organizationsorganizationidenvironmentsenvironmentidconnectionsget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Get Environment Connections
-*EnvironmentsApi* | [**GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet**](docs/EnvironmentsApi.md#getenvironmentsapiv1organizationsorganizationidenvironmentsget) | **Get** /api/v1/organizations/{organization_id}/environments | Get Environments
-*EnvironmentsApi* | [**UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut**](docs/EnvironmentsApi.md#updateenvironmentapiv1organizationsorganizationidenvironmentsenvironmentidput) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
-*OperationsApi* | [**GetOperationsApiV1OrganizationsOrganizationIdOperationsGet**](docs/OperationsApi.md#getoperationsapiv1organizationsorganizationidoperationsget) | **Get** /api/v1/organizations/{organization_id}/operations/ | Get Operations
-*OperationsApi* | [**GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet**](docs/OperationsApi.md#getoperationsbyoperationidapiv1organizationsorganizationidoperationsoperationidget) | **Get** /api/v1/organizations/{organization_id}/operations/{operation_id} | Get Operations By Operation Id
-*OperationsApi* | [**UpdateOperationApiV1OperationsOperationIdPut**](docs/OperationsApi.md#updateoperationapiv1operationsoperationidput) | **Put** /api/v1/operations/{operation_id} | Update Operation
-*OrganizationsApi* | [**DeleteApiV1OrganizationsOrganizationIdDelete**](docs/OrganizationsApi.md#deleteapiv1organizationsorganizationiddelete) | **Delete** /api/v1/organizations/{organization_id} | Delete
-*OrganizationsApi* | [**GetOrganizationByIdApiV1OrganizationsOrganizationIdGet**](docs/OrganizationsApi.md#getorganizationbyidapiv1organizationsorganizationidget) | **Get** /api/v1/organizations/{organization_id} | Get Organization By Id
-*OrganizationsApi* | [**GetOrganizationsApiV1OrganizationsGet**](docs/OrganizationsApi.md#getorganizationsapiv1organizationsget) | **Get** /api/v1/organizations/ | Get Organizations
-*OrganizationsApi* | [**PutOrganizationApiV1OrganizationsOrganizationIdPut**](docs/OrganizationsApi.md#putorganizationapiv1organizationsorganizationidput) | **Put** /api/v1/organizations/{organization_id} | Put Organization
-*UtilitiesApi* | [**GetPingApiV1DebugPingGet**](docs/UtilitiesApi.md#getpingapiv1debugpingget) | **Get** /api/v1/debug/ping | Get Ping
-*UtilitiesApi* | [**GetUserApiV1DebugUserAuthGet**](docs/UtilitiesApi.md#getuserapiv1debuguserauthget) | **Get** /api/v1/debug/user_auth | Get User
-*UtilitiesApi* | [**GetUserRoleApiV1DebugUserRoleMiddlewareCheckGet**](docs/UtilitiesApi.md#getuserroleapiv1debuguserrolemiddlewarecheckget) | **Get** /api/v1/debug/user_role_middleware_check | Get User Role
-*WorkerApi* | [**WorkerHealthCheckApiV1WorkerHealthCheckPost**](docs/WorkerApi.md#workerhealthcheckapiv1workerhealthcheckpost) | **Post** /api/v1/worker/health-check | Worker Health Check
+*ActionsApi* | [**ActionCreate**](docs/ActionsApi.md#actioncreate) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Action Create
+*ActionsApi* | [**ActionGet**](docs/ActionsApi.md#actionget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Action Get
+*AssetsApi* | [**AssetCreate**](docs/AssetsApi.md#assetcreate) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Asset Create
+*AssetsApi* | [**AssetDelete**](docs/AssetsApi.md#assetdelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Delete
+*AssetsApi* | [**AssetGet**](docs/AssetsApi.md#assetget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Get
+*AssetsApi* | [**AssetUpdate**](docs/AssetsApi.md#assetupdate) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Update
+*ConnectionsApi* | [**ConnectionCreate**](docs/ConnectionsApi.md#connectioncreate) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Connection Create
+*ConnectionsApi* | [**ConnectionDelete**](docs/ConnectionsApi.md#connectiondelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Delete
+*ConnectionsApi* | [**ConnectionGet**](docs/ConnectionsApi.md#connectionget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Get
+*EnvironmentsApi* | [**EnvironmentCreate**](docs/EnvironmentsApi.md#environmentcreate) | **Post** /api/v1/organizations/{organization_id}/environments | Environment Create
+*EnvironmentsApi* | [**EnvironmentDelete**](docs/EnvironmentsApi.md#environmentdelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Delete
+*EnvironmentsApi* | [**EnvironmentGet**](docs/EnvironmentsApi.md#environmentget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Get
+*EnvironmentsApi* | [**EnvironmentGetAllowedAssetBundles**](docs/EnvironmentsApi.md#environmentgetallowedassetbundles) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Environment Get Allowed Asset Bundles
+*EnvironmentsApi* | [**EnvironmentGetAssets**](docs/EnvironmentsApi.md#environmentgetassets) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Environment Get Assets
+*EnvironmentsApi* | [**EnvironmentGetConnections**](docs/EnvironmentsApi.md#environmentgetconnections) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Environment Get Connections
+*EnvironmentsApi* | [**EnvironmentUpdate**](docs/EnvironmentsApi.md#environmentupdate) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Update
+*OperationsApi* | [**OperationGet**](docs/OperationsApi.md#operationget) | **Get** /api/v1/organizations/{organization_id}/operations/{operation_id} | Operation Get
+*OperationsApi* | [**OperationUpdate**](docs/OperationsApi.md#operationupdate) | **Put** /api/v1/operations/{operation_id} | Operation Update
+*OrganizationsApi* | [**OrganizationDelete**](docs/OrganizationsApi.md#organizationdelete) | **Delete** /api/v1/organizations/{organization_id} | Organization Delete
+*OrganizationsApi* | [**OrganizationGet**](docs/OrganizationsApi.md#organizationget) | **Get** /api/v1/organizations/{organization_id} | Organization Get
+*OrganizationsApi* | [**OrganizationGetEnvironments**](docs/OrganizationsApi.md#organizationgetenvironments) | **Get** /api/v1/organizations/{organization_id}/environments | Organization Get Environments
+*OrganizationsApi* | [**OrganizationGetOperations**](docs/OrganizationsApi.md#organizationgetoperations) | **Get** /api/v1/organizations/{organization_id}/operations/ | Organization Get Operations
+*OrganizationsApi* | [**OrganizationList**](docs/OrganizationsApi.md#organizationlist) | **Get** /api/v1/organizations/ | Organization List
+*OrganizationsApi* | [**OrganizationUpdate**](docs/OrganizationsApi.md#organizationupdate) | **Put** /api/v1/organizations/{organization_id} | Organization Update
+*WorkerApi* | [**WorkerHealthCheck**](docs/WorkerApi.md#workerhealthcheck) | **Post** /api/v1/worker/health-check | Worker Health Check
 
 
 ## Documentation For Models
@@ -140,7 +137,6 @@ Class | Method | HTTP request | Description
  - [OrganizationInput](docs/OrganizationInput.md)
  - [OrganizationOutput](docs/OrganizationOutput.md)
  - [Structure](docs/Structure.md)
- - [TextResponse](docs/TextResponse.md)
  - [ValidationError](docs/ValidationError.md)
 
 

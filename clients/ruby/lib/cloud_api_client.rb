@@ -47,7 +47,6 @@ require 'cloud_api_client/models/operation_update'
 require 'cloud_api_client/models/organization_input'
 require 'cloud_api_client/models/organization_output'
 require 'cloud_api_client/models/structure'
-require 'cloud_api_client/models/text_response'
 require 'cloud_api_client/models/validation_error'
 
 # APIs
@@ -57,7 +56,6 @@ require 'cloud_api_client/api/connections_api'
 require 'cloud_api_client/api/environments_api'
 require 'cloud_api_client/api/operations_api'
 require 'cloud_api_client/api/organizations_api'
-require 'cloud_api_client/api/utilities_api'
 require 'cloud_api_client/api/worker_api'
 
 module CloudApiClient

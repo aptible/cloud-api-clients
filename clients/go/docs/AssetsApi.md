@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost**](AssetsApi.md#CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset
-[**DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete**](AssetsApi.md#DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id
-[**GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet**](AssetsApi.md#GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
-[**UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut**](AssetsApi.md#UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
+[**AssetCreate**](AssetsApi.md#AssetCreate) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Asset Create
+[**AssetDelete**](AssetsApi.md#AssetDelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Delete
+[**AssetGet**](AssetsApi.md#AssetGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Get
+[**AssetUpdate**](AssetsApi.md#AssetUpdate) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Update
 
 
 
-## CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost
+## AssetCreate
 
-> AssetOutput CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(ctx, environmentId, organizationId).AssetInput(assetInput).Execute()
+> AssetOutput AssetCreate(ctx, environmentId, organizationId).AssetInput(assetInput).Execute()
 
-Create Asset
+Asset Create
 
 ### Example
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AssetsApi.CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(context.Background(), environmentId, organizationId).AssetInput(assetInput).Execute()
+    resp, r, err := apiClient.AssetsApi.AssetCreate(context.Background(), environmentId, organizationId).AssetInput(assetInput).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.AssetCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost`: AssetOutput
-    fmt.Fprintf(os.Stdout, "Response from `AssetsApi.CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost`: %v\n", resp)
+    // response from `AssetCreate`: AssetOutput
+    fmt.Fprintf(os.Stdout, "Response from `AssetsApi.AssetCreate`: %v\n", resp)
 }
 ```
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAssetCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -84,11 +84,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete
+## AssetDelete
 
-> int32 DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(ctx, assetId, environmentId, organizationId).Execute()
+> interface{} AssetDelete(ctx, assetId, environmentId, organizationId).Execute()
 
-Delete Asset By Id
+Asset Delete
 
 ### Example
 
@@ -109,13 +109,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AssetsApi.DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(context.Background(), assetId, environmentId, organizationId).Execute()
+    resp, r, err := apiClient.AssetsApi.AssetDelete(context.Background(), assetId, environmentId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.AssetDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete`: int32
-    fmt.Fprintf(os.Stdout, "Response from `AssetsApi.DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete`: %v\n", resp)
+    // response from `AssetDelete`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `AssetsApi.AssetDelete`: %v\n", resp)
 }
 ```
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAssetDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**int32**
+**interface{}**
 
 ### Authorization
 
@@ -158,11 +158,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet
+## AssetGet
 
-> AssetOutput GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(ctx, assetId, environmentId, organizationId).Execute()
+> AssetOutput AssetGet(ctx, assetId, environmentId, organizationId).Execute()
 
-Get Asset By Id
+Asset Get
 
 ### Example
 
@@ -183,13 +183,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AssetsApi.GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(context.Background(), assetId, environmentId, organizationId).Execute()
+    resp, r, err := apiClient.AssetsApi.AssetGet(context.Background(), assetId, environmentId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.AssetGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet`: AssetOutput
-    fmt.Fprintf(os.Stdout, "Response from `AssetsApi.GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet`: %v\n", resp)
+    // response from `AssetGet`: AssetOutput
+    fmt.Fprintf(os.Stdout, "Response from `AssetsApi.AssetGet`: %v\n", resp)
 }
 ```
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAssetGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -232,11 +232,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut
+## AssetUpdate
 
-> AssetOutput UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(ctx, assetId, environmentId, organizationId).AssetInput(assetInput).Execute()
+> AssetOutput AssetUpdate(ctx, assetId, environmentId, organizationId).AssetInput(assetInput).Execute()
 
-Update Asset By Id
+Asset Update
 
 ### Example
 
@@ -258,13 +258,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AssetsApi.UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(context.Background(), assetId, environmentId, organizationId).AssetInput(assetInput).Execute()
+    resp, r, err := apiClient.AssetsApi.AssetUpdate(context.Background(), assetId, environmentId, organizationId).AssetInput(assetInput).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.AssetUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut`: AssetOutput
-    fmt.Fprintf(os.Stdout, "Response from `AssetsApi.UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut`: %v\n", resp)
+    // response from `AssetUpdate`: AssetOutput
+    fmt.Fprintf(os.Stdout, "Response from `AssetsApi.AssetUpdate`: %v\n", resp)
 }
 ```
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAssetUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

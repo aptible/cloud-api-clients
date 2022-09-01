@@ -21,7 +21,9 @@ from cloud_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from cloud_api_client.model.environment_output import EnvironmentOutput
 from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.operation_output import OperationOutput
 from cloud_api_client.model.organization_input import OrganizationInput
 from cloud_api_client.model.organization_output import OrganizationOutput
 
@@ -37,14 +39,14 @@ class OrganizationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.delete_api_v1_organizations_organization_id_delete_endpoint = _Endpoint(
+        self.organization_delete_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}',
-                'operation_id': 'delete_api_v1_organizations_organization_id_delete',
+                'operation_id': 'organization_delete',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -88,14 +90,14 @@ class OrganizationsApi(object):
             },
             api_client=api_client
         )
-        self.get_organization_by_id_api_v1_organizations_organization_id_get_endpoint = _Endpoint(
+        self.organization_get_endpoint = _Endpoint(
             settings={
                 'response_type': (OrganizationOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}',
-                'operation_id': 'get_organization_by_id_api_v1_organizations_organization_id_get',
+                'operation_id': 'organization_get',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -139,14 +141,126 @@ class OrganizationsApi(object):
             },
             api_client=api_client
         )
-        self.get_organizations_api_v1_organizations_get_endpoint = _Endpoint(
+        self.organization_get_environments_endpoint = _Endpoint(
+            settings={
+                'response_type': ([EnvironmentOutput],),
+                'auth': [
+                    'HTTPBearer'
+                ],
+                'endpoint_path': '/api/v1/organizations/{organization_id}/environments',
+                'operation_id': 'organization_get_environments',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                ],
+                'required': [
+                    'organization_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organization_id',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.organization_get_operations_endpoint = _Endpoint(
+            settings={
+                'response_type': ([OperationOutput],),
+                'auth': [
+                    'HTTPBearer'
+                ],
+                'endpoint_path': '/api/v1/organizations/{organization_id}/operations/',
+                'operation_id': 'organization_get_operations',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'asset_id',
+                    'environment_id',
+                ],
+                'required': [
+                    'organization_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'asset_id':
+                        (str,),
+                    'environment_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organization_id',
+                    'asset_id': 'asset_id',
+                    'environment_id': 'environment_id',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'asset_id': 'query',
+                    'environment_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.organization_list_endpoint = _Endpoint(
             settings={
                 'response_type': ([OrganizationOutput],),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/',
-                'operation_id': 'get_organizations_api_v1_organizations_get',
+                'operation_id': 'organization_list',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -183,14 +297,14 @@ class OrganizationsApi(object):
             },
             api_client=api_client
         )
-        self.put_organization_api_v1_organizations_organization_id_put_endpoint = _Endpoint(
+        self.organization_update_endpoint = _Endpoint(
             settings={
                 'response_type': (OrganizationOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}',
-                'operation_id': 'put_organization_api_v1_organizations_organization_id_put',
+                'operation_id': 'organization_update',
                 'http_method': 'PUT',
                 'servers': None,
             },
@@ -242,17 +356,17 @@ class OrganizationsApi(object):
             api_client=api_client
         )
 
-    def delete_api_v1_organizations_organization_id_delete(
+    def organization_delete(
         self,
         organization_id,
         **kwargs
     ):
-        """Delete  # noqa: E501
+        """Organization Delete  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_api_v1_organizations_organization_id_delete(organization_id, async_req=True)
+        >>> thread = api.organization_delete(organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -322,19 +436,19 @@ class OrganizationsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
-        return self.delete_api_v1_organizations_organization_id_delete_endpoint.call_with_http_info(**kwargs)
+        return self.organization_delete_endpoint.call_with_http_info(**kwargs)
 
-    def get_organization_by_id_api_v1_organizations_organization_id_get(
+    def organization_get(
         self,
         organization_id,
         **kwargs
     ):
-        """Get Organization By Id  # noqa: E501
+        """Organization Get  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_organization_by_id_api_v1_organizations_organization_id_get(organization_id, async_req=True)
+        >>> thread = api.organization_get(organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -404,18 +518,184 @@ class OrganizationsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
-        return self.get_organization_by_id_api_v1_organizations_organization_id_get_endpoint.call_with_http_info(**kwargs)
+        return self.organization_get_endpoint.call_with_http_info(**kwargs)
 
-    def get_organizations_api_v1_organizations_get(
+    def organization_get_environments(
         self,
+        organization_id,
         **kwargs
     ):
-        """Get Organizations  # noqa: E501
+        """Organization Get Environments  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_organizations_api_v1_organizations_get(async_req=True)
+        >>> thread = api.organization_get_environments(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [EnvironmentOutput]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        return self.organization_get_environments_endpoint.call_with_http_info(**kwargs)
+
+    def organization_get_operations(
+        self,
+        organization_id,
+        **kwargs
+    ):
+        """Organization Get Operations  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.organization_get_operations(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str):
+
+        Keyword Args:
+            asset_id (str): [optional]
+            environment_id (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [OperationOutput]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        return self.organization_get_operations_endpoint.call_with_http_info(**kwargs)
+
+    def organization_list(
+        self,
+        **kwargs
+    ):
+        """Organization List  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.organization_list(async_req=True)
         >>> result = thread.get()
 
 
@@ -481,20 +761,20 @@ class OrganizationsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        return self.get_organizations_api_v1_organizations_get_endpoint.call_with_http_info(**kwargs)
+        return self.organization_list_endpoint.call_with_http_info(**kwargs)
 
-    def put_organization_api_v1_organizations_organization_id_put(
+    def organization_update(
         self,
         organization_id,
         organization_input,
         **kwargs
     ):
-        """Put Organization  # noqa: E501
+        """Organization Update  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.put_organization_api_v1_organizations_organization_id_put(organization_id, organization_input, async_req=True)
+        >>> thread = api.organization_update(organization_id, organization_input, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -567,5 +847,5 @@ class OrganizationsApi(object):
             organization_id
         kwargs['organization_input'] = \
             organization_input
-        return self.put_organization_api_v1_organizations_organization_id_put_endpoint.call_with_http_info(**kwargs)
+        return self.organization_update_endpoint.call_with_http_info(**kwargs)
 

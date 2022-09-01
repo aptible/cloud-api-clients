@@ -37,14 +37,14 @@ class AssetsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post_endpoint = _Endpoint(
+        self.asset_create_endpoint = _Endpoint(
             settings={
                 'response_type': (AssetOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets',
-                'operation_id': 'create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post',
+                'operation_id': 'asset_create',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -101,14 +101,14 @@ class AssetsApi(object):
             },
             api_client=api_client
         )
-        self.delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete_endpoint = _Endpoint(
+        self.asset_delete_endpoint = _Endpoint(
             settings={
-                'response_type': (int,),
+                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}',
-                'operation_id': 'delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete',
+                'operation_id': 'asset_delete',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -164,14 +164,14 @@ class AssetsApi(object):
             },
             api_client=api_client
         )
-        self.get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get_endpoint = _Endpoint(
+        self.asset_get_endpoint = _Endpoint(
             settings={
                 'response_type': (AssetOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}',
-                'operation_id': 'get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get',
+                'operation_id': 'asset_get',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -227,14 +227,14 @@ class AssetsApi(object):
             },
             api_client=api_client
         )
-        self.update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put_endpoint = _Endpoint(
+        self.asset_update_endpoint = _Endpoint(
             settings={
                 'response_type': (AssetOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}',
-                'operation_id': 'update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put',
+                'operation_id': 'asset_update',
                 'http_method': 'PUT',
                 'servers': None,
             },
@@ -298,19 +298,19 @@ class AssetsApi(object):
             api_client=api_client
         )
 
-    def create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(
+    def asset_create(
         self,
         environment_id,
         organization_id,
         asset_input,
         **kwargs
     ):
-        """Create Asset  # noqa: E501
+        """Asset Create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(environment_id, organization_id, asset_input, async_req=True)
+        >>> thread = api.asset_create(environment_id, organization_id, asset_input, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -386,21 +386,21 @@ class AssetsApi(object):
             organization_id
         kwargs['asset_input'] = \
             asset_input
-        return self.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post_endpoint.call_with_http_info(**kwargs)
+        return self.asset_create_endpoint.call_with_http_info(**kwargs)
 
-    def delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete(
+    def asset_delete(
         self,
         asset_id,
         environment_id,
         organization_id,
         **kwargs
     ):
-        """Delete Asset By Id  # noqa: E501
+        """Asset Delete  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete(asset_id, environment_id, organization_id, async_req=True)
+        >>> thread = api.asset_delete(asset_id, environment_id, organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -441,7 +441,7 @@ class AssetsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            int
+            bool, date, datetime, dict, float, int, list, str, none_type
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -476,21 +476,21 @@ class AssetsApi(object):
             environment_id
         kwargs['organization_id'] = \
             organization_id
-        return self.delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete_endpoint.call_with_http_info(**kwargs)
+        return self.asset_delete_endpoint.call_with_http_info(**kwargs)
 
-    def get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get(
+    def asset_get(
         self,
         asset_id,
         environment_id,
         organization_id,
         **kwargs
     ):
-        """Get Asset By Id  # noqa: E501
+        """Asset Get  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get(asset_id, environment_id, organization_id, async_req=True)
+        >>> thread = api.asset_get(asset_id, environment_id, organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -566,9 +566,9 @@ class AssetsApi(object):
             environment_id
         kwargs['organization_id'] = \
             organization_id
-        return self.get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get_endpoint.call_with_http_info(**kwargs)
+        return self.asset_get_endpoint.call_with_http_info(**kwargs)
 
-    def update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put(
+    def asset_update(
         self,
         asset_id,
         environment_id,
@@ -576,12 +576,12 @@ class AssetsApi(object):
         asset_input,
         **kwargs
     ):
-        """Update Asset By Id  # noqa: E501
+        """Asset Update  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put(asset_id, environment_id, organization_id, asset_input, async_req=True)
+        >>> thread = api.asset_update(asset_id, environment_id, organization_id, asset_input, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -660,5 +660,5 @@ class AssetsApi(object):
             organization_id
         kwargs['asset_input'] = \
             asset_input
-        return self.update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put_endpoint.call_with_http_info(**kwargs)
+        return self.asset_update_endpoint.call_with_http_info(**kwargs)
 

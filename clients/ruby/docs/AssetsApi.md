@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post**](AssetsApi.md#create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset |
-| [**delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete**](AssetsApi.md#delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id |
-| [**get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get**](AssetsApi.md#get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id |
-| [**update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put**](AssetsApi.md#update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id |
+| [**asset_create**](AssetsApi.md#asset_create) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Asset Create |
+| [**asset_delete**](AssetsApi.md#asset_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Delete |
+| [**asset_get**](AssetsApi.md#asset_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Get |
+| [**asset_update**](AssetsApi.md#asset_update) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Update |
 
 
-## create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post
+## asset_create
 
-> <AssetOutput> create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(environment_id, organization_id, asset_input)
+> <AssetOutput> asset_create(environment_id, organization_id, asset_input)
 
-Create Asset
+Asset Create
 
 ### Examples
 
@@ -33,29 +33,29 @@ organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_parameters: 3.56}) # AssetInput | 
 
 begin
-  # Create Asset
-  result = api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(environment_id, organization_id, asset_input)
+  # Asset Create
+  result = api_instance.asset_create(environment_id, organization_id, asset_input)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling AssetsApi->create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post: #{e}"
+  puts "Error when calling AssetsApi->asset_create: #{e}"
 end
 ```
 
-#### Using the create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post_with_http_info variant
+#### Using the asset_create_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AssetOutput>, Integer, Hash)> create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post_with_http_info(environment_id, organization_id, asset_input)
+> <Array(<AssetOutput>, Integer, Hash)> asset_create_with_http_info(environment_id, organization_id, asset_input)
 
 ```ruby
 begin
-  # Create Asset
-  data, status_code, headers = api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post_with_http_info(environment_id, organization_id, asset_input)
+  # Asset Create
+  data, status_code, headers = api_instance.asset_create_with_http_info(environment_id, organization_id, asset_input)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AssetOutput>
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling AssetsApi->create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post_with_http_info: #{e}"
+  puts "Error when calling AssetsApi->asset_create_with_http_info: #{e}"
 end
 ```
 
@@ -81,11 +81,11 @@ end
 - **Accept**: application/json
 
 
-## delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete
+## asset_delete
 
-> Integer delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete(asset_id, environment_id, organization_id)
+> Object asset_delete(asset_id, environment_id, organization_id)
 
-Delete Asset By Id
+Asset Delete
 
 ### Examples
 
@@ -104,29 +104,29 @@ environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 
 begin
-  # Delete Asset By Id
-  result = api_instance.delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete(asset_id, environment_id, organization_id)
+  # Asset Delete
+  result = api_instance.asset_delete(asset_id, environment_id, organization_id)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling AssetsApi->delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete: #{e}"
+  puts "Error when calling AssetsApi->asset_delete: #{e}"
 end
 ```
 
-#### Using the delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete_with_http_info variant
+#### Using the asset_delete_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Integer, Integer, Hash)> delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete_with_http_info(asset_id, environment_id, organization_id)
+> <Array(Object, Integer, Hash)> asset_delete_with_http_info(asset_id, environment_id, organization_id)
 
 ```ruby
 begin
-  # Delete Asset By Id
-  data, status_code, headers = api_instance.delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete_with_http_info(asset_id, environment_id, organization_id)
+  # Asset Delete
+  data, status_code, headers = api_instance.asset_delete_with_http_info(asset_id, environment_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Integer
+  p data # => Object
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling AssetsApi->delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete_with_http_info: #{e}"
+  puts "Error when calling AssetsApi->asset_delete_with_http_info: #{e}"
 end
 ```
 
@@ -140,7 +140,7 @@ end
 
 ### Return type
 
-**Integer**
+**Object**
 
 ### Authorization
 
@@ -152,11 +152,11 @@ end
 - **Accept**: application/json
 
 
-## get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get
+## asset_get
 
-> <AssetOutput> get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get(asset_id, environment_id, organization_id)
+> <AssetOutput> asset_get(asset_id, environment_id, organization_id)
 
-Get Asset By Id
+Asset Get
 
 ### Examples
 
@@ -175,29 +175,29 @@ environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 
 begin
-  # Get Asset By Id
-  result = api_instance.get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get(asset_id, environment_id, organization_id)
+  # Asset Get
+  result = api_instance.asset_get(asset_id, environment_id, organization_id)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling AssetsApi->get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get: #{e}"
+  puts "Error when calling AssetsApi->asset_get: #{e}"
 end
 ```
 
-#### Using the get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get_with_http_info variant
+#### Using the asset_get_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AssetOutput>, Integer, Hash)> get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get_with_http_info(asset_id, environment_id, organization_id)
+> <Array(<AssetOutput>, Integer, Hash)> asset_get_with_http_info(asset_id, environment_id, organization_id)
 
 ```ruby
 begin
-  # Get Asset By Id
-  data, status_code, headers = api_instance.get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get_with_http_info(asset_id, environment_id, organization_id)
+  # Asset Get
+  data, status_code, headers = api_instance.asset_get_with_http_info(asset_id, environment_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AssetOutput>
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling AssetsApi->get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get_with_http_info: #{e}"
+  puts "Error when calling AssetsApi->asset_get_with_http_info: #{e}"
 end
 ```
 
@@ -223,11 +223,11 @@ end
 - **Accept**: application/json
 
 
-## update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put
+## asset_update
 
-> <AssetOutput> update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put(asset_id, environment_id, organization_id, asset_input)
+> <AssetOutput> asset_update(asset_id, environment_id, organization_id, asset_input)
 
-Update Asset By Id
+Asset Update
 
 ### Examples
 
@@ -247,29 +247,29 @@ organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 asset_input = CloudApiClient::AssetInput.new({asset: 'asset_example', asset_version: 'asset_version_example', asset_parameters: 3.56}) # AssetInput | 
 
 begin
-  # Update Asset By Id
-  result = api_instance.update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put(asset_id, environment_id, organization_id, asset_input)
+  # Asset Update
+  result = api_instance.asset_update(asset_id, environment_id, organization_id, asset_input)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling AssetsApi->update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put: #{e}"
+  puts "Error when calling AssetsApi->asset_update: #{e}"
 end
 ```
 
-#### Using the update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put_with_http_info variant
+#### Using the asset_update_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AssetOutput>, Integer, Hash)> update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put_with_http_info(asset_id, environment_id, organization_id, asset_input)
+> <Array(<AssetOutput>, Integer, Hash)> asset_update_with_http_info(asset_id, environment_id, organization_id, asset_input)
 
 ```ruby
 begin
-  # Update Asset By Id
-  data, status_code, headers = api_instance.update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put_with_http_info(asset_id, environment_id, organization_id, asset_input)
+  # Asset Update
+  data, status_code, headers = api_instance.asset_update_with_http_info(asset_id, environment_id, organization_id, asset_input)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AssetOutput>
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling AssetsApi->update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put_with_http_info: #{e}"
+  puts "Error when calling AssetsApi->asset_update_with_http_info: #{e}"
 end
 ```
 

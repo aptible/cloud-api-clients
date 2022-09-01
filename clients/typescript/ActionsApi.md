@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost**](ActionsApi.md#createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Create Action
-[**getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet**](ActionsApi.md#getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Get Action
+[**actionCreate**](ActionsApi.md#actionCreate) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Action Create
+[**actionGet**](ActionsApi.md#actionGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Action Get
 
 
-# **createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost**
-> ActionResponse createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(actionRequest)
+# **actionCreate**
+> ActionResponse actionCreate(actionRequest)
 
 
 ### Example
@@ -22,7 +22,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .ActionsApi(configuration);
 
-let body:.ActionsApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest = {
+let body:.ActionsApiActionCreateRequest = {
   // string
   assetId: "asset_id_example",
   // string
@@ -36,7 +36,7 @@ let body:.ActionsApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvi
   },
 };
 
-apiInstance.createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(body).then((data:any) => {
+apiInstance.actionCreate(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -74,8 +74,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet**
-> ActionResponse getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet()
+# **actionGet**
+> ActionResponse actionGet()
 
 
 ### Example
@@ -88,7 +88,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .ActionsApi(configuration);
 
-let body:.ActionsApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest = {
+let body:.ActionsApiActionGetRequest = {
   // string
   assetId: "asset_id_example",
   // string
@@ -99,7 +99,7 @@ let body:.ActionsApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnviron
   organizationId: "organization_id_example",
 };
 
-apiInstance.getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(body).then((data:any) => {
+apiInstance.actionGet(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

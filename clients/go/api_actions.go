@@ -23,41 +23,41 @@ import (
 type ActionsApi interface {
 
 	/*
-	CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost Create Action
+	ActionCreate Action Create
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param environmentId
 	@param organizationId
-	@return ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest
+	@return ApiActionCreateRequest
 	*/
-	CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(ctx context.Context, assetId string, environmentId string, organizationId string) ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest
+	ActionCreate(ctx context.Context, assetId string, environmentId string, organizationId string) ApiActionCreateRequest
 
-	// CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostExecute executes the request
+	// ActionCreateExecute executes the request
 	//  @return ActionResponse
-	CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostExecute(r ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest) (*ActionResponse, *http.Response, error)
+	ActionCreateExecute(r ApiActionCreateRequest) (*ActionResponse, *http.Response, error)
 
 	/*
-	GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet Get Action
+	ActionGet Action Get
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param environmentId
 	@param actionId
 	@param organizationId
-	@return ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest
+	@return ApiActionGetRequest
 	*/
-	GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(ctx context.Context, assetId string, environmentId string, actionId string, organizationId string) ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest
+	ActionGet(ctx context.Context, assetId string, environmentId string, actionId string, organizationId string) ApiActionGetRequest
 
-	// GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetExecute executes the request
+	// ActionGetExecute executes the request
 	//  @return ActionResponse
-	GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetExecute(r ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest) (*ActionResponse, *http.Response, error)
+	ActionGetExecute(r ApiActionGetRequest) (*ActionResponse, *http.Response, error)
 }
 
 // ActionsApiService ActionsApi service
 type ActionsApiService service
 
-type ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest struct {
+type ApiActionCreateRequest struct {
 	ctx context.Context
 	ApiService ActionsApi
 	assetId string
@@ -66,26 +66,26 @@ type ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAss
 	actionRequest *ActionRequest
 }
 
-func (r ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest) ActionRequest(actionRequest ActionRequest) ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest {
+func (r ApiActionCreateRequest) ActionRequest(actionRequest ActionRequest) ApiActionCreateRequest {
 	r.actionRequest = &actionRequest
 	return r
 }
 
-func (r ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest) Execute() (*ActionResponse, *http.Response, error) {
-	return r.ApiService.CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostExecute(r)
+func (r ApiActionCreateRequest) Execute() (*ActionResponse, *http.Response, error) {
+	return r.ApiService.ActionCreateExecute(r)
 }
 
 /*
-CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost Create Action
+ActionCreate Action Create
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param environmentId
  @param organizationId
- @return ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest
+ @return ApiActionCreateRequest
 */
-func (a *ActionsApiService) CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(ctx context.Context, assetId string, environmentId string, organizationId string) ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest {
-	return ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest{
+func (a *ActionsApiService) ActionCreate(ctx context.Context, assetId string, environmentId string, organizationId string) ApiActionCreateRequest {
+	return ApiActionCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
@@ -96,7 +96,7 @@ func (a *ActionsApiService) CreateActionApiV1OrganizationsOrganizationIdEnvironm
 
 // Execute executes the request
 //  @return ActionResponse
-func (a *ActionsApiService) CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostExecute(r ApiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest) (*ActionResponse, *http.Response, error) {
+func (a *ActionsApiService) ActionCreateExecute(r ApiActionCreateRequest) (*ActionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -104,7 +104,7 @@ func (a *ActionsApiService) CreateActionApiV1OrganizationsOrganizationIdEnvironm
 		localVarReturnValue  *ActionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsApiService.CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsApiService.ActionCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -186,7 +186,7 @@ func (a *ActionsApiService) CreateActionApiV1OrganizationsOrganizationIdEnvironm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest struct {
+type ApiActionGetRequest struct {
 	ctx context.Context
 	ApiService ActionsApi
 	assetId string
@@ -195,22 +195,22 @@ type ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssets
 	organizationId string
 }
 
-func (r ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest) Execute() (*ActionResponse, *http.Response, error) {
-	return r.ApiService.GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetExecute(r)
+func (r ApiActionGetRequest) Execute() (*ActionResponse, *http.Response, error) {
+	return r.ApiService.ActionGetExecute(r)
 }
 
 /*
-GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet Get Action
+ActionGet Action Get
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param environmentId
  @param actionId
  @param organizationId
- @return ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest
+ @return ApiActionGetRequest
 */
-func (a *ActionsApiService) GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(ctx context.Context, assetId string, environmentId string, actionId string, organizationId string) ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest {
-	return ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest{
+func (a *ActionsApiService) ActionGet(ctx context.Context, assetId string, environmentId string, actionId string, organizationId string) ApiActionGetRequest {
+	return ApiActionGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
@@ -222,7 +222,7 @@ func (a *ActionsApiService) GetActionApiV1OrganizationsOrganizationIdEnvironment
 
 // Execute executes the request
 //  @return ActionResponse
-func (a *ActionsApiService) GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetExecute(r ApiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest) (*ActionResponse, *http.Response, error) {
+func (a *ActionsApiService) ActionGetExecute(r ApiActionGetRequest) (*ActionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -230,7 +230,7 @@ func (a *ActionsApiService) GetActionApiV1OrganizationsOrganizationIdEnvironment
 		localVarReturnValue  *ActionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsApiService.GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsApiService.ActionGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

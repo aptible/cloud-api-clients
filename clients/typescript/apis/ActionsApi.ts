@@ -18,36 +18,36 @@ import { HTTPValidationError } from '../models/HTTPValidationError';
 export class ActionsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * Create Action
+     * Action Create
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param actionRequest 
      */
-    public async createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId: string, environmentId: string, organizationId: string, actionRequest: ActionRequest, _options?: Configuration): Promise<RequestContext> {
+    public async actionCreate(assetId: string, environmentId: string, organizationId: string, actionRequest: ActionRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new RequiredError("ActionsApi", "createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost", "assetId");
+            throw new RequiredError("ActionsApi", "actionCreate", "assetId");
         }
 
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("ActionsApi", "createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost", "environmentId");
+            throw new RequiredError("ActionsApi", "actionCreate", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("ActionsApi", "createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost", "organizationId");
+            throw new RequiredError("ActionsApi", "actionCreate", "organizationId");
         }
 
 
         // verify required parameter 'actionRequest' is not null or undefined
         if (actionRequest === null || actionRequest === undefined) {
-            throw new RequiredError("ActionsApi", "createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost", "actionRequest");
+            throw new RequiredError("ActionsApi", "actionCreate", "actionRequest");
         }
 
 
@@ -89,36 +89,36 @@ export class ActionsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Action
+     * Action Get
      * @param assetId 
      * @param environmentId 
      * @param actionId 
      * @param organizationId 
      */
-    public async getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId: string, environmentId: string, actionId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async actionGet(assetId: string, environmentId: string, actionId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new RequiredError("ActionsApi", "getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet", "assetId");
+            throw new RequiredError("ActionsApi", "actionGet", "assetId");
         }
 
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("ActionsApi", "getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet", "environmentId");
+            throw new RequiredError("ActionsApi", "actionGet", "environmentId");
         }
 
 
         // verify required parameter 'actionId' is not null or undefined
         if (actionId === null || actionId === undefined) {
-            throw new RequiredError("ActionsApi", "getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet", "actionId");
+            throw new RequiredError("ActionsApi", "actionGet", "actionId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("ActionsApi", "getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet", "organizationId");
+            throw new RequiredError("ActionsApi", "actionGet", "organizationId");
         }
 
 
@@ -157,10 +157,10 @@ export class ActionsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost
+     * @params response Response returned by the server for a request to actionCreate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(response: ResponseContext): Promise<ActionResponse > {
+     public async actionCreate(response: ResponseContext): Promise<ActionResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ActionResponse = ObjectSerializer.deserialize(
@@ -193,10 +193,10 @@ export class ActionsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet
+     * @params response Response returned by the server for a request to actionGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(response: ResponseContext): Promise<ActionResponse > {
+     public async actionGet(response: ResponseContext): Promise<ActionResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ActionResponse = ObjectSerializer.deserialize(

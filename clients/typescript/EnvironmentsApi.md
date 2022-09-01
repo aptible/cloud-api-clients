@@ -4,18 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost**](EnvironmentsApi.md#createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost) | **POST** /api/v1/organizations/{organization_id}/environments | Create Environment
-[**deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete**](EnvironmentsApi.md#deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
-[**getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet**](EnvironmentsApi.md#getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
-[**getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet**](EnvironmentsApi.md#getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
-[**getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet**](EnvironmentsApi.md#getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
-[**getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet**](EnvironmentsApi.md#getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Get Environment Connections
-[**getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet**](EnvironmentsApi.md#getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet) | **GET** /api/v1/organizations/{organization_id}/environments | Get Environments
-[**updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut**](EnvironmentsApi.md#updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
+[**environmentCreate**](EnvironmentsApi.md#environmentCreate) | **POST** /api/v1/organizations/{organization_id}/environments | Environment Create
+[**environmentDelete**](EnvironmentsApi.md#environmentDelete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Delete
+[**environmentGet**](EnvironmentsApi.md#environmentGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Get
+[**environmentGetAllowedAssetBundles**](EnvironmentsApi.md#environmentGetAllowedAssetBundles) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Environment Get Allowed Asset Bundles
+[**environmentGetAssets**](EnvironmentsApi.md#environmentGetAssets) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Environment Get Assets
+[**environmentGetConnections**](EnvironmentsApi.md#environmentGetConnections) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Environment Get Connections
+[**environmentUpdate**](EnvironmentsApi.md#environmentUpdate) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Update
 
 
-# **createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost**
-> EnvironmentOutput createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(environmentInput)
+# **environmentCreate**
+> EnvironmentOutput environmentCreate(environmentInput)
 
 
 ### Example
@@ -28,7 +27,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .EnvironmentsApi(configuration);
 
-let body:.EnvironmentsApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest = {
+let body:.EnvironmentsApiEnvironmentCreateRequest = {
   // string
   organizationId: "organization_id_example",
   // EnvironmentInput
@@ -39,7 +38,7 @@ let body:.EnvironmentsApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnviro
   },
 };
 
-apiInstance.createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(body).then((data:any) => {
+apiInstance.environmentCreate(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -75,8 +74,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete**
-> number deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete()
+# **environmentDelete**
+> any environmentDelete()
 
 
 ### Example
@@ -89,14 +88,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .EnvironmentsApi(configuration);
 
-let body:.EnvironmentsApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest = {
+let body:.EnvironmentsApiEnvironmentDeleteRequest = {
   // string
   environmentId: "environment_id_example",
   // string
   organizationId: "organization_id_example",
 };
 
-apiInstance.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(body).then((data:any) => {
+apiInstance.environmentDelete(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -112,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**number**
+**any**
 
 ### Authorization
 
@@ -132,8 +131,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet**
-> Array<AssetOutput> getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet()
+# **environmentGet**
+> EnvironmentOutput environmentGet()
 
 
 ### Example
@@ -146,128 +145,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .EnvironmentsApi(configuration);
 
-let body:.EnvironmentsApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest = {
+let body:.EnvironmentsApiEnvironmentGetRequest = {
   // string
   environmentId: "environment_id_example",
   // string
   organizationId: "organization_id_example",
 };
 
-apiInstance.getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **environmentId** | [**string**] |  | defaults to undefined
- **organizationId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**Array<AssetOutput>**
-
-### Authorization
-
-[HTTPBearer](README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet**
-> Array<AssetBundle> getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet()
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .EnvironmentsApi(configuration);
-
-let body:.EnvironmentsApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest = {
-  // string
-  environmentId: "environment_id_example",
-  // string
-  organizationId: "organization_id_example",
-};
-
-apiInstance.getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **environmentId** | [**string**] |  | defaults to undefined
- **organizationId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**Array<AssetBundle>**
-
-### Authorization
-
-[HTTPBearer](README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet**
-> EnvironmentOutput getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet()
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .EnvironmentsApi(configuration);
-
-let body:.EnvironmentsApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest = {
-  // string
-  environmentId: "environment_id_example",
-  // string
-  organizationId: "organization_id_example",
-};
-
-apiInstance.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(body).then((data:any) => {
+apiInstance.environmentGet(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -303,8 +188,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet**
-> Array<ConnectionOutput> getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet()
+# **environmentGetAllowedAssetBundles**
+> Array<AssetBundle> environmentGetAllowedAssetBundles()
 
 
 ### Example
@@ -317,14 +202,128 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .EnvironmentsApi(configuration);
 
-let body:.EnvironmentsApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest = {
+let body:.EnvironmentsApiEnvironmentGetAllowedAssetBundlesRequest = {
   // string
   environmentId: "environment_id_example",
   // string
   organizationId: "organization_id_example",
 };
 
-apiInstance.getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(body).then((data:any) => {
+apiInstance.environmentGetAllowedAssetBundles(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environmentId** | [**string**] |  | defaults to undefined
+ **organizationId** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**Array<AssetBundle>**
+
+### Authorization
+
+[HTTPBearer](README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **environmentGetAssets**
+> Array<AssetOutput> environmentGetAssets()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EnvironmentsApi(configuration);
+
+let body:.EnvironmentsApiEnvironmentGetAssetsRequest = {
+  // string
+  environmentId: "environment_id_example",
+  // string
+  organizationId: "organization_id_example",
+};
+
+apiInstance.environmentGetAssets(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environmentId** | [**string**] |  | defaults to undefined
+ **organizationId** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**Array<AssetOutput>**
+
+### Authorization
+
+[HTTPBearer](README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **environmentGetConnections**
+> Array<ConnectionOutput> environmentGetConnections()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EnvironmentsApi(configuration);
+
+let body:.EnvironmentsApiEnvironmentGetConnectionsRequest = {
+  // string
+  environmentId: "environment_id_example",
+  // string
+  organizationId: "organization_id_example",
+};
+
+apiInstance.environmentGetConnections(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -360,8 +359,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet**
-> Array<EnvironmentOutput> getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet()
+# **environmentUpdate**
+> EnvironmentOutput environmentUpdate(environmentInput)
 
 
 ### Example
@@ -374,61 +373,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .EnvironmentsApi(configuration);
 
-let body:.EnvironmentsApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest = {
-  // string
-  organizationId: "organization_id_example",
-};
-
-apiInstance.getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**Array<EnvironmentOutput>**
-
-### Authorization
-
-[HTTPBearer](README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut**
-> EnvironmentOutput updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(environmentInput)
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .EnvironmentsApi(configuration);
-
-let body:.EnvironmentsApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest = {
+let body:.EnvironmentsApiEnvironmentUpdateRequest = {
   // string
   environmentId: "environment_id_example",
   // string
@@ -441,7 +386,7 @@ let body:.EnvironmentsApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnviro
   },
 };
 
-apiInstance.updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(body).then((data:any) => {
+apiInstance.environmentUpdate(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

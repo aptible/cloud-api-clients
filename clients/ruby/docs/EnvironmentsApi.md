@@ -4,21 +4,20 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_environment_api_v1_organizations_organization_id_environments_post**](EnvironmentsApi.md#create_environment_api_v1_organizations_organization_id_environments_post) | **POST** /api/v1/organizations/{organization_id}/environments | Create Environment |
-| [**delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete**](EnvironmentsApi.md#delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id |
-| [**get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get**](EnvironmentsApi.md#get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets |
-| [**get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get**](EnvironmentsApi.md#get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets |
-| [**get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get**](EnvironmentsApi.md#get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id |
-| [**get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get**](EnvironmentsApi.md#get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Get Environment Connections |
-| [**get_environments_api_v1_organizations_organization_id_environments_get**](EnvironmentsApi.md#get_environments_api_v1_organizations_organization_id_environments_get) | **GET** /api/v1/organizations/{organization_id}/environments | Get Environments |
-| [**update_environment_api_v1_organizations_organization_id_environments_environment_id_put**](EnvironmentsApi.md#update_environment_api_v1_organizations_organization_id_environments_environment_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment |
+| [**environment_create**](EnvironmentsApi.md#environment_create) | **POST** /api/v1/organizations/{organization_id}/environments | Environment Create |
+| [**environment_delete**](EnvironmentsApi.md#environment_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Delete |
+| [**environment_get**](EnvironmentsApi.md#environment_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Get |
+| [**environment_get_allowed_asset_bundles**](EnvironmentsApi.md#environment_get_allowed_asset_bundles) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Environment Get Allowed Asset Bundles |
+| [**environment_get_assets**](EnvironmentsApi.md#environment_get_assets) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Environment Get Assets |
+| [**environment_get_connections**](EnvironmentsApi.md#environment_get_connections) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Environment Get Connections |
+| [**environment_update**](EnvironmentsApi.md#environment_update) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Update |
 
 
-## create_environment_api_v1_organizations_organization_id_environments_post
+## environment_create
 
-> <EnvironmentOutput> create_environment_api_v1_organizations_organization_id_environments_post(organization_id, environment_input)
+> <EnvironmentOutput> environment_create(organization_id, environment_input)
 
-Create Environment
+Environment Create
 
 ### Examples
 
@@ -36,29 +35,29 @@ organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 environment_input = CloudApiClient::EnvironmentInput.new({name: 'name_example', data: 3.56}) # EnvironmentInput | 
 
 begin
-  # Create Environment
-  result = api_instance.create_environment_api_v1_organizations_organization_id_environments_post(organization_id, environment_input)
+  # Environment Create
+  result = api_instance.environment_create(organization_id, environment_input)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->create_environment_api_v1_organizations_organization_id_environments_post: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_create: #{e}"
 end
 ```
 
-#### Using the create_environment_api_v1_organizations_organization_id_environments_post_with_http_info variant
+#### Using the environment_create_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EnvironmentOutput>, Integer, Hash)> create_environment_api_v1_organizations_organization_id_environments_post_with_http_info(organization_id, environment_input)
+> <Array(<EnvironmentOutput>, Integer, Hash)> environment_create_with_http_info(organization_id, environment_input)
 
 ```ruby
 begin
-  # Create Environment
-  data, status_code, headers = api_instance.create_environment_api_v1_organizations_organization_id_environments_post_with_http_info(organization_id, environment_input)
+  # Environment Create
+  data, status_code, headers = api_instance.environment_create_with_http_info(organization_id, environment_input)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EnvironmentOutput>
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->create_environment_api_v1_organizations_organization_id_environments_post_with_http_info: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_create_with_http_info: #{e}"
 end
 ```
 
@@ -83,11 +82,11 @@ end
 - **Accept**: application/json
 
 
-## delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete
+## environment_delete
 
-> Integer delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete(environment_id, organization_id)
+> Object environment_delete(environment_id, organization_id)
 
-Delete Environment By Id
+Environment Delete
 
 ### Examples
 
@@ -105,29 +104,29 @@ environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 
 begin
-  # Delete Environment By Id
-  result = api_instance.delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete(environment_id, organization_id)
+  # Environment Delete
+  result = api_instance.environment_delete(environment_id, organization_id)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_delete: #{e}"
 end
 ```
 
-#### Using the delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete_with_http_info variant
+#### Using the environment_delete_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Integer, Integer, Hash)> delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete_with_http_info(environment_id, organization_id)
+> <Array(Object, Integer, Hash)> environment_delete_with_http_info(environment_id, organization_id)
 
 ```ruby
 begin
-  # Delete Environment By Id
-  data, status_code, headers = api_instance.delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete_with_http_info(environment_id, organization_id)
+  # Environment Delete
+  data, status_code, headers = api_instance.environment_delete_with_http_info(environment_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Integer
+  p data # => Object
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete_with_http_info: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_delete_with_http_info: #{e}"
 end
 ```
 
@@ -140,7 +139,7 @@ end
 
 ### Return type
 
-**Integer**
+**Object**
 
 ### Authorization
 
@@ -152,11 +151,11 @@ end
 - **Accept**: application/json
 
 
-## get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get
+## environment_get
 
-> <Array<AssetOutput>> get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get(environment_id, organization_id)
+> <EnvironmentOutput> environment_get(environment_id, organization_id)
 
-Get Assets
+Environment Get
 
 ### Examples
 
@@ -174,167 +173,29 @@ environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 
 begin
-  # Get Assets
-  result = api_instance.get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get(environment_id, organization_id)
+  # Environment Get
+  result = api_instance.environment_get(environment_id, organization_id)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_get: #{e}"
 end
 ```
 
-#### Using the get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get_with_http_info variant
+#### Using the environment_get_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AssetOutput>>, Integer, Hash)> get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get_with_http_info(environment_id, organization_id)
+> <Array(<EnvironmentOutput>, Integer, Hash)> environment_get_with_http_info(environment_id, organization_id)
 
 ```ruby
 begin
-  # Get Assets
-  data, status_code, headers = api_instance.get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get_with_http_info(environment_id, organization_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<AssetOutput>>
-rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **environment_id** | **String** |  |  |
-| **organization_id** | **String** |  |  |
-
-### Return type
-
-[**Array&lt;AssetOutput&gt;**](AssetOutput.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get
-
-> <Array<AssetBundle>> get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get(environment_id, organization_id)
-
-Get Environment Allowed Assets
-
-### Examples
-
-```ruby
-require 'time'
-require 'cloud_api_client'
-# setup authorization
-CloudApiClient.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = CloudApiClient::EnvironmentsApi.new
-environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-
-begin
-  # Get Environment Allowed Assets
-  result = api_instance.get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get(environment_id, organization_id)
-  p result
-rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get: #{e}"
-end
-```
-
-#### Using the get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<AssetBundle>>, Integer, Hash)> get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get_with_http_info(environment_id, organization_id)
-
-```ruby
-begin
-  # Get Environment Allowed Assets
-  data, status_code, headers = api_instance.get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get_with_http_info(environment_id, organization_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<AssetBundle>>
-rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **environment_id** | **String** |  |  |
-| **organization_id** | **String** |  |  |
-
-### Return type
-
-[**Array&lt;AssetBundle&gt;**](AssetBundle.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get
-
-> <EnvironmentOutput> get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get(environment_id, organization_id)
-
-Get Environment By Id
-
-### Examples
-
-```ruby
-require 'time'
-require 'cloud_api_client'
-# setup authorization
-CloudApiClient.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = CloudApiClient::EnvironmentsApi.new
-environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-
-begin
-  # Get Environment By Id
-  result = api_instance.get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get(environment_id, organization_id)
-  p result
-rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get: #{e}"
-end
-```
-
-#### Using the get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<EnvironmentOutput>, Integer, Hash)> get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info(environment_id, organization_id)
-
-```ruby
-begin
-  # Get Environment By Id
-  data, status_code, headers = api_instance.get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info(environment_id, organization_id)
+  # Environment Get
+  data, status_code, headers = api_instance.environment_get_with_http_info(environment_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EnvironmentOutput>
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_get_with_http_info: #{e}"
 end
 ```
 
@@ -359,11 +220,11 @@ end
 - **Accept**: application/json
 
 
-## get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get
+## environment_get_allowed_asset_bundles
 
-> <Array<ConnectionOutput>> get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get(environment_id, organization_id)
+> <Array<AssetBundle>> environment_get_allowed_asset_bundles(environment_id, organization_id)
 
-Get Environment Connections
+Environment Get Allowed Asset Bundles
 
 ### Examples
 
@@ -381,29 +242,167 @@ environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 
 begin
-  # Get Environment Connections
-  result = api_instance.get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get(environment_id, organization_id)
+  # Environment Get Allowed Asset Bundles
+  result = api_instance.environment_get_allowed_asset_bundles(environment_id, organization_id)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_get_allowed_asset_bundles: #{e}"
 end
 ```
 
-#### Using the get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get_with_http_info variant
+#### Using the environment_get_allowed_asset_bundles_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<ConnectionOutput>>, Integer, Hash)> get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get_with_http_info(environment_id, organization_id)
+> <Array(<Array<AssetBundle>>, Integer, Hash)> environment_get_allowed_asset_bundles_with_http_info(environment_id, organization_id)
 
 ```ruby
 begin
-  # Get Environment Connections
-  data, status_code, headers = api_instance.get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get_with_http_info(environment_id, organization_id)
+  # Environment Get Allowed Asset Bundles
+  data, status_code, headers = api_instance.environment_get_allowed_asset_bundles_with_http_info(environment_id, organization_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<AssetBundle>>
+rescue CloudApiClient::ApiError => e
+  puts "Error when calling EnvironmentsApi->environment_get_allowed_asset_bundles_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **environment_id** | **String** |  |  |
+| **organization_id** | **String** |  |  |
+
+### Return type
+
+[**Array&lt;AssetBundle&gt;**](AssetBundle.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## environment_get_assets
+
+> <Array<AssetOutput>> environment_get_assets(environment_id, organization_id)
+
+Environment Get Assets
+
+### Examples
+
+```ruby
+require 'time'
+require 'cloud_api_client'
+# setup authorization
+CloudApiClient.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = CloudApiClient::EnvironmentsApi.new
+environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
+organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
+
+begin
+  # Environment Get Assets
+  result = api_instance.environment_get_assets(environment_id, organization_id)
+  p result
+rescue CloudApiClient::ApiError => e
+  puts "Error when calling EnvironmentsApi->environment_get_assets: #{e}"
+end
+```
+
+#### Using the environment_get_assets_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<AssetOutput>>, Integer, Hash)> environment_get_assets_with_http_info(environment_id, organization_id)
+
+```ruby
+begin
+  # Environment Get Assets
+  data, status_code, headers = api_instance.environment_get_assets_with_http_info(environment_id, organization_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<AssetOutput>>
+rescue CloudApiClient::ApiError => e
+  puts "Error when calling EnvironmentsApi->environment_get_assets_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **environment_id** | **String** |  |  |
+| **organization_id** | **String** |  |  |
+
+### Return type
+
+[**Array&lt;AssetOutput&gt;**](AssetOutput.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## environment_get_connections
+
+> <Array<ConnectionOutput>> environment_get_connections(environment_id, organization_id)
+
+Environment Get Connections
+
+### Examples
+
+```ruby
+require 'time'
+require 'cloud_api_client'
+# setup authorization
+CloudApiClient.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = CloudApiClient::EnvironmentsApi.new
+environment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
+organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
+
+begin
+  # Environment Get Connections
+  result = api_instance.environment_get_connections(environment_id, organization_id)
+  p result
+rescue CloudApiClient::ApiError => e
+  puts "Error when calling EnvironmentsApi->environment_get_connections: #{e}"
+end
+```
+
+#### Using the environment_get_connections_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<ConnectionOutput>>, Integer, Hash)> environment_get_connections_with_http_info(environment_id, organization_id)
+
+```ruby
+begin
+  # Environment Get Connections
+  data, status_code, headers = api_instance.environment_get_connections_with_http_info(environment_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<ConnectionOutput>>
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get_with_http_info: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_get_connections_with_http_info: #{e}"
 end
 ```
 
@@ -428,78 +427,11 @@ end
 - **Accept**: application/json
 
 
-## get_environments_api_v1_organizations_organization_id_environments_get
+## environment_update
 
-> <Array<EnvironmentOutput>> get_environments_api_v1_organizations_organization_id_environments_get(organization_id)
+> <EnvironmentOutput> environment_update(environment_id, organization_id, environment_input)
 
-Get Environments
-
-### Examples
-
-```ruby
-require 'time'
-require 'cloud_api_client'
-# setup authorization
-CloudApiClient.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = CloudApiClient::EnvironmentsApi.new
-organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-
-begin
-  # Get Environments
-  result = api_instance.get_environments_api_v1_organizations_organization_id_environments_get(organization_id)
-  p result
-rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_environments_api_v1_organizations_organization_id_environments_get: #{e}"
-end
-```
-
-#### Using the get_environments_api_v1_organizations_organization_id_environments_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<EnvironmentOutput>>, Integer, Hash)> get_environments_api_v1_organizations_organization_id_environments_get_with_http_info(organization_id)
-
-```ruby
-begin
-  # Get Environments
-  data, status_code, headers = api_instance.get_environments_api_v1_organizations_organization_id_environments_get_with_http_info(organization_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<EnvironmentOutput>>
-rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->get_environments_api_v1_organizations_organization_id_environments_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** |  |  |
-
-### Return type
-
-[**Array&lt;EnvironmentOutput&gt;**](EnvironmentOutput.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## update_environment_api_v1_organizations_organization_id_environments_environment_id_put
-
-> <EnvironmentOutput> update_environment_api_v1_organizations_organization_id_environments_environment_id_put(environment_id, organization_id, environment_input)
-
-Update Environment
+Environment Update
 
 ### Examples
 
@@ -518,29 +450,29 @@ organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 environment_input = CloudApiClient::EnvironmentInput.new({name: 'name_example', data: 3.56}) # EnvironmentInput | 
 
 begin
-  # Update Environment
-  result = api_instance.update_environment_api_v1_organizations_organization_id_environments_environment_id_put(environment_id, organization_id, environment_input)
+  # Environment Update
+  result = api_instance.environment_update(environment_id, organization_id, environment_input)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->update_environment_api_v1_organizations_organization_id_environments_environment_id_put: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_update: #{e}"
 end
 ```
 
-#### Using the update_environment_api_v1_organizations_organization_id_environments_environment_id_put_with_http_info variant
+#### Using the environment_update_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EnvironmentOutput>, Integer, Hash)> update_environment_api_v1_organizations_organization_id_environments_environment_id_put_with_http_info(environment_id, organization_id, environment_input)
+> <Array(<EnvironmentOutput>, Integer, Hash)> environment_update_with_http_info(environment_id, organization_id, environment_input)
 
 ```ruby
 begin
-  # Update Environment
-  data, status_code, headers = api_instance.update_environment_api_v1_organizations_organization_id_environments_environment_id_put_with_http_info(environment_id, organization_id, environment_input)
+  # Environment Update
+  data, status_code, headers = api_instance.environment_update_with_http_info(environment_id, organization_id, environment_input)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EnvironmentOutput>
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling EnvironmentsApi->update_environment_api_v1_organizations_organization_id_environments_environment_id_put_with_http_info: #{e}"
+  puts "Error when calling EnvironmentsApi->environment_update_with_http_info: #{e}"
 end
 ```
 

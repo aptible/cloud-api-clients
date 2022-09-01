@@ -23,144 +23,131 @@ import (
 type EnvironmentsApi interface {
 
 	/*
-	CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost Create Environment
+	EnvironmentCreate Environment Create
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param organizationId
-	@return ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest
+	@return ApiEnvironmentCreateRequest
 	*/
-	CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(ctx context.Context, organizationId string) ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest
+	EnvironmentCreate(ctx context.Context, organizationId string) ApiEnvironmentCreateRequest
 
-	// CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostExecute executes the request
+	// EnvironmentCreateExecute executes the request
 	//  @return EnvironmentOutput
-	CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostExecute(r ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest) (*EnvironmentOutput, *http.Response, error)
+	EnvironmentCreateExecute(r ApiEnvironmentCreateRequest) (*EnvironmentOutput, *http.Response, error)
 
 	/*
-	DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete Delete Environment By Id
+	EnvironmentDelete Environment Delete
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param environmentId
 	@param organizationId
-	@return ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest
+	@return ApiEnvironmentDeleteRequest
 	*/
-	DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(ctx context.Context, environmentId string, organizationId string) ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest
+	EnvironmentDelete(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentDeleteRequest
 
-	// DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteExecute executes the request
-	//  @return int32
-	DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteExecute(r ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest) (int32, *http.Response, error)
+	// EnvironmentDeleteExecute executes the request
+	//  @return interface{}
+	EnvironmentDeleteExecute(r ApiEnvironmentDeleteRequest) (interface{}, *http.Response, error)
 
 	/*
-	GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet Get Assets
+	EnvironmentGet Environment Get
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param environmentId
 	@param organizationId
-	@return ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest
+	@return ApiEnvironmentGetRequest
 	*/
-	GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(ctx context.Context, environmentId string, organizationId string) ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest
+	EnvironmentGet(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentGetRequest
 
-	// GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetExecute executes the request
-	//  @return []AssetOutput
-	GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetExecute(r ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest) ([]AssetOutput, *http.Response, error)
+	// EnvironmentGetExecute executes the request
+	//  @return EnvironmentOutput
+	EnvironmentGetExecute(r ApiEnvironmentGetRequest) (*EnvironmentOutput, *http.Response, error)
 
 	/*
-	GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet Get Environment Allowed Assets
+	EnvironmentGetAllowedAssetBundles Environment Get Allowed Asset Bundles
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param environmentId
 	@param organizationId
-	@return ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest
+	@return ApiEnvironmentGetAllowedAssetBundlesRequest
 	*/
-	GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(ctx context.Context, environmentId string, organizationId string) ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest
+	EnvironmentGetAllowedAssetBundles(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentGetAllowedAssetBundlesRequest
 
-	// GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetExecute executes the request
+	// EnvironmentGetAllowedAssetBundlesExecute executes the request
 	//  @return []AssetBundle
-	GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetExecute(r ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest) ([]AssetBundle, *http.Response, error)
+	EnvironmentGetAllowedAssetBundlesExecute(r ApiEnvironmentGetAllowedAssetBundlesRequest) ([]AssetBundle, *http.Response, error)
 
 	/*
-	GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet Get Environment By Id
+	EnvironmentGetAssets Environment Get Assets
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param environmentId
 	@param organizationId
-	@return ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest
+	@return ApiEnvironmentGetAssetsRequest
 	*/
-	GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(ctx context.Context, environmentId string, organizationId string) ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest
+	EnvironmentGetAssets(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentGetAssetsRequest
 
-	// GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute executes the request
-	//  @return EnvironmentOutput
-	GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute(r ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest) (*EnvironmentOutput, *http.Response, error)
+	// EnvironmentGetAssetsExecute executes the request
+	//  @return []AssetOutput
+	EnvironmentGetAssetsExecute(r ApiEnvironmentGetAssetsRequest) ([]AssetOutput, *http.Response, error)
 
 	/*
-	GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet Get Environment Connections
+	EnvironmentGetConnections Environment Get Connections
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param environmentId
 	@param organizationId
-	@return ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest
+	@return ApiEnvironmentGetConnectionsRequest
 	*/
-	GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(ctx context.Context, environmentId string, organizationId string) ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest
+	EnvironmentGetConnections(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentGetConnectionsRequest
 
-	// GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetExecute executes the request
+	// EnvironmentGetConnectionsExecute executes the request
 	//  @return []ConnectionOutput
-	GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetExecute(r ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest) ([]ConnectionOutput, *http.Response, error)
+	EnvironmentGetConnectionsExecute(r ApiEnvironmentGetConnectionsRequest) ([]ConnectionOutput, *http.Response, error)
 
 	/*
-	GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet Get Environments
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param organizationId
-	@return ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest
-	*/
-	GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(ctx context.Context, organizationId string) ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest
-
-	// GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetExecute executes the request
-	//  @return []EnvironmentOutput
-	GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetExecute(r ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest) ([]EnvironmentOutput, *http.Response, error)
-
-	/*
-	UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut Update Environment
+	EnvironmentUpdate Environment Update
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param environmentId
 	@param organizationId
-	@return ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest
+	@return ApiEnvironmentUpdateRequest
 	*/
-	UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(ctx context.Context, environmentId string, organizationId string) ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest
+	EnvironmentUpdate(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentUpdateRequest
 
-	// UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutExecute executes the request
+	// EnvironmentUpdateExecute executes the request
 	//  @return EnvironmentOutput
-	UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutExecute(r ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest) (*EnvironmentOutput, *http.Response, error)
+	EnvironmentUpdateExecute(r ApiEnvironmentUpdateRequest) (*EnvironmentOutput, *http.Response, error)
 }
 
 // EnvironmentsApiService EnvironmentsApi service
 type EnvironmentsApiService service
 
-type ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest struct {
+type ApiEnvironmentCreateRequest struct {
 	ctx context.Context
 	ApiService EnvironmentsApi
 	organizationId string
 	environmentInput *EnvironmentInput
 }
 
-func (r ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest) EnvironmentInput(environmentInput EnvironmentInput) ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest {
+func (r ApiEnvironmentCreateRequest) EnvironmentInput(environmentInput EnvironmentInput) ApiEnvironmentCreateRequest {
 	r.environmentInput = &environmentInput
 	return r
 }
 
-func (r ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest) Execute() (*EnvironmentOutput, *http.Response, error) {
-	return r.ApiService.CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostExecute(r)
+func (r ApiEnvironmentCreateRequest) Execute() (*EnvironmentOutput, *http.Response, error) {
+	return r.ApiService.EnvironmentCreateExecute(r)
 }
 
 /*
-CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost Create Environment
+EnvironmentCreate Environment Create
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param organizationId
- @return ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest
+ @return ApiEnvironmentCreateRequest
 */
-func (a *EnvironmentsApiService) CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(ctx context.Context, organizationId string) ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest {
-	return ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest{
+func (a *EnvironmentsApiService) EnvironmentCreate(ctx context.Context, organizationId string) ApiEnvironmentCreateRequest {
+	return ApiEnvironmentCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		organizationId: organizationId,
@@ -169,7 +156,7 @@ func (a *EnvironmentsApiService) CreateEnvironmentApiV1OrganizationsOrganization
 
 // Execute executes the request
 //  @return EnvironmentOutput
-func (a *EnvironmentsApiService) CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostExecute(r ApiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest) (*EnvironmentOutput, *http.Response, error) {
+func (a *EnvironmentsApiService) EnvironmentCreateExecute(r ApiEnvironmentCreateRequest) (*EnvironmentOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -177,7 +164,7 @@ func (a *EnvironmentsApiService) CreateEnvironmentApiV1OrganizationsOrganization
 		localVarReturnValue  *EnvironmentOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.EnvironmentCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -257,27 +244,27 @@ func (a *EnvironmentsApiService) CreateEnvironmentApiV1OrganizationsOrganization
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest struct {
+type ApiEnvironmentDeleteRequest struct {
 	ctx context.Context
 	ApiService EnvironmentsApi
 	environmentId string
 	organizationId string
 }
 
-func (r ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest) Execute() (int32, *http.Response, error) {
-	return r.ApiService.DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteExecute(r)
+func (r ApiEnvironmentDeleteRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.EnvironmentDeleteExecute(r)
 }
 
 /*
-DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete Delete Environment By Id
+EnvironmentDelete Environment Delete
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentId
  @param organizationId
- @return ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest
+ @return ApiEnvironmentDeleteRequest
 */
-func (a *EnvironmentsApiService) DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(ctx context.Context, environmentId string, organizationId string) ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest {
-	return ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest{
+func (a *EnvironmentsApiService) EnvironmentDelete(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentDeleteRequest {
+	return ApiEnvironmentDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentId: environmentId,
@@ -286,16 +273,16 @@ func (a *EnvironmentsApiService) DeleteEnvironmentByIdApiV1OrganizationsOrganiza
 }
 
 // Execute executes the request
-//  @return int32
-func (a *EnvironmentsApiService) DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteExecute(r ApiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest) (int32, *http.Response, error) {
+//  @return interface{}
+func (a *EnvironmentsApiService) EnvironmentDeleteExecute(r ApiEnvironmentDeleteRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  int32
+		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.EnvironmentDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -371,27 +358,27 @@ func (a *EnvironmentsApiService) DeleteEnvironmentByIdApiV1OrganizationsOrganiza
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest struct {
+type ApiEnvironmentGetRequest struct {
 	ctx context.Context
 	ApiService EnvironmentsApi
 	environmentId string
 	organizationId string
 }
 
-func (r ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest) Execute() ([]AssetOutput, *http.Response, error) {
-	return r.ApiService.GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetExecute(r)
+func (r ApiEnvironmentGetRequest) Execute() (*EnvironmentOutput, *http.Response, error) {
+	return r.ApiService.EnvironmentGetExecute(r)
 }
 
 /*
-GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet Get Assets
+EnvironmentGet Environment Get
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentId
  @param organizationId
- @return ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest
+ @return ApiEnvironmentGetRequest
 */
-func (a *EnvironmentsApiService) GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(ctx context.Context, environmentId string, organizationId string) ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest {
-	return ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest{
+func (a *EnvironmentsApiService) EnvironmentGet(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentGetRequest {
+	return ApiEnvironmentGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentId: environmentId,
@@ -400,21 +387,21 @@ func (a *EnvironmentsApiService) GetAssetsApiV1OrganizationsOrganizationIdEnviro
 }
 
 // Execute executes the request
-//  @return []AssetOutput
-func (a *EnvironmentsApiService) GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetExecute(r ApiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest) ([]AssetOutput, *http.Response, error) {
+//  @return EnvironmentOutput
+func (a *EnvironmentsApiService) EnvironmentGetExecute(r ApiEnvironmentGetRequest) (*EnvironmentOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []AssetOutput
+		localVarReturnValue  *EnvironmentOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.EnvironmentGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/environments/{environment_id}/assets"
+	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/environments/{environment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"environment_id"+"}", url.PathEscape(parameterToString(r.environmentId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"organization_id"+"}", url.PathEscape(parameterToString(r.organizationId, "")), -1)
 
@@ -485,27 +472,27 @@ func (a *EnvironmentsApiService) GetAssetsApiV1OrganizationsOrganizationIdEnviro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest struct {
+type ApiEnvironmentGetAllowedAssetBundlesRequest struct {
 	ctx context.Context
 	ApiService EnvironmentsApi
 	environmentId string
 	organizationId string
 }
 
-func (r ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest) Execute() ([]AssetBundle, *http.Response, error) {
-	return r.ApiService.GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetExecute(r)
+func (r ApiEnvironmentGetAllowedAssetBundlesRequest) Execute() ([]AssetBundle, *http.Response, error) {
+	return r.ApiService.EnvironmentGetAllowedAssetBundlesExecute(r)
 }
 
 /*
-GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet Get Environment Allowed Assets
+EnvironmentGetAllowedAssetBundles Environment Get Allowed Asset Bundles
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentId
  @param organizationId
- @return ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest
+ @return ApiEnvironmentGetAllowedAssetBundlesRequest
 */
-func (a *EnvironmentsApiService) GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(ctx context.Context, environmentId string, organizationId string) ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest {
-	return ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest{
+func (a *EnvironmentsApiService) EnvironmentGetAllowedAssetBundles(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentGetAllowedAssetBundlesRequest {
+	return ApiEnvironmentGetAllowedAssetBundlesRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentId: environmentId,
@@ -515,7 +502,7 @@ func (a *EnvironmentsApiService) GetEnvironmentAllowedAssetsApiV1OrganizationsOr
 
 // Execute executes the request
 //  @return []AssetBundle
-func (a *EnvironmentsApiService) GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetExecute(r ApiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest) ([]AssetBundle, *http.Response, error) {
+func (a *EnvironmentsApiService) EnvironmentGetAllowedAssetBundlesExecute(r ApiEnvironmentGetAllowedAssetBundlesRequest) ([]AssetBundle, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -523,7 +510,7 @@ func (a *EnvironmentsApiService) GetEnvironmentAllowedAssetsApiV1OrganizationsOr
 		localVarReturnValue  []AssetBundle
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.EnvironmentGetAllowedAssetBundles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -599,27 +586,27 @@ func (a *EnvironmentsApiService) GetEnvironmentAllowedAssetsApiV1OrganizationsOr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest struct {
+type ApiEnvironmentGetAssetsRequest struct {
 	ctx context.Context
 	ApiService EnvironmentsApi
 	environmentId string
 	organizationId string
 }
 
-func (r ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest) Execute() (*EnvironmentOutput, *http.Response, error) {
-	return r.ApiService.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute(r)
+func (r ApiEnvironmentGetAssetsRequest) Execute() ([]AssetOutput, *http.Response, error) {
+	return r.ApiService.EnvironmentGetAssetsExecute(r)
 }
 
 /*
-GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet Get Environment By Id
+EnvironmentGetAssets Environment Get Assets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentId
  @param organizationId
- @return ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest
+ @return ApiEnvironmentGetAssetsRequest
 */
-func (a *EnvironmentsApiService) GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(ctx context.Context, environmentId string, organizationId string) ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest {
-	return ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest{
+func (a *EnvironmentsApiService) EnvironmentGetAssets(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentGetAssetsRequest {
+	return ApiEnvironmentGetAssetsRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentId: environmentId,
@@ -628,21 +615,21 @@ func (a *EnvironmentsApiService) GetEnvironmentByIdApiV1OrganizationsOrganizatio
 }
 
 // Execute executes the request
-//  @return EnvironmentOutput
-func (a *EnvironmentsApiService) GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetExecute(r ApiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest) (*EnvironmentOutput, *http.Response, error) {
+//  @return []AssetOutput
+func (a *EnvironmentsApiService) EnvironmentGetAssetsExecute(r ApiEnvironmentGetAssetsRequest) ([]AssetOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EnvironmentOutput
+		localVarReturnValue  []AssetOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.EnvironmentGetAssets")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/environments/{environment_id}"
+	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/environments/{environment_id}/assets"
 	localVarPath = strings.Replace(localVarPath, "{"+"environment_id"+"}", url.PathEscape(parameterToString(r.environmentId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"organization_id"+"}", url.PathEscape(parameterToString(r.organizationId, "")), -1)
 
@@ -713,27 +700,27 @@ func (a *EnvironmentsApiService) GetEnvironmentByIdApiV1OrganizationsOrganizatio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest struct {
+type ApiEnvironmentGetConnectionsRequest struct {
 	ctx context.Context
 	ApiService EnvironmentsApi
 	environmentId string
 	organizationId string
 }
 
-func (r ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest) Execute() ([]ConnectionOutput, *http.Response, error) {
-	return r.ApiService.GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetExecute(r)
+func (r ApiEnvironmentGetConnectionsRequest) Execute() ([]ConnectionOutput, *http.Response, error) {
+	return r.ApiService.EnvironmentGetConnectionsExecute(r)
 }
 
 /*
-GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet Get Environment Connections
+EnvironmentGetConnections Environment Get Connections
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentId
  @param organizationId
- @return ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest
+ @return ApiEnvironmentGetConnectionsRequest
 */
-func (a *EnvironmentsApiService) GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(ctx context.Context, environmentId string, organizationId string) ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest {
-	return ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest{
+func (a *EnvironmentsApiService) EnvironmentGetConnections(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentGetConnectionsRequest {
+	return ApiEnvironmentGetConnectionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentId: environmentId,
@@ -743,7 +730,7 @@ func (a *EnvironmentsApiService) GetEnvironmentConnectionsApiV1OrganizationsOrga
 
 // Execute executes the request
 //  @return []ConnectionOutput
-func (a *EnvironmentsApiService) GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetExecute(r ApiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest) ([]ConnectionOutput, *http.Response, error) {
+func (a *EnvironmentsApiService) EnvironmentGetConnectionsExecute(r ApiEnvironmentGetConnectionsRequest) ([]ConnectionOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -751,7 +738,7 @@ func (a *EnvironmentsApiService) GetEnvironmentConnectionsApiV1OrganizationsOrga
 		localVarReturnValue  []ConnectionOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.EnvironmentGetConnections")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -827,117 +814,7 @@ func (a *EnvironmentsApiService) GetEnvironmentConnectionsApiV1OrganizationsOrga
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest struct {
-	ctx context.Context
-	ApiService EnvironmentsApi
-	organizationId string
-}
-
-func (r ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest) Execute() ([]EnvironmentOutput, *http.Response, error) {
-	return r.ApiService.GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetExecute(r)
-}
-
-/*
-GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet Get Environments
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param organizationId
- @return ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest
-*/
-func (a *EnvironmentsApiService) GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(ctx context.Context, organizationId string) ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest {
-	return ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		organizationId: organizationId,
-	}
-}
-
-// Execute executes the request
-//  @return []EnvironmentOutput
-func (a *EnvironmentsApiService) GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetExecute(r ApiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest) ([]EnvironmentOutput, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []EnvironmentOutput
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/environments"
-	localVarPath = strings.Replace(localVarPath, "{"+"organization_id"+"}", url.PathEscape(parameterToString(r.organizationId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest struct {
+type ApiEnvironmentUpdateRequest struct {
 	ctx context.Context
 	ApiService EnvironmentsApi
 	environmentId string
@@ -945,25 +822,25 @@ type ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironment
 	environmentInput *EnvironmentInput
 }
 
-func (r ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest) EnvironmentInput(environmentInput EnvironmentInput) ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest {
+func (r ApiEnvironmentUpdateRequest) EnvironmentInput(environmentInput EnvironmentInput) ApiEnvironmentUpdateRequest {
 	r.environmentInput = &environmentInput
 	return r
 }
 
-func (r ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest) Execute() (*EnvironmentOutput, *http.Response, error) {
-	return r.ApiService.UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutExecute(r)
+func (r ApiEnvironmentUpdateRequest) Execute() (*EnvironmentOutput, *http.Response, error) {
+	return r.ApiService.EnvironmentUpdateExecute(r)
 }
 
 /*
-UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut Update Environment
+EnvironmentUpdate Environment Update
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentId
  @param organizationId
- @return ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest
+ @return ApiEnvironmentUpdateRequest
 */
-func (a *EnvironmentsApiService) UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(ctx context.Context, environmentId string, organizationId string) ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest {
-	return ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest{
+func (a *EnvironmentsApiService) EnvironmentUpdate(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentUpdateRequest {
+	return ApiEnvironmentUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentId: environmentId,
@@ -973,7 +850,7 @@ func (a *EnvironmentsApiService) UpdateEnvironmentApiV1OrganizationsOrganization
 
 // Execute executes the request
 //  @return EnvironmentOutput
-func (a *EnvironmentsApiService) UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutExecute(r ApiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest) (*EnvironmentOutput, *http.Response, error) {
+func (a *EnvironmentsApiService) EnvironmentUpdateExecute(r ApiEnvironmentUpdateRequest) (*EnvironmentOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -981,7 +858,7 @@ func (a *EnvironmentsApiService) UpdateEnvironmentApiV1OrganizationsOrganization
 		localVarReturnValue  *EnvironmentOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.EnvironmentUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

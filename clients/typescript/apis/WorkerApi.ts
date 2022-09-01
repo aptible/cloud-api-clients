@@ -20,12 +20,12 @@ export class WorkerApiRequestFactory extends BaseAPIRequestFactory {
      * Worker Health Check
      * @param healthCheckFromWorker 
      */
-    public async workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker: HealthCheckFromWorker, _options?: Configuration): Promise<RequestContext> {
+    public async workerHealthCheck(healthCheckFromWorker: HealthCheckFromWorker, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'healthCheckFromWorker' is not null or undefined
         if (healthCheckFromWorker === null || healthCheckFromWorker === undefined) {
-            throw new RequiredError("WorkerApi", "workerHealthCheckApiV1WorkerHealthCheckPost", "healthCheckFromWorker");
+            throw new RequiredError("WorkerApi", "workerHealthCheck", "healthCheckFromWorker");
         }
 
 
@@ -65,10 +65,10 @@ export class WorkerApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to workerHealthCheckApiV1WorkerHealthCheckPost
+     * @params response Response returned by the server for a request to workerHealthCheck
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async workerHealthCheckApiV1WorkerHealthCheckPost(response: ResponseContext): Promise<any > {
+     public async workerHealthCheck(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(

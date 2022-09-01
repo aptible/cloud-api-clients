@@ -21,22 +21,22 @@ import { HTTPValidationError } from '../models/HTTPValidationError';
 export class EnvironmentsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * Create Environment
+     * Environment Create
      * @param organizationId 
      * @param environmentInput 
      */
-    public async createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Promise<RequestContext> {
+    public async environmentCreate(organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost", "organizationId");
+            throw new RequiredError("EnvironmentsApi", "environmentCreate", "organizationId");
         }
 
 
         // verify required parameter 'environmentInput' is not null or undefined
         if (environmentInput === null || environmentInput === undefined) {
-            throw new RequiredError("EnvironmentsApi", "createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost", "environmentInput");
+            throw new RequiredError("EnvironmentsApi", "environmentCreate", "environmentInput");
         }
 
 
@@ -76,22 +76,22 @@ export class EnvironmentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Delete Environment By Id
+     * Environment Delete
      * @param environmentId 
      * @param organizationId 
      */
-    public async deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async environmentDelete(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete", "environmentId");
+            throw new RequiredError("EnvironmentsApi", "environmentDelete", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete", "organizationId");
+            throw new RequiredError("EnvironmentsApi", "environmentDelete", "organizationId");
         }
 
 
@@ -121,112 +121,22 @@ export class EnvironmentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Assets
+     * Environment Get
      * @param environmentId 
      * @param organizationId 
      */
-    public async getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async environmentGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet", "environmentId");
+            throw new RequiredError("EnvironmentsApi", "environmentGet", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet", "organizationId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets'
-            .replace('{' + 'environment_id' + '}', encodeURIComponent(String(environmentId)))
-            .replace('{' + 'organization_id' + '}', encodeURIComponent(String(organizationId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["HTTPBearer"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * Get Environment Allowed Assets
-     * @param environmentId 
-     * @param organizationId 
-     */
-    public async getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'environmentId' is not null or undefined
-        if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet", "environmentId");
-        }
-
-
-        // verify required parameter 'organizationId' is not null or undefined
-        if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet", "organizationId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles'
-            .replace('{' + 'environment_id' + '}', encodeURIComponent(String(environmentId)))
-            .replace('{' + 'organization_id' + '}', encodeURIComponent(String(organizationId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["HTTPBearer"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * Get Environment By Id
-     * @param environmentId 
-     * @param organizationId 
-     */
-    public async getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'environmentId' is not null or undefined
-        if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet", "environmentId");
-        }
-
-
-        // verify required parameter 'organizationId' is not null or undefined
-        if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet", "organizationId");
+            throw new RequiredError("EnvironmentsApi", "environmentGet", "organizationId");
         }
 
 
@@ -256,22 +166,112 @@ export class EnvironmentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Environment Connections
+     * Environment Get Allowed Asset Bundles
      * @param environmentId 
      * @param organizationId 
      */
-    public async getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async environmentGetAllowedAssetBundles(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet", "environmentId");
+            throw new RequiredError("EnvironmentsApi", "environmentGetAllowedAssetBundles", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet", "organizationId");
+            throw new RequiredError("EnvironmentsApi", "environmentGetAllowedAssetBundles", "organizationId");
+        }
+
+
+        // Path Params
+        const localVarPath = '/api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles'
+            .replace('{' + 'environment_id' + '}', encodeURIComponent(String(environmentId)))
+            .replace('{' + 'organization_id' + '}', encodeURIComponent(String(organizationId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["HTTPBearer"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Environment Get Assets
+     * @param environmentId 
+     * @param organizationId 
+     */
+    public async environmentGetAssets(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'environmentId' is not null or undefined
+        if (environmentId === null || environmentId === undefined) {
+            throw new RequiredError("EnvironmentsApi", "environmentGetAssets", "environmentId");
+        }
+
+
+        // verify required parameter 'organizationId' is not null or undefined
+        if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError("EnvironmentsApi", "environmentGetAssets", "organizationId");
+        }
+
+
+        // Path Params
+        const localVarPath = '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets'
+            .replace('{' + 'environment_id' + '}', encodeURIComponent(String(environmentId)))
+            .replace('{' + 'organization_id' + '}', encodeURIComponent(String(organizationId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["HTTPBearer"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Environment Get Connections
+     * @param environmentId 
+     * @param organizationId 
+     */
+    public async environmentGetConnections(environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'environmentId' is not null or undefined
+        if (environmentId === null || environmentId === undefined) {
+            throw new RequiredError("EnvironmentsApi", "environmentGetConnections", "environmentId");
+        }
+
+
+        // verify required parameter 'organizationId' is not null or undefined
+        if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError("EnvironmentsApi", "environmentGetConnections", "organizationId");
         }
 
 
@@ -301,66 +301,29 @@ export class EnvironmentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Environments
-     * @param organizationId 
-     */
-    public async getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(organizationId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'organizationId' is not null or undefined
-        if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet", "organizationId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/api/v1/organizations/{organization_id}/environments'
-            .replace('{' + 'organization_id' + '}', encodeURIComponent(String(organizationId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["HTTPBearer"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * Update Environment
+     * Environment Update
      * @param environmentId 
      * @param organizationId 
      * @param environmentInput 
      */
-    public async updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(environmentId: string, organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Promise<RequestContext> {
+    public async environmentUpdate(environmentId: string, organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut", "environmentId");
+            throw new RequiredError("EnvironmentsApi", "environmentUpdate", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("EnvironmentsApi", "updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut", "organizationId");
+            throw new RequiredError("EnvironmentsApi", "environmentUpdate", "organizationId");
         }
 
 
         // verify required parameter 'environmentInput' is not null or undefined
         if (environmentInput === null || environmentInput === undefined) {
-            throw new RequiredError("EnvironmentsApi", "updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut", "environmentInput");
+            throw new RequiredError("EnvironmentsApi", "environmentUpdate", "environmentInput");
         }
 
 
@@ -408,10 +371,10 @@ export class EnvironmentsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost
+     * @params response Response returned by the server for a request to environmentCreate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(response: ResponseContext): Promise<EnvironmentOutput > {
+     public async environmentCreate(response: ResponseContext): Promise<EnvironmentOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("201", response.httpStatusCode)) {
             const body: EnvironmentOutput = ObjectSerializer.deserialize(
@@ -444,16 +407,16 @@ export class EnvironmentsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete
+     * @params response Response returned by the server for a request to environmentDelete
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(response: ResponseContext): Promise<number > {
+     public async environmentDelete(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: number = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "number", ""
-            ) as number;
+                "any", ""
+            ) as any;
             return body;
         }
         if (isCodeInRange("422", response.httpStatusCode)) {
@@ -466,10 +429,10 @@ export class EnvironmentsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: number = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "number", ""
-            ) as number;
+                "any", ""
+            ) as any;
             return body;
         }
 
@@ -480,82 +443,10 @@ export class EnvironmentsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet
+     * @params response Response returned by the server for a request to environmentGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(response: ResponseContext): Promise<Array<AssetOutput> > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<AssetOutput> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<AssetOutput>", ""
-            ) as Array<AssetOutput>;
-            return body;
-        }
-        if (isCodeInRange("422", response.httpStatusCode)) {
-            const body: HTTPValidationError = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "HTTPValidationError", ""
-            ) as HTTPValidationError;
-            throw new ApiException<HTTPValidationError>(response.httpStatusCode, "Validation Error", body, response.headers);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<AssetOutput> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<AssetOutput>", ""
-            ) as Array<AssetOutput>;
-            return body;
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(response: ResponseContext): Promise<Array<AssetBundle> > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<AssetBundle> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<AssetBundle>", ""
-            ) as Array<AssetBundle>;
-            return body;
-        }
-        if (isCodeInRange("422", response.httpStatusCode)) {
-            const body: HTTPValidationError = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "HTTPValidationError", ""
-            ) as HTTPValidationError;
-            throw new ApiException<HTTPValidationError>(response.httpStatusCode, "Validation Error", body, response.headers);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<AssetBundle> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<AssetBundle>", ""
-            ) as Array<AssetBundle>;
-            return body;
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(response: ResponseContext): Promise<EnvironmentOutput > {
+     public async environmentGet(response: ResponseContext): Promise<EnvironmentOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: EnvironmentOutput = ObjectSerializer.deserialize(
@@ -588,10 +479,82 @@ export class EnvironmentsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet
+     * @params response Response returned by the server for a request to environmentGetAllowedAssetBundles
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(response: ResponseContext): Promise<Array<ConnectionOutput> > {
+     public async environmentGetAllowedAssetBundles(response: ResponseContext): Promise<Array<AssetBundle> > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: Array<AssetBundle> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<AssetBundle>", ""
+            ) as Array<AssetBundle>;
+            return body;
+        }
+        if (isCodeInRange("422", response.httpStatusCode)) {
+            const body: HTTPValidationError = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "HTTPValidationError", ""
+            ) as HTTPValidationError;
+            throw new ApiException<HTTPValidationError>(response.httpStatusCode, "Validation Error", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: Array<AssetBundle> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<AssetBundle>", ""
+            ) as Array<AssetBundle>;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to environmentGetAssets
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async environmentGetAssets(response: ResponseContext): Promise<Array<AssetOutput> > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: Array<AssetOutput> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<AssetOutput>", ""
+            ) as Array<AssetOutput>;
+            return body;
+        }
+        if (isCodeInRange("422", response.httpStatusCode)) {
+            const body: HTTPValidationError = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "HTTPValidationError", ""
+            ) as HTTPValidationError;
+            throw new ApiException<HTTPValidationError>(response.httpStatusCode, "Validation Error", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: Array<AssetOutput> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<AssetOutput>", ""
+            ) as Array<AssetOutput>;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to environmentGetConnections
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async environmentGetConnections(response: ResponseContext): Promise<Array<ConnectionOutput> > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<ConnectionOutput> = ObjectSerializer.deserialize(
@@ -624,46 +587,10 @@ export class EnvironmentsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet
+     * @params response Response returned by the server for a request to environmentUpdate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(response: ResponseContext): Promise<Array<EnvironmentOutput> > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<EnvironmentOutput> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<EnvironmentOutput>", ""
-            ) as Array<EnvironmentOutput>;
-            return body;
-        }
-        if (isCodeInRange("422", response.httpStatusCode)) {
-            const body: HTTPValidationError = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "HTTPValidationError", ""
-            ) as HTTPValidationError;
-            throw new ApiException<HTTPValidationError>(response.httpStatusCode, "Validation Error", body, response.headers);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<EnvironmentOutput> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<EnvironmentOutput>", ""
-            ) as Array<EnvironmentOutput>;
-            return body;
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(response: ResponseContext): Promise<EnvironmentOutput > {
+     public async environmentUpdate(response: ResponseContext): Promise<EnvironmentOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: EnvironmentOutput = ObjectSerializer.deserialize(

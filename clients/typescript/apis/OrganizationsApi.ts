@@ -8,7 +8,9 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
+import { OperationOutput } from '../models/OperationOutput';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
 
@@ -18,15 +20,15 @@ import { OrganizationOutput } from '../models/OrganizationOutput';
 export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * Delete
+     * Organization Delete
      * @param organizationId 
      */
-    public async deleteApiV1OrganizationsOrganizationIdDelete(organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async organizationDelete(organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("OrganizationsApi", "deleteApiV1OrganizationsOrganizationIdDelete", "organizationId");
+            throw new RequiredError("OrganizationsApi", "organizationDelete", "organizationId");
         }
 
 
@@ -55,15 +57,15 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Organization By Id
+     * Organization Get
      * @param organizationId 
      */
-    public async getOrganizationByIdApiV1OrganizationsOrganizationIdGet(organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async organizationGet(organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("OrganizationsApi", "getOrganizationByIdApiV1OrganizationsOrganizationIdGet", "organizationId");
+            throw new RequiredError("OrganizationsApi", "organizationGet", "organizationId");
         }
 
 
@@ -92,9 +94,97 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Organizations
+     * Organization Get Environments
+     * @param organizationId 
      */
-    public async getOrganizationsApiV1OrganizationsGet(_options?: Configuration): Promise<RequestContext> {
+    public async organizationGetEnvironments(organizationId: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'organizationId' is not null or undefined
+        if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError("OrganizationsApi", "organizationGetEnvironments", "organizationId");
+        }
+
+
+        // Path Params
+        const localVarPath = '/api/v1/organizations/{organization_id}/environments'
+            .replace('{' + 'organization_id' + '}', encodeURIComponent(String(organizationId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["HTTPBearer"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Organization Get Operations
+     * @param organizationId 
+     * @param assetId 
+     * @param environmentId 
+     */
+    public async organizationGetOperations(organizationId: string, assetId?: string, environmentId?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'organizationId' is not null or undefined
+        if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError("OrganizationsApi", "organizationGetOperations", "organizationId");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/api/v1/organizations/{organization_id}/operations/'
+            .replace('{' + 'organization_id' + '}', encodeURIComponent(String(organizationId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (assetId !== undefined) {
+            requestContext.setQueryParam("asset_id", ObjectSerializer.serialize(assetId, "string", "uuid"));
+        }
+
+        // Query Params
+        if (environmentId !== undefined) {
+            requestContext.setQueryParam("environment_id", ObjectSerializer.serialize(environmentId, "string", "uuid"));
+        }
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["HTTPBearer"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Organization List
+     */
+    public async organizationList(_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // Path Params
@@ -121,22 +211,22 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Put Organization
+     * Organization Update
      * @param organizationId 
      * @param organizationInput 
      */
-    public async putOrganizationApiV1OrganizationsOrganizationIdPut(organizationId: string, organizationInput: OrganizationInput, _options?: Configuration): Promise<RequestContext> {
+    public async organizationUpdate(organizationId: string, organizationInput: OrganizationInput, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("OrganizationsApi", "putOrganizationApiV1OrganizationsOrganizationIdPut", "organizationId");
+            throw new RequiredError("OrganizationsApi", "organizationUpdate", "organizationId");
         }
 
 
         // verify required parameter 'organizationInput' is not null or undefined
         if (organizationInput === null || organizationInput === undefined) {
-            throw new RequiredError("OrganizationsApi", "putOrganizationApiV1OrganizationsOrganizationIdPut", "organizationInput");
+            throw new RequiredError("OrganizationsApi", "organizationUpdate", "organizationInput");
         }
 
 
@@ -183,10 +273,10 @@ export class OrganizationsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to deleteApiV1OrganizationsOrganizationIdDelete
+     * @params response Response returned by the server for a request to organizationDelete
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteApiV1OrganizationsOrganizationIdDelete(response: ResponseContext): Promise<any > {
+     public async organizationDelete(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
@@ -219,10 +309,10 @@ export class OrganizationsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getOrganizationByIdApiV1OrganizationsOrganizationIdGet
+     * @params response Response returned by the server for a request to organizationGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getOrganizationByIdApiV1OrganizationsOrganizationIdGet(response: ResponseContext): Promise<OrganizationOutput > {
+     public async organizationGet(response: ResponseContext): Promise<OrganizationOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: OrganizationOutput = ObjectSerializer.deserialize(
@@ -255,10 +345,82 @@ export class OrganizationsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getOrganizationsApiV1OrganizationsGet
+     * @params response Response returned by the server for a request to organizationGetEnvironments
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getOrganizationsApiV1OrganizationsGet(response: ResponseContext): Promise<Array<OrganizationOutput> > {
+     public async organizationGetEnvironments(response: ResponseContext): Promise<Array<EnvironmentOutput> > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: Array<EnvironmentOutput> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<EnvironmentOutput>", ""
+            ) as Array<EnvironmentOutput>;
+            return body;
+        }
+        if (isCodeInRange("422", response.httpStatusCode)) {
+            const body: HTTPValidationError = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "HTTPValidationError", ""
+            ) as HTTPValidationError;
+            throw new ApiException<HTTPValidationError>(response.httpStatusCode, "Validation Error", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: Array<EnvironmentOutput> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<EnvironmentOutput>", ""
+            ) as Array<EnvironmentOutput>;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to organizationGetOperations
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async organizationGetOperations(response: ResponseContext): Promise<Array<OperationOutput> > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: Array<OperationOutput> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<OperationOutput>", ""
+            ) as Array<OperationOutput>;
+            return body;
+        }
+        if (isCodeInRange("422", response.httpStatusCode)) {
+            const body: HTTPValidationError = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "HTTPValidationError", ""
+            ) as HTTPValidationError;
+            throw new ApiException<HTTPValidationError>(response.httpStatusCode, "Validation Error", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: Array<OperationOutput> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<OperationOutput>", ""
+            ) as Array<OperationOutput>;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to organizationList
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async organizationList(response: ResponseContext): Promise<Array<OrganizationOutput> > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<OrganizationOutput> = ObjectSerializer.deserialize(
@@ -284,10 +446,10 @@ export class OrganizationsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to putOrganizationApiV1OrganizationsOrganizationIdPut
+     * @params response Response returned by the server for a request to organizationUpdate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async putOrganizationApiV1OrganizationsOrganizationIdPut(response: ResponseContext): Promise<OrganizationOutput > {
+     public async organizationUpdate(response: ResponseContext): Promise<OrganizationOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: OrganizationOutput = ObjectSerializer.deserialize(

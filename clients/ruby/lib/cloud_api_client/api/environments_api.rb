@@ -19,32 +19,32 @@ module CloudApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create Environment
+    # Environment Create
     # @param organization_id [String] 
     # @param environment_input [EnvironmentInput] 
     # @param [Hash] opts the optional parameters
     # @return [EnvironmentOutput]
-    def create_environment_api_v1_organizations_organization_id_environments_post(organization_id, environment_input, opts = {})
-      data, _status_code, _headers = create_environment_api_v1_organizations_organization_id_environments_post_with_http_info(organization_id, environment_input, opts)
+    def environment_create(organization_id, environment_input, opts = {})
+      data, _status_code, _headers = environment_create_with_http_info(organization_id, environment_input, opts)
       data
     end
 
-    # Create Environment
+    # Environment Create
     # @param organization_id [String] 
     # @param environment_input [EnvironmentInput] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EnvironmentOutput, Integer, Hash)>] EnvironmentOutput data, response status code and response headers
-    def create_environment_api_v1_organizations_organization_id_environments_post_with_http_info(organization_id, environment_input, opts = {})
+    def environment_create_with_http_info(organization_id, environment_input, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.create_environment_api_v1_organizations_organization_id_environments_post ...'
+        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.environment_create ...'
       end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.create_environment_api_v1_organizations_organization_id_environments_post"
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.environment_create"
       end
       # verify the required parameter 'environment_input' is set
       if @api_client.config.client_side_validation && environment_input.nil?
-        fail ArgumentError, "Missing the required parameter 'environment_input' when calling EnvironmentsApi.create_environment_api_v1_organizations_organization_id_environments_post"
+        fail ArgumentError, "Missing the required parameter 'environment_input' when calling EnvironmentsApi.environment_create"
       end
       # resource path
       local_var_path = '/api/v1/organizations/{organization_id}/environments'.sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
@@ -75,7 +75,7 @@ module CloudApiClient
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"EnvironmentsApi.create_environment_api_v1_organizations_organization_id_environments_post",
+        :operation => :"EnvironmentsApi.environment_create",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -86,37 +86,37 @@ module CloudApiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EnvironmentsApi#create_environment_api_v1_organizations_organization_id_environments_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EnvironmentsApi#environment_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Delete Environment By Id
+    # Environment Delete
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Integer]
-    def delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete(environment_id, organization_id, opts = {})
-      data, _status_code, _headers = delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete_with_http_info(environment_id, organization_id, opts)
+    # @return [Object]
+    def environment_delete(environment_id, organization_id, opts = {})
+      data, _status_code, _headers = environment_delete_with_http_info(environment_id, organization_id, opts)
       data
     end
 
-    # Delete Environment By Id
+    # Environment Delete
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Integer, Integer, Hash)>] Integer data, response status code and response headers
-    def delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete_with_http_info(environment_id, organization_id, opts = {})
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def environment_delete_with_http_info(environment_id, organization_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.environment_delete ...'
       end
       # verify the required parameter 'environment_id' is set
       if @api_client.config.client_side_validation && environment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete"
+        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.environment_delete"
       end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete"
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.environment_delete"
       end
       # resource path
       local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}'.sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
@@ -136,13 +136,13 @@ module CloudApiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Integer'
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"EnvironmentsApi.delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete",
+        :operation => :"EnvironmentsApi.environment_delete",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -153,40 +153,40 @@ module CloudApiClient
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EnvironmentsApi#delete_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EnvironmentsApi#environment_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Get Assets
+    # Environment Get
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<AssetOutput>]
-    def get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get(environment_id, organization_id, opts = {})
-      data, _status_code, _headers = get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get_with_http_info(environment_id, organization_id, opts)
+    # @return [EnvironmentOutput]
+    def environment_get(environment_id, organization_id, opts = {})
+      data, _status_code, _headers = environment_get_with_http_info(environment_id, organization_id, opts)
       data
     end
 
-    # Get Assets
+    # Environment Get
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<AssetOutput>, Integer, Hash)>] Array<AssetOutput> data, response status code and response headers
-    def get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get_with_http_info(environment_id, organization_id, opts = {})
+    # @return [Array<(EnvironmentOutput, Integer, Hash)>] EnvironmentOutput data, response status code and response headers
+    def environment_get_with_http_info(environment_id, organization_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get ...'
+        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.environment_get ...'
       end
       # verify the required parameter 'environment_id' is set
       if @api_client.config.client_side_validation && environment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get"
+        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.environment_get"
       end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get"
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.environment_get"
       end
       # resource path
-      local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets'.sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
+      local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}'.sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -203,13 +203,13 @@ module CloudApiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<AssetOutput>'
+      return_type = opts[:debug_return_type] || 'EnvironmentOutput'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"EnvironmentsApi.get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get",
+        :operation => :"EnvironmentsApi.environment_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -220,37 +220,37 @@ module CloudApiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EnvironmentsApi#get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EnvironmentsApi#environment_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Get Environment Allowed Assets
+    # Environment Get Allowed Asset Bundles
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<AssetBundle>]
-    def get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get(environment_id, organization_id, opts = {})
-      data, _status_code, _headers = get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get_with_http_info(environment_id, organization_id, opts)
+    def environment_get_allowed_asset_bundles(environment_id, organization_id, opts = {})
+      data, _status_code, _headers = environment_get_allowed_asset_bundles_with_http_info(environment_id, organization_id, opts)
       data
     end
 
-    # Get Environment Allowed Assets
+    # Environment Get Allowed Asset Bundles
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<AssetBundle>, Integer, Hash)>] Array<AssetBundle> data, response status code and response headers
-    def get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get_with_http_info(environment_id, organization_id, opts = {})
+    def environment_get_allowed_asset_bundles_with_http_info(environment_id, organization_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get ...'
+        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.environment_get_allowed_asset_bundles ...'
       end
       # verify the required parameter 'environment_id' is set
       if @api_client.config.client_side_validation && environment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get"
+        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.environment_get_allowed_asset_bundles"
       end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get"
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.environment_get_allowed_asset_bundles"
       end
       # resource path
       local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles'.sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
@@ -276,7 +276,7 @@ module CloudApiClient
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"EnvironmentsApi.get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get",
+        :operation => :"EnvironmentsApi.environment_get_allowed_asset_bundles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -287,40 +287,40 @@ module CloudApiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EnvironmentsApi#get_environment_allowed_assets_api_v1_organizations_organization_id_environments_environment_id_asset_bundles_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EnvironmentsApi#environment_get_allowed_asset_bundles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Get Environment By Id
+    # Environment Get Assets
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [EnvironmentOutput]
-    def get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get(environment_id, organization_id, opts = {})
-      data, _status_code, _headers = get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info(environment_id, organization_id, opts)
+    # @return [Array<AssetOutput>]
+    def environment_get_assets(environment_id, organization_id, opts = {})
+      data, _status_code, _headers = environment_get_assets_with_http_info(environment_id, organization_id, opts)
       data
     end
 
-    # Get Environment By Id
+    # Environment Get Assets
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(EnvironmentOutput, Integer, Hash)>] EnvironmentOutput data, response status code and response headers
-    def get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get_with_http_info(environment_id, organization_id, opts = {})
+    # @return [Array<(Array<AssetOutput>, Integer, Hash)>] Array<AssetOutput> data, response status code and response headers
+    def environment_get_assets_with_http_info(environment_id, organization_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get ...'
+        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.environment_get_assets ...'
       end
       # verify the required parameter 'environment_id' is set
       if @api_client.config.client_side_validation && environment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get"
+        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.environment_get_assets"
       end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get"
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.environment_get_assets"
       end
       # resource path
-      local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}'.sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
+      local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets'.sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -337,13 +337,13 @@ module CloudApiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'EnvironmentOutput'
+      return_type = opts[:debug_return_type] || 'Array<AssetOutput>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"EnvironmentsApi.get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get",
+        :operation => :"EnvironmentsApi.environment_get_assets",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -354,37 +354,37 @@ module CloudApiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EnvironmentsApi#get_environment_by_id_api_v1_organizations_organization_id_environments_environment_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EnvironmentsApi#environment_get_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Get Environment Connections
+    # Environment Get Connections
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<ConnectionOutput>]
-    def get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get(environment_id, organization_id, opts = {})
-      data, _status_code, _headers = get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get_with_http_info(environment_id, organization_id, opts)
+    def environment_get_connections(environment_id, organization_id, opts = {})
+      data, _status_code, _headers = environment_get_connections_with_http_info(environment_id, organization_id, opts)
       data
     end
 
-    # Get Environment Connections
+    # Environment Get Connections
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<ConnectionOutput>, Integer, Hash)>] Array<ConnectionOutput> data, response status code and response headers
-    def get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get_with_http_info(environment_id, organization_id, opts = {})
+    def environment_get_connections_with_http_info(environment_id, organization_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get ...'
+        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.environment_get_connections ...'
       end
       # verify the required parameter 'environment_id' is set
       if @api_client.config.client_side_validation && environment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get"
+        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.environment_get_connections"
       end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get"
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.environment_get_connections"
       end
       # resource path
       local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}/connections'.sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
@@ -410,7 +410,7 @@ module CloudApiClient
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"EnvironmentsApi.get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get",
+        :operation => :"EnvironmentsApi.environment_get_connections",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -421,104 +421,43 @@ module CloudApiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EnvironmentsApi#get_environment_connections_api_v1_organizations_organization_id_environments_environment_id_connections_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EnvironmentsApi#environment_get_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Get Environments
-    # @param organization_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<EnvironmentOutput>]
-    def get_environments_api_v1_organizations_organization_id_environments_get(organization_id, opts = {})
-      data, _status_code, _headers = get_environments_api_v1_organizations_organization_id_environments_get_with_http_info(organization_id, opts)
-      data
-    end
-
-    # Get Environments
-    # @param organization_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<EnvironmentOutput>, Integer, Hash)>] Array<EnvironmentOutput> data, response status code and response headers
-    def get_environments_api_v1_organizations_organization_id_environments_get_with_http_info(organization_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.get_environments_api_v1_organizations_organization_id_environments_get ...'
-      end
-      # verify the required parameter 'organization_id' is set
-      if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.get_environments_api_v1_organizations_organization_id_environments_get"
-      end
-      # resource path
-      local_var_path = '/api/v1/organizations/{organization_id}/environments'.sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'Array<EnvironmentOutput>'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"EnvironmentsApi.get_environments_api_v1_organizations_organization_id_environments_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EnvironmentsApi#get_environments_api_v1_organizations_organization_id_environments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Update Environment
+    # Environment Update
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param environment_input [EnvironmentInput] 
     # @param [Hash] opts the optional parameters
     # @return [EnvironmentOutput]
-    def update_environment_api_v1_organizations_organization_id_environments_environment_id_put(environment_id, organization_id, environment_input, opts = {})
-      data, _status_code, _headers = update_environment_api_v1_organizations_organization_id_environments_environment_id_put_with_http_info(environment_id, organization_id, environment_input, opts)
+    def environment_update(environment_id, organization_id, environment_input, opts = {})
+      data, _status_code, _headers = environment_update_with_http_info(environment_id, organization_id, environment_input, opts)
       data
     end
 
-    # Update Environment
+    # Environment Update
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param environment_input [EnvironmentInput] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EnvironmentOutput, Integer, Hash)>] EnvironmentOutput data, response status code and response headers
-    def update_environment_api_v1_organizations_organization_id_environments_environment_id_put_with_http_info(environment_id, organization_id, environment_input, opts = {})
+    def environment_update_with_http_info(environment_id, organization_id, environment_input, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.update_environment_api_v1_organizations_organization_id_environments_environment_id_put ...'
+        @api_client.config.logger.debug 'Calling API: EnvironmentsApi.environment_update ...'
       end
       # verify the required parameter 'environment_id' is set
       if @api_client.config.client_side_validation && environment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.update_environment_api_v1_organizations_organization_id_environments_environment_id_put"
+        fail ArgumentError, "Missing the required parameter 'environment_id' when calling EnvironmentsApi.environment_update"
       end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.update_environment_api_v1_organizations_organization_id_environments_environment_id_put"
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling EnvironmentsApi.environment_update"
       end
       # verify the required parameter 'environment_input' is set
       if @api_client.config.client_side_validation && environment_input.nil?
-        fail ArgumentError, "Missing the required parameter 'environment_input' when calling EnvironmentsApi.update_environment_api_v1_organizations_organization_id_environments_environment_id_put"
+        fail ArgumentError, "Missing the required parameter 'environment_input' when calling EnvironmentsApi.environment_update"
       end
       # resource path
       local_var_path = '/api/v1/organizations/{organization_id}/environments/{environment_id}'.sub('{' + 'environment_id' + '}', CGI.escape(environment_id.to_s)).sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
@@ -549,7 +488,7 @@ module CloudApiClient
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"EnvironmentsApi.update_environment_api_v1_organizations_organization_id_environments_environment_id_put",
+        :operation => :"EnvironmentsApi.environment_update",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -560,7 +499,7 @@ module CloudApiClient
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EnvironmentsApi#update_environment_api_v1_organizations_organization_id_environments_environment_id_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EnvironmentsApi#environment_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

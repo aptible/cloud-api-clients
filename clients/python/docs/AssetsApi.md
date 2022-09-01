@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post**](AssetsApi.md#create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset
-[**delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete**](AssetsApi.md#delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id
-[**get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get**](AssetsApi.md#get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
-[**update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put**](AssetsApi.md#update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
+[**asset_create**](AssetsApi.md#asset_create) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Asset Create
+[**asset_delete**](AssetsApi.md#asset_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Delete
+[**asset_get**](AssetsApi.md#asset_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Get
+[**asset_update**](AssetsApi.md#asset_update) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Update
 
 
-# **create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post**
-> AssetOutput create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(environment_id, organization_id, asset_input)
+# **asset_create**
+> AssetOutput asset_create(environment_id, organization_id, asset_input)
 
-Create Asset
+Asset Create
 
 ### Example
 
@@ -57,11 +57,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create Asset
-        api_response = api_instance.create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post(environment_id, organization_id, asset_input)
+        # Asset Create
+        api_response = api_instance.asset_create(environment_id, organization_id, asset_input)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling AssetsApi->create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post: %s\n" % e)
+        print("Exception when calling AssetsApi->asset_create: %s\n" % e)
 ```
 
 
@@ -96,10 +96,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete**
-> int delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete(asset_id, environment_id, organization_id)
+# **asset_delete**
+> bool, date, datetime, dict, float, int, list, str, none_type asset_delete(asset_id, environment_id, organization_id)
 
-Delete Asset By Id
+Asset Delete
 
 ### Example
 
@@ -137,11 +137,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete Asset By Id
-        api_response = api_instance.delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete(asset_id, environment_id, organization_id)
+        # Asset Delete
+        api_response = api_instance.asset_delete(asset_id, environment_id, organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling AssetsApi->delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete: %s\n" % e)
+        print("Exception when calling AssetsApi->asset_delete: %s\n" % e)
 ```
 
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**int**
+**bool, date, datetime, dict, float, int, list, str, none_type**
 
 ### Authorization
 
@@ -176,10 +176,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get**
-> AssetOutput get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get(asset_id, environment_id, organization_id)
+# **asset_get**
+> AssetOutput asset_get(asset_id, environment_id, organization_id)
 
-Get Asset By Id
+Asset Get
 
 ### Example
 
@@ -218,11 +218,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Asset By Id
-        api_response = api_instance.get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get(asset_id, environment_id, organization_id)
+        # Asset Get
+        api_response = api_instance.asset_get(asset_id, environment_id, organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling AssetsApi->get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get: %s\n" % e)
+        print("Exception when calling AssetsApi->asset_get: %s\n" % e)
 ```
 
 
@@ -257,10 +257,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put**
-> AssetOutput update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put(asset_id, environment_id, organization_id, asset_input)
+# **asset_update**
+> AssetOutput asset_update(asset_id, environment_id, organization_id, asset_input)
 
-Update Asset By Id
+Asset Update
 
 ### Example
 
@@ -305,11 +305,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Update Asset By Id
-        api_response = api_instance.update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put(asset_id, environment_id, organization_id, asset_input)
+        # Asset Update
+        api_response = api_instance.asset_update(asset_id, environment_id, organization_id, asset_input)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling AssetsApi->update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put: %s\n" % e)
+        print("Exception when calling AssetsApi->asset_update: %s\n" % e)
 ```
 
 

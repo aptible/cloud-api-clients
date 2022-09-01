@@ -22,44 +22,44 @@ import (
 type WorkerApi interface {
 
 	/*
-	WorkerHealthCheckApiV1WorkerHealthCheckPost Worker Health Check
+	WorkerHealthCheck Worker Health Check
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest
+	@return ApiWorkerHealthCheckRequest
 	*/
-	WorkerHealthCheckApiV1WorkerHealthCheckPost(ctx context.Context) ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest
+	WorkerHealthCheck(ctx context.Context) ApiWorkerHealthCheckRequest
 
-	// WorkerHealthCheckApiV1WorkerHealthCheckPostExecute executes the request
+	// WorkerHealthCheckExecute executes the request
 	//  @return interface{}
-	WorkerHealthCheckApiV1WorkerHealthCheckPostExecute(r ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest) (interface{}, *http.Response, error)
+	WorkerHealthCheckExecute(r ApiWorkerHealthCheckRequest) (interface{}, *http.Response, error)
 }
 
 // WorkerApiService WorkerApi service
 type WorkerApiService service
 
-type ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest struct {
+type ApiWorkerHealthCheckRequest struct {
 	ctx context.Context
 	ApiService WorkerApi
 	healthCheckFromWorker *HealthCheckFromWorker
 }
 
-func (r ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest) HealthCheckFromWorker(healthCheckFromWorker HealthCheckFromWorker) ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest {
+func (r ApiWorkerHealthCheckRequest) HealthCheckFromWorker(healthCheckFromWorker HealthCheckFromWorker) ApiWorkerHealthCheckRequest {
 	r.healthCheckFromWorker = &healthCheckFromWorker
 	return r
 }
 
-func (r ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.WorkerHealthCheckApiV1WorkerHealthCheckPostExecute(r)
+func (r ApiWorkerHealthCheckRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.WorkerHealthCheckExecute(r)
 }
 
 /*
-WorkerHealthCheckApiV1WorkerHealthCheckPost Worker Health Check
+WorkerHealthCheck Worker Health Check
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest
+ @return ApiWorkerHealthCheckRequest
 */
-func (a *WorkerApiService) WorkerHealthCheckApiV1WorkerHealthCheckPost(ctx context.Context) ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest {
-	return ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest{
+func (a *WorkerApiService) WorkerHealthCheck(ctx context.Context) ApiWorkerHealthCheckRequest {
+	return ApiWorkerHealthCheckRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -67,7 +67,7 @@ func (a *WorkerApiService) WorkerHealthCheckApiV1WorkerHealthCheckPost(ctx conte
 
 // Execute executes the request
 //  @return interface{}
-func (a *WorkerApiService) WorkerHealthCheckApiV1WorkerHealthCheckPostExecute(r ApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest) (interface{}, *http.Response, error) {
+func (a *WorkerApiService) WorkerHealthCheckExecute(r ApiWorkerHealthCheckRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -75,7 +75,7 @@ func (a *WorkerApiService) WorkerHealthCheckApiV1WorkerHealthCheckPostExecute(r 
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkerApiService.WorkerHealthCheckApiV1WorkerHealthCheckPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkerApiService.WorkerHealthCheck")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

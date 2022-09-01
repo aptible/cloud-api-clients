@@ -4,89 +4,15 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_operations_api_v1_organizations_organization_id_operations_get**](OperationsApi.md#get_operations_api_v1_organizations_organization_id_operations_get) | **GET** /api/v1/organizations/{organization_id}/operations/ | Get Operations |
-| [**get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get**](OperationsApi.md#get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get) | **GET** /api/v1/organizations/{organization_id}/operations/{operation_id} | Get Operations By Operation Id |
-| [**update_operation_api_v1_operations_operation_id_put**](OperationsApi.md#update_operation_api_v1_operations_operation_id_put) | **PUT** /api/v1/operations/{operation_id} | Update Operation |
+| [**operation_get**](OperationsApi.md#operation_get) | **GET** /api/v1/organizations/{organization_id}/operations/{operation_id} | Operation Get |
+| [**operation_update**](OperationsApi.md#operation_update) | **PUT** /api/v1/operations/{operation_id} | Operation Update |
 
 
-## get_operations_api_v1_organizations_organization_id_operations_get
+## operation_get
 
-> <Array<OperationOutput>> get_operations_api_v1_organizations_organization_id_operations_get(organization_id, opts)
+> <Array<OperationOutput>> operation_get(operation_id, organization_id)
 
-Get Operations
-
-### Examples
-
-```ruby
-require 'time'
-require 'cloud_api_client'
-# setup authorization
-CloudApiClient.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = CloudApiClient::OperationsApi.new
-organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-opts = {
-  asset_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | 
-  environment_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
-}
-
-begin
-  # Get Operations
-  result = api_instance.get_operations_api_v1_organizations_organization_id_operations_get(organization_id, opts)
-  p result
-rescue CloudApiClient::ApiError => e
-  puts "Error when calling OperationsApi->get_operations_api_v1_organizations_organization_id_operations_get: #{e}"
-end
-```
-
-#### Using the get_operations_api_v1_organizations_organization_id_operations_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<OperationOutput>>, Integer, Hash)> get_operations_api_v1_organizations_organization_id_operations_get_with_http_info(organization_id, opts)
-
-```ruby
-begin
-  # Get Operations
-  data, status_code, headers = api_instance.get_operations_api_v1_organizations_organization_id_operations_get_with_http_info(organization_id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<OperationOutput>>
-rescue CloudApiClient::ApiError => e
-  puts "Error when calling OperationsApi->get_operations_api_v1_organizations_organization_id_operations_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** |  |  |
-| **asset_id** | **String** |  | [optional] |
-| **environment_id** | **String** |  | [optional] |
-
-### Return type
-
-[**Array&lt;OperationOutput&gt;**](OperationOutput.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get
-
-> <Array<OperationOutput>> get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get(operation_id, organization_id)
-
-Get Operations By Operation Id
+Operation Get
 
 ### Examples
 
@@ -104,29 +30,29 @@ operation_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 organization_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
 
 begin
-  # Get Operations By Operation Id
-  result = api_instance.get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get(operation_id, organization_id)
+  # Operation Get
+  result = api_instance.operation_get(operation_id, organization_id)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling OperationsApi->get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get: #{e}"
+  puts "Error when calling OperationsApi->operation_get: #{e}"
 end
 ```
 
-#### Using the get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get_with_http_info variant
+#### Using the operation_get_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<OperationOutput>>, Integer, Hash)> get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get_with_http_info(operation_id, organization_id)
+> <Array(<Array<OperationOutput>>, Integer, Hash)> operation_get_with_http_info(operation_id, organization_id)
 
 ```ruby
 begin
-  # Get Operations By Operation Id
-  data, status_code, headers = api_instance.get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get_with_http_info(operation_id, organization_id)
+  # Operation Get
+  data, status_code, headers = api_instance.operation_get_with_http_info(operation_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<OperationOutput>>
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling OperationsApi->get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get_with_http_info: #{e}"
+  puts "Error when calling OperationsApi->operation_get_with_http_info: #{e}"
 end
 ```
 
@@ -151,11 +77,11 @@ end
 - **Accept**: application/json
 
 
-## update_operation_api_v1_operations_operation_id_put
+## operation_update
 
-> Object update_operation_api_v1_operations_operation_id_put(operation_id, operation_update)
+> Object operation_update(operation_id, operation_update)
 
-Update Operation
+Operation Update
 
 ### Examples
 
@@ -173,29 +99,29 @@ operation_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String |
 operation_update = CloudApiClient::OperationUpdate.new({id: 'id_example', status: CloudApiClient::OperationStatus::FAILED}) # OperationUpdate | 
 
 begin
-  # Update Operation
-  result = api_instance.update_operation_api_v1_operations_operation_id_put(operation_id, operation_update)
+  # Operation Update
+  result = api_instance.operation_update(operation_id, operation_update)
   p result
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling OperationsApi->update_operation_api_v1_operations_operation_id_put: #{e}"
+  puts "Error when calling OperationsApi->operation_update: #{e}"
 end
 ```
 
-#### Using the update_operation_api_v1_operations_operation_id_put_with_http_info variant
+#### Using the operation_update_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> update_operation_api_v1_operations_operation_id_put_with_http_info(operation_id, operation_update)
+> <Array(Object, Integer, Hash)> operation_update_with_http_info(operation_id, operation_update)
 
 ```ruby
 begin
-  # Update Operation
-  data, status_code, headers = api_instance.update_operation_api_v1_operations_operation_id_put_with_http_info(operation_id, operation_update)
+  # Operation Update
+  data, status_code, headers = api_instance.operation_update_with_http_info(operation_id, operation_update)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
 rescue CloudApiClient::ApiError => e
-  puts "Error when calling OperationsApi->update_operation_api_v1_operations_operation_id_put_with_http_info: #{e}"
+  puts "Error when calling OperationsApi->operation_update_with_http_info: #{e}"
 end
 ```
 

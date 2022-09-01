@@ -18,29 +18,29 @@ import { HTTPValidationError } from '../models/HTTPValidationError';
 export class AssetsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * Create Asset
+     * Asset Create
      * @param environmentId 
      * @param organizationId 
      * @param assetInput 
      */
-    public async createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Promise<RequestContext> {
+    public async assetCreate(environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("AssetsApi", "createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost", "environmentId");
+            throw new RequiredError("AssetsApi", "assetCreate", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("AssetsApi", "createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost", "organizationId");
+            throw new RequiredError("AssetsApi", "assetCreate", "organizationId");
         }
 
 
         // verify required parameter 'assetInput' is not null or undefined
         if (assetInput === null || assetInput === undefined) {
-            throw new RequiredError("AssetsApi", "createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost", "assetInput");
+            throw new RequiredError("AssetsApi", "assetCreate", "assetInput");
         }
 
 
@@ -81,29 +81,29 @@ export class AssetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Delete Asset By Id
+     * Asset Delete
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      */
-    public async deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async assetDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new RequiredError("AssetsApi", "deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete", "assetId");
+            throw new RequiredError("AssetsApi", "assetDelete", "assetId");
         }
 
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("AssetsApi", "deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete", "environmentId");
+            throw new RequiredError("AssetsApi", "assetDelete", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("AssetsApi", "deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete", "organizationId");
+            throw new RequiredError("AssetsApi", "assetDelete", "organizationId");
         }
 
 
@@ -134,29 +134,29 @@ export class AssetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Asset By Id
+     * Asset Get
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      */
-    public async getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async assetGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new RequiredError("AssetsApi", "getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet", "assetId");
+            throw new RequiredError("AssetsApi", "assetGet", "assetId");
         }
 
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("AssetsApi", "getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet", "environmentId");
+            throw new RequiredError("AssetsApi", "assetGet", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("AssetsApi", "getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet", "organizationId");
+            throw new RequiredError("AssetsApi", "assetGet", "organizationId");
         }
 
 
@@ -187,36 +187,36 @@ export class AssetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Update Asset By Id
+     * Asset Update
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param assetInput 
      */
-    public async updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(assetId: string, environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Promise<RequestContext> {
+    public async assetUpdate(assetId: string, environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new RequiredError("AssetsApi", "updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut", "assetId");
+            throw new RequiredError("AssetsApi", "assetUpdate", "assetId");
         }
 
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("AssetsApi", "updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut", "environmentId");
+            throw new RequiredError("AssetsApi", "assetUpdate", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("AssetsApi", "updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut", "organizationId");
+            throw new RequiredError("AssetsApi", "assetUpdate", "organizationId");
         }
 
 
         // verify required parameter 'assetInput' is not null or undefined
         if (assetInput === null || assetInput === undefined) {
-            throw new RequiredError("AssetsApi", "updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut", "assetInput");
+            throw new RequiredError("AssetsApi", "assetUpdate", "assetInput");
         }
 
 
@@ -265,10 +265,10 @@ export class AssetsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost
+     * @params response Response returned by the server for a request to assetCreate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(response: ResponseContext): Promise<AssetOutput > {
+     public async assetCreate(response: ResponseContext): Promise<AssetOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("201", response.httpStatusCode)) {
             const body: AssetOutput = ObjectSerializer.deserialize(
@@ -301,16 +301,16 @@ export class AssetsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete
+     * @params response Response returned by the server for a request to assetDelete
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(response: ResponseContext): Promise<number > {
+     public async assetDelete(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: number = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "number", ""
-            ) as number;
+                "any", ""
+            ) as any;
             return body;
         }
         if (isCodeInRange("422", response.httpStatusCode)) {
@@ -323,10 +323,10 @@ export class AssetsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: number = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "number", ""
-            ) as number;
+                "any", ""
+            ) as any;
             return body;
         }
 
@@ -337,10 +337,10 @@ export class AssetsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet
+     * @params response Response returned by the server for a request to assetGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(response: ResponseContext): Promise<AssetOutput > {
+     public async assetGet(response: ResponseContext): Promise<AssetOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: AssetOutput = ObjectSerializer.deserialize(
@@ -373,10 +373,10 @@ export class AssetsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut
+     * @params response Response returned by the server for a request to assetUpdate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(response: ResponseContext): Promise<AssetOutput > {
+     public async assetUpdate(response: ResponseContext): Promise<AssetOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: AssetOutput = ObjectSerializer.deserialize(

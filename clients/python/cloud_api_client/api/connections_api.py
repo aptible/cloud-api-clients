@@ -37,14 +37,14 @@ class ConnectionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post_endpoint = _Endpoint(
+        self.connection_create_endpoint = _Endpoint(
             settings={
                 'response_type': (ConnectionOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/',
-                'operation_id': 'create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post',
+                'operation_id': 'connection_create',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -107,14 +107,14 @@ class ConnectionsApi(object):
             },
             api_client=api_client
         )
-        self.delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete_endpoint = _Endpoint(
+        self.connection_delete_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}',
-                'operation_id': 'delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete',
+                'operation_id': 'connection_delete',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -176,14 +176,14 @@ class ConnectionsApi(object):
             },
             api_client=api_client
         )
-        self.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_endpoint = _Endpoint(
+        self.connection_get_endpoint = _Endpoint(
             settings={
                 'response_type': (ConnectionOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}',
-                'operation_id': 'get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get',
+                'operation_id': 'connection_get',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -246,7 +246,7 @@ class ConnectionsApi(object):
             api_client=api_client
         )
 
-    def create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post(
+    def connection_create(
         self,
         asset_id,
         environment_id,
@@ -254,12 +254,12 @@ class ConnectionsApi(object):
         connection_input,
         **kwargs
     ):
-        """Create Connection  # noqa: E501
+        """Connection Create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post(asset_id, environment_id, organization_id, connection_input, async_req=True)
+        >>> thread = api.connection_create(asset_id, environment_id, organization_id, connection_input, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -338,9 +338,9 @@ class ConnectionsApi(object):
             organization_id
         kwargs['connection_input'] = \
             connection_input
-        return self.create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post_endpoint.call_with_http_info(**kwargs)
+        return self.connection_create_endpoint.call_with_http_info(**kwargs)
 
-    def delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete(
+    def connection_delete(
         self,
         asset_id,
         connection_id,
@@ -348,12 +348,12 @@ class ConnectionsApi(object):
         organization_id,
         **kwargs
     ):
-        """Delete Connection  # noqa: E501
+        """Connection Delete  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete(asset_id, connection_id, environment_id, organization_id, async_req=True)
+        >>> thread = api.connection_delete(asset_id, connection_id, environment_id, organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -432,9 +432,9 @@ class ConnectionsApi(object):
             environment_id
         kwargs['organization_id'] = \
             organization_id
-        return self.delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete_endpoint.call_with_http_info(**kwargs)
+        return self.connection_delete_endpoint.call_with_http_info(**kwargs)
 
-    def get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(
+    def connection_get(
         self,
         asset_id,
         environment_id,
@@ -442,12 +442,12 @@ class ConnectionsApi(object):
         organization_id,
         **kwargs
     ):
-        """Get Connection By Id  # noqa: E501
+        """Connection Get  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id, async_req=True)
+        >>> thread = api.connection_get(asset_id, environment_id, connection_id, organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -526,5 +526,5 @@ class ConnectionsApi(object):
             connection_id
         kwargs['organization_id'] = \
             organization_id
-        return self.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get_endpoint.call_with_http_info(**kwargs)
+        return self.connection_get_endpoint.call_with_http_info(**kwargs)
 

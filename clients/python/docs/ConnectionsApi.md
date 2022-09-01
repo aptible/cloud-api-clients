@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post**](ConnectionsApi.md#create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Create Connection
-[**delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete**](ConnectionsApi.md#delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Delete Connection
-[**get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get**](ConnectionsApi.md#get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Get Connection By Id
+[**connection_create**](ConnectionsApi.md#connection_create) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Connection Create
+[**connection_delete**](ConnectionsApi.md#connection_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Delete
+[**connection_get**](ConnectionsApi.md#connection_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Get
 
 
-# **create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post**
-> ConnectionOutput create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post(asset_id, environment_id, organization_id, connection_input)
+# **connection_create**
+> ConnectionOutput connection_create(asset_id, environment_id, organization_id, connection_input)
 
-Create Connection
+Connection Create
 
 ### Example
 
@@ -56,11 +56,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create Connection
-        api_response = api_instance.create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post(asset_id, environment_id, organization_id, connection_input)
+        # Connection Create
+        api_response = api_instance.connection_create(asset_id, environment_id, organization_id, connection_input)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling ConnectionsApi->create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post: %s\n" % e)
+        print("Exception when calling ConnectionsApi->connection_create: %s\n" % e)
 ```
 
 
@@ -96,10 +96,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete**
-> bool, date, datetime, dict, float, int, list, str, none_type delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete(asset_id, connection_id, environment_id, organization_id)
+# **connection_delete**
+> bool, date, datetime, dict, float, int, list, str, none_type connection_delete(asset_id, connection_id, environment_id, organization_id)
 
-Delete Connection
+Connection Delete
 
 ### Example
 
@@ -138,11 +138,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete Connection
-        api_response = api_instance.delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete(asset_id, connection_id, environment_id, organization_id)
+        # Connection Delete
+        api_response = api_instance.connection_delete(asset_id, connection_id, environment_id, organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling ConnectionsApi->delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete: %s\n" % e)
+        print("Exception when calling ConnectionsApi->connection_delete: %s\n" % e)
 ```
 
 
@@ -178,10 +178,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get**
-> ConnectionOutput get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id)
+# **connection_get**
+> ConnectionOutput connection_get(asset_id, environment_id, connection_id, organization_id)
 
-Get Connection By Id
+Connection Get
 
 ### Example
 
@@ -221,11 +221,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Connection By Id
-        api_response = api_instance.get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(asset_id, environment_id, connection_id, organization_id)
+        # Connection Get
+        api_response = api_instance.connection_get(asset_id, environment_id, connection_id, organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling ConnectionsApi->get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get: %s\n" % e)
+        print("Exception when calling ConnectionsApi->connection_get: %s\n" % e)
 ```
 
 

@@ -28,7 +28,6 @@ export * from './OperationUpdate';
 export * from './OrganizationInput';
 export * from './OrganizationOutput';
 export * from './Structure';
-export * from './TextResponse';
 export * from './ValidationError';
 
 import { ActionOutput } from './ActionOutput';
@@ -61,7 +60,6 @@ import { OperationUpdate } from './OperationUpdate';
 import { OrganizationInput } from './OrganizationInput';
 import { OrganizationOutput } from './OrganizationOutput';
 import { Structure } from './Structure';
-import { TextResponse } from './TextResponse';
 import { ValidationError } from './ValidationError';
 
 /* tslint:disable:no-unused-variable */
@@ -117,7 +115,6 @@ let typeMap: {[index: string]: any} = {
     "OrganizationInput": OrganizationInput,
     "OrganizationOutput": OrganizationOutput,
     "Structure": Structure,
-    "TextResponse": TextResponse,
     "ValidationError": ValidationError,
 }
 

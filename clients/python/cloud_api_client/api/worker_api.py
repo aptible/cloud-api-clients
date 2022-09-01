@@ -36,12 +36,12 @@ class WorkerApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.worker_health_check_api_v1_worker_health_check_post_endpoint = _Endpoint(
+        self.worker_health_check_endpoint = _Endpoint(
             settings={
                 'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [],
                 'endpoint_path': '/api/v1/worker/health-check',
-                'operation_id': 'worker_health_check_api_v1_worker_health_check_post',
+                'operation_id': 'worker_health_check',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -87,7 +87,7 @@ class WorkerApi(object):
             api_client=api_client
         )
 
-    def worker_health_check_api_v1_worker_health_check_post(
+    def worker_health_check(
         self,
         health_check_from_worker,
         **kwargs
@@ -97,7 +97,7 @@ class WorkerApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.worker_health_check_api_v1_worker_health_check_post(health_check_from_worker, async_req=True)
+        >>> thread = api.worker_health_check(health_check_from_worker, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -167,5 +167,5 @@ class WorkerApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['health_check_from_worker'] = \
             health_check_from_worker
-        return self.worker_health_check_api_v1_worker_health_check_post_endpoint.call_with_http_info(**kwargs)
+        return self.worker_health_check_endpoint.call_with_http_info(**kwargs)
 

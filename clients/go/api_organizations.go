@@ -23,79 +23,105 @@ import (
 type OrganizationsApi interface {
 
 	/*
-	DeleteApiV1OrganizationsOrganizationIdDelete Delete
+	OrganizationDelete Organization Delete
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param organizationId
-	@return ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest
+	@return ApiOrganizationDeleteRequest
 	*/
-	DeleteApiV1OrganizationsOrganizationIdDelete(ctx context.Context, organizationId string) ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest
+	OrganizationDelete(ctx context.Context, organizationId string) ApiOrganizationDeleteRequest
 
-	// DeleteApiV1OrganizationsOrganizationIdDeleteExecute executes the request
+	// OrganizationDeleteExecute executes the request
 	//  @return interface{}
-	DeleteApiV1OrganizationsOrganizationIdDeleteExecute(r ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest) (interface{}, *http.Response, error)
+	OrganizationDeleteExecute(r ApiOrganizationDeleteRequest) (interface{}, *http.Response, error)
 
 	/*
-	GetOrganizationByIdApiV1OrganizationsOrganizationIdGet Get Organization By Id
+	OrganizationGet Organization Get
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param organizationId
-	@return ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest
+	@return ApiOrganizationGetRequest
 	*/
-	GetOrganizationByIdApiV1OrganizationsOrganizationIdGet(ctx context.Context, organizationId string) ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest
+	OrganizationGet(ctx context.Context, organizationId string) ApiOrganizationGetRequest
 
-	// GetOrganizationByIdApiV1OrganizationsOrganizationIdGetExecute executes the request
+	// OrganizationGetExecute executes the request
 	//  @return OrganizationOutput
-	GetOrganizationByIdApiV1OrganizationsOrganizationIdGetExecute(r ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest) (*OrganizationOutput, *http.Response, error)
+	OrganizationGetExecute(r ApiOrganizationGetRequest) (*OrganizationOutput, *http.Response, error)
 
 	/*
-	GetOrganizationsApiV1OrganizationsGet Get Organizations
+	OrganizationGetEnvironments Organization Get Environments
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetOrganizationsApiV1OrganizationsGetRequest
+	@param organizationId
+	@return ApiOrganizationGetEnvironmentsRequest
 	*/
-	GetOrganizationsApiV1OrganizationsGet(ctx context.Context) ApiGetOrganizationsApiV1OrganizationsGetRequest
+	OrganizationGetEnvironments(ctx context.Context, organizationId string) ApiOrganizationGetEnvironmentsRequest
 
-	// GetOrganizationsApiV1OrganizationsGetExecute executes the request
+	// OrganizationGetEnvironmentsExecute executes the request
+	//  @return []EnvironmentOutput
+	OrganizationGetEnvironmentsExecute(r ApiOrganizationGetEnvironmentsRequest) ([]EnvironmentOutput, *http.Response, error)
+
+	/*
+	OrganizationGetOperations Organization Get Operations
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param organizationId
+	@return ApiOrganizationGetOperationsRequest
+	*/
+	OrganizationGetOperations(ctx context.Context, organizationId string) ApiOrganizationGetOperationsRequest
+
+	// OrganizationGetOperationsExecute executes the request
+	//  @return []OperationOutput
+	OrganizationGetOperationsExecute(r ApiOrganizationGetOperationsRequest) ([]OperationOutput, *http.Response, error)
+
+	/*
+	OrganizationList Organization List
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiOrganizationListRequest
+	*/
+	OrganizationList(ctx context.Context) ApiOrganizationListRequest
+
+	// OrganizationListExecute executes the request
 	//  @return []OrganizationOutput
-	GetOrganizationsApiV1OrganizationsGetExecute(r ApiGetOrganizationsApiV1OrganizationsGetRequest) ([]OrganizationOutput, *http.Response, error)
+	OrganizationListExecute(r ApiOrganizationListRequest) ([]OrganizationOutput, *http.Response, error)
 
 	/*
-	PutOrganizationApiV1OrganizationsOrganizationIdPut Put Organization
+	OrganizationUpdate Organization Update
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param organizationId
-	@return ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest
+	@return ApiOrganizationUpdateRequest
 	*/
-	PutOrganizationApiV1OrganizationsOrganizationIdPut(ctx context.Context, organizationId string) ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest
+	OrganizationUpdate(ctx context.Context, organizationId string) ApiOrganizationUpdateRequest
 
-	// PutOrganizationApiV1OrganizationsOrganizationIdPutExecute executes the request
+	// OrganizationUpdateExecute executes the request
 	//  @return OrganizationOutput
-	PutOrganizationApiV1OrganizationsOrganizationIdPutExecute(r ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest) (*OrganizationOutput, *http.Response, error)
+	OrganizationUpdateExecute(r ApiOrganizationUpdateRequest) (*OrganizationOutput, *http.Response, error)
 }
 
 // OrganizationsApiService OrganizationsApi service
 type OrganizationsApiService service
 
-type ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest struct {
+type ApiOrganizationDeleteRequest struct {
 	ctx context.Context
 	ApiService OrganizationsApi
 	organizationId string
 }
 
-func (r ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.DeleteApiV1OrganizationsOrganizationIdDeleteExecute(r)
+func (r ApiOrganizationDeleteRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.OrganizationDeleteExecute(r)
 }
 
 /*
-DeleteApiV1OrganizationsOrganizationIdDelete Delete
+OrganizationDelete Organization Delete
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param organizationId
- @return ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest
+ @return ApiOrganizationDeleteRequest
 */
-func (a *OrganizationsApiService) DeleteApiV1OrganizationsOrganizationIdDelete(ctx context.Context, organizationId string) ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest {
-	return ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest{
+func (a *OrganizationsApiService) OrganizationDelete(ctx context.Context, organizationId string) ApiOrganizationDeleteRequest {
+	return ApiOrganizationDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		organizationId: organizationId,
@@ -104,7 +130,7 @@ func (a *OrganizationsApiService) DeleteApiV1OrganizationsOrganizationIdDelete(c
 
 // Execute executes the request
 //  @return interface{}
-func (a *OrganizationsApiService) DeleteApiV1OrganizationsOrganizationIdDeleteExecute(r ApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest) (interface{}, *http.Response, error) {
+func (a *OrganizationsApiService) OrganizationDeleteExecute(r ApiOrganizationDeleteRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -112,7 +138,7 @@ func (a *OrganizationsApiService) DeleteApiV1OrganizationsOrganizationIdDeleteEx
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.DeleteApiV1OrganizationsOrganizationIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.OrganizationDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -187,25 +213,25 @@ func (a *OrganizationsApiService) DeleteApiV1OrganizationsOrganizationIdDeleteEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest struct {
+type ApiOrganizationGetRequest struct {
 	ctx context.Context
 	ApiService OrganizationsApi
 	organizationId string
 }
 
-func (r ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest) Execute() (*OrganizationOutput, *http.Response, error) {
-	return r.ApiService.GetOrganizationByIdApiV1OrganizationsOrganizationIdGetExecute(r)
+func (r ApiOrganizationGetRequest) Execute() (*OrganizationOutput, *http.Response, error) {
+	return r.ApiService.OrganizationGetExecute(r)
 }
 
 /*
-GetOrganizationByIdApiV1OrganizationsOrganizationIdGet Get Organization By Id
+OrganizationGet Organization Get
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param organizationId
- @return ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest
+ @return ApiOrganizationGetRequest
 */
-func (a *OrganizationsApiService) GetOrganizationByIdApiV1OrganizationsOrganizationIdGet(ctx context.Context, organizationId string) ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest {
-	return ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest{
+func (a *OrganizationsApiService) OrganizationGet(ctx context.Context, organizationId string) ApiOrganizationGetRequest {
+	return ApiOrganizationGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		organizationId: organizationId,
@@ -214,7 +240,7 @@ func (a *OrganizationsApiService) GetOrganizationByIdApiV1OrganizationsOrganizat
 
 // Execute executes the request
 //  @return OrganizationOutput
-func (a *OrganizationsApiService) GetOrganizationByIdApiV1OrganizationsOrganizationIdGetExecute(r ApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest) (*OrganizationOutput, *http.Response, error) {
+func (a *OrganizationsApiService) OrganizationGetExecute(r ApiOrganizationGetRequest) (*OrganizationOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -222,7 +248,7 @@ func (a *OrganizationsApiService) GetOrganizationByIdApiV1OrganizationsOrganizat
 		localVarReturnValue  *OrganizationOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.GetOrganizationByIdApiV1OrganizationsOrganizationIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.OrganizationGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -297,23 +323,261 @@ func (a *OrganizationsApiService) GetOrganizationByIdApiV1OrganizationsOrganizat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOrganizationsApiV1OrganizationsGetRequest struct {
+type ApiOrganizationGetEnvironmentsRequest struct {
+	ctx context.Context
+	ApiService OrganizationsApi
+	organizationId string
+}
+
+func (r ApiOrganizationGetEnvironmentsRequest) Execute() ([]EnvironmentOutput, *http.Response, error) {
+	return r.ApiService.OrganizationGetEnvironmentsExecute(r)
+}
+
+/*
+OrganizationGetEnvironments Organization Get Environments
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param organizationId
+ @return ApiOrganizationGetEnvironmentsRequest
+*/
+func (a *OrganizationsApiService) OrganizationGetEnvironments(ctx context.Context, organizationId string) ApiOrganizationGetEnvironmentsRequest {
+	return ApiOrganizationGetEnvironmentsRequest{
+		ApiService: a,
+		ctx: ctx,
+		organizationId: organizationId,
+	}
+}
+
+// Execute executes the request
+//  @return []EnvironmentOutput
+func (a *OrganizationsApiService) OrganizationGetEnvironmentsExecute(r ApiOrganizationGetEnvironmentsRequest) ([]EnvironmentOutput, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []EnvironmentOutput
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.OrganizationGetEnvironments")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/environments"
+	localVarPath = strings.Replace(localVarPath, "{"+"organization_id"+"}", url.PathEscape(parameterToString(r.organizationId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v HTTPValidationError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiOrganizationGetOperationsRequest struct {
+	ctx context.Context
+	ApiService OrganizationsApi
+	organizationId string
+	assetId *string
+	environmentId *string
+}
+
+func (r ApiOrganizationGetOperationsRequest) AssetId(assetId string) ApiOrganizationGetOperationsRequest {
+	r.assetId = &assetId
+	return r
+}
+
+func (r ApiOrganizationGetOperationsRequest) EnvironmentId(environmentId string) ApiOrganizationGetOperationsRequest {
+	r.environmentId = &environmentId
+	return r
+}
+
+func (r ApiOrganizationGetOperationsRequest) Execute() ([]OperationOutput, *http.Response, error) {
+	return r.ApiService.OrganizationGetOperationsExecute(r)
+}
+
+/*
+OrganizationGetOperations Organization Get Operations
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param organizationId
+ @return ApiOrganizationGetOperationsRequest
+*/
+func (a *OrganizationsApiService) OrganizationGetOperations(ctx context.Context, organizationId string) ApiOrganizationGetOperationsRequest {
+	return ApiOrganizationGetOperationsRequest{
+		ApiService: a,
+		ctx: ctx,
+		organizationId: organizationId,
+	}
+}
+
+// Execute executes the request
+//  @return []OperationOutput
+func (a *OrganizationsApiService) OrganizationGetOperationsExecute(r ApiOrganizationGetOperationsRequest) ([]OperationOutput, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OperationOutput
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.OrganizationGetOperations")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/operations/"
+	localVarPath = strings.Replace(localVarPath, "{"+"organization_id"+"}", url.PathEscape(parameterToString(r.organizationId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.assetId != nil {
+		localVarQueryParams.Add("asset_id", parameterToString(*r.assetId, ""))
+	}
+	if r.environmentId != nil {
+		localVarQueryParams.Add("environment_id", parameterToString(*r.environmentId, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v HTTPValidationError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiOrganizationListRequest struct {
 	ctx context.Context
 	ApiService OrganizationsApi
 }
 
-func (r ApiGetOrganizationsApiV1OrganizationsGetRequest) Execute() ([]OrganizationOutput, *http.Response, error) {
-	return r.ApiService.GetOrganizationsApiV1OrganizationsGetExecute(r)
+func (r ApiOrganizationListRequest) Execute() ([]OrganizationOutput, *http.Response, error) {
+	return r.ApiService.OrganizationListExecute(r)
 }
 
 /*
-GetOrganizationsApiV1OrganizationsGet Get Organizations
+OrganizationList Organization List
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetOrganizationsApiV1OrganizationsGetRequest
+ @return ApiOrganizationListRequest
 */
-func (a *OrganizationsApiService) GetOrganizationsApiV1OrganizationsGet(ctx context.Context) ApiGetOrganizationsApiV1OrganizationsGetRequest {
-	return ApiGetOrganizationsApiV1OrganizationsGetRequest{
+func (a *OrganizationsApiService) OrganizationList(ctx context.Context) ApiOrganizationListRequest {
+	return ApiOrganizationListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -321,7 +585,7 @@ func (a *OrganizationsApiService) GetOrganizationsApiV1OrganizationsGet(ctx cont
 
 // Execute executes the request
 //  @return []OrganizationOutput
-func (a *OrganizationsApiService) GetOrganizationsApiV1OrganizationsGetExecute(r ApiGetOrganizationsApiV1OrganizationsGetRequest) ([]OrganizationOutput, *http.Response, error) {
+func (a *OrganizationsApiService) OrganizationListExecute(r ApiOrganizationListRequest) ([]OrganizationOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -329,7 +593,7 @@ func (a *OrganizationsApiService) GetOrganizationsApiV1OrganizationsGetExecute(r
 		localVarReturnValue  []OrganizationOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.GetOrganizationsApiV1OrganizationsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.OrganizationList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -394,31 +658,31 @@ func (a *OrganizationsApiService) GetOrganizationsApiV1OrganizationsGetExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest struct {
+type ApiOrganizationUpdateRequest struct {
 	ctx context.Context
 	ApiService OrganizationsApi
 	organizationId string
 	organizationInput *OrganizationInput
 }
 
-func (r ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest) OrganizationInput(organizationInput OrganizationInput) ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest {
+func (r ApiOrganizationUpdateRequest) OrganizationInput(organizationInput OrganizationInput) ApiOrganizationUpdateRequest {
 	r.organizationInput = &organizationInput
 	return r
 }
 
-func (r ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest) Execute() (*OrganizationOutput, *http.Response, error) {
-	return r.ApiService.PutOrganizationApiV1OrganizationsOrganizationIdPutExecute(r)
+func (r ApiOrganizationUpdateRequest) Execute() (*OrganizationOutput, *http.Response, error) {
+	return r.ApiService.OrganizationUpdateExecute(r)
 }
 
 /*
-PutOrganizationApiV1OrganizationsOrganizationIdPut Put Organization
+OrganizationUpdate Organization Update
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param organizationId
- @return ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest
+ @return ApiOrganizationUpdateRequest
 */
-func (a *OrganizationsApiService) PutOrganizationApiV1OrganizationsOrganizationIdPut(ctx context.Context, organizationId string) ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest {
-	return ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest{
+func (a *OrganizationsApiService) OrganizationUpdate(ctx context.Context, organizationId string) ApiOrganizationUpdateRequest {
+	return ApiOrganizationUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		organizationId: organizationId,
@@ -427,7 +691,7 @@ func (a *OrganizationsApiService) PutOrganizationApiV1OrganizationsOrganizationI
 
 // Execute executes the request
 //  @return OrganizationOutput
-func (a *OrganizationsApiService) PutOrganizationApiV1OrganizationsOrganizationIdPutExecute(r ApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest) (*OrganizationOutput, *http.Response, error) {
+func (a *OrganizationsApiService) OrganizationUpdateExecute(r ApiOrganizationUpdateRequest) (*OrganizationOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -435,7 +699,7 @@ func (a *OrganizationsApiService) PutOrganizationApiV1OrganizationsOrganizationI
 		localVarReturnValue  *OrganizationOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.PutOrganizationApiV1OrganizationsOrganizationIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.OrganizationUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

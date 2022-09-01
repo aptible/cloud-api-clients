@@ -23,8 +23,8 @@ module CloudApiClient
     # @param health_check_from_worker [HealthCheckFromWorker] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def worker_health_check_api_v1_worker_health_check_post(health_check_from_worker, opts = {})
-      data, _status_code, _headers = worker_health_check_api_v1_worker_health_check_post_with_http_info(health_check_from_worker, opts)
+    def worker_health_check(health_check_from_worker, opts = {})
+      data, _status_code, _headers = worker_health_check_with_http_info(health_check_from_worker, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module CloudApiClient
     # @param health_check_from_worker [HealthCheckFromWorker] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def worker_health_check_api_v1_worker_health_check_post_with_http_info(health_check_from_worker, opts = {})
+    def worker_health_check_with_http_info(health_check_from_worker, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkerApi.worker_health_check_api_v1_worker_health_check_post ...'
+        @api_client.config.logger.debug 'Calling API: WorkerApi.worker_health_check ...'
       end
       # verify the required parameter 'health_check_from_worker' is set
       if @api_client.config.client_side_validation && health_check_from_worker.nil?
-        fail ArgumentError, "Missing the required parameter 'health_check_from_worker' when calling WorkerApi.worker_health_check_api_v1_worker_health_check_post"
+        fail ArgumentError, "Missing the required parameter 'health_check_from_worker' when calling WorkerApi.worker_health_check"
       end
       # resource path
       local_var_path = '/api/v1/worker/health-check'
@@ -69,7 +69,7 @@ module CloudApiClient
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"WorkerApi.worker_health_check_api_v1_worker_health_check_post",
+        :operation => :"WorkerApi.worker_health_check",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -80,7 +80,7 @@ module CloudApiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkerApi#worker_health_check_api_v1_worker_health_check_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkerApi#worker_health_check\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost**](ConnectionsApi.md#createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Create Connection
-[**deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete**](ConnectionsApi.md#deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Delete Connection
-[**getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet**](ConnectionsApi.md#getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Get Connection By Id
+[**connectionCreate**](ConnectionsApi.md#connectionCreate) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Connection Create
+[**connectionDelete**](ConnectionsApi.md#connectionDelete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Delete
+[**connectionGet**](ConnectionsApi.md#connectionGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Get
 
 
-# **createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost**
-> ConnectionOutput createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(connectionInput)
+# **connectionCreate**
+> ConnectionOutput connectionCreate(connectionInput)
 
 
 ### Example
@@ -23,7 +23,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .ConnectionsApi(configuration);
 
-let body:.ConnectionsApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest = {
+let body:.ConnectionsApiConnectionCreateRequest = {
   // string
   assetId: "asset_id_example",
   // string
@@ -37,7 +37,7 @@ let body:.ConnectionsApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironm
   },
 };
 
-apiInstance.createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(body).then((data:any) => {
+apiInstance.connectionCreate(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -75,8 +75,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete**
-> any deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete()
+# **connectionDelete**
+> any connectionDelete()
 
 
 ### Example
@@ -89,7 +89,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .ConnectionsApi(configuration);
 
-let body:.ConnectionsApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest = {
+let body:.ConnectionsApiConnectionDeleteRequest = {
   // string
   assetId: "asset_id_example",
   // string
@@ -100,7 +100,7 @@ let body:.ConnectionsApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironm
   organizationId: "organization_id_example",
 };
 
-apiInstance.deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(body).then((data:any) => {
+apiInstance.connectionDelete(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -138,8 +138,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet**
-> ConnectionOutput getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet()
+# **connectionGet**
+> ConnectionOutput connectionGet()
 
 
 ### Example
@@ -152,7 +152,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .ConnectionsApi(configuration);
 
-let body:.ConnectionsApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest = {
+let body:.ConnectionsApiConnectionGetRequest = {
   // string
   assetId: "asset_id_example",
   // string
@@ -163,7 +163,7 @@ let body:.ConnectionsApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnviron
   organizationId: "organization_id_example",
 };
 
-apiInstance.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(body).then((data:any) => {
+apiInstance.connectionGet(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

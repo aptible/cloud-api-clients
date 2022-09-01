@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**WorkerHealthCheckApiV1WorkerHealthCheckPost**](WorkerApi.md#WorkerHealthCheckApiV1WorkerHealthCheckPost) | **Post** /api/v1/worker/health-check | Worker Health Check
+[**WorkerHealthCheck**](WorkerApi.md#WorkerHealthCheck) | **Post** /api/v1/worker/health-check | Worker Health Check
 
 
 
-## WorkerHealthCheckApiV1WorkerHealthCheckPost
+## WorkerHealthCheck
 
-> interface{} WorkerHealthCheckApiV1WorkerHealthCheckPost(ctx).HealthCheckFromWorker(healthCheckFromWorker).Execute()
+> interface{} WorkerHealthCheck(ctx).HealthCheckFromWorker(healthCheckFromWorker).Execute()
 
 Worker Health Check
 
@@ -31,13 +31,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkerApi.WorkerHealthCheckApiV1WorkerHealthCheckPost(context.Background()).HealthCheckFromWorker(healthCheckFromWorker).Execute()
+    resp, r, err := apiClient.WorkerApi.WorkerHealthCheck(context.Background()).HealthCheckFromWorker(healthCheckFromWorker).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WorkerApi.WorkerHealthCheckApiV1WorkerHealthCheckPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkerApi.WorkerHealthCheck``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `WorkerHealthCheckApiV1WorkerHealthCheckPost`: interface{}
-    fmt.Fprintf(os.Stdout, "Response from `WorkerApi.WorkerHealthCheckApiV1WorkerHealthCheckPost`: %v\n", resp)
+    // response from `WorkerHealthCheck`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `WorkerApi.WorkerHealthCheck`: %v\n", resp)
 }
 ```
 
@@ -47,7 +47,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiWorkerHealthCheckRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

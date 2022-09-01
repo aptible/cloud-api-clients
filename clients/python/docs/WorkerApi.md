@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**worker_health_check_api_v1_worker_health_check_post**](WorkerApi.md#worker_health_check_api_v1_worker_health_check_post) | **POST** /api/v1/worker/health-check | Worker Health Check
+[**worker_health_check**](WorkerApi.md#worker_health_check) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
-# **worker_health_check_api_v1_worker_health_check_post**
-> bool, date, datetime, dict, float, int, list, str, none_type worker_health_check_api_v1_worker_health_check_post(health_check_from_worker)
+# **worker_health_check**
+> bool, date, datetime, dict, float, int, list, str, none_type worker_health_check(health_check_from_worker)
 
 Worker Health Check
 
@@ -43,10 +43,10 @@ with cloud_api_client.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Worker Health Check
-        api_response = api_instance.worker_health_check_api_v1_worker_health_check_post(health_check_from_worker)
+        api_response = api_instance.worker_health_check(health_check_from_worker)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling WorkerApi->worker_health_check_api_v1_worker_health_check_post: %s\n" % e)
+        print("Exception when calling WorkerApi->worker_health_check: %s\n" % e)
 ```
 
 

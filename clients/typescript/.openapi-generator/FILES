@@ -6,7 +6,6 @@ EnvironmentsApi.md
 OperationsApi.md
 OrganizationsApi.md
 README.md
-UtilitiesApi.md
 WorkerApi.md
 apis/ActionsApi.ts
 apis/AssetsApi.ts
@@ -14,7 +13,6 @@ apis/ConnectionsApi.ts
 apis/EnvironmentsApi.ts
 apis/OperationsApi.ts
 apis/OrganizationsApi.ts
-apis/UtilitiesApi.ts
 apis/WorkerApi.ts
 apis/baseapi.ts
 apis/exception.ts
@@ -56,7 +54,6 @@ models/OperationUpdate.ts
 models/OrganizationInput.ts
 models/OrganizationOutput.ts
 models/Structure.ts
-models/TextResponse.ts
 models/ValidationError.ts
 models/all.ts
 package.json
