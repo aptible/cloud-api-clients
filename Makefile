@@ -29,9 +29,9 @@ bundles/terraform-null-core:
 clean_bundles:
 	rm -Rf ./bundles/terraform-*
 
-.PHONY: generate_openapi_json generate_clients generate_python_client generate_ruby_client generate_go_client generate_typescript_client
+.PHONY: generate_openapi_json generate_openapi_json_go generate_clients generate_python_client generate_ruby_client generate_go_client generate_typescript_client
 
-generate_clients: clean_clients reclone generate_openapi_json generate_python_client generate_ruby_client generate_go_client generate_typescript_client
+generate_clients: clean_clients reclone generate_openapi_json generate_openapi_json_go generate_python_client generate_ruby_client generate_go_client generate_typescript_client
 
 clean_clients:
 	rm -rf ./clients
@@ -41,6 +41,13 @@ generate_openapi_json:
  	export PRE_START_CHECKS="False" && \
 		source ./scripts/setenvs.sh && \
  		$(PYTHON) -m scripts.openapi.generate openapi.json
+
+generate_openapi_json_go:
+	export BUNDLE_DIRECTORY=$(BUNDLE_DIRECTORY) && \
+ 	export PRE_START_CHECKS="False" && \
+ 		export GENERATING_GO_CLIENT="true" && \
+		source ./scripts/setenvs.sh && \
+ 		$(PYTHON) -m scripts.openapi.generate openapi_go.json
 
 generate_python_client:
 	docker run --rm \
@@ -61,11 +68,12 @@ generate_ruby_client:
 	  -g ruby \
 	  -o /local/clients/ruby \
 	  --additional-properties gemName=cloud_api_client
+	  --additional-properties useAutoload=true
 
 generate_go_client:
 	docker run --rm \
 	  -v ${PWD}:/local openapitools/openapi-generator-cli generate --skip-validate-spec \
-	  -i /local/openapi.json \
+	  -i /local/openapi_go.json \
 	  -g go \
 	  -o /local/clients/go \
 	  --additional-properties=packageName=cloud_api_client \

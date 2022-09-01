@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { LocationInner } from './LocationInner';
+import { LocationInner } from '../models/LocationInner';
 import { HttpFile } from '../http/http';
 
 export class ValidationError {

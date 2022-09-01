@@ -1736,12 +1736,10 @@ components:
     OperationActionUpdate:
       properties:
         action_output:
-          $ref: '#/components/schemas/Action_Output'
+          title: Action Output
         action_errors:
           title: Action Errors
           type: string
-      required:
-      - action_output
       title: OperationActionUpdate
       type: object
     OperationAssetUpdate:
@@ -1984,12 +1982,6 @@ components:
       - type
       title: ValidationError
       type: object
-    Action_Output:
-      anyOf:
-      - type: object
-      - items: {}
-        type: array
-      title: Action Output
     Data:
       anyOf:
       - $ref: '#/components/schemas/OperationFailure'

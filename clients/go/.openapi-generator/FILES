@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -12,7 +13,6 @@ api_utilities.go
 api_worker.go
 client.go
 configuration.go
-docs/ActionOutput.md
 docs/ActionRequest.md
 docs/ActionResponse.md
 docs/ActionsApi.md
@@ -54,7 +54,6 @@ docs/WorkerApi.md
 git_push.sh
 go.mod
 go.sum
-model_action_output.go
 model_action_request.go
 model_action_response.go
 model_asset_action.go

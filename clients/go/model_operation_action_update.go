@@ -16,7 +16,7 @@ import (
 
 // OperationActionUpdate struct for OperationActionUpdate
 type OperationActionUpdate struct {
-	ActionOutput ActionOutput `json:"action_output"`
+	ActionOutput interface{} `json:"action_output,omitempty"`
 	ActionErrors *string `json:"action_errors,omitempty"`
 }
 
@@ -24,9 +24,8 @@ type OperationActionUpdate struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOperationActionUpdate(actionOutput ActionOutput) *OperationActionUpdate {
+func NewOperationActionUpdate() *OperationActionUpdate {
 	this := OperationActionUpdate{}
-	this.ActionOutput = actionOutput
 	return &this
 }
 
@@ -38,27 +37,36 @@ func NewOperationActionUpdateWithDefaults() *OperationActionUpdate {
 	return &this
 }
 
-// GetActionOutput returns the ActionOutput field value
-func (o *OperationActionUpdate) GetActionOutput() ActionOutput {
+// GetActionOutput returns the ActionOutput field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *OperationActionUpdate) GetActionOutput() interface{} {
 	if o == nil {
-		var ret ActionOutput
+		var ret interface{}
 		return ret
 	}
-
 	return o.ActionOutput
 }
 
-// GetActionOutputOk returns a tuple with the ActionOutput field value
+// GetActionOutputOk returns a tuple with the ActionOutput field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OperationActionUpdate) GetActionOutputOk() (*ActionOutput, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *OperationActionUpdate) GetActionOutputOk() (*interface{}, bool) {
+	if o == nil || o.ActionOutput == nil {
 		return nil, false
 	}
 	return &o.ActionOutput, true
 }
 
-// SetActionOutput sets field value
-func (o *OperationActionUpdate) SetActionOutput(v ActionOutput) {
+// HasActionOutput returns a boolean if a field has been set.
+func (o *OperationActionUpdate) HasActionOutput() bool {
+	if o != nil && o.ActionOutput != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetActionOutput gets a reference to the given interface{} and assigns it to the ActionOutput field.
+func (o *OperationActionUpdate) SetActionOutput(v interface{}) {
 	o.ActionOutput = v
 }
 
@@ -96,7 +104,7 @@ func (o *OperationActionUpdate) SetActionErrors(v string) {
 
 func (o OperationActionUpdate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if o.ActionOutput != nil {
 		toSerialize["action_output"] = o.ActionOutput
 	}
 	if o.ActionErrors != nil {

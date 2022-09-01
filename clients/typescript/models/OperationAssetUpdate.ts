@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { OperationTerraformRunUpdate } from './OperationTerraformRunUpdate';
+import { OperationTerraformRunUpdate } from '../models/OperationTerraformRunUpdate';
 import { HttpFile } from '../http/http';
 
 export class OperationAssetUpdate {

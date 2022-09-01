@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **TerraformApply** | Pointer to [**OperationTerraformRunUpdate**](OperationTerraformRunUpdate.md) |  | [optional] 
 **TerraformPlanFailures** | Pointer to **string** |  | [optional] 
 **TerraformApplyFailures** | Pointer to **string** |  | [optional] 
-**ActionOutput** | [**ActionOutput**](ActionOutput.md) |  | 
+**ActionOutput** | Pointer to **interface{}** |  | [optional] 
 **ActionErrors** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewData
 
-`func NewData(error_ string, terraformInit OperationTerraformRunUpdate, actionOutput ActionOutput, ) *Data`
+`func NewData(error_ string, terraformInit OperationTerraformRunUpdate, ) *Data`
 
 NewData instantiates a new Data object
 This constructor will assign default values to properties that have it defined,
@@ -174,24 +174,39 @@ HasTerraformApplyFailures returns a boolean if a field has been set.
 
 ### GetActionOutput
 
-`func (o *Data) GetActionOutput() ActionOutput`
+`func (o *Data) GetActionOutput() interface{}`
 
 GetActionOutput returns the ActionOutput field if non-nil, zero value otherwise.
 
 ### GetActionOutputOk
 
-`func (o *Data) GetActionOutputOk() (*ActionOutput, bool)`
+`func (o *Data) GetActionOutputOk() (*interface{}, bool)`
 
 GetActionOutputOk returns a tuple with the ActionOutput field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActionOutput
 
-`func (o *Data) SetActionOutput(v ActionOutput)`
+`func (o *Data) SetActionOutput(v interface{})`
 
 SetActionOutput sets ActionOutput field to given value.
 
+### HasActionOutput
 
+`func (o *Data) HasActionOutput() bool`
+
+HasActionOutput returns a boolean if a field has been set.
+
+### SetActionOutputNil
+
+`func (o *Data) SetActionOutputNil(b bool)`
+
+ SetActionOutputNil sets the value for ActionOutput to be an explicit nil
+
+### UnsetActionOutput
+`func (o *Data) UnsetActionOutput()`
+
+UnsetActionOutput ensures that no value is present for ActionOutput, not even an explicit nil
 ### GetActionErrors
 
 `func (o *Data) GetActionErrors() string`
