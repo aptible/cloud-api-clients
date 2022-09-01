@@ -43,7 +43,7 @@ module CloudApiClient
       {
         :'name' => :'String',
         :'sensitive' => :'Boolean',
-        :'structure' => :'Structure',
+        :'structure' => :'Object',
         :'data' => :'Object'
       }
     end
@@ -51,6 +51,7 @@ module CloudApiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'structure',
         :'data'
       ])
     end
@@ -99,10 +100,6 @@ module CloudApiClient
         invalid_properties.push('invalid value for "sensitive", sensitive cannot be nil.')
       end
 
-      if @structure.nil?
-        invalid_properties.push('invalid value for "structure", structure cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -111,7 +108,6 @@ module CloudApiClient
     def valid?
       return false if @name.nil?
       return false if @sensitive.nil?
-      return false if @structure.nil?
       true
     end
 

@@ -13,7 +13,6 @@ api_utilities.go
 api_worker.go
 client.go
 configuration.go
-docs/ActionOutput.md
 docs/ActionRequest.md
 docs/ActionResponse.md
 docs/ActionsApi.md
@@ -48,7 +47,6 @@ docs/OperationsApi.md
 docs/OrganizationInput.md
 docs/OrganizationOutput.md
 docs/OrganizationsApi.md
-docs/Structure.md
 docs/TextResponse.md
 docs/UtilitiesApi.md
 docs/ValidationError.md
@@ -56,7 +54,6 @@ docs/WorkerApi.md
 git_push.sh
 go.mod
 go.sum
-model_action_output.go
 model_action_request.go
 model_action_response.go
 model_asset_action.go
@@ -85,7 +82,6 @@ model_operation_type.go
 model_operation_update.go
 model_organization_input.go
 model_organization_output.go
-model_structure.go
 model_text_response.go
 model_validation_error.go
 response.go

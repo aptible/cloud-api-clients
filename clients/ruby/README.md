@@ -145,7 +145,6 @@ Class | Method | HTTP request | Description
  - [CloudApiClient::OperationUpdate](docs/OperationUpdate.md)
  - [CloudApiClient::OrganizationInput](docs/OrganizationInput.md)
  - [CloudApiClient::OrganizationOutput](docs/OrganizationOutput.md)
- - [CloudApiClient::Structure](docs/Structure.md)
  - [CloudApiClient::TextResponse](docs/TextResponse.md)
  - [CloudApiClient::ValidationError](docs/ValidationError.md)
 

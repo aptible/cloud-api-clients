@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **sensitive** | **Boolean** |  |  |
-| **structure** | [**Structure**](Structure.md) |  |  |
+| **structure** | **Object** |  | [optional] |
 | **data** | **Object** |  | [optional] |
 
 ## Example

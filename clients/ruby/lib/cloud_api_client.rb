@@ -46,7 +46,6 @@ require 'cloud_api_client/models/operation_type'
 require 'cloud_api_client/models/operation_update'
 require 'cloud_api_client/models/organization_input'
 require 'cloud_api_client/models/organization_output'
-require 'cloud_api_client/models/structure'
 require 'cloud_api_client/models/text_response'
 require 'cloud_api_client/models/validation_error'
 

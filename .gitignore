@@ -165,5 +165,5 @@ cloud-api
 .venv
 
 # generate below fresh every time based on pull
-openapi.json
+openapi*.json
 clients/**/*/.travis.yml

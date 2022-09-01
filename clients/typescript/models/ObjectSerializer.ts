@@ -27,7 +27,6 @@ export * from '../models/OperationType';
 export * from '../models/OperationUpdate';
 export * from '../models/OrganizationInput';
 export * from '../models/OrganizationOutput';
-export * from '../models/Structure';
 export * from '../models/TextResponse';
 export * from '../models/ValidationError';
 
@@ -60,7 +59,6 @@ import { OperationType } from '../models/OperationType';
 import { OperationUpdate } from '../models/OperationUpdate';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
-import { Structure } from '../models/Structure';
 import { TextResponse } from '../models/TextResponse';
 import { ValidationError } from '../models/ValidationError';
 
@@ -116,7 +114,6 @@ let typeMap: {[index: string]: any} = {
     "OperationUpdate": OperationUpdate,
     "OrganizationInput": OrganizationInput,
     "OrganizationOutput": OrganizationOutput,
-    "Structure": Structure,
     "TextResponse": TextResponse,
     "ValidationError": ValidationError,
 }

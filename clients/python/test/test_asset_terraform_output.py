@@ -12,8 +12,6 @@ import sys
 import unittest
 
 import cloud_api_client
-from cloud_api_client.model.structure import Structure
-globals()['Structure'] = Structure
 from cloud_api_client.model.asset_terraform_output import AssetTerraformOutput
 
 

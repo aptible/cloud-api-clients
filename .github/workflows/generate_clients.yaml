@@ -45,6 +45,15 @@ jobs:
         env:
           BUNDLE_DIRECTORY: "/home/runner/work/cloud-api-clients/cloud-api-clients/bundles"
 
+      - name: generate openapi.json for reuse (for Go)
+        env:
+          GENERATING_GO_CLIENT: true
+        run: |
+          source ./scripts/setenvs.sh
+          python -m scripts.openapi.generate openapi_go.json
+        env:
+          BUNDLE_DIRECTORY: "/home/runner/work/cloud-api-clients/cloud-api-clients/bundles"
+
 
       # 2 - Generate the separate clients!
       - run: ./scripts/generate-clients-gha.sh

@@ -110,7 +110,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [ActionOutput](docs/ActionOutput.md)
  - [ActionRequest](docs/ActionRequest.md)
  - [ActionResponse](docs/ActionResponse.md)
  - [AssetAction](docs/AssetAction.md)
@@ -139,7 +138,6 @@ Class | Method | HTTP request | Description
  - [OperationUpdate](docs/OperationUpdate.md)
  - [OrganizationInput](docs/OrganizationInput.md)
  - [OrganizationOutput](docs/OrganizationOutput.md)
- - [Structure](docs/Structure.md)
  - [TextResponse](docs/TextResponse.md)
  - [ValidationError](docs/ValidationError.md)
 

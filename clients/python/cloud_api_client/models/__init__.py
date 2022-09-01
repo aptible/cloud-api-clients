@@ -38,6 +38,5 @@ from cloud_api_client.model.operation_type import OperationType
 from cloud_api_client.model.operation_update import OperationUpdate
 from cloud_api_client.model.organization_input import OrganizationInput
 from cloud_api_client.model.organization_output import OrganizationOutput
-from cloud_api_client.model.structure import Structure
 from cloud_api_client.model.text_response import TextResponse
 from cloud_api_client.model.validation_error import ValidationError
