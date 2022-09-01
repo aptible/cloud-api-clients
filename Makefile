@@ -45,7 +45,7 @@ generate_openapi_json:
 generate_openapi_json_go:
 	export BUNDLE_DIRECTORY=$(BUNDLE_DIRECTORY) && \
  	export PRE_START_CHECKS="False" && \
- 		export GENERATING_GO_CLIENT="true" && \
+	export GENERATING_GO_CLIENT="true" && \
 		source ./scripts/setenvs.sh && \
  		$(PYTHON) -m scripts.openapi.generate openapi_go.json
 

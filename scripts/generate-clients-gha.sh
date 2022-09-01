@@ -75,7 +75,7 @@ openapi-generator-cli generate --skip-validate-spec \
 
 # generate golang client
 openapi-generator-cli generate --skip-validate-spec \
-	  -i openapi.json \
+	  -i openapi_go.json \
 	  -g go \
 	  -o clients/go \
 	  --additional-properties=packageName=cloud_api_client \
