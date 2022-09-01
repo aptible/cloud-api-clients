@@ -7,3 +7,4 @@ export SQLALCHEMY_DATABASE_URI="postgresql://user:password@unnecessary-for-clien
 export SERVER_NAME="unnecessary-for-client-generation"
 export SERVER_HOST="https://unnecessary-for-client-generation"
 export AWS_CLOUD_API_JWT_PRIVATE_KEY_ID="unncessary-for-client-generation"
+export ENABLE_DEBUG_ENDPOINTS="true"
