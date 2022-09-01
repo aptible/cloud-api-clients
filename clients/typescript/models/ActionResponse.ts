@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 
-import { AssetOutput } from '../models/AssetOutput';
-import { OperationOutput } from '../models/OperationOutput';
+import { AssetOutput } from './AssetOutput';
+import { OperationOutput } from './OperationOutput';
 import { HttpFile } from '../http/http';
 
 export class ActionResponse {

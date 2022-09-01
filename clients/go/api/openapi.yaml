@@ -1182,7 +1182,7 @@ components:
               data: ""
               name: name
               sensitive: true
-              structure: null
+              structure: ""
           environment:
             data: "{}"
             aws_account_id: aws_account_id
@@ -1387,7 +1387,7 @@ components:
             data: ""
             name: name
             sensitive: true
-            structure: null
+            structure: ""
         environment:
           data: "{}"
           aws_account_id: aws_account_id
@@ -1545,7 +1545,7 @@ components:
         data: ""
         name: name
         sensitive: true
-        structure: null
+        structure: ""
       properties:
         name:
           title: Name
@@ -1554,13 +1554,12 @@ components:
           title: Sensitive
           type: boolean
         structure:
-          $ref: '#/components/schemas/Structure'
+          title: Structure
         data:
           title: Data
       required:
       - name
       - sensitive
-      - structure
       title: AssetTerraformOutput
       type: object
     ConnectionInput:
@@ -1985,13 +1984,6 @@ components:
       - type
       title: ValidationError
       type: object
-    Structure:
-      anyOf:
-      - maxItems: 2
-        minItems: 2
-        type: array
-      - type: string
-      title: Structure
     Action_Output:
       anyOf:
       - type: object

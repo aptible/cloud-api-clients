@@ -18,7 +18,7 @@ import (
 type AssetTerraformOutput struct {
 	Name string `json:"name"`
 	Sensitive bool `json:"sensitive"`
-	Structure Structure `json:"structure"`
+	Structure interface{} `json:"structure,omitempty"`
 	Data interface{} `json:"data,omitempty"`
 }
 
@@ -26,11 +26,10 @@ type AssetTerraformOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetTerraformOutput(name string, sensitive bool, structure Structure) *AssetTerraformOutput {
+func NewAssetTerraformOutput(name string, sensitive bool) *AssetTerraformOutput {
 	this := AssetTerraformOutput{}
 	this.Name = name
 	this.Sensitive = sensitive
-	this.Structure = structure
 	return &this
 }
 
@@ -90,27 +89,36 @@ func (o *AssetTerraformOutput) SetSensitive(v bool) {
 	o.Sensitive = v
 }
 
-// GetStructure returns the Structure field value
-func (o *AssetTerraformOutput) GetStructure() Structure {
+// GetStructure returns the Structure field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AssetTerraformOutput) GetStructure() interface{} {
 	if o == nil {
-		var ret Structure
+		var ret interface{}
 		return ret
 	}
-
 	return o.Structure
 }
 
-// GetStructureOk returns a tuple with the Structure field value
+// GetStructureOk returns a tuple with the Structure field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AssetTerraformOutput) GetStructureOk() (*Structure, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AssetTerraformOutput) GetStructureOk() (*interface{}, bool) {
+	if o == nil || o.Structure == nil {
 		return nil, false
 	}
 	return &o.Structure, true
 }
 
-// SetStructure sets field value
-func (o *AssetTerraformOutput) SetStructure(v Structure) {
+// HasStructure returns a boolean if a field has been set.
+func (o *AssetTerraformOutput) HasStructure() bool {
+	if o != nil && o.Structure != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStructure gets a reference to the given interface{} and assigns it to the Structure field.
+func (o *AssetTerraformOutput) SetStructure(v interface{}) {
 	o.Structure = v
 }
 
@@ -155,7 +163,7 @@ func (o AssetTerraformOutput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["sensitive"] = o.Sensitive
 	}
-	if true {
+	if o.Structure != nil {
 		toSerialize["structure"] = o.Structure
 	}
 	if o.Data != nil {

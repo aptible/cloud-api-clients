@@ -10,13 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { Structure } from '../models/Structure';
 import { HttpFile } from '../http/http';
 
 export class AssetTerraformOutput {
     'name': string;
     'sensitive': boolean;
-    'structure': Structure;
+    'structure'?: any;
     'data'?: any;
 
     static readonly discriminator: string | undefined = undefined;
@@ -37,7 +36,7 @@ export class AssetTerraformOutput {
         {
             "name": "structure",
             "baseName": "structure",
-            "type": "Structure",
+            "type": "any",
             "format": ""
         },
         {

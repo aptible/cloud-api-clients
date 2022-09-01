@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Sensitive** | **bool** |  | 
-**Structure** | [**Structure**](Structure.md) |  | 
+**Structure** | Pointer to **interface{}** |  | [optional] 
 **Data** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewAssetTerraformOutput
 
-`func NewAssetTerraformOutput(name string, sensitive bool, structure Structure, ) *AssetTerraformOutput`
+`func NewAssetTerraformOutput(name string, sensitive bool, ) *AssetTerraformOutput`
 
 NewAssetTerraformOutput instantiates a new AssetTerraformOutput object
 This constructor will assign default values to properties that have it defined,
@@ -70,24 +70,39 @@ SetSensitive sets Sensitive field to given value.
 
 ### GetStructure
 
-`func (o *AssetTerraformOutput) GetStructure() Structure`
+`func (o *AssetTerraformOutput) GetStructure() interface{}`
 
 GetStructure returns the Structure field if non-nil, zero value otherwise.
 
 ### GetStructureOk
 
-`func (o *AssetTerraformOutput) GetStructureOk() (*Structure, bool)`
+`func (o *AssetTerraformOutput) GetStructureOk() (*interface{}, bool)`
 
 GetStructureOk returns a tuple with the Structure field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStructure
 
-`func (o *AssetTerraformOutput) SetStructure(v Structure)`
+`func (o *AssetTerraformOutput) SetStructure(v interface{})`
 
 SetStructure sets Structure field to given value.
 
+### HasStructure
 
+`func (o *AssetTerraformOutput) HasStructure() bool`
+
+HasStructure returns a boolean if a field has been set.
+
+### SetStructureNil
+
+`func (o *AssetTerraformOutput) SetStructureNil(b bool)`
+
+ SetStructureNil sets the value for Structure to be an explicit nil
+
+### UnsetStructure
+`func (o *AssetTerraformOutput) UnsetStructure()`
+
+UnsetStructure ensures that no value is present for Structure, not even an explicit nil
 ### GetData
 
 `func (o *AssetTerraformOutput) GetData() interface{}`

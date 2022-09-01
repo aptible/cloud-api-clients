@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -48,7 +47,6 @@ docs/OperationsApi.md
 docs/OrganizationInput.md
 docs/OrganizationOutput.md
 docs/OrganizationsApi.md
-docs/Structure.md
 docs/TextResponse.md
 docs/UtilitiesApi.md
 docs/ValidationError.md
@@ -85,7 +83,6 @@ model_operation_type.go
 model_operation_update.go
 model_organization_input.go
 model_organization_output.go
-model_structure.go
 model_text_response.go
 model_validation_error.go
 response.go

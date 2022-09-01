@@ -157,7 +157,6 @@ Class | Method | HTTP request | Description
  - [OperationUpdate](docs/OperationUpdate.md)
  - [OrganizationInput](docs/OrganizationInput.md)
  - [OrganizationOutput](docs/OrganizationOutput.md)
- - [Structure](docs/Structure.md)
  - [TextResponse](docs/TextResponse.md)
  - [ValidationError](docs/ValidationError.md)
 

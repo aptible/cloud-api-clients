@@ -1,4 +1,5 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
+import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
 import { ActionOutput } from '../models/ActionOutput';
@@ -30,7 +31,6 @@ import { OperationType } from '../models/OperationType';
 import { OperationUpdate } from '../models/OperationUpdate';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
-import { Structure } from '../models/Structure';
 import { TextResponse } from '../models/TextResponse';
 import { ValidationError } from '../models/ValidationError';
 

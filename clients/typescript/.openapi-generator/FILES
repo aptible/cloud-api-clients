@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 ActionsApi.md
 AssetsApi.md
 ConnectionsApi.md
@@ -56,7 +55,6 @@ models/OperationType.ts
 models/OperationUpdate.ts
 models/OrganizationInput.ts
 models/OrganizationOutput.ts
-models/Structure.ts
 models/TextResponse.ts
 models/ValidationError.ts
 models/all.ts
