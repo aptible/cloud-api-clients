@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost**](ActionsApi.md#CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Create Action
-[**GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet**](ActionsApi.md#GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Get Action
+[**ActionCreate**](ActionsApi.md#ActionCreate) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Action Create
+[**ActionGet**](ActionsApi.md#ActionGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Action Get
 
 
 
-## CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost
+## ActionCreate
 
-> ActionResponse CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(ctx, assetId, environmentId, organizationId).ActionRequest(actionRequest).Execute()
+> ActionResponse ActionCreate(ctx, assetId, environmentId, organizationId).ActionRequest(actionRequest).Execute()
 
-Create Action
+Action Create
 
 ### Example
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ActionsApi.CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(context.Background(), assetId, environmentId, organizationId).ActionRequest(actionRequest).Execute()
+    resp, r, err := apiClient.ActionsApi.ActionCreate(context.Background(), assetId, environmentId, organizationId).ActionRequest(actionRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ActionsApi.CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ActionsApi.ActionCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost`: ActionResponse
-    fmt.Fprintf(os.Stdout, "Response from `ActionsApi.CreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost`: %v\n", resp)
+    // response from `ActionCreate`: ActionResponse
+    fmt.Fprintf(os.Stdout, "Response from `ActionsApi.ActionCreate`: %v\n", resp)
 }
 ```
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiActionCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -85,11 +85,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet
+## ActionGet
 
-> ActionResponse GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(ctx, assetId, environmentId, actionId, organizationId).Execute()
+> ActionResponse ActionGet(ctx, assetId, environmentId, actionId, organizationId).Execute()
 
-Get Action
+Action Get
 
 ### Example
 
@@ -111,13 +111,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ActionsApi.GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(context.Background(), assetId, environmentId, actionId, organizationId).Execute()
+    resp, r, err := apiClient.ActionsApi.ActionGet(context.Background(), assetId, environmentId, actionId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ActionsApi.GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ActionsApi.ActionGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet`: ActionResponse
-    fmt.Fprintf(os.Stdout, "Response from `ActionsApi.GetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet`: %v\n", resp)
+    // response from `ActionGet`: ActionResponse
+    fmt.Fprintf(os.Stdout, "Response from `ActionsApi.ActionGet`: %v\n", resp)
 }
 ```
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiActionGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

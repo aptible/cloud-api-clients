@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**workerHealthCheckApiV1WorkerHealthCheckPost**](WorkerApi.md#workerHealthCheckApiV1WorkerHealthCheckPost) | **POST** /api/v1/worker/health-check | Worker Health Check
+[**workerHealthCheck**](WorkerApi.md#workerHealthCheck) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 
-# **workerHealthCheckApiV1WorkerHealthCheckPost**
-> any workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker)
+# **workerHealthCheck**
+> any workerHealthCheck(healthCheckFromWorker)
 
 
 ### Example
@@ -21,7 +21,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .WorkerApi(configuration);
 
-let body:.WorkerApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest = {
+let body:.WorkerApiWorkerHealthCheckRequest = {
   // HealthCheckFromWorker
   healthCheckFromWorker: {
     environmentId: "environmentId_example",
@@ -31,7 +31,7 @@ let body:.WorkerApiWorkerHealthCheckApiV1WorkerHealthCheckPostRequest = {
   },
 };
 
-apiInstance.workerHealthCheckApiV1WorkerHealthCheckPost(body).then((data:any) => {
+apiInstance.workerHealthCheck(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

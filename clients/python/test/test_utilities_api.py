@@ -23,22 +23,22 @@ class TestUtilitiesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_get_ping_api_v1_debug_ping_get(self):
-        """Test case for get_ping_api_v1_debug_ping_get
+    def test_get_ping(self):
+        """Test case for get_ping
 
         Get Ping  # noqa: E501
         """
         pass
 
-    def test_get_user_api_v1_debug_user_auth_get(self):
-        """Test case for get_user_api_v1_debug_user_auth_get
+    def test_get_user(self):
+        """Test case for get_user
 
         Get User  # noqa: E501
         """
         pass
 
-    def test_get_user_role_api_v1_debug_user_role_middleware_check_get(self):
-        """Test case for get_user_role_api_v1_debug_user_role_middleware_check_get
+    def test_get_user_role(self):
+        """Test case for get_user_role
 
         Get User Role  # noqa: E501
         """

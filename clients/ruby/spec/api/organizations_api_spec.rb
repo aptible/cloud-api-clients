@@ -32,45 +32,69 @@ describe 'OrganizationsApi' do
     end
   end
 
-  # unit tests for delete_api_v1_organizations_organization_id_delete
-  # Delete
+  # unit tests for organization_delete
+  # Organization Delete
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [Object]
-  describe 'delete_api_v1_organizations_organization_id_delete test' do
+  describe 'organization_delete test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_organization_by_id_api_v1_organizations_organization_id_get
-  # Get Organization By Id
+  # unit tests for organization_get
+  # Organization Get
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [OrganizationOutput]
-  describe 'get_organization_by_id_api_v1_organizations_organization_id_get test' do
+  describe 'organization_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_organizations_api_v1_organizations_get
-  # Get Organizations
+  # unit tests for organization_get_environments
+  # Organization Get Environments
+  # @param organization_id 
+  # @param [Hash] opts the optional parameters
+  # @return [Array<EnvironmentOutput>]
+  describe 'organization_get_environments test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for organization_get_operations
+  # Organization Get Operations
+  # @param organization_id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :asset_id 
+  # @option opts [String] :environment_id 
+  # @return [Array<OperationOutput>]
+  describe 'organization_get_operations test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for organization_list
+  # Organization List
   # @param [Hash] opts the optional parameters
   # @return [Array<OrganizationOutput>]
-  describe 'get_organizations_api_v1_organizations_get test' do
+  describe 'organization_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for put_organization_api_v1_organizations_organization_id_put
-  # Put Organization
+  # unit tests for organization_update
+  # Organization Update
   # @param organization_id 
   # @param organization_input 
   # @param [Hash] opts the optional parameters
   # @return [OrganizationOutput]
-  describe 'put_organization_api_v1_organizations_organization_id_put test' do
+  describe 'organization_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

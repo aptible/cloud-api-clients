@@ -7,7 +7,7 @@ servers:
 paths:
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}:
     delete:
-      operationId: delete_asset_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__delete
+      operationId: asset_delete
       parameters:
       - explode: false
         in: path
@@ -40,10 +40,7 @@ paths:
         "200":
           content:
             application/json:
-              schema:
-                title: Response Delete Asset By Id Api V1 Organizations  Organization
-                  Id  Environments  Environment Id  Assets  Asset Id  Delete
-                type: integer
+              schema: {}
           description: Successful Response
         "422":
           content:
@@ -54,11 +51,11 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Delete Asset By Id
+      summary: Asset Delete
       tags:
       - assets
     get:
-      operationId: get_asset_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__get
+      operationId: asset_get
       parameters:
       - explode: false
         in: path
@@ -103,11 +100,11 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Get Asset By Id
+      summary: Asset Get
       tags:
       - assets
     put:
-      operationId: update_asset_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__put
+      operationId: asset_update
       parameters:
       - explode: false
         in: path
@@ -158,12 +155,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Update Asset By Id
+      summary: Asset Update
       tags:
       - assets
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets:
     get:
-      operationId: get_assets_api_v1_organizations__organization_id__environments__environment_id__assets_get
+      operationId: environment_get_assets
       parameters:
       - explode: false
         in: path
@@ -190,8 +187,8 @@ paths:
               schema:
                 items:
                   $ref: '#/components/schemas/AssetOutput'
-                title: Response Get Assets Api V1 Organizations  Organization Id  Environments  Environment
-                  Id  Assets Get
+                title: Response Environment Get Assets Api V1 Organizations  Organization
+                  Id  Environments  Environment Id  Assets Get
                 type: array
           description: Successful Response
         "422":
@@ -202,11 +199,11 @@ paths:
           description: Validation Error
       security:
       - HTTPBearer: []
-      summary: Get Assets
+      summary: Environment Get Assets
       tags:
       - environments
     post:
-      operationId: create_asset_api_v1_organizations__organization_id__environments__environment_id__assets_post
+      operationId: asset_create
       parameters:
       - explode: false
         in: path
@@ -248,12 +245,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Create Asset
+      summary: Asset Create
       tags:
       - assets
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action:
     post:
-      operationId: create_action_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__action_post
+      operationId: action_create
       parameters:
       - explode: false
         in: path
@@ -304,12 +301,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Create Action
+      summary: Action Create
       tags:
       - actions
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id}:
     get:
-      operationId: get_action_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__action__action_id__get
+      operationId: action_get
       parameters:
       - explode: false
         in: path
@@ -363,12 +360,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Get Action
+      summary: Action Get
       tags:
       - actions
   /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles:
     get:
-      operationId: get_environment_allowed_assets_api_v1_organizations__organization_id__environments__environment_id__asset_bundles_get
+      operationId: environment_get_allowed_asset_bundles
       parameters:
       - explode: false
         in: path
@@ -395,7 +392,7 @@ paths:
               schema:
                 items:
                   $ref: '#/components/schemas/AssetBundle'
-                title: Response Get Environment Allowed Assets Api V1 Organizations  Organization
+                title: Response Environment Get Allowed Asset Bundles Api V1 Organizations  Organization
                   Id  Environments  Environment Id  Asset Bundles Get
                 type: array
           description: Successful Response
@@ -408,12 +405,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Get Environment Allowed Assets
+      summary: Environment Get Allowed Asset Bundles
       tags:
       - environments
   /api/v1/organizations/{organization_id}/environments/{environment_id}/connections:
     get:
-      operationId: get_environment_connections_api_v1_organizations__organization_id__environments__environment_id__connections_get
+      operationId: environment_get_connections
       parameters:
       - explode: false
         in: path
@@ -440,7 +437,7 @@ paths:
               schema:
                 items:
                   $ref: '#/components/schemas/ConnectionOutput'
-                title: Response Get Environment Connections Api V1 Organizations  Organization
+                title: Response Environment Get Connections Api V1 Organizations  Organization
                   Id  Environments  Environment Id  Connections Get
                 type: array
           description: Successful Response
@@ -453,12 +450,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Get Environment Connections
+      summary: Environment Get Connections
       tags:
       - environments
   /api/v1/organizations/{organization_id}/environments/{environment_id}:
     delete:
-      operationId: delete_environment_by_id_api_v1_organizations__organization_id__environments__environment_id__delete
+      operationId: environment_delete
       parameters:
       - explode: false
         in: path
@@ -482,10 +479,7 @@ paths:
         "200":
           content:
             application/json:
-              schema:
-                title: Response Delete Environment By Id Api V1 Organizations  Organization
-                  Id  Environments  Environment Id  Delete
-                type: integer
+              schema: {}
           description: Successful Response
         "422":
           content:
@@ -496,11 +490,11 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Delete Environment By Id
+      summary: Environment Delete
       tags:
       - environments
     get:
-      operationId: get_environment_by_id_api_v1_organizations__organization_id__environments__environment_id__get
+      operationId: environment_get
       parameters:
       - explode: false
         in: path
@@ -536,11 +530,11 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Get Environment By Id
+      summary: Environment Get
       tags:
       - environments
     put:
-      operationId: update_environment_api_v1_organizations__organization_id__environments__environment_id__put
+      operationId: environment_update
       parameters:
       - explode: false
         in: path
@@ -582,12 +576,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Update Environment
+      summary: Environment Update
       tags:
       - environments
   /api/v1/organizations/{organization_id}/environments:
     get:
-      operationId: get_environments_api_v1_organizations__organization_id__environments_get
+      operationId: organization_get_environments
       parameters:
       - explode: false
         in: path
@@ -605,7 +599,7 @@ paths:
               schema:
                 items:
                   $ref: '#/components/schemas/EnvironmentOutput'
-                title: Response Get Environments Api V1 Organizations  Organization
+                title: Response Organization Get Environments Api V1 Organizations  Organization
                   Id  Environments Get
                 type: array
           description: Successful Response
@@ -617,11 +611,11 @@ paths:
           description: Validation Error
       security:
       - HTTPBearer: []
-      summary: Get Environments
+      summary: Organization Get Environments
       tags:
-      - environments
+      - organizations
     post:
-      operationId: create_environment_api_v1_organizations__organization_id__environments_post
+      operationId: environment_create
       parameters:
       - explode: false
         in: path
@@ -654,12 +648,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Create Environment
+      summary: Environment Create
       tags:
       - environments
   /api/v1/worker/health-check:
     post:
-      operationId: worker_health_check_api_v1_worker_health_check_post
+      operationId: worker_health_check
       requestBody:
         content:
           application/json:
@@ -683,7 +677,7 @@ paths:
       - worker
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/:
     post:
-      operationId: create_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__post
+      operationId: connection_create
       parameters:
       - explode: false
         in: path
@@ -734,12 +728,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Create Connection
+      summary: Connection Create
       tags:
       - connections
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}:
     delete:
-      operationId: delete_connection_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__connection_id__delete
+      operationId: connection_delete
       parameters:
       - explode: false
         in: path
@@ -792,11 +786,11 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Delete Connection
+      summary: Connection Delete
       tags:
       - connections
     get:
-      operationId: get_connection_by_id_api_v1_organizations__organization_id__environments__environment_id__assets__asset_id__connections__connection_id__get
+      operationId: connection_get
       parameters:
       - explode: false
         in: path
@@ -850,12 +844,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Get Connection By Id
+      summary: Connection Get
       tags:
       - connections
   /api/v1/organizations/{organization_id}/operations/{operation_id}:
     get:
-      operationId: get_operations_by_operation_id_api_v1_organizations__organization_id__operations__operation_id__get
+      operationId: operation_get
       parameters:
       - explode: false
         in: path
@@ -882,8 +876,8 @@ paths:
               schema:
                 items:
                   $ref: '#/components/schemas/OperationOutput'
-                title: Response Get Operations By Operation Id Api V1 Organizations  Organization
-                  Id  Operations  Operation Id  Get
+                title: Response Operation Get Api V1 Organizations  Organization Id  Operations  Operation
+                  Id  Get
                 type: array
           description: Successful Response
         "422":
@@ -895,12 +889,164 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Get Operations By Operation Id
+      summary: Operation Get
       tags:
       - operations
+  /api/v1/operations/{operation_id}:
+    put:
+      operationId: operation_update
+      parameters:
+      - explode: false
+        in: path
+        name: operation_id
+        required: true
+        schema:
+          format: uuid
+          title: Operation Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationUpdate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Operation Update
+      tags:
+      - operations
+  /api/v1/organizations/{organization_id}:
+    delete:
+      operationId: organization_delete
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Organization Delete
+      tags:
+      - organizations
+    get:
+      operationId: organization_get
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Organization Get
+      tags:
+      - organizations
+    put:
+      operationId: organization_update
+      parameters:
+      - explode: false
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          format: uuid
+          title: Organization Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationOutput'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      - HTTPBearer: []
+      summary: Organization Update
+      tags:
+      - organizations
+  /api/v1/organizations/:
+    get:
+      operationId: organization_list
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrganizationOutput'
+                title: Response Organization List Api V1 Organizations  Get
+                type: array
+          description: Successful Response
+      security:
+      - HTTPBearer: []
+      summary: Organization List
+      tags:
+      - organizations
   /api/v1/organizations/{organization_id}/operations/:
     get:
-      operationId: get_operations_api_v1_organizations__organization_id__operations__get
+      operationId: organization_get_operations
       parameters:
       - explode: false
         in: path
@@ -936,7 +1082,7 @@ paths:
               schema:
                 items:
                   $ref: '#/components/schemas/OperationOutput'
-                title: Response Get Operations Api V1 Organizations  Organization
+                title: Response Organization Get Operations Api V1 Organizations  Organization
                   Id  Operations  Get
                 type: array
           description: Successful Response
@@ -949,164 +1095,12 @@ paths:
       security:
       - HTTPBearer: []
       - HTTPBearer: []
-      summary: Get Operations
-      tags:
-      - operations
-  /api/v1/operations/{operation_id}:
-    put:
-      operationId: update_operation_api_v1_operations__operation_id__put
-      parameters:
-      - explode: false
-        in: path
-        name: operation_id
-        required: true
-        schema:
-          format: uuid
-          title: Operation Id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OperationUpdate'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      summary: Update Operation
-      tags:
-      - operations
-  /api/v1/organizations/{organization_id}:
-    delete:
-      operationId: delete_api_v1_organizations__organization_id__delete
-      parameters:
-      - explode: false
-        in: path
-        name: organization_id
-        required: true
-        schema:
-          format: uuid
-          title: Organization Id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      summary: Delete
-      tags:
-      - organizations
-    get:
-      operationId: get_organization_by_id_api_v1_organizations__organization_id__get
-      parameters:
-      - explode: false
-        in: path
-        name: organization_id
-        required: true
-        schema:
-          format: uuid
-          title: Organization Id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationOutput'
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      - HTTPBearer: []
-      summary: Get Organization By Id
-      tags:
-      - organizations
-    put:
-      operationId: put_organization_api_v1_organizations__organization_id__put
-      parameters:
-      - explode: false
-        in: path
-        name: organization_id
-        required: true
-        schema:
-          format: uuid
-          title: Organization Id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OrganizationInput'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationOutput'
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      - HTTPBearer: []
-      summary: Put Organization
-      tags:
-      - organizations
-  /api/v1/organizations/:
-    get:
-      operationId: get_organizations_api_v1_organizations__get
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/OrganizationOutput'
-                title: Response Get Organizations Api V1 Organizations  Get
-                type: array
-          description: Successful Response
-      security:
-      - HTTPBearer: []
-      summary: Get Organizations
+      summary: Organization Get Operations
       tags:
       - organizations
   /api/v1/debug/user_auth:
     get:
-      operationId: get_user_api_v1_debug_user_auth_get
+      operationId: get_user
       responses:
         "200":
           content:
@@ -1120,7 +1114,7 @@ paths:
       - utilities
   /api/v1/debug/user_role_middleware_check:
     get:
-      operationId: get_user_role_api_v1_debug_user_role_middleware_check_get
+      operationId: get_user_role
       parameters:
       - explode: true
         in: query
@@ -1150,7 +1144,7 @@ paths:
       - utilities
   /api/v1/debug/ping:
     get:
-      operationId: get_ping_api_v1_debug_ping_get
+      operationId: get_ping
       responses:
         "200":
           content:

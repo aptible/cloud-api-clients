@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost**](ConnectionsApi.md#CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Create Connection
-[**DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete**](ConnectionsApi.md#DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Delete Connection
-[**GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet**](ConnectionsApi.md#GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Get Connection By Id
+[**ConnectionCreate**](ConnectionsApi.md#ConnectionCreate) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Connection Create
+[**ConnectionDelete**](ConnectionsApi.md#ConnectionDelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Delete
+[**ConnectionGet**](ConnectionsApi.md#ConnectionGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Get
 
 
 
-## CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost
+## ConnectionCreate
 
-> ConnectionOutput CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(ctx, assetId, environmentId, organizationId).ConnectionInput(connectionInput).Execute()
+> ConnectionOutput ConnectionCreate(ctx, assetId, environmentId, organizationId).ConnectionInput(connectionInput).Execute()
 
-Create Connection
+Connection Create
 
 ### Example
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionsApi.CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(context.Background(), assetId, environmentId, organizationId).ConnectionInput(connectionInput).Execute()
+    resp, r, err := apiClient.ConnectionsApi.ConnectionCreate(context.Background(), assetId, environmentId, organizationId).ConnectionInput(connectionInput).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionsApi.CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionsApi.ConnectionCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost`: ConnectionOutput
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionsApi.CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost`: %v\n", resp)
+    // response from `ConnectionCreate`: ConnectionOutput
+    fmt.Fprintf(os.Stdout, "Response from `ConnectionsApi.ConnectionCreate`: %v\n", resp)
 }
 ```
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiConnectionCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -86,11 +86,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete
+## ConnectionDelete
 
-> interface{} DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(ctx, assetId, connectionId, environmentId, organizationId).Execute()
+> interface{} ConnectionDelete(ctx, assetId, connectionId, environmentId, organizationId).Execute()
 
-Delete Connection
+Connection Delete
 
 ### Example
 
@@ -112,13 +112,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionsApi.DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(context.Background(), assetId, connectionId, environmentId, organizationId).Execute()
+    resp, r, err := apiClient.ConnectionsApi.ConnectionDelete(context.Background(), assetId, connectionId, environmentId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionsApi.DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionsApi.ConnectionDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete`: interface{}
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionsApi.DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete`: %v\n", resp)
+    // response from `ConnectionDelete`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ConnectionsApi.ConnectionDelete`: %v\n", resp)
 }
 ```
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiConnectionDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -163,11 +163,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet
+## ConnectionGet
 
-> ConnectionOutput GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx, assetId, environmentId, connectionId, organizationId).Execute()
+> ConnectionOutput ConnectionGet(ctx, assetId, environmentId, connectionId, organizationId).Execute()
 
-Get Connection By Id
+Connection Get
 
 ### Example
 
@@ -189,13 +189,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionsApi.GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(context.Background(), assetId, environmentId, connectionId, organizationId).Execute()
+    resp, r, err := apiClient.ConnectionsApi.ConnectionGet(context.Background(), assetId, environmentId, connectionId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionsApi.GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionsApi.ConnectionGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet`: ConnectionOutput
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionsApi.GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet`: %v\n", resp)
+    // response from `ConnectionGet`: ConnectionOutput
+    fmt.Fprintf(os.Stdout, "Response from `ConnectionsApi.ConnectionGet`: %v\n", resp)
 }
 ```
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiConnectionGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

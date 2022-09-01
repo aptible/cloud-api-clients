@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post**](ActionsApi.md#create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Create Action
-[**get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get**](ActionsApi.md#get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Get Action
+[**action_create**](ActionsApi.md#action_create) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action | Action Create
+[**action_get**](ActionsApi.md#action_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id} | Action Get
 
 
-# **create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post**
-> ActionResponse create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post(asset_id, environment_id, organization_id, action_request)
+# **action_create**
+> ActionResponse action_create(asset_id, environment_id, organization_id, action_request)
 
-Create Action
+Action Create
 
 ### Example
 
@@ -55,11 +55,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create Action
-        api_response = api_instance.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post(asset_id, environment_id, organization_id, action_request)
+        # Action Create
+        api_response = api_instance.action_create(asset_id, environment_id, organization_id, action_request)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling ActionsApi->create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post: %s\n" % e)
+        print("Exception when calling ActionsApi->action_create: %s\n" % e)
 ```
 
 
@@ -95,10 +95,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get**
-> ActionResponse get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get(asset_id, environment_id, action_id, organization_id)
+# **action_get**
+> ActionResponse action_get(asset_id, environment_id, action_id, organization_id)
 
-Get Action
+Action Get
 
 ### Example
 
@@ -138,11 +138,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Action
-        api_response = api_instance.get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get(asset_id, environment_id, action_id, organization_id)
+        # Action Get
+        api_response = api_instance.action_get(asset_id, environment_id, action_id, organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling ActionsApi->get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get: %s\n" % e)
+        print("Exception when calling ActionsApi->action_get: %s\n" % e)
 ```
 
 

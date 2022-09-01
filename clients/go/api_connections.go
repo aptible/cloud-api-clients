@@ -23,57 +23,57 @@ import (
 type ConnectionsApi interface {
 
 	/*
-	CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost Create Connection
+	ConnectionCreate Connection Create
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param environmentId
 	@param organizationId
-	@return ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest
+	@return ApiConnectionCreateRequest
 	*/
-	CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(ctx context.Context, assetId string, environmentId string, organizationId string) ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest
+	ConnectionCreate(ctx context.Context, assetId string, environmentId string, organizationId string) ApiConnectionCreateRequest
 
-	// CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostExecute executes the request
+	// ConnectionCreateExecute executes the request
 	//  @return ConnectionOutput
-	CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostExecute(r ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest) (*ConnectionOutput, *http.Response, error)
+	ConnectionCreateExecute(r ApiConnectionCreateRequest) (*ConnectionOutput, *http.Response, error)
 
 	/*
-	DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete Delete Connection
+	ConnectionDelete Connection Delete
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param connectionId
 	@param environmentId
 	@param organizationId
-	@return ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest
+	@return ApiConnectionDeleteRequest
 	*/
-	DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(ctx context.Context, assetId string, connectionId string, environmentId string, organizationId string) ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest
+	ConnectionDelete(ctx context.Context, assetId string, connectionId string, environmentId string, organizationId string) ApiConnectionDeleteRequest
 
-	// DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteExecute executes the request
+	// ConnectionDeleteExecute executes the request
 	//  @return interface{}
-	DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteExecute(r ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest) (interface{}, *http.Response, error)
+	ConnectionDeleteExecute(r ApiConnectionDeleteRequest) (interface{}, *http.Response, error)
 
 	/*
-	GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet Get Connection By Id
+	ConnectionGet Connection Get
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param environmentId
 	@param connectionId
 	@param organizationId
-	@return ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest
+	@return ApiConnectionGetRequest
 	*/
-	GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx context.Context, assetId string, environmentId string, connectionId string, organizationId string) ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest
+	ConnectionGet(ctx context.Context, assetId string, environmentId string, connectionId string, organizationId string) ApiConnectionGetRequest
 
-	// GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetExecute executes the request
+	// ConnectionGetExecute executes the request
 	//  @return ConnectionOutput
-	GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetExecute(r ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest) (*ConnectionOutput, *http.Response, error)
+	ConnectionGetExecute(r ApiConnectionGetRequest) (*ConnectionOutput, *http.Response, error)
 }
 
 // ConnectionsApiService ConnectionsApi service
 type ConnectionsApiService service
 
-type ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest struct {
+type ApiConnectionCreateRequest struct {
 	ctx context.Context
 	ApiService ConnectionsApi
 	assetId string
@@ -82,26 +82,26 @@ type ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentI
 	connectionInput *ConnectionInput
 }
 
-func (r ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest) ConnectionInput(connectionInput ConnectionInput) ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest {
+func (r ApiConnectionCreateRequest) ConnectionInput(connectionInput ConnectionInput) ApiConnectionCreateRequest {
 	r.connectionInput = &connectionInput
 	return r
 }
 
-func (r ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest) Execute() (*ConnectionOutput, *http.Response, error) {
-	return r.ApiService.CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostExecute(r)
+func (r ApiConnectionCreateRequest) Execute() (*ConnectionOutput, *http.Response, error) {
+	return r.ApiService.ConnectionCreateExecute(r)
 }
 
 /*
-CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost Create Connection
+ConnectionCreate Connection Create
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param environmentId
  @param organizationId
- @return ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest
+ @return ApiConnectionCreateRequest
 */
-func (a *ConnectionsApiService) CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(ctx context.Context, assetId string, environmentId string, organizationId string) ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest {
-	return ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest{
+func (a *ConnectionsApiService) ConnectionCreate(ctx context.Context, assetId string, environmentId string, organizationId string) ApiConnectionCreateRequest {
+	return ApiConnectionCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
@@ -112,7 +112,7 @@ func (a *ConnectionsApiService) CreateConnectionApiV1OrganizationsOrganizationId
 
 // Execute executes the request
 //  @return ConnectionOutput
-func (a *ConnectionsApiService) CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostExecute(r ApiCreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPostRequest) (*ConnectionOutput, *http.Response, error) {
+func (a *ConnectionsApiService) ConnectionCreateExecute(r ApiConnectionCreateRequest) (*ConnectionOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -120,7 +120,7 @@ func (a *ConnectionsApiService) CreateConnectionApiV1OrganizationsOrganizationId
 		localVarReturnValue  *ConnectionOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionsApiService.CreateConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionsApiService.ConnectionCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -202,7 +202,7 @@ func (a *ConnectionsApiService) CreateConnectionApiV1OrganizationsOrganizationId
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest struct {
+type ApiConnectionDeleteRequest struct {
 	ctx context.Context
 	ApiService ConnectionsApi
 	assetId string
@@ -211,22 +211,22 @@ type ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentI
 	organizationId string
 }
 
-func (r ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteExecute(r)
+func (r ApiConnectionDeleteRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.ConnectionDeleteExecute(r)
 }
 
 /*
-DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete Delete Connection
+ConnectionDelete Connection Delete
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param connectionId
  @param environmentId
  @param organizationId
- @return ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest
+ @return ApiConnectionDeleteRequest
 */
-func (a *ConnectionsApiService) DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(ctx context.Context, assetId string, connectionId string, environmentId string, organizationId string) ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest {
-	return ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest{
+func (a *ConnectionsApiService) ConnectionDelete(ctx context.Context, assetId string, connectionId string, environmentId string, organizationId string) ApiConnectionDeleteRequest {
+	return ApiConnectionDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
@@ -238,7 +238,7 @@ func (a *ConnectionsApiService) DeleteConnectionApiV1OrganizationsOrganizationId
 
 // Execute executes the request
 //  @return interface{}
-func (a *ConnectionsApiService) DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteExecute(r ApiDeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDeleteRequest) (interface{}, *http.Response, error) {
+func (a *ConnectionsApiService) ConnectionDeleteExecute(r ApiConnectionDeleteRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -246,7 +246,7 @@ func (a *ConnectionsApiService) DeleteConnectionApiV1OrganizationsOrganizationId
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionsApiService.DeleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionsApiService.ConnectionDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -324,7 +324,7 @@ func (a *ConnectionsApiService) DeleteConnectionApiV1OrganizationsOrganizationId
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest struct {
+type ApiConnectionGetRequest struct {
 	ctx context.Context
 	ApiService ConnectionsApi
 	assetId string
@@ -333,22 +333,22 @@ type ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironment
 	organizationId string
 }
 
-func (r ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest) Execute() (*ConnectionOutput, *http.Response, error) {
-	return r.ApiService.GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetExecute(r)
+func (r ApiConnectionGetRequest) Execute() (*ConnectionOutput, *http.Response, error) {
+	return r.ApiService.ConnectionGetExecute(r)
 }
 
 /*
-GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet Get Connection By Id
+ConnectionGet Connection Get
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param environmentId
  @param connectionId
  @param organizationId
- @return ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest
+ @return ApiConnectionGetRequest
 */
-func (a *ConnectionsApiService) GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(ctx context.Context, assetId string, environmentId string, connectionId string, organizationId string) ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest {
-	return ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest{
+func (a *ConnectionsApiService) ConnectionGet(ctx context.Context, assetId string, environmentId string, connectionId string, organizationId string) ApiConnectionGetRequest {
+	return ApiConnectionGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
@@ -360,7 +360,7 @@ func (a *ConnectionsApiService) GetConnectionByIdApiV1OrganizationsOrganizationI
 
 // Execute executes the request
 //  @return ConnectionOutput
-func (a *ConnectionsApiService) GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetExecute(r ApiGetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGetRequest) (*ConnectionOutput, *http.Response, error) {
+func (a *ConnectionsApiService) ConnectionGetExecute(r ApiConnectionGetRequest) (*ConnectionOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -368,7 +368,7 @@ func (a *ConnectionsApiService) GetConnectionByIdApiV1OrganizationsOrganizationI
 		localVarReturnValue  *ConnectionOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionsApiService.GetConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionsApiService.ConnectionGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

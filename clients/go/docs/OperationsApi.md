@@ -4,89 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetOperationsApiV1OrganizationsOrganizationIdOperationsGet**](OperationsApi.md#GetOperationsApiV1OrganizationsOrganizationIdOperationsGet) | **Get** /api/v1/organizations/{organization_id}/operations/ | Get Operations
-[**GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet**](OperationsApi.md#GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet) | **Get** /api/v1/organizations/{organization_id}/operations/{operation_id} | Get Operations By Operation Id
-[**UpdateOperationApiV1OperationsOperationIdPut**](OperationsApi.md#UpdateOperationApiV1OperationsOperationIdPut) | **Put** /api/v1/operations/{operation_id} | Update Operation
+[**OperationGet**](OperationsApi.md#OperationGet) | **Get** /api/v1/organizations/{organization_id}/operations/{operation_id} | Operation Get
+[**OperationUpdate**](OperationsApi.md#OperationUpdate) | **Put** /api/v1/operations/{operation_id} | Operation Update
 
 
 
-## GetOperationsApiV1OrganizationsOrganizationIdOperationsGet
+## OperationGet
 
-> []OperationOutput GetOperationsApiV1OrganizationsOrganizationIdOperationsGet(ctx, organizationId).AssetId(assetId).EnvironmentId(environmentId).Execute()
+> []OperationOutput OperationGet(ctx, operationId, organizationId).Execute()
 
-Get Operations
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    assetId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    environmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OperationsApi.GetOperationsApiV1OrganizationsOrganizationIdOperationsGet(context.Background(), organizationId).AssetId(assetId).EnvironmentId(environmentId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OperationsApi.GetOperationsApiV1OrganizationsOrganizationIdOperationsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetOperationsApiV1OrganizationsOrganizationIdOperationsGet`: []OperationOutput
-    fmt.Fprintf(os.Stdout, "Response from `OperationsApi.GetOperationsApiV1OrganizationsOrganizationIdOperationsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**organizationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **assetId** | **string** |  | 
- **environmentId** | **string** |  | 
-
-### Return type
-
-[**[]OperationOutput**](OperationOutput.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet
-
-> []OperationOutput GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(ctx, operationId, organizationId).Execute()
-
-Get Operations By Operation Id
+Operation Get
 
 ### Example
 
@@ -106,13 +33,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OperationsApi.GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(context.Background(), operationId, organizationId).Execute()
+    resp, r, err := apiClient.OperationsApi.OperationGet(context.Background(), operationId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OperationsApi.GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `OperationsApi.OperationGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet`: []OperationOutput
-    fmt.Fprintf(os.Stdout, "Response from `OperationsApi.GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet`: %v\n", resp)
+    // response from `OperationGet`: []OperationOutput
+    fmt.Fprintf(os.Stdout, "Response from `OperationsApi.OperationGet`: %v\n", resp)
 }
 ```
 
@@ -127,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiOperationGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -153,11 +80,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UpdateOperationApiV1OperationsOperationIdPut
+## OperationUpdate
 
-> interface{} UpdateOperationApiV1OperationsOperationIdPut(ctx, operationId).OperationUpdate(operationUpdate).Execute()
+> interface{} OperationUpdate(ctx, operationId).OperationUpdate(operationUpdate).Execute()
 
-Update Operation
+Operation Update
 
 ### Example
 
@@ -177,13 +104,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OperationsApi.UpdateOperationApiV1OperationsOperationIdPut(context.Background(), operationId).OperationUpdate(operationUpdate).Execute()
+    resp, r, err := apiClient.OperationsApi.OperationUpdate(context.Background(), operationId).OperationUpdate(operationUpdate).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OperationsApi.UpdateOperationApiV1OperationsOperationIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `OperationsApi.OperationUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateOperationApiV1OperationsOperationIdPut`: interface{}
-    fmt.Fprintf(os.Stdout, "Response from `OperationsApi.UpdateOperationApiV1OperationsOperationIdPut`: %v\n", resp)
+    // response from `OperationUpdate`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `OperationsApi.OperationUpdate`: %v\n", resp)
 }
 ```
 
@@ -197,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateOperationApiV1OperationsOperationIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiOperationUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

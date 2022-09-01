@@ -1,5 +1,4 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
-import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
@@ -53,14 +52,14 @@ export class ObservableActionsApi {
     }
 
     /**
-     * Create Action
+     * Action Create
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param actionRequest 
      */
-    public createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId: string, environmentId: string, organizationId: string, actionRequest: ActionRequest, _options?: Configuration): Observable<ActionResponse> {
-        const requestContextPromise = this.requestFactory.createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId, environmentId, organizationId, actionRequest, _options);
+    public actionCreate(assetId: string, environmentId: string, organizationId: string, actionRequest: ActionRequest, _options?: Configuration): Observable<ActionResponse> {
+        const requestContextPromise = this.requestFactory.actionCreate(assetId, environmentId, organizationId, actionRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -74,19 +73,19 @@ export class ObservableActionsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.actionCreate(rsp)));
             }));
     }
 
     /**
-     * Get Action
+     * Action Get
      * @param assetId 
      * @param environmentId 
      * @param actionId 
      * @param organizationId 
      */
-    public getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId: string, environmentId: string, actionId: string, organizationId: string, _options?: Configuration): Observable<ActionResponse> {
-        const requestContextPromise = this.requestFactory.getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId, environmentId, actionId, organizationId, _options);
+    public actionGet(assetId: string, environmentId: string, actionId: string, organizationId: string, _options?: Configuration): Observable<ActionResponse> {
+        const requestContextPromise = this.requestFactory.actionGet(assetId, environmentId, actionId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -100,7 +99,7 @@ export class ObservableActionsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.actionGet(rsp)));
             }));
     }
 
@@ -123,13 +122,13 @@ export class ObservableAssetsApi {
     }
 
     /**
-     * Create Asset
+     * Asset Create
      * @param environmentId 
      * @param organizationId 
      * @param assetInput 
      */
-    public createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Observable<AssetOutput> {
-        const requestContextPromise = this.requestFactory.createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(environmentId, organizationId, assetInput, _options);
+    public assetCreate(environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Observable<AssetOutput> {
+        const requestContextPromise = this.requestFactory.assetCreate(environmentId, organizationId, assetInput, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -143,18 +142,18 @@ export class ObservableAssetsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.assetCreate(rsp)));
             }));
     }
 
     /**
-     * Delete Asset By Id
+     * Asset Delete
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      */
-    public deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<number> {
-        const requestContextPromise = this.requestFactory.deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(assetId, environmentId, organizationId, _options);
+    public assetDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.assetDelete(assetId, environmentId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -168,18 +167,18 @@ export class ObservableAssetsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.assetDelete(rsp)));
             }));
     }
 
     /**
-     * Get Asset By Id
+     * Asset Get
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      */
-    public getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<AssetOutput> {
-        const requestContextPromise = this.requestFactory.getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(assetId, environmentId, organizationId, _options);
+    public assetGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<AssetOutput> {
+        const requestContextPromise = this.requestFactory.assetGet(assetId, environmentId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -193,19 +192,19 @@ export class ObservableAssetsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.assetGet(rsp)));
             }));
     }
 
     /**
-     * Update Asset By Id
+     * Asset Update
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param assetInput 
      */
-    public updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(assetId: string, environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Observable<AssetOutput> {
-        const requestContextPromise = this.requestFactory.updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(assetId, environmentId, organizationId, assetInput, _options);
+    public assetUpdate(assetId: string, environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Observable<AssetOutput> {
+        const requestContextPromise = this.requestFactory.assetUpdate(assetId, environmentId, organizationId, assetInput, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -219,7 +218,7 @@ export class ObservableAssetsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.assetUpdate(rsp)));
             }));
     }
 
@@ -242,14 +241,14 @@ export class ObservableConnectionsApi {
     }
 
     /**
-     * Create Connection
+     * Connection Create
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param connectionInput 
      */
-    public createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(assetId: string, environmentId: string, organizationId: string, connectionInput: ConnectionInput, _options?: Configuration): Observable<ConnectionOutput> {
-        const requestContextPromise = this.requestFactory.createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(assetId, environmentId, organizationId, connectionInput, _options);
+    public connectionCreate(assetId: string, environmentId: string, organizationId: string, connectionInput: ConnectionInput, _options?: Configuration): Observable<ConnectionOutput> {
+        const requestContextPromise = this.requestFactory.connectionCreate(assetId, environmentId, organizationId, connectionInput, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -263,19 +262,19 @@ export class ObservableConnectionsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.connectionCreate(rsp)));
             }));
     }
 
     /**
-     * Delete Connection
+     * Connection Delete
      * @param assetId 
      * @param connectionId 
      * @param environmentId 
      * @param organizationId 
      */
-    public deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(assetId: string, connectionId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(assetId, connectionId, environmentId, organizationId, _options);
+    public connectionDelete(assetId: string, connectionId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.connectionDelete(assetId, connectionId, environmentId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -289,19 +288,19 @@ export class ObservableConnectionsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.connectionDelete(rsp)));
             }));
     }
 
     /**
-     * Get Connection By Id
+     * Connection Get
      * @param assetId 
      * @param environmentId 
      * @param connectionId 
      * @param organizationId 
      */
-    public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Observable<ConnectionOutput> {
-        const requestContextPromise = this.requestFactory.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId, environmentId, connectionId, organizationId, _options);
+    public connectionGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Observable<ConnectionOutput> {
+        const requestContextPromise = this.requestFactory.connectionGet(assetId, environmentId, connectionId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -315,7 +314,7 @@ export class ObservableConnectionsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.connectionGet(rsp)));
             }));
     }
 
@@ -338,12 +337,12 @@ export class ObservableEnvironmentsApi {
     }
 
     /**
-     * Create Environment
+     * Environment Create
      * @param organizationId 
      * @param environmentInput 
      */
-    public createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Observable<EnvironmentOutput> {
-        const requestContextPromise = this.requestFactory.createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(organizationId, environmentInput, _options);
+    public environmentCreate(organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Observable<EnvironmentOutput> {
+        const requestContextPromise = this.requestFactory.environmentCreate(organizationId, environmentInput, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -357,17 +356,17 @@ export class ObservableEnvironmentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.environmentCreate(rsp)));
             }));
     }
 
     /**
-     * Delete Environment By Id
+     * Environment Delete
      * @param environmentId 
      * @param organizationId 
      */
-    public deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId: string, organizationId: string, _options?: Configuration): Observable<number> {
-        const requestContextPromise = this.requestFactory.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId, organizationId, _options);
+    public environmentDelete(environmentId: string, organizationId: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.environmentDelete(environmentId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -381,17 +380,17 @@ export class ObservableEnvironmentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.environmentDelete(rsp)));
             }));
     }
 
     /**
-     * Get Assets
+     * Environment Get
      * @param environmentId 
      * @param organizationId 
      */
-    public getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId: string, organizationId: string, _options?: Configuration): Observable<Array<AssetOutput>> {
-        const requestContextPromise = this.requestFactory.getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId, organizationId, _options);
+    public environmentGet(environmentId: string, organizationId: string, _options?: Configuration): Observable<EnvironmentOutput> {
+        const requestContextPromise = this.requestFactory.environmentGet(environmentId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -405,17 +404,17 @@ export class ObservableEnvironmentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.environmentGet(rsp)));
             }));
     }
 
     /**
-     * Get Environment Allowed Assets
+     * Environment Get Allowed Asset Bundles
      * @param environmentId 
      * @param organizationId 
      */
-    public getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId: string, organizationId: string, _options?: Configuration): Observable<Array<AssetBundle>> {
-        const requestContextPromise = this.requestFactory.getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId, organizationId, _options);
+    public environmentGetAllowedAssetBundles(environmentId: string, organizationId: string, _options?: Configuration): Observable<Array<AssetBundle>> {
+        const requestContextPromise = this.requestFactory.environmentGetAllowedAssetBundles(environmentId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -429,17 +428,17 @@ export class ObservableEnvironmentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.environmentGetAllowedAssetBundles(rsp)));
             }));
     }
 
     /**
-     * Get Environment By Id
+     * Environment Get Assets
      * @param environmentId 
      * @param organizationId 
      */
-    public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId: string, organizationId: string, _options?: Configuration): Observable<EnvironmentOutput> {
-        const requestContextPromise = this.requestFactory.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId, organizationId, _options);
+    public environmentGetAssets(environmentId: string, organizationId: string, _options?: Configuration): Observable<Array<AssetOutput>> {
+        const requestContextPromise = this.requestFactory.environmentGetAssets(environmentId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -453,17 +452,17 @@ export class ObservableEnvironmentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.environmentGetAssets(rsp)));
             }));
     }
 
     /**
-     * Get Environment Connections
+     * Environment Get Connections
      * @param environmentId 
      * @param organizationId 
      */
-    public getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(environmentId: string, organizationId: string, _options?: Configuration): Observable<Array<ConnectionOutput>> {
-        const requestContextPromise = this.requestFactory.getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(environmentId, organizationId, _options);
+    public environmentGetConnections(environmentId: string, organizationId: string, _options?: Configuration): Observable<Array<ConnectionOutput>> {
+        const requestContextPromise = this.requestFactory.environmentGetConnections(environmentId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -477,41 +476,18 @@ export class ObservableEnvironmentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.environmentGetConnections(rsp)));
             }));
     }
 
     /**
-     * Get Environments
-     * @param organizationId 
-     */
-    public getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(organizationId: string, _options?: Configuration): Observable<Array<EnvironmentOutput>> {
-        const requestContextPromise = this.requestFactory.getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(organizationId, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(rsp)));
-            }));
-    }
-
-    /**
-     * Update Environment
+     * Environment Update
      * @param environmentId 
      * @param organizationId 
      * @param environmentInput 
      */
-    public updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(environmentId: string, organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Observable<EnvironmentOutput> {
-        const requestContextPromise = this.requestFactory.updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(environmentId, organizationId, environmentInput, _options);
+    public environmentUpdate(environmentId: string, organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Observable<EnvironmentOutput> {
+        const requestContextPromise = this.requestFactory.environmentUpdate(environmentId, organizationId, environmentInput, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -525,7 +501,7 @@ export class ObservableEnvironmentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.environmentUpdate(rsp)));
             }));
     }
 
@@ -548,37 +524,12 @@ export class ObservableOperationsApi {
     }
 
     /**
-     * Get Operations
-     * @param organizationId 
-     * @param assetId 
-     * @param environmentId 
-     */
-    public getOperationsApiV1OrganizationsOrganizationIdOperationsGet(organizationId: string, assetId?: string, environmentId?: string, _options?: Configuration): Observable<Array<OperationOutput>> {
-        const requestContextPromise = this.requestFactory.getOperationsApiV1OrganizationsOrganizationIdOperationsGet(organizationId, assetId, environmentId, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getOperationsApiV1OrganizationsOrganizationIdOperationsGet(rsp)));
-            }));
-    }
-
-    /**
-     * Get Operations By Operation Id
+     * Operation Get
      * @param operationId 
      * @param organizationId 
      */
-    public getOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(operationId: string, organizationId: string, _options?: Configuration): Observable<Array<OperationOutput>> {
-        const requestContextPromise = this.requestFactory.getOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(operationId, organizationId, _options);
+    public operationGet(operationId: string, organizationId: string, _options?: Configuration): Observable<Array<OperationOutput>> {
+        const requestContextPromise = this.requestFactory.operationGet(operationId, organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -592,17 +543,17 @@ export class ObservableOperationsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.operationGet(rsp)));
             }));
     }
 
     /**
-     * Update Operation
+     * Operation Update
      * @param operationId 
      * @param operationUpdate 
      */
-    public updateOperationApiV1OperationsOperationIdPut(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.updateOperationApiV1OperationsOperationIdPut(operationId, operationUpdate, _options);
+    public operationUpdate(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.operationUpdate(operationId, operationUpdate, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -616,7 +567,7 @@ export class ObservableOperationsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateOperationApiV1OperationsOperationIdPut(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.operationUpdate(rsp)));
             }));
     }
 
@@ -639,11 +590,11 @@ export class ObservableOrganizationsApi {
     }
 
     /**
-     * Delete
+     * Organization Delete
      * @param organizationId 
      */
-    public deleteApiV1OrganizationsOrganizationIdDelete(organizationId: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.deleteApiV1OrganizationsOrganizationIdDelete(organizationId, _options);
+    public organizationDelete(organizationId: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.organizationDelete(organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -657,16 +608,16 @@ export class ObservableOrganizationsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteApiV1OrganizationsOrganizationIdDelete(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.organizationDelete(rsp)));
             }));
     }
 
     /**
-     * Get Organization By Id
+     * Organization Get
      * @param organizationId 
      */
-    public getOrganizationByIdApiV1OrganizationsOrganizationIdGet(organizationId: string, _options?: Configuration): Observable<OrganizationOutput> {
-        const requestContextPromise = this.requestFactory.getOrganizationByIdApiV1OrganizationsOrganizationIdGet(organizationId, _options);
+    public organizationGet(organizationId: string, _options?: Configuration): Observable<OrganizationOutput> {
+        const requestContextPromise = this.requestFactory.organizationGet(organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -680,15 +631,16 @@ export class ObservableOrganizationsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getOrganizationByIdApiV1OrganizationsOrganizationIdGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.organizationGet(rsp)));
             }));
     }
 
     /**
-     * Get Organizations
+     * Organization Get Environments
+     * @param organizationId 
      */
-    public getOrganizationsApiV1OrganizationsGet(_options?: Configuration): Observable<Array<OrganizationOutput>> {
-        const requestContextPromise = this.requestFactory.getOrganizationsApiV1OrganizationsGet(_options);
+    public organizationGetEnvironments(organizationId: string, _options?: Configuration): Observable<Array<EnvironmentOutput>> {
+        const requestContextPromise = this.requestFactory.organizationGetEnvironments(organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -702,17 +654,64 @@ export class ObservableOrganizationsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getOrganizationsApiV1OrganizationsGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.organizationGetEnvironments(rsp)));
             }));
     }
 
     /**
-     * Put Organization
+     * Organization Get Operations
+     * @param organizationId 
+     * @param assetId 
+     * @param environmentId 
+     */
+    public organizationGetOperations(organizationId: string, assetId?: string, environmentId?: string, _options?: Configuration): Observable<Array<OperationOutput>> {
+        const requestContextPromise = this.requestFactory.organizationGetOperations(organizationId, assetId, environmentId, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.organizationGetOperations(rsp)));
+            }));
+    }
+
+    /**
+     * Organization List
+     */
+    public organizationList(_options?: Configuration): Observable<Array<OrganizationOutput>> {
+        const requestContextPromise = this.requestFactory.organizationList(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.organizationList(rsp)));
+            }));
+    }
+
+    /**
+     * Organization Update
      * @param organizationId 
      * @param organizationInput 
      */
-    public putOrganizationApiV1OrganizationsOrganizationIdPut(organizationId: string, organizationInput: OrganizationInput, _options?: Configuration): Observable<OrganizationOutput> {
-        const requestContextPromise = this.requestFactory.putOrganizationApiV1OrganizationsOrganizationIdPut(organizationId, organizationInput, _options);
+    public organizationUpdate(organizationId: string, organizationInput: OrganizationInput, _options?: Configuration): Observable<OrganizationOutput> {
+        const requestContextPromise = this.requestFactory.organizationUpdate(organizationId, organizationInput, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -726,7 +725,7 @@ export class ObservableOrganizationsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.putOrganizationApiV1OrganizationsOrganizationIdPut(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.organizationUpdate(rsp)));
             }));
     }
 
@@ -751,8 +750,8 @@ export class ObservableUtilitiesApi {
     /**
      * Get Ping
      */
-    public getPingApiV1DebugPingGet(_options?: Configuration): Observable<TextResponse> {
-        const requestContextPromise = this.requestFactory.getPingApiV1DebugPingGet(_options);
+    public getPing(_options?: Configuration): Observable<TextResponse> {
+        const requestContextPromise = this.requestFactory.getPing(_options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -766,15 +765,15 @@ export class ObservableUtilitiesApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getPingApiV1DebugPingGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getPing(rsp)));
             }));
     }
 
     /**
      * Get User
      */
-    public getUserApiV1DebugUserAuthGet(_options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.getUserApiV1DebugUserAuthGet(_options);
+    public getUser(_options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.getUser(_options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -788,7 +787,7 @@ export class ObservableUtilitiesApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUserApiV1DebugUserAuthGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUser(rsp)));
             }));
     }
 
@@ -796,8 +795,8 @@ export class ObservableUtilitiesApi {
      * Get User Role
      * @param organizationId 
      */
-    public getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(organizationId: string, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(organizationId, _options);
+    public getUserRole(organizationId: string, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.getUserRole(organizationId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -811,7 +810,7 @@ export class ObservableUtilitiesApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUserRole(rsp)));
             }));
     }
 
@@ -837,8 +836,8 @@ export class ObservableWorkerApi {
      * Worker Health Check
      * @param healthCheckFromWorker 
      */
-    public workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker: HealthCheckFromWorker, _options?: Configuration): Observable<any> {
-        const requestContextPromise = this.requestFactory.workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker, _options);
+    public workerHealthCheck(healthCheckFromWorker: HealthCheckFromWorker, _options?: Configuration): Observable<any> {
+        const requestContextPromise = this.requestFactory.workerHealthCheck(healthCheckFromWorker, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -852,7 +851,7 @@ export class ObservableWorkerApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.workerHealthCheckApiV1WorkerHealthCheckPost(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.workerHealthCheck(rsp)));
             }));
     }
 

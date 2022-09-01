@@ -1,5 +1,4 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
-import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
 import { ActionOutput } from '../models/ActionOutput';
@@ -49,26 +48,26 @@ export class PromiseActionsApi {
     }
 
     /**
-     * Create Action
+     * Action Create
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param actionRequest 
      */
-    public createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId: string, environmentId: string, organizationId: string, actionRequest: ActionRequest, _options?: Configuration): Promise<ActionResponse> {
-        const result = this.api.createActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionPost(assetId, environmentId, organizationId, actionRequest, _options);
+    public actionCreate(assetId: string, environmentId: string, organizationId: string, actionRequest: ActionRequest, _options?: Configuration): Promise<ActionResponse> {
+        const result = this.api.actionCreate(assetId, environmentId, organizationId, actionRequest, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Action
+     * Action Get
      * @param assetId 
      * @param environmentId 
      * @param actionId 
      * @param organizationId 
      */
-    public getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId: string, environmentId: string, actionId: string, organizationId: string, _options?: Configuration): Promise<ActionResponse> {
-        const result = this.api.getActionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdActionActionIdGet(assetId, environmentId, actionId, organizationId, _options);
+    public actionGet(assetId: string, environmentId: string, actionId: string, organizationId: string, _options?: Configuration): Promise<ActionResponse> {
+        const result = this.api.actionGet(assetId, environmentId, actionId, organizationId, _options);
         return result.toPromise();
     }
 
@@ -92,47 +91,47 @@ export class PromiseAssetsApi {
     }
 
     /**
-     * Create Asset
+     * Asset Create
      * @param environmentId 
      * @param organizationId 
      * @param assetInput 
      */
-    public createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Promise<AssetOutput> {
-        const result = this.api.createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(environmentId, organizationId, assetInput, _options);
+    public assetCreate(environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Promise<AssetOutput> {
+        const result = this.api.assetCreate(environmentId, organizationId, assetInput, _options);
         return result.toPromise();
     }
 
     /**
-     * Delete Asset By Id
+     * Asset Delete
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      */
-    public deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<number> {
-        const result = this.api.deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(assetId, environmentId, organizationId, _options);
+    public assetDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<any> {
+        const result = this.api.assetDelete(assetId, environmentId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Asset By Id
+     * Asset Get
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      */
-    public getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<AssetOutput> {
-        const result = this.api.getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(assetId, environmentId, organizationId, _options);
+    public assetGet(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<AssetOutput> {
+        const result = this.api.assetGet(assetId, environmentId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Asset By Id
+     * Asset Update
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param assetInput 
      */
-    public updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(assetId: string, environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Promise<AssetOutput> {
-        const result = this.api.updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(assetId, environmentId, organizationId, assetInput, _options);
+    public assetUpdate(assetId: string, environmentId: string, organizationId: string, assetInput: AssetInput, _options?: Configuration): Promise<AssetOutput> {
+        const result = this.api.assetUpdate(assetId, environmentId, organizationId, assetInput, _options);
         return result.toPromise();
     }
 
@@ -156,38 +155,38 @@ export class PromiseConnectionsApi {
     }
 
     /**
-     * Create Connection
+     * Connection Create
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param connectionInput 
      */
-    public createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(assetId: string, environmentId: string, organizationId: string, connectionInput: ConnectionInput, _options?: Configuration): Promise<ConnectionOutput> {
-        const result = this.api.createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(assetId, environmentId, organizationId, connectionInput, _options);
+    public connectionCreate(assetId: string, environmentId: string, organizationId: string, connectionInput: ConnectionInput, _options?: Configuration): Promise<ConnectionOutput> {
+        const result = this.api.connectionCreate(assetId, environmentId, organizationId, connectionInput, _options);
         return result.toPromise();
     }
 
     /**
-     * Delete Connection
+     * Connection Delete
      * @param assetId 
      * @param connectionId 
      * @param environmentId 
      * @param organizationId 
      */
-    public deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(assetId: string, connectionId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(assetId, connectionId, environmentId, organizationId, _options);
+    public connectionDelete(assetId: string, connectionId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<any> {
+        const result = this.api.connectionDelete(assetId, connectionId, environmentId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Connection By Id
+     * Connection Get
      * @param assetId 
      * @param environmentId 
      * @param connectionId 
      * @param organizationId 
      */
-    public getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Promise<ConnectionOutput> {
-        const result = this.api.getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId, environmentId, connectionId, organizationId, _options);
+    public connectionGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Promise<ConnectionOutput> {
+        const result = this.api.connectionGet(assetId, environmentId, connectionId, organizationId, _options);
         return result.toPromise();
     }
 
@@ -211,82 +210,73 @@ export class PromiseEnvironmentsApi {
     }
 
     /**
-     * Create Environment
+     * Environment Create
      * @param organizationId 
      * @param environmentInput 
      */
-    public createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Promise<EnvironmentOutput> {
-        const result = this.api.createEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(organizationId, environmentInput, _options);
+    public environmentCreate(organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Promise<EnvironmentOutput> {
+        const result = this.api.environmentCreate(organizationId, environmentInput, _options);
         return result.toPromise();
     }
 
     /**
-     * Delete Environment By Id
+     * Environment Delete
      * @param environmentId 
      * @param organizationId 
      */
-    public deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId: string, organizationId: string, _options?: Configuration): Promise<number> {
-        const result = this.api.deleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(environmentId, organizationId, _options);
+    public environmentDelete(environmentId: string, organizationId: string, _options?: Configuration): Promise<any> {
+        const result = this.api.environmentDelete(environmentId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Assets
+     * Environment Get
      * @param environmentId 
      * @param organizationId 
      */
-    public getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<AssetOutput>> {
-        const result = this.api.getAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(environmentId, organizationId, _options);
+    public environmentGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<EnvironmentOutput> {
+        const result = this.api.environmentGet(environmentId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Environment Allowed Assets
+     * Environment Get Allowed Asset Bundles
      * @param environmentId 
      * @param organizationId 
      */
-    public getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<AssetBundle>> {
-        const result = this.api.getEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(environmentId, organizationId, _options);
+    public environmentGetAllowedAssetBundles(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<AssetBundle>> {
+        const result = this.api.environmentGetAllowedAssetBundles(environmentId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Environment By Id
+     * Environment Get Assets
      * @param environmentId 
      * @param organizationId 
      */
-    public getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<EnvironmentOutput> {
-        const result = this.api.getEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(environmentId, organizationId, _options);
+    public environmentGetAssets(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<AssetOutput>> {
+        const result = this.api.environmentGetAssets(environmentId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Environment Connections
+     * Environment Get Connections
      * @param environmentId 
      * @param organizationId 
      */
-    public getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<ConnectionOutput>> {
-        const result = this.api.getEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(environmentId, organizationId, _options);
+    public environmentGetConnections(environmentId: string, organizationId: string, _options?: Configuration): Promise<Array<ConnectionOutput>> {
+        const result = this.api.environmentGetConnections(environmentId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Environments
-     * @param organizationId 
-     */
-    public getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(organizationId: string, _options?: Configuration): Promise<Array<EnvironmentOutput>> {
-        const result = this.api.getEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(organizationId, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Update Environment
+     * Environment Update
      * @param environmentId 
      * @param organizationId 
      * @param environmentInput 
      */
-    public updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(environmentId: string, organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Promise<EnvironmentOutput> {
-        const result = this.api.updateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(environmentId, organizationId, environmentInput, _options);
+    public environmentUpdate(environmentId: string, organizationId: string, environmentInput: EnvironmentInput, _options?: Configuration): Promise<EnvironmentOutput> {
+        const result = this.api.environmentUpdate(environmentId, organizationId, environmentInput, _options);
         return result.toPromise();
     }
 
@@ -310,33 +300,22 @@ export class PromiseOperationsApi {
     }
 
     /**
-     * Get Operations
-     * @param organizationId 
-     * @param assetId 
-     * @param environmentId 
-     */
-    public getOperationsApiV1OrganizationsOrganizationIdOperationsGet(organizationId: string, assetId?: string, environmentId?: string, _options?: Configuration): Promise<Array<OperationOutput>> {
-        const result = this.api.getOperationsApiV1OrganizationsOrganizationIdOperationsGet(organizationId, assetId, environmentId, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Get Operations By Operation Id
+     * Operation Get
      * @param operationId 
      * @param organizationId 
      */
-    public getOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(operationId: string, organizationId: string, _options?: Configuration): Promise<Array<OperationOutput>> {
-        const result = this.api.getOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(operationId, organizationId, _options);
+    public operationGet(operationId: string, organizationId: string, _options?: Configuration): Promise<Array<OperationOutput>> {
+        const result = this.api.operationGet(operationId, organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Operation
+     * Operation Update
      * @param operationId 
      * @param operationUpdate 
      */
-    public updateOperationApiV1OperationsOperationIdPut(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Promise<any> {
-        const result = this.api.updateOperationApiV1OperationsOperationIdPut(operationId, operationUpdate, _options);
+    public operationUpdate(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Promise<any> {
+        const result = this.api.operationUpdate(operationId, operationUpdate, _options);
         return result.toPromise();
     }
 
@@ -360,38 +339,58 @@ export class PromiseOrganizationsApi {
     }
 
     /**
-     * Delete
+     * Organization Delete
      * @param organizationId 
      */
-    public deleteApiV1OrganizationsOrganizationIdDelete(organizationId: string, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteApiV1OrganizationsOrganizationIdDelete(organizationId, _options);
+    public organizationDelete(organizationId: string, _options?: Configuration): Promise<any> {
+        const result = this.api.organizationDelete(organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Organization By Id
+     * Organization Get
      * @param organizationId 
      */
-    public getOrganizationByIdApiV1OrganizationsOrganizationIdGet(organizationId: string, _options?: Configuration): Promise<OrganizationOutput> {
-        const result = this.api.getOrganizationByIdApiV1OrganizationsOrganizationIdGet(organizationId, _options);
+    public organizationGet(organizationId: string, _options?: Configuration): Promise<OrganizationOutput> {
+        const result = this.api.organizationGet(organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Get Organizations
+     * Organization Get Environments
+     * @param organizationId 
      */
-    public getOrganizationsApiV1OrganizationsGet(_options?: Configuration): Promise<Array<OrganizationOutput>> {
-        const result = this.api.getOrganizationsApiV1OrganizationsGet(_options);
+    public organizationGetEnvironments(organizationId: string, _options?: Configuration): Promise<Array<EnvironmentOutput>> {
+        const result = this.api.organizationGetEnvironments(organizationId, _options);
         return result.toPromise();
     }
 
     /**
-     * Put Organization
+     * Organization Get Operations
+     * @param organizationId 
+     * @param assetId 
+     * @param environmentId 
+     */
+    public organizationGetOperations(organizationId: string, assetId?: string, environmentId?: string, _options?: Configuration): Promise<Array<OperationOutput>> {
+        const result = this.api.organizationGetOperations(organizationId, assetId, environmentId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Organization List
+     */
+    public organizationList(_options?: Configuration): Promise<Array<OrganizationOutput>> {
+        const result = this.api.organizationList(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * Organization Update
      * @param organizationId 
      * @param organizationInput 
      */
-    public putOrganizationApiV1OrganizationsOrganizationIdPut(organizationId: string, organizationInput: OrganizationInput, _options?: Configuration): Promise<OrganizationOutput> {
-        const result = this.api.putOrganizationApiV1OrganizationsOrganizationIdPut(organizationId, organizationInput, _options);
+    public organizationUpdate(organizationId: string, organizationInput: OrganizationInput, _options?: Configuration): Promise<OrganizationOutput> {
+        const result = this.api.organizationUpdate(organizationId, organizationInput, _options);
         return result.toPromise();
     }
 
@@ -417,16 +416,16 @@ export class PromiseUtilitiesApi {
     /**
      * Get Ping
      */
-    public getPingApiV1DebugPingGet(_options?: Configuration): Promise<TextResponse> {
-        const result = this.api.getPingApiV1DebugPingGet(_options);
+    public getPing(_options?: Configuration): Promise<TextResponse> {
+        const result = this.api.getPing(_options);
         return result.toPromise();
     }
 
     /**
      * Get User
      */
-    public getUserApiV1DebugUserAuthGet(_options?: Configuration): Promise<any> {
-        const result = this.api.getUserApiV1DebugUserAuthGet(_options);
+    public getUser(_options?: Configuration): Promise<any> {
+        const result = this.api.getUser(_options);
         return result.toPromise();
     }
 
@@ -434,8 +433,8 @@ export class PromiseUtilitiesApi {
      * Get User Role
      * @param organizationId 
      */
-    public getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(organizationId: string, _options?: Configuration): Promise<any> {
-        const result = this.api.getUserRoleApiV1DebugUserRoleMiddlewareCheckGet(organizationId, _options);
+    public getUserRole(organizationId: string, _options?: Configuration): Promise<any> {
+        const result = this.api.getUserRole(organizationId, _options);
         return result.toPromise();
     }
 
@@ -462,8 +461,8 @@ export class PromiseWorkerApi {
      * Worker Health Check
      * @param healthCheckFromWorker 
      */
-    public workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker: HealthCheckFromWorker, _options?: Configuration): Promise<any> {
-        const result = this.api.workerHealthCheckApiV1WorkerHealthCheckPost(healthCheckFromWorker, _options);
+    public workerHealthCheck(healthCheckFromWorker: HealthCheckFromWorker, _options?: Configuration): Promise<any> {
+        const result = this.api.workerHealthCheck(healthCheckFromWorker, _options);
         return result.toPromise();
     }
 

@@ -23,17 +23,17 @@ class TestActionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post(self):
-        """Test case for create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post
+    def test_action_create(self):
+        """Test case for action_create
 
-        Create Action  # noqa: E501
+        Action Create  # noqa: E501
         """
         pass
 
-    def test_get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get(self):
-        """Test case for get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get
+    def test_action_get(self):
+        """Test case for action_get
 
-        Get Action  # noqa: E501
+        Action Get  # noqa: E501
         """
         pass
 

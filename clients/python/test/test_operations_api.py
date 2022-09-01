@@ -23,17 +23,17 @@ class TestOperationsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_get_operations_api_v1_organizations_organization_id_operations_get(self):
-        """Test case for get_operations_api_v1_organizations_organization_id_operations_get
+    def test_operation_get(self):
+        """Test case for operation_get
 
-        Get Operations  # noqa: E501
+        Operation Get  # noqa: E501
         """
         pass
 
-    def test_get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get(self):
-        """Test case for get_operations_by_operation_id_api_v1_organizations_organization_id_operations_operation_id_get
+    def test_operation_update(self):
+        """Test case for operation_update
 
-        Get Operations By Operation Id  # noqa: E501
+        Operation Update  # noqa: E501
         """
         pass
 

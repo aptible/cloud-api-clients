@@ -32,66 +32,54 @@ describe 'AssetsApi' do
     end
   end
 
-  # unit tests for create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post
-  # Create Asset
+  # unit tests for asset_create
+  # Asset Create
   # @param environment_id 
   # @param organization_id 
   # @param asset_input 
   # @param [Hash] opts the optional parameters
   # @return [AssetOutput]
-  describe 'create_asset_api_v1_organizations_organization_id_environments_environment_id_assets_post test' do
+  describe 'asset_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete
-  # Delete Asset By Id
+  # unit tests for asset_delete
+  # Asset Delete
   # @param asset_id 
   # @param environment_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
-  # @return [Integer]
-  describe 'delete_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_delete test' do
+  # @return [Object]
+  describe 'asset_delete test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get
-  # Get Asset By Id
+  # unit tests for asset_get
+  # Asset Get
   # @param asset_id 
   # @param environment_id 
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [AssetOutput]
-  describe 'get_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_get test' do
+  describe 'asset_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get
-  # Get Assets
-  # @param environment_id 
-  # @param organization_id 
-  # @param [Hash] opts the optional parameters
-  # @return [Array<AssetOutput>]
-  describe 'get_assets_api_v1_organizations_organization_id_environments_environment_id_assets_get test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put
-  # Update Asset By Id
+  # unit tests for asset_update
+  # Asset Update
   # @param asset_id 
   # @param environment_id 
   # @param organization_id 
   # @param asset_input 
   # @param [Hash] opts the optional parameters
   # @return [AssetOutput]
-  describe 'update_asset_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_put test' do
+  describe 'asset_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

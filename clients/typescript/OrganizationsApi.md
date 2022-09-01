@@ -4,14 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteApiV1OrganizationsOrganizationIdDelete**](OrganizationsApi.md#deleteApiV1OrganizationsOrganizationIdDelete) | **DELETE** /api/v1/organizations/{organization_id} | Delete
-[**getOrganizationByIdApiV1OrganizationsOrganizationIdGet**](OrganizationsApi.md#getOrganizationByIdApiV1OrganizationsOrganizationIdGet) | **GET** /api/v1/organizations/{organization_id} | Get Organization By Id
-[**getOrganizationsApiV1OrganizationsGet**](OrganizationsApi.md#getOrganizationsApiV1OrganizationsGet) | **GET** /api/v1/organizations/ | Get Organizations
-[**putOrganizationApiV1OrganizationsOrganizationIdPut**](OrganizationsApi.md#putOrganizationApiV1OrganizationsOrganizationIdPut) | **PUT** /api/v1/organizations/{organization_id} | Put Organization
+[**organizationDelete**](OrganizationsApi.md#organizationDelete) | **DELETE** /api/v1/organizations/{organization_id} | Organization Delete
+[**organizationGet**](OrganizationsApi.md#organizationGet) | **GET** /api/v1/organizations/{organization_id} | Organization Get
+[**organizationGetEnvironments**](OrganizationsApi.md#organizationGetEnvironments) | **GET** /api/v1/organizations/{organization_id}/environments | Organization Get Environments
+[**organizationGetOperations**](OrganizationsApi.md#organizationGetOperations) | **GET** /api/v1/organizations/{organization_id}/operations/ | Organization Get Operations
+[**organizationList**](OrganizationsApi.md#organizationList) | **GET** /api/v1/organizations/ | Organization List
+[**organizationUpdate**](OrganizationsApi.md#organizationUpdate) | **PUT** /api/v1/organizations/{organization_id} | Organization Update
 
 
-# **deleteApiV1OrganizationsOrganizationIdDelete**
-> any deleteApiV1OrganizationsOrganizationIdDelete()
+# **organizationDelete**
+> any organizationDelete()
 
 
 ### Example
@@ -24,12 +26,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .OrganizationsApi(configuration);
 
-let body:.OrganizationsApiDeleteApiV1OrganizationsOrganizationIdDeleteRequest = {
+let body:.OrganizationsApiOrganizationDeleteRequest = {
   // string
   organizationId: "organization_id_example",
 };
 
-apiInstance.deleteApiV1OrganizationsOrganizationIdDelete(body).then((data:any) => {
+apiInstance.organizationDelete(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -64,8 +66,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getOrganizationByIdApiV1OrganizationsOrganizationIdGet**
-> OrganizationOutput getOrganizationByIdApiV1OrganizationsOrganizationIdGet()
+# **organizationGet**
+> OrganizationOutput organizationGet()
 
 
 ### Example
@@ -78,12 +80,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .OrganizationsApi(configuration);
 
-let body:.OrganizationsApiGetOrganizationByIdApiV1OrganizationsOrganizationIdGetRequest = {
+let body:.OrganizationsApiOrganizationGetRequest = {
   // string
   organizationId: "organization_id_example",
 };
 
-apiInstance.getOrganizationByIdApiV1OrganizationsOrganizationIdGet(body).then((data:any) => {
+apiInstance.organizationGet(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -118,8 +120,122 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getOrganizationsApiV1OrganizationsGet**
-> Array<OrganizationOutput> getOrganizationsApiV1OrganizationsGet()
+# **organizationGetEnvironments**
+> Array<EnvironmentOutput> organizationGetEnvironments()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .OrganizationsApi(configuration);
+
+let body:.OrganizationsApiOrganizationGetEnvironmentsRequest = {
+  // string
+  organizationId: "organization_id_example",
+};
+
+apiInstance.organizationGetEnvironments(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**Array<EnvironmentOutput>**
+
+### Authorization
+
+[HTTPBearer](README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **organizationGetOperations**
+> Array<OperationOutput> organizationGetOperations()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .OrganizationsApi(configuration);
+
+let body:.OrganizationsApiOrganizationGetOperationsRequest = {
+  // string
+  organizationId: "organization_id_example",
+  // string (optional)
+  assetId: "asset_id_example",
+  // string (optional)
+  environmentId: "environment_id_example",
+};
+
+apiInstance.organizationGetOperations(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**string**] |  | defaults to undefined
+ **assetId** | [**string**] |  | (optional) defaults to undefined
+ **environmentId** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**Array<OperationOutput>**
+
+### Authorization
+
+[HTTPBearer](README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **organizationList**
+> Array<OrganizationOutput> organizationList()
 
 
 ### Example
@@ -134,7 +250,7 @@ const apiInstance = new .OrganizationsApi(configuration);
 
 let body:any = {};
 
-apiInstance.getOrganizationsApiV1OrganizationsGet(body).then((data:any) => {
+apiInstance.organizationList(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -165,8 +281,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **putOrganizationApiV1OrganizationsOrganizationIdPut**
-> OrganizationOutput putOrganizationApiV1OrganizationsOrganizationIdPut(organizationInput)
+# **organizationUpdate**
+> OrganizationOutput organizationUpdate(organizationInput)
 
 
 ### Example
@@ -179,7 +295,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .OrganizationsApi(configuration);
 
-let body:.OrganizationsApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequest = {
+let body:.OrganizationsApiOrganizationUpdateRequest = {
   // string
   organizationId: "organization_id_example",
   // OrganizationInput
@@ -191,7 +307,7 @@ let body:.OrganizationsApiPutOrganizationApiV1OrganizationsOrganizationIdPutRequ
   },
 };
 
-apiInstance.putOrganizationApiV1OrganizationsOrganizationIdPut(body).then((data:any) => {
+apiInstance.organizationUpdate(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

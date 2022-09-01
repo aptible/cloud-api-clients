@@ -18,36 +18,36 @@ import { HTTPValidationError } from '../models/HTTPValidationError';
 export class ConnectionsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * Create Connection
+     * Connection Create
      * @param assetId 
      * @param environmentId 
      * @param organizationId 
      * @param connectionInput 
      */
-    public async createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(assetId: string, environmentId: string, organizationId: string, connectionInput: ConnectionInput, _options?: Configuration): Promise<RequestContext> {
+    public async connectionCreate(assetId: string, environmentId: string, organizationId: string, connectionInput: ConnectionInput, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new RequiredError("ConnectionsApi", "createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost", "assetId");
+            throw new RequiredError("ConnectionsApi", "connectionCreate", "assetId");
         }
 
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("ConnectionsApi", "createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost", "environmentId");
+            throw new RequiredError("ConnectionsApi", "connectionCreate", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("ConnectionsApi", "createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost", "organizationId");
+            throw new RequiredError("ConnectionsApi", "connectionCreate", "organizationId");
         }
 
 
         // verify required parameter 'connectionInput' is not null or undefined
         if (connectionInput === null || connectionInput === undefined) {
-            throw new RequiredError("ConnectionsApi", "createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost", "connectionInput");
+            throw new RequiredError("ConnectionsApi", "connectionCreate", "connectionInput");
         }
 
 
@@ -89,36 +89,36 @@ export class ConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Delete Connection
+     * Connection Delete
      * @param assetId 
      * @param connectionId 
      * @param environmentId 
      * @param organizationId 
      */
-    public async deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(assetId: string, connectionId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async connectionDelete(assetId: string, connectionId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new RequiredError("ConnectionsApi", "deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete", "assetId");
+            throw new RequiredError("ConnectionsApi", "connectionDelete", "assetId");
         }
 
 
         // verify required parameter 'connectionId' is not null or undefined
         if (connectionId === null || connectionId === undefined) {
-            throw new RequiredError("ConnectionsApi", "deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete", "connectionId");
+            throw new RequiredError("ConnectionsApi", "connectionDelete", "connectionId");
         }
 
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("ConnectionsApi", "deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete", "environmentId");
+            throw new RequiredError("ConnectionsApi", "connectionDelete", "environmentId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("ConnectionsApi", "deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete", "organizationId");
+            throw new RequiredError("ConnectionsApi", "connectionDelete", "organizationId");
         }
 
 
@@ -150,36 +150,36 @@ export class ConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Connection By Id
+     * Connection Get
      * @param assetId 
      * @param environmentId 
      * @param connectionId 
      * @param organizationId 
      */
-    public async getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
+    public async connectionGet(assetId: string, environmentId: string, connectionId: string, organizationId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new RequiredError("ConnectionsApi", "getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet", "assetId");
+            throw new RequiredError("ConnectionsApi", "connectionGet", "assetId");
         }
 
 
         // verify required parameter 'environmentId' is not null or undefined
         if (environmentId === null || environmentId === undefined) {
-            throw new RequiredError("ConnectionsApi", "getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet", "environmentId");
+            throw new RequiredError("ConnectionsApi", "connectionGet", "environmentId");
         }
 
 
         // verify required parameter 'connectionId' is not null or undefined
         if (connectionId === null || connectionId === undefined) {
-            throw new RequiredError("ConnectionsApi", "getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet", "connectionId");
+            throw new RequiredError("ConnectionsApi", "connectionGet", "connectionId");
         }
 
 
         // verify required parameter 'organizationId' is not null or undefined
         if (organizationId === null || organizationId === undefined) {
-            throw new RequiredError("ConnectionsApi", "getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet", "organizationId");
+            throw new RequiredError("ConnectionsApi", "connectionGet", "organizationId");
         }
 
 
@@ -218,10 +218,10 @@ export class ConnectionsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost
+     * @params response Response returned by the server for a request to connectionCreate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsPost(response: ResponseContext): Promise<ConnectionOutput > {
+     public async connectionCreate(response: ResponseContext): Promise<ConnectionOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("201", response.httpStatusCode)) {
             const body: ConnectionOutput = ObjectSerializer.deserialize(
@@ -254,10 +254,10 @@ export class ConnectionsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete
+     * @params response Response returned by the server for a request to connectionDelete
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteConnectionApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdDelete(response: ResponseContext): Promise<any > {
+     public async connectionDelete(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: any = ObjectSerializer.deserialize(
@@ -290,10 +290,10 @@ export class ConnectionsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet
+     * @params response Response returned by the server for a request to connectionGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getConnectionByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnectionsConnectionIdGet(response: ResponseContext): Promise<ConnectionOutput > {
+     public async connectionGet(response: ResponseContext): Promise<ConnectionOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ConnectionOutput = ObjectSerializer.deserialize(

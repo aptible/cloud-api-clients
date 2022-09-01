@@ -23,24 +23,24 @@ class TestConnectionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post(self):
-        """Test case for create_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_post
+    def test_connection_create(self):
+        """Test case for connection_create
 
-        Create Connection  # noqa: E501
+        Connection Create  # noqa: E501
         """
         pass
 
-    def test_delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete(self):
-        """Test case for delete_connection_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_delete
+    def test_connection_delete(self):
+        """Test case for connection_delete
 
-        Delete Connection  # noqa: E501
+        Connection Delete  # noqa: E501
         """
         pass
 
-    def test_get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get(self):
-        """Test case for get_connection_by_id_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_connection_id_get
+    def test_connection_get(self):
+        """Test case for connection_get
 
-        Get Connection By Id  # noqa: E501
+        Connection Get  # noqa: E501
         """
         pass
 

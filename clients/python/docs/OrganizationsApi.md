@@ -4,16 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_api_v1_organizations_organization_id_delete**](OrganizationsApi.md#delete_api_v1_organizations_organization_id_delete) | **DELETE** /api/v1/organizations/{organization_id} | Delete
-[**get_organization_by_id_api_v1_organizations_organization_id_get**](OrganizationsApi.md#get_organization_by_id_api_v1_organizations_organization_id_get) | **GET** /api/v1/organizations/{organization_id} | Get Organization By Id
-[**get_organizations_api_v1_organizations_get**](OrganizationsApi.md#get_organizations_api_v1_organizations_get) | **GET** /api/v1/organizations/ | Get Organizations
-[**put_organization_api_v1_organizations_organization_id_put**](OrganizationsApi.md#put_organization_api_v1_organizations_organization_id_put) | **PUT** /api/v1/organizations/{organization_id} | Put Organization
+[**organization_delete**](OrganizationsApi.md#organization_delete) | **DELETE** /api/v1/organizations/{organization_id} | Organization Delete
+[**organization_get**](OrganizationsApi.md#organization_get) | **GET** /api/v1/organizations/{organization_id} | Organization Get
+[**organization_get_environments**](OrganizationsApi.md#organization_get_environments) | **GET** /api/v1/organizations/{organization_id}/environments | Organization Get Environments
+[**organization_get_operations**](OrganizationsApi.md#organization_get_operations) | **GET** /api/v1/organizations/{organization_id}/operations/ | Organization Get Operations
+[**organization_list**](OrganizationsApi.md#organization_list) | **GET** /api/v1/organizations/ | Organization List
+[**organization_update**](OrganizationsApi.md#organization_update) | **PUT** /api/v1/organizations/{organization_id} | Organization Update
 
 
-# **delete_api_v1_organizations_organization_id_delete**
-> bool, date, datetime, dict, float, int, list, str, none_type delete_api_v1_organizations_organization_id_delete(organization_id)
+# **organization_delete**
+> bool, date, datetime, dict, float, int, list, str, none_type organization_delete(organization_id)
 
-Delete
+Organization Delete
 
 ### Example
 
@@ -49,11 +51,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete
-        api_response = api_instance.delete_api_v1_organizations_organization_id_delete(organization_id)
+        # Organization Delete
+        api_response = api_instance.organization_delete(organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling OrganizationsApi->delete_api_v1_organizations_organization_id_delete: %s\n" % e)
+        print("Exception when calling OrganizationsApi->organization_delete: %s\n" % e)
 ```
 
 
@@ -86,10 +88,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_organization_by_id_api_v1_organizations_organization_id_get**
-> OrganizationOutput get_organization_by_id_api_v1_organizations_organization_id_get(organization_id)
+# **organization_get**
+> OrganizationOutput organization_get(organization_id)
 
-Get Organization By Id
+Organization Get
 
 ### Example
 
@@ -126,11 +128,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Organization By Id
-        api_response = api_instance.get_organization_by_id_api_v1_organizations_organization_id_get(organization_id)
+        # Organization Get
+        api_response = api_instance.organization_get(organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling OrganizationsApi->get_organization_by_id_api_v1_organizations_organization_id_get: %s\n" % e)
+        print("Exception when calling OrganizationsApi->organization_get: %s\n" % e)
 ```
 
 
@@ -163,10 +165,177 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_organizations_api_v1_organizations_get**
-> [OrganizationOutput] get_organizations_api_v1_organizations_get()
+# **organization_get_environments**
+> [EnvironmentOutput] organization_get_environments(organization_id)
 
-Get Organizations
+Organization Get Environments
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import time
+import cloud_api_client
+from cloud_api_client.api import organizations_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.environment_output import EnvironmentOutput
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloud_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = cloud_api_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cloud_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = organizations_api.OrganizationsApi(api_client)
+    organization_id = "organization_id_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Organization Get Environments
+        api_response = api_instance.organization_get_environments(organization_id)
+        pprint(api_response)
+    except cloud_api_client.ApiException as e:
+        print("Exception when calling OrganizationsApi->organization_get_environments: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**|  |
+
+### Return type
+
+[**[EnvironmentOutput]**](EnvironmentOutput.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **organization_get_operations**
+> [OperationOutput] organization_get_operations(organization_id)
+
+Organization Get Operations
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import time
+import cloud_api_client
+from cloud_api_client.api import organizations_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.operation_output import OperationOutput
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloud_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = cloud_api_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cloud_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = organizations_api.OrganizationsApi(api_client)
+    organization_id = "organization_id_example" # str | 
+    asset_id = "asset_id_example" # str |  (optional)
+    environment_id = "environment_id_example" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Organization Get Operations
+        api_response = api_instance.organization_get_operations(organization_id)
+        pprint(api_response)
+    except cloud_api_client.ApiException as e:
+        print("Exception when calling OrganizationsApi->organization_get_operations: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Organization Get Operations
+        api_response = api_instance.organization_get_operations(organization_id, asset_id=asset_id, environment_id=environment_id)
+        pprint(api_response)
+    except cloud_api_client.ApiException as e:
+        print("Exception when calling OrganizationsApi->organization_get_operations: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**|  |
+ **asset_id** | **str**|  | [optional]
+ **environment_id** | **str**|  | [optional]
+
+### Return type
+
+[**[OperationOutput]**](OperationOutput.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **organization_list**
+> [OrganizationOutput] organization_list()
+
+Organization List
 
 ### Example
 
@@ -201,11 +370,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # Get Organizations
-        api_response = api_instance.get_organizations_api_v1_organizations_get()
+        # Organization List
+        api_response = api_instance.organization_list()
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling OrganizationsApi->get_organizations_api_v1_organizations_get: %s\n" % e)
+        print("Exception when calling OrganizationsApi->organization_list: %s\n" % e)
 ```
 
 
@@ -234,10 +403,10 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **put_organization_api_v1_organizations_organization_id_put**
-> OrganizationOutput put_organization_api_v1_organizations_organization_id_put(organization_id, organization_input)
+# **organization_update**
+> OrganizationOutput organization_update(organization_id, organization_input)
 
-Put Organization
+Organization Update
 
 ### Example
 
@@ -281,11 +450,11 @@ with cloud_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Put Organization
-        api_response = api_instance.put_organization_api_v1_organizations_organization_id_put(organization_id, organization_input)
+        # Organization Update
+        api_response = api_instance.organization_update(organization_id, organization_input)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling OrganizationsApi->put_organization_api_v1_organizations_organization_id_put: %s\n" % e)
+        print("Exception when calling OrganizationsApi->organization_update: %s\n" % e)
 ```
 
 

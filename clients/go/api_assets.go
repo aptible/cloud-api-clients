@@ -23,69 +23,69 @@ import (
 type AssetsApi interface {
 
 	/*
-	CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost Create Asset
+	AssetCreate Asset Create
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param environmentId
 	@param organizationId
-	@return ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest
+	@return ApiAssetCreateRequest
 	*/
-	CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(ctx context.Context, environmentId string, organizationId string) ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest
+	AssetCreate(ctx context.Context, environmentId string, organizationId string) ApiAssetCreateRequest
 
-	// CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostExecute executes the request
+	// AssetCreateExecute executes the request
 	//  @return AssetOutput
-	CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostExecute(r ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest) (*AssetOutput, *http.Response, error)
+	AssetCreateExecute(r ApiAssetCreateRequest) (*AssetOutput, *http.Response, error)
 
 	/*
-	DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete Delete Asset By Id
+	AssetDelete Asset Delete
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param environmentId
 	@param organizationId
-	@return ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest
+	@return ApiAssetDeleteRequest
 	*/
-	DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(ctx context.Context, assetId string, environmentId string, organizationId string) ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest
+	AssetDelete(ctx context.Context, assetId string, environmentId string, organizationId string) ApiAssetDeleteRequest
 
-	// DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteExecute executes the request
-	//  @return int32
-	DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteExecute(r ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest) (int32, *http.Response, error)
+	// AssetDeleteExecute executes the request
+	//  @return interface{}
+	AssetDeleteExecute(r ApiAssetDeleteRequest) (interface{}, *http.Response, error)
 
 	/*
-	GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet Get Asset By Id
+	AssetGet Asset Get
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param environmentId
 	@param organizationId
-	@return ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest
+	@return ApiAssetGetRequest
 	*/
-	GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(ctx context.Context, assetId string, environmentId string, organizationId string) ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest
+	AssetGet(ctx context.Context, assetId string, environmentId string, organizationId string) ApiAssetGetRequest
 
-	// GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetExecute executes the request
+	// AssetGetExecute executes the request
 	//  @return AssetOutput
-	GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetExecute(r ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest) (*AssetOutput, *http.Response, error)
+	AssetGetExecute(r ApiAssetGetRequest) (*AssetOutput, *http.Response, error)
 
 	/*
-	UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut Update Asset By Id
+	AssetUpdate Asset Update
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param assetId
 	@param environmentId
 	@param organizationId
-	@return ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest
+	@return ApiAssetUpdateRequest
 	*/
-	UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(ctx context.Context, assetId string, environmentId string, organizationId string) ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest
+	AssetUpdate(ctx context.Context, assetId string, environmentId string, organizationId string) ApiAssetUpdateRequest
 
-	// UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutExecute executes the request
+	// AssetUpdateExecute executes the request
 	//  @return AssetOutput
-	UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutExecute(r ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest) (*AssetOutput, *http.Response, error)
+	AssetUpdateExecute(r ApiAssetUpdateRequest) (*AssetOutput, *http.Response, error)
 }
 
 // AssetsApiService AssetsApi service
 type AssetsApiService service
 
-type ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest struct {
+type ApiAssetCreateRequest struct {
 	ctx context.Context
 	ApiService AssetsApi
 	environmentId string
@@ -93,25 +93,25 @@ type ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAsse
 	assetInput *AssetInput
 }
 
-func (r ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest) AssetInput(assetInput AssetInput) ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest {
+func (r ApiAssetCreateRequest) AssetInput(assetInput AssetInput) ApiAssetCreateRequest {
 	r.assetInput = &assetInput
 	return r
 }
 
-func (r ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest) Execute() (*AssetOutput, *http.Response, error) {
-	return r.ApiService.CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostExecute(r)
+func (r ApiAssetCreateRequest) Execute() (*AssetOutput, *http.Response, error) {
+	return r.ApiService.AssetCreateExecute(r)
 }
 
 /*
-CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost Create Asset
+AssetCreate Asset Create
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentId
  @param organizationId
- @return ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest
+ @return ApiAssetCreateRequest
 */
-func (a *AssetsApiService) CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(ctx context.Context, environmentId string, organizationId string) ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest {
-	return ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest{
+func (a *AssetsApiService) AssetCreate(ctx context.Context, environmentId string, organizationId string) ApiAssetCreateRequest {
+	return ApiAssetCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentId: environmentId,
@@ -121,7 +121,7 @@ func (a *AssetsApiService) CreateAssetApiV1OrganizationsOrganizationIdEnvironmen
 
 // Execute executes the request
 //  @return AssetOutput
-func (a *AssetsApiService) CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostExecute(r ApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest) (*AssetOutput, *http.Response, error) {
+func (a *AssetsApiService) AssetCreateExecute(r ApiAssetCreateRequest) (*AssetOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *AssetsApiService) CreateAssetApiV1OrganizationsOrganizationIdEnvironmen
 		localVarReturnValue  *AssetOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.CreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.AssetCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -210,7 +210,7 @@ func (a *AssetsApiService) CreateAssetApiV1OrganizationsOrganizationIdEnvironmen
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest struct {
+type ApiAssetDeleteRequest struct {
 	ctx context.Context
 	ApiService AssetsApi
 	assetId string
@@ -218,21 +218,21 @@ type ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentId
 	organizationId string
 }
 
-func (r ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest) Execute() (int32, *http.Response, error) {
-	return r.ApiService.DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteExecute(r)
+func (r ApiAssetDeleteRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.AssetDeleteExecute(r)
 }
 
 /*
-DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete Delete Asset By Id
+AssetDelete Asset Delete
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param environmentId
  @param organizationId
- @return ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest
+ @return ApiAssetDeleteRequest
 */
-func (a *AssetsApiService) DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(ctx context.Context, assetId string, environmentId string, organizationId string) ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest {
-	return ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest{
+func (a *AssetsApiService) AssetDelete(ctx context.Context, assetId string, environmentId string, organizationId string) ApiAssetDeleteRequest {
+	return ApiAssetDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
@@ -242,16 +242,16 @@ func (a *AssetsApiService) DeleteAssetByIdApiV1OrganizationsOrganizationIdEnviro
 }
 
 // Execute executes the request
-//  @return int32
-func (a *AssetsApiService) DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteExecute(r ApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest) (int32, *http.Response, error) {
+//  @return interface{}
+func (a *AssetsApiService) AssetDeleteExecute(r ApiAssetDeleteRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  int32
+		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.DeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.AssetDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -328,7 +328,7 @@ func (a *AssetsApiService) DeleteAssetByIdApiV1OrganizationsOrganizationIdEnviro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest struct {
+type ApiAssetGetRequest struct {
 	ctx context.Context
 	ApiService AssetsApi
 	assetId string
@@ -336,21 +336,21 @@ type ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAss
 	organizationId string
 }
 
-func (r ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest) Execute() (*AssetOutput, *http.Response, error) {
-	return r.ApiService.GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetExecute(r)
+func (r ApiAssetGetRequest) Execute() (*AssetOutput, *http.Response, error) {
+	return r.ApiService.AssetGetExecute(r)
 }
 
 /*
-GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet Get Asset By Id
+AssetGet Asset Get
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param environmentId
  @param organizationId
- @return ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest
+ @return ApiAssetGetRequest
 */
-func (a *AssetsApiService) GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(ctx context.Context, assetId string, environmentId string, organizationId string) ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest {
-	return ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest{
+func (a *AssetsApiService) AssetGet(ctx context.Context, assetId string, environmentId string, organizationId string) ApiAssetGetRequest {
+	return ApiAssetGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
@@ -361,7 +361,7 @@ func (a *AssetsApiService) GetAssetByIdApiV1OrganizationsOrganizationIdEnvironme
 
 // Execute executes the request
 //  @return AssetOutput
-func (a *AssetsApiService) GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetExecute(r ApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest) (*AssetOutput, *http.Response, error) {
+func (a *AssetsApiService) AssetGetExecute(r ApiAssetGetRequest) (*AssetOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -369,7 +369,7 @@ func (a *AssetsApiService) GetAssetByIdApiV1OrganizationsOrganizationIdEnvironme
 		localVarReturnValue  *AssetOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.GetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.AssetGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -446,7 +446,7 @@ func (a *AssetsApiService) GetAssetByIdApiV1OrganizationsOrganizationIdEnvironme
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest struct {
+type ApiAssetUpdateRequest struct {
 	ctx context.Context
 	ApiService AssetsApi
 	assetId string
@@ -455,26 +455,26 @@ type ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentId
 	assetInput *AssetInput
 }
 
-func (r ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest) AssetInput(assetInput AssetInput) ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest {
+func (r ApiAssetUpdateRequest) AssetInput(assetInput AssetInput) ApiAssetUpdateRequest {
 	r.assetInput = &assetInput
 	return r
 }
 
-func (r ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest) Execute() (*AssetOutput, *http.Response, error) {
-	return r.ApiService.UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutExecute(r)
+func (r ApiAssetUpdateRequest) Execute() (*AssetOutput, *http.Response, error) {
+	return r.ApiService.AssetUpdateExecute(r)
 }
 
 /*
-UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut Update Asset By Id
+AssetUpdate Asset Update
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId
  @param environmentId
  @param organizationId
- @return ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest
+ @return ApiAssetUpdateRequest
 */
-func (a *AssetsApiService) UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(ctx context.Context, assetId string, environmentId string, organizationId string) ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest {
-	return ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest{
+func (a *AssetsApiService) AssetUpdate(ctx context.Context, assetId string, environmentId string, organizationId string) ApiAssetUpdateRequest {
+	return ApiAssetUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		assetId: assetId,
@@ -485,7 +485,7 @@ func (a *AssetsApiService) UpdateAssetByIdApiV1OrganizationsOrganizationIdEnviro
 
 // Execute executes the request
 //  @return AssetOutput
-func (a *AssetsApiService) UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutExecute(r ApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest) (*AssetOutput, *http.Response, error) {
+func (a *AssetsApiService) AssetUpdateExecute(r ApiAssetUpdateRequest) (*AssetOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -493,7 +493,7 @@ func (a *AssetsApiService) UpdateAssetByIdApiV1OrganizationsOrganizationIdEnviro
 		localVarReturnValue  *AssetOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.UpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.AssetUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

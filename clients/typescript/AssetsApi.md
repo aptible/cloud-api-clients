@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost**](AssetsApi.md#createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Create Asset
-[**deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete**](AssetsApi.md#deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Delete Asset By Id
-[**getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet**](AssetsApi.md#getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Get Asset By Id
-[**updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut**](AssetsApi.md#updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Update Asset By Id
+[**assetCreate**](AssetsApi.md#assetCreate) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Asset Create
+[**assetDelete**](AssetsApi.md#assetDelete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Delete
+[**assetGet**](AssetsApi.md#assetGet) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Get
+[**assetUpdate**](AssetsApi.md#assetUpdate) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id} | Asset Update
 
 
-# **createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost**
-> AssetOutput createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(assetInput)
+# **assetCreate**
+> AssetOutput assetCreate(assetInput)
 
 
 ### Example
@@ -24,7 +24,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AssetsApi(configuration);
 
-let body:.AssetsApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPostRequest = {
+let body:.AssetsApiAssetCreateRequest = {
   // string
   environmentId: "environment_id_example",
   // string
@@ -37,7 +37,7 @@ let body:.AssetsApiCreateAssetApiV1OrganizationsOrganizationIdEnvironmentsEnviro
   },
 };
 
-apiInstance.createAssetApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsPost(body).then((data:any) => {
+apiInstance.assetCreate(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -74,8 +74,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete**
-> number deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete()
+# **assetDelete**
+> any assetDelete()
 
 
 ### Example
@@ -88,7 +88,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AssetsApi(configuration);
 
-let body:.AssetsApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDeleteRequest = {
+let body:.AssetsApiAssetDeleteRequest = {
   // string
   assetId: "asset_id_example",
   // string
@@ -97,7 +97,7 @@ let body:.AssetsApiDeleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEn
   organizationId: "organization_id_example",
 };
 
-apiInstance.deleteAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdDelete(body).then((data:any) => {
+apiInstance.assetDelete(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**number**
+**any**
 
 ### Authorization
 
@@ -134,8 +134,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet**
-> AssetOutput getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet()
+# **assetGet**
+> AssetOutput assetGet()
 
 
 ### Example
@@ -148,7 +148,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AssetsApi(configuration);
 
-let body:.AssetsApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGetRequest = {
+let body:.AssetsApiAssetGetRequest = {
   // string
   assetId: "asset_id_example",
   // string
@@ -157,7 +157,7 @@ let body:.AssetsApiGetAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvir
   organizationId: "organization_id_example",
 };
 
-apiInstance.getAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdGet(body).then((data:any) => {
+apiInstance.assetGet(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -194,8 +194,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut**
-> AssetOutput updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(assetInput)
+# **assetUpdate**
+> AssetOutput assetUpdate(assetInput)
 
 
 ### Example
@@ -208,7 +208,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AssetsApi(configuration);
 
-let body:.AssetsApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPutRequest = {
+let body:.AssetsApiAssetUpdateRequest = {
   // string
   assetId: "asset_id_example",
   // string
@@ -223,7 +223,7 @@ let body:.AssetsApiUpdateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEn
   },
 };
 
-apiInstance.updateAssetByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdPut(body).then((data:any) => {
+apiInstance.assetUpdate(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

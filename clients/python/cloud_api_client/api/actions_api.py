@@ -37,14 +37,14 @@ class ActionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post_endpoint = _Endpoint(
+        self.action_create_endpoint = _Endpoint(
             settings={
                 'response_type': (ActionResponse,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action',
-                'operation_id': 'create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post',
+                'operation_id': 'action_create',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -107,14 +107,14 @@ class ActionsApi(object):
             },
             api_client=api_client
         )
-        self.get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get_endpoint = _Endpoint(
+        self.action_get_endpoint = _Endpoint(
             settings={
                 'response_type': (ActionResponse,),
                 'auth': [
                     'HTTPBearer'
                 ],
                 'endpoint_path': '/api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/action/{action_id}',
-                'operation_id': 'get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get',
+                'operation_id': 'action_get',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -177,7 +177,7 @@ class ActionsApi(object):
             api_client=api_client
         )
 
-    def create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post(
+    def action_create(
         self,
         asset_id,
         environment_id,
@@ -185,12 +185,12 @@ class ActionsApi(object):
         action_request,
         **kwargs
     ):
-        """Create Action  # noqa: E501
+        """Action Create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post(asset_id, environment_id, organization_id, action_request, async_req=True)
+        >>> thread = api.action_create(asset_id, environment_id, organization_id, action_request, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -269,9 +269,9 @@ class ActionsApi(object):
             organization_id
         kwargs['action_request'] = \
             action_request
-        return self.create_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_post_endpoint.call_with_http_info(**kwargs)
+        return self.action_create_endpoint.call_with_http_info(**kwargs)
 
-    def get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get(
+    def action_get(
         self,
         asset_id,
         environment_id,
@@ -279,12 +279,12 @@ class ActionsApi(object):
         organization_id,
         **kwargs
     ):
-        """Get Action  # noqa: E501
+        """Action Get  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get(asset_id, environment_id, action_id, organization_id, async_req=True)
+        >>> thread = api.action_get(asset_id, environment_id, action_id, organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -363,5 +363,5 @@ class ActionsApi(object):
             action_id
         kwargs['organization_id'] = \
             organization_id
-        return self.get_action_api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_action_action_id_get_endpoint.call_with_http_info(**kwargs)
+        return self.action_get_endpoint.call_with_http_info(**kwargs)
 

@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_ping_api_v1_debug_ping_get**](UtilitiesApi.md#get_ping_api_v1_debug_ping_get) | **GET** /api/v1/debug/ping | Get Ping
-[**get_user_api_v1_debug_user_auth_get**](UtilitiesApi.md#get_user_api_v1_debug_user_auth_get) | **GET** /api/v1/debug/user_auth | Get User
-[**get_user_role_api_v1_debug_user_role_middleware_check_get**](UtilitiesApi.md#get_user_role_api_v1_debug_user_role_middleware_check_get) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
+[**get_ping**](UtilitiesApi.md#get_ping) | **GET** /api/v1/debug/ping | Get Ping
+[**get_user**](UtilitiesApi.md#get_user) | **GET** /api/v1/debug/user_auth | Get User
+[**get_user_role**](UtilitiesApi.md#get_user_role) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
 
 
-# **get_ping_api_v1_debug_ping_get**
-> TextResponse get_ping_api_v1_debug_ping_get()
+# **get_ping**
+> TextResponse get_ping()
 
 Get Ping
 
@@ -38,10 +38,10 @@ with cloud_api_client.ApiClient() as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Get Ping
-        api_response = api_instance.get_ping_api_v1_debug_ping_get()
+        api_response = api_instance.get_ping()
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling UtilitiesApi->get_ping_api_v1_debug_ping_get: %s\n" % e)
+        print("Exception when calling UtilitiesApi->get_ping: %s\n" % e)
 ```
 
 
@@ -70,8 +70,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_user_api_v1_debug_user_auth_get**
-> bool, date, datetime, dict, float, int, list, str, none_type get_user_api_v1_debug_user_auth_get()
+# **get_user**
+> bool, date, datetime, dict, float, int, list, str, none_type get_user()
 
 Get User
 
@@ -108,10 +108,10 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Get User
-        api_response = api_instance.get_user_api_v1_debug_user_auth_get()
+        api_response = api_instance.get_user()
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling UtilitiesApi->get_user_api_v1_debug_user_auth_get: %s\n" % e)
+        print("Exception when calling UtilitiesApi->get_user: %s\n" % e)
 ```
 
 
@@ -140,8 +140,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_user_role_api_v1_debug_user_role_middleware_check_get**
-> bool, date, datetime, dict, float, int, list, str, none_type get_user_role_api_v1_debug_user_role_middleware_check_get(organization_id)
+# **get_user_role**
+> bool, date, datetime, dict, float, int, list, str, none_type get_user_role(organization_id)
 
 Get User Role
 
@@ -180,10 +180,10 @@ with cloud_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get User Role
-        api_response = api_instance.get_user_role_api_v1_debug_user_role_middleware_check_get(organization_id)
+        api_response = api_instance.get_user_role(organization_id)
         pprint(api_response)
     except cloud_api_client.ApiException as e:
-        print("Exception when calling UtilitiesApi->get_user_role_api_v1_debug_user_role_middleware_check_get: %s\n" % e)
+        print("Exception when calling UtilitiesApi->get_user_role: %s\n" % e)
 ```
 
 

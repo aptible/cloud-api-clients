@@ -23,198 +23,57 @@ import (
 type OperationsApi interface {
 
 	/*
-	GetOperationsApiV1OrganizationsOrganizationIdOperationsGet Get Operations
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param organizationId
-	@return ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest
-	*/
-	GetOperationsApiV1OrganizationsOrganizationIdOperationsGet(ctx context.Context, organizationId string) ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest
-
-	// GetOperationsApiV1OrganizationsOrganizationIdOperationsGetExecute executes the request
-	//  @return []OperationOutput
-	GetOperationsApiV1OrganizationsOrganizationIdOperationsGetExecute(r ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest) ([]OperationOutput, *http.Response, error)
-
-	/*
-	GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet Get Operations By Operation Id
+	OperationGet Operation Get
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId
 	@param organizationId
-	@return ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest
+	@return ApiOperationGetRequest
 	*/
-	GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(ctx context.Context, operationId string, organizationId string) ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest
+	OperationGet(ctx context.Context, operationId string, organizationId string) ApiOperationGetRequest
 
-	// GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetExecute executes the request
+	// OperationGetExecute executes the request
 	//  @return []OperationOutput
-	GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetExecute(r ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest) ([]OperationOutput, *http.Response, error)
+	OperationGetExecute(r ApiOperationGetRequest) ([]OperationOutput, *http.Response, error)
 
 	/*
-	UpdateOperationApiV1OperationsOperationIdPut Update Operation
+	OperationUpdate Operation Update
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId
-	@return ApiUpdateOperationApiV1OperationsOperationIdPutRequest
+	@return ApiOperationUpdateRequest
 	*/
-	UpdateOperationApiV1OperationsOperationIdPut(ctx context.Context, operationId string) ApiUpdateOperationApiV1OperationsOperationIdPutRequest
+	OperationUpdate(ctx context.Context, operationId string) ApiOperationUpdateRequest
 
-	// UpdateOperationApiV1OperationsOperationIdPutExecute executes the request
+	// OperationUpdateExecute executes the request
 	//  @return interface{}
-	UpdateOperationApiV1OperationsOperationIdPutExecute(r ApiUpdateOperationApiV1OperationsOperationIdPutRequest) (interface{}, *http.Response, error)
+	OperationUpdateExecute(r ApiOperationUpdateRequest) (interface{}, *http.Response, error)
 }
 
 // OperationsApiService OperationsApi service
 type OperationsApiService service
 
-type ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest struct {
-	ctx context.Context
-	ApiService OperationsApi
-	organizationId string
-	assetId *string
-	environmentId *string
-}
-
-func (r ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest) AssetId(assetId string) ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest {
-	r.assetId = &assetId
-	return r
-}
-
-func (r ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest) EnvironmentId(environmentId string) ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest {
-	r.environmentId = &environmentId
-	return r
-}
-
-func (r ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest) Execute() ([]OperationOutput, *http.Response, error) {
-	return r.ApiService.GetOperationsApiV1OrganizationsOrganizationIdOperationsGetExecute(r)
-}
-
-/*
-GetOperationsApiV1OrganizationsOrganizationIdOperationsGet Get Operations
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param organizationId
- @return ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest
-*/
-func (a *OperationsApiService) GetOperationsApiV1OrganizationsOrganizationIdOperationsGet(ctx context.Context, organizationId string) ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest {
-	return ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		organizationId: organizationId,
-	}
-}
-
-// Execute executes the request
-//  @return []OperationOutput
-func (a *OperationsApiService) GetOperationsApiV1OrganizationsOrganizationIdOperationsGetExecute(r ApiGetOperationsApiV1OrganizationsOrganizationIdOperationsGetRequest) ([]OperationOutput, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []OperationOutput
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationsApiService.GetOperationsApiV1OrganizationsOrganizationIdOperationsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/organizations/{organization_id}/operations/"
-	localVarPath = strings.Replace(localVarPath, "{"+"organization_id"+"}", url.PathEscape(parameterToString(r.organizationId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.assetId != nil {
-		localVarQueryParams.Add("asset_id", parameterToString(*r.assetId, ""))
-	}
-	if r.environmentId != nil {
-		localVarQueryParams.Add("environment_id", parameterToString(*r.environmentId, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest struct {
+type ApiOperationGetRequest struct {
 	ctx context.Context
 	ApiService OperationsApi
 	operationId string
 	organizationId string
 }
 
-func (r ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest) Execute() ([]OperationOutput, *http.Response, error) {
-	return r.ApiService.GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetExecute(r)
+func (r ApiOperationGetRequest) Execute() ([]OperationOutput, *http.Response, error) {
+	return r.ApiService.OperationGetExecute(r)
 }
 
 /*
-GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet Get Operations By Operation Id
+OperationGet Operation Get
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param operationId
  @param organizationId
- @return ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest
+ @return ApiOperationGetRequest
 */
-func (a *OperationsApiService) GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet(ctx context.Context, operationId string, organizationId string) ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest {
-	return ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest{
+func (a *OperationsApiService) OperationGet(ctx context.Context, operationId string, organizationId string) ApiOperationGetRequest {
+	return ApiOperationGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		operationId: operationId,
@@ -224,7 +83,7 @@ func (a *OperationsApiService) GetOperationsByOperationIdApiV1OrganizationsOrgan
 
 // Execute executes the request
 //  @return []OperationOutput
-func (a *OperationsApiService) GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetExecute(r ApiGetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGetRequest) ([]OperationOutput, *http.Response, error) {
+func (a *OperationsApiService) OperationGetExecute(r ApiOperationGetRequest) ([]OperationOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -232,7 +91,7 @@ func (a *OperationsApiService) GetOperationsByOperationIdApiV1OrganizationsOrgan
 		localVarReturnValue  []OperationOutput
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationsApiService.GetOperationsByOperationIdApiV1OrganizationsOrganizationIdOperationsOperationIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationsApiService.OperationGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -308,31 +167,31 @@ func (a *OperationsApiService) GetOperationsByOperationIdApiV1OrganizationsOrgan
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateOperationApiV1OperationsOperationIdPutRequest struct {
+type ApiOperationUpdateRequest struct {
 	ctx context.Context
 	ApiService OperationsApi
 	operationId string
 	operationUpdate *OperationUpdate
 }
 
-func (r ApiUpdateOperationApiV1OperationsOperationIdPutRequest) OperationUpdate(operationUpdate OperationUpdate) ApiUpdateOperationApiV1OperationsOperationIdPutRequest {
+func (r ApiOperationUpdateRequest) OperationUpdate(operationUpdate OperationUpdate) ApiOperationUpdateRequest {
 	r.operationUpdate = &operationUpdate
 	return r
 }
 
-func (r ApiUpdateOperationApiV1OperationsOperationIdPutRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.UpdateOperationApiV1OperationsOperationIdPutExecute(r)
+func (r ApiOperationUpdateRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.OperationUpdateExecute(r)
 }
 
 /*
-UpdateOperationApiV1OperationsOperationIdPut Update Operation
+OperationUpdate Operation Update
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param operationId
- @return ApiUpdateOperationApiV1OperationsOperationIdPutRequest
+ @return ApiOperationUpdateRequest
 */
-func (a *OperationsApiService) UpdateOperationApiV1OperationsOperationIdPut(ctx context.Context, operationId string) ApiUpdateOperationApiV1OperationsOperationIdPutRequest {
-	return ApiUpdateOperationApiV1OperationsOperationIdPutRequest{
+func (a *OperationsApiService) OperationUpdate(ctx context.Context, operationId string) ApiOperationUpdateRequest {
+	return ApiOperationUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		operationId: operationId,
@@ -341,7 +200,7 @@ func (a *OperationsApiService) UpdateOperationApiV1OperationsOperationIdPut(ctx 
 
 // Execute executes the request
 //  @return interface{}
-func (a *OperationsApiService) UpdateOperationApiV1OperationsOperationIdPutExecute(r ApiUpdateOperationApiV1OperationsOperationIdPutRequest) (interface{}, *http.Response, error) {
+func (a *OperationsApiService) OperationUpdateExecute(r ApiOperationUpdateRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -349,7 +208,7 @@ func (a *OperationsApiService) UpdateOperationApiV1OperationsOperationIdPutExecu
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationsApiService.UpdateOperationApiV1OperationsOperationIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationsApiService.OperationUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

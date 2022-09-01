@@ -32,32 +32,32 @@ describe 'UtilitiesApi' do
     end
   end
 
-  # unit tests for get_ping_api_v1_debug_ping_get
+  # unit tests for get_ping
   # Get Ping
   # @param [Hash] opts the optional parameters
   # @return [TextResponse]
-  describe 'get_ping_api_v1_debug_ping_get test' do
+  describe 'get_ping test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_user_api_v1_debug_user_auth_get
+  # unit tests for get_user
   # Get User
   # @param [Hash] opts the optional parameters
   # @return [Object]
-  describe 'get_user_api_v1_debug_user_auth_get test' do
+  describe 'get_user test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for get_user_role_api_v1_debug_user_role_middleware_check_get
+  # unit tests for get_user_role
   # Get User Role
   # @param organization_id 
   # @param [Hash] opts the optional parameters
   # @return [Object]
-  describe 'get_user_role_api_v1_debug_user_role_middleware_check_get test' do
+  describe 'get_user_role test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -4,22 +4,21 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost**](EnvironmentsApi.md#CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost) | **Post** /api/v1/organizations/{organization_id}/environments | Create Environment
-[**DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete**](EnvironmentsApi.md#DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id} | Delete Environment By Id
-[**GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet**](EnvironmentsApi.md#GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Get Assets
-[**GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet**](EnvironmentsApi.md#GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Get Environment Allowed Assets
-[**GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet**](EnvironmentsApi.md#GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id} | Get Environment By Id
-[**GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet**](EnvironmentsApi.md#GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Get Environment Connections
-[**GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet**](EnvironmentsApi.md#GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet) | **Get** /api/v1/organizations/{organization_id}/environments | Get Environments
-[**UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut**](EnvironmentsApi.md#UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id} | Update Environment
+[**EnvironmentCreate**](EnvironmentsApi.md#EnvironmentCreate) | **Post** /api/v1/organizations/{organization_id}/environments | Environment Create
+[**EnvironmentDelete**](EnvironmentsApi.md#EnvironmentDelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Delete
+[**EnvironmentGet**](EnvironmentsApi.md#EnvironmentGet) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Get
+[**EnvironmentGetAllowedAssetBundles**](EnvironmentsApi.md#EnvironmentGetAllowedAssetBundles) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/asset_bundles | Environment Get Allowed Asset Bundles
+[**EnvironmentGetAssets**](EnvironmentsApi.md#EnvironmentGetAssets) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets | Environment Get Assets
+[**EnvironmentGetConnections**](EnvironmentsApi.md#EnvironmentGetConnections) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Environment Get Connections
+[**EnvironmentUpdate**](EnvironmentsApi.md#EnvironmentUpdate) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Update
 
 
 
-## CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost
+## EnvironmentCreate
 
-> EnvironmentOutput CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(ctx, organizationId).EnvironmentInput(environmentInput).Execute()
+> EnvironmentOutput EnvironmentCreate(ctx, organizationId).EnvironmentInput(environmentInput).Execute()
 
-Create Environment
+Environment Create
 
 ### Example
 
@@ -39,13 +38,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnvironmentsApi.CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost(context.Background(), organizationId).EnvironmentInput(environmentInput).Execute()
+    resp, r, err := apiClient.EnvironmentsApi.EnvironmentCreate(context.Background(), organizationId).EnvironmentInput(environmentInput).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.EnvironmentCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost`: EnvironmentOutput
-    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.CreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPost`: %v\n", resp)
+    // response from `EnvironmentCreate`: EnvironmentOutput
+    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.EnvironmentCreate`: %v\n", resp)
 }
 ```
 
@@ -59,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiEnvironmentCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -85,11 +84,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete
+## EnvironmentDelete
 
-> int32 DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(ctx, environmentId, organizationId).Execute()
+> interface{} EnvironmentDelete(ctx, environmentId, organizationId).Execute()
 
-Delete Environment By Id
+Environment Delete
 
 ### Example
 
@@ -109,13 +108,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnvironmentsApi.DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete(context.Background(), environmentId, organizationId).Execute()
+    resp, r, err := apiClient.EnvironmentsApi.EnvironmentDelete(context.Background(), environmentId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.EnvironmentDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete`: int32
-    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.DeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDelete`: %v\n", resp)
+    // response from `EnvironmentDelete`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.EnvironmentDelete`: %v\n", resp)
 }
 ```
 
@@ -130,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiEnvironmentDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -140,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**int32**
+**interface{}**
 
 ### Authorization
 
@@ -156,82 +155,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet
+## EnvironmentGet
 
-> []AssetOutput GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(ctx, environmentId, organizationId).Execute()
+> EnvironmentOutput EnvironmentGet(ctx, environmentId, organizationId).Execute()
 
-Get Assets
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    environmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnvironmentsApi.GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet(context.Background(), environmentId, organizationId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet`: []AssetOutput
-    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.GetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**environmentId** | **string** |  | 
-**organizationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**[]AssetOutput**](AssetOutput.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet
-
-> []AssetBundle GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(ctx, environmentId, organizationId).Execute()
-
-Get Environment Allowed Assets
+Environment Get
 
 ### Example
 
@@ -251,13 +179,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnvironmentsApi.GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet(context.Background(), environmentId, organizationId).Execute()
+    resp, r, err := apiClient.EnvironmentsApi.EnvironmentGet(context.Background(), environmentId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.EnvironmentGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet`: []AssetBundle
-    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.GetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGet`: %v\n", resp)
+    // response from `EnvironmentGet`: EnvironmentOutput
+    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.EnvironmentGet`: %v\n", resp)
 }
 ```
 
@@ -272,78 +200,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetEnvironmentAllowedAssetsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetBundlesGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**[]AssetBundle**](AssetBundle.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet
-
-> EnvironmentOutput GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(ctx, environmentId, organizationId).Execute()
-
-Get Environment By Id
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    environmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnvironmentsApi.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet(context.Background(), environmentId, organizationId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet`: EnvironmentOutput
-    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.GetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**environmentId** | **string** |  | 
-**organizationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetEnvironmentByIdApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiEnvironmentGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -369,11 +226,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet
+## EnvironmentGetAllowedAssetBundles
 
-> []ConnectionOutput GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(ctx, environmentId, organizationId).Execute()
+> []AssetBundle EnvironmentGetAllowedAssetBundles(ctx, environmentId, organizationId).Execute()
 
-Get Environment Connections
+Environment Get Allowed Asset Bundles
 
 ### Example
 
@@ -393,13 +250,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnvironmentsApi.GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet(context.Background(), environmentId, organizationId).Execute()
+    resp, r, err := apiClient.EnvironmentsApi.EnvironmentGetAllowedAssetBundles(context.Background(), environmentId, organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.EnvironmentGetAllowedAssetBundles``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet`: []ConnectionOutput
-    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.GetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGet`: %v\n", resp)
+    // response from `EnvironmentGetAllowedAssetBundles`: []AssetBundle
+    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.EnvironmentGetAllowedAssetBundles`: %v\n", resp)
 }
 ```
 
@@ -414,7 +271,149 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetEnvironmentConnectionsApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdConnectionsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiEnvironmentGetAllowedAssetBundlesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**[]AssetBundle**](AssetBundle.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EnvironmentGetAssets
+
+> []AssetOutput EnvironmentGetAssets(ctx, environmentId, organizationId).Execute()
+
+Environment Get Assets
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    environmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.EnvironmentsApi.EnvironmentGetAssets(context.Background(), environmentId, organizationId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.EnvironmentGetAssets``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EnvironmentGetAssets`: []AssetOutput
+    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.EnvironmentGetAssets`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**environmentId** | **string** |  | 
+**organizationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEnvironmentGetAssetsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**[]AssetOutput**](AssetOutput.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EnvironmentGetConnections
+
+> []ConnectionOutput EnvironmentGetConnections(ctx, environmentId, organizationId).Execute()
+
+Environment Get Connections
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    environmentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.EnvironmentsApi.EnvironmentGetConnections(context.Background(), environmentId, organizationId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.EnvironmentGetConnections``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EnvironmentGetConnections`: []ConnectionOutput
+    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.EnvironmentGetConnections`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**environmentId** | **string** |  | 
+**organizationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEnvironmentGetConnectionsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -440,79 +439,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet
+## EnvironmentUpdate
 
-> []EnvironmentOutput GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(ctx, organizationId).Execute()
+> EnvironmentOutput EnvironmentUpdate(ctx, environmentId, organizationId).EnvironmentInput(environmentInput).Execute()
 
-Get Environments
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    organizationId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnvironmentsApi.GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet(context.Background(), organizationId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet`: []EnvironmentOutput
-    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.GetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**organizationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetEnvironmentsApiV1OrganizationsOrganizationIdEnvironmentsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**[]EnvironmentOutput**](EnvironmentOutput.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut
-
-> EnvironmentOutput UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(ctx, environmentId, organizationId).EnvironmentInput(environmentInput).Execute()
-
-Update Environment
+Environment Update
 
 ### Example
 
@@ -533,13 +464,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnvironmentsApi.UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut(context.Background(), environmentId, organizationId).EnvironmentInput(environmentInput).Execute()
+    resp, r, err := apiClient.EnvironmentsApi.EnvironmentUpdate(context.Background(), environmentId, organizationId).EnvironmentInput(environmentInput).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.EnvironmentUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut`: EnvironmentOutput
-    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.UpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPut`: %v\n", resp)
+    // response from `EnvironmentUpdate`: EnvironmentOutput
+    fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.EnvironmentUpdate`: %v\n", resp)
 }
 ```
 
@@ -554,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateEnvironmentApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiEnvironmentUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
