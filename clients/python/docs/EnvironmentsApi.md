@@ -1,4 +1,4 @@
-# cloud_api_client.EnvironmentsApi
+# aptible_client.EnvironmentsApi
 
 All URIs are relative to *http://localhost*
 
@@ -24,15 +24,15 @@ Environment Create
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import environments_api
-from cloud_api_client.model.environment_input import EnvironmentInput
-from cloud_api_client.model.http_validation_error import HTTPValidationError
-from cloud_api_client.model.environment_output import EnvironmentOutput
+import aptible_client
+from aptible_client.api import environments_api
+from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.environment_input import EnvironmentInput
+from aptible_client.model.environment_output import EnvironmentOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -42,12 +42,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environments_api.EnvironmentsApi(api_client)
     organization_id = "organization_id_example" # str | 
@@ -62,7 +62,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Environment Create
         api_response = api_instance.environment_create(organization_id, environment_input)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling EnvironmentsApi->environment_create: %s\n" % e)
 ```
 
@@ -108,13 +108,13 @@ Environment Delete
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import environments_api
-from cloud_api_client.model.http_validation_error import HTTPValidationError
+import aptible_client
+from aptible_client.api import environments_api
+from aptible_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -124,12 +124,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environments_api.EnvironmentsApi(api_client)
     environment_id = "environment_id_example" # str | 
@@ -140,7 +140,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Environment Delete
         api_response = api_instance.environment_delete(environment_id, organization_id)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling EnvironmentsApi->environment_delete: %s\n" % e)
 ```
 
@@ -186,14 +186,14 @@ Environment Get
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import environments_api
-from cloud_api_client.model.http_validation_error import HTTPValidationError
-from cloud_api_client.model.environment_output import EnvironmentOutput
+import aptible_client
+from aptible_client.api import environments_api
+from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.environment_output import EnvironmentOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -203,12 +203,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environments_api.EnvironmentsApi(api_client)
     environment_id = "environment_id_example" # str | 
@@ -219,7 +219,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Environment Get
         api_response = api_instance.environment_get(environment_id, organization_id)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling EnvironmentsApi->environment_get: %s\n" % e)
 ```
 
@@ -265,14 +265,14 @@ Environment Get Allowed Asset Bundles
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import environments_api
-from cloud_api_client.model.asset_bundle import AssetBundle
-from cloud_api_client.model.http_validation_error import HTTPValidationError
+import aptible_client
+from aptible_client.api import environments_api
+from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.asset_bundle import AssetBundle
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -282,12 +282,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environments_api.EnvironmentsApi(api_client)
     environment_id = "environment_id_example" # str | 
@@ -298,7 +298,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Environment Get Allowed Asset Bundles
         api_response = api_instance.environment_get_allowed_asset_bundles(environment_id, organization_id)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling EnvironmentsApi->environment_get_allowed_asset_bundles: %s\n" % e)
 ```
 
@@ -344,14 +344,14 @@ Environment Get Assets
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import environments_api
-from cloud_api_client.model.asset_output import AssetOutput
-from cloud_api_client.model.http_validation_error import HTTPValidationError
+import aptible_client
+from aptible_client.api import environments_api
+from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.asset_output import AssetOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -361,12 +361,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environments_api.EnvironmentsApi(api_client)
     environment_id = "environment_id_example" # str | 
@@ -377,7 +377,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Environment Get Assets
         api_response = api_instance.environment_get_assets(environment_id, organization_id)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling EnvironmentsApi->environment_get_assets: %s\n" % e)
 ```
 
@@ -423,14 +423,14 @@ Environment Get Connections
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import environments_api
-from cloud_api_client.model.connection_output import ConnectionOutput
-from cloud_api_client.model.http_validation_error import HTTPValidationError
+import aptible_client
+from aptible_client.api import environments_api
+from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.connection_output import ConnectionOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -440,12 +440,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environments_api.EnvironmentsApi(api_client)
     environment_id = "environment_id_example" # str | 
@@ -456,7 +456,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Environment Get Connections
         api_response = api_instance.environment_get_connections(environment_id, organization_id)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling EnvironmentsApi->environment_get_connections: %s\n" % e)
 ```
 
@@ -502,15 +502,15 @@ Environment Update
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import environments_api
-from cloud_api_client.model.environment_input import EnvironmentInput
-from cloud_api_client.model.http_validation_error import HTTPValidationError
-from cloud_api_client.model.environment_output import EnvironmentOutput
+import aptible_client
+from aptible_client.api import environments_api
+from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.environment_input import EnvironmentInput
+from aptible_client.model.environment_output import EnvironmentOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -520,12 +520,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environments_api.EnvironmentsApi(api_client)
     environment_id = "environment_id_example" # str | 
@@ -541,7 +541,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Environment Update
         api_response = api_instance.environment_update(environment_id, organization_id, environment_input)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling EnvironmentsApi->environment_update: %s\n" % e)
 ```
 

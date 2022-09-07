@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.operation_status import OperationStatus
+import aptible_client
+from aptible_client.model.operation_status import OperationStatus
 
 
 class TestOperationStatus(unittest.TestCase):

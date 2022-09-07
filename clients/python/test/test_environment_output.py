@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.organization_output import OrganizationOutput
+import aptible_client
+from aptible_client.model.organization_output import OrganizationOutput
 globals()['OrganizationOutput'] = OrganizationOutput
-from cloud_api_client.model.environment_output import EnvironmentOutput
+from aptible_client.model.environment_output import EnvironmentOutput
 
 
 class TestEnvironmentOutput(unittest.TestCase):

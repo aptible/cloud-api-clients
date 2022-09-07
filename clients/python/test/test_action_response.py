@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.asset_output import AssetOutput
-from cloud_api_client.model.operation_output import OperationOutput
+import aptible_client
+from aptible_client.model.asset_output import AssetOutput
+from aptible_client.model.operation_output import OperationOutput
 globals()['AssetOutput'] = AssetOutput
 globals()['OperationOutput'] = OperationOutput
-from cloud_api_client.model.action_response import ActionResponse
+from aptible_client.model.action_response import ActionResponse
 
 
 class TestActionResponse(unittest.TestCase):

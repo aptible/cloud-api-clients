@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.action_output import ActionOutput
+import aptible_client
+from aptible_client.model.action_output import ActionOutput
 globals()['ActionOutput'] = ActionOutput
-from cloud_api_client.model.operation_action_update import OperationActionUpdate
+from aptible_client.model.operation_action_update import OperationActionUpdate
 
 
 class TestOperationActionUpdate(unittest.TestCase):

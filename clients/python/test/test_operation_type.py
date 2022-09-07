@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.operation_type import OperationType
+import aptible_client
+from aptible_client.model.operation_type import OperationType
 
 
 class TestOperationType(unittest.TestCase):

@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.data import Data
-from cloud_api_client.model.operation_status import OperationStatus
+import aptible_client
+from aptible_client.model.data import Data
+from aptible_client.model.operation_status import OperationStatus
 globals()['Data'] = Data
 globals()['OperationStatus'] = OperationStatus
-from cloud_api_client.model.operation_update import OperationUpdate
+from aptible_client.model.operation_update import OperationUpdate
 
 
 class TestOperationUpdate(unittest.TestCase):

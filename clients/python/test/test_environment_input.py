@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.environment_input import EnvironmentInput
+import aptible_client
+from aptible_client.model.environment_input import EnvironmentInput
 
 
 class TestEnvironmentInput(unittest.TestCase):

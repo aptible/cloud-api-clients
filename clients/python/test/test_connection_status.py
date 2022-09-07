@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.connection_status import ConnectionStatus
+import aptible_client
+from aptible_client.model.connection_status import ConnectionStatus
 
 
 class TestConnectionStatus(unittest.TestCase):

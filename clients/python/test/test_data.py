@@ -11,18 +11,18 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.action_output import ActionOutput
-from cloud_api_client.model.operation_action_update import OperationActionUpdate
-from cloud_api_client.model.operation_asset_update import OperationAssetUpdate
-from cloud_api_client.model.operation_failure import OperationFailure
-from cloud_api_client.model.operation_terraform_run_update import OperationTerraformRunUpdate
+import aptible_client
+from aptible_client.model.action_output import ActionOutput
+from aptible_client.model.operation_action_update import OperationActionUpdate
+from aptible_client.model.operation_asset_update import OperationAssetUpdate
+from aptible_client.model.operation_failure import OperationFailure
+from aptible_client.model.operation_terraform_run_update import OperationTerraformRunUpdate
 globals()['ActionOutput'] = ActionOutput
 globals()['OperationActionUpdate'] = OperationActionUpdate
 globals()['OperationAssetUpdate'] = OperationAssetUpdate
 globals()['OperationFailure'] = OperationFailure
 globals()['OperationTerraformRunUpdate'] = OperationTerraformRunUpdate
-from cloud_api_client.model.data import Data
+from aptible_client.model.data import Data
 
 
 class TestData(unittest.TestCase):

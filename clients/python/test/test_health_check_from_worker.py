@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.health_check_from_worker import HealthCheckFromWorker
+import aptible_client
+from aptible_client.model.health_check_from_worker import HealthCheckFromWorker
 
 
 class TestHealthCheckFromWorker(unittest.TestCase):

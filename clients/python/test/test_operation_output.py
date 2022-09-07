@@ -11,12 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.operation_status import OperationStatus
-from cloud_api_client.model.operation_type import OperationType
-globals()['OperationStatus'] = OperationStatus
-globals()['OperationType'] = OperationType
-from cloud_api_client.model.operation_output import OperationOutput
+import aptible_client
+from aptible_client.model.operation_output import OperationOutput
 
 
 class TestOperationOutput(unittest.TestCase):

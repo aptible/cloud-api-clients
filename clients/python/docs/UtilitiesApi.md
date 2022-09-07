@@ -1,4 +1,4 @@
-# cloud_api_client.UtilitiesApi
+# aptible_client.UtilitiesApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,19 +19,19 @@ Get Ping
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import utilities_api
-from cloud_api_client.model.text_response import TextResponse
+import aptible_client
+from aptible_client.api import utilities_api
+from aptible_client.model.text_response import TextResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient() as api_client:
+with aptible_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = utilities_api.UtilitiesApi(api_client)
 
@@ -40,7 +40,7 @@ with cloud_api_client.ApiClient() as api_client:
         # Get Ping
         api_response = api_instance.get_ping()
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling UtilitiesApi->get_ping: %s\n" % e)
 ```
 
@@ -81,12 +81,12 @@ Get User
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import utilities_api
+import aptible_client
+from aptible_client.api import utilities_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -96,12 +96,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = utilities_api.UtilitiesApi(api_client)
 
@@ -110,7 +110,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Get User
         api_response = api_instance.get_user()
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling UtilitiesApi->get_user: %s\n" % e)
 ```
 
@@ -151,13 +151,13 @@ Get User Role
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import utilities_api
-from cloud_api_client.model.http_validation_error import HTTPValidationError
+import aptible_client
+from aptible_client.api import utilities_api
+from aptible_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -167,12 +167,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = utilities_api.UtilitiesApi(api_client)
     organization_id = "organization_id_example" # str | 
@@ -182,7 +182,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Get User Role
         api_response = api_instance.get_user_role(organization_id)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling UtilitiesApi->get_user_role: %s\n" % e)
 ```
 

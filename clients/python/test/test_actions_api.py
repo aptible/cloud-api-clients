@@ -10,8 +10,8 @@
 
 import unittest
 
-import cloud_api_client
-from cloud_api_client.api.actions_api import ActionsApi  # noqa: E501
+import aptible_client
+from aptible_client.api.actions_api import ActionsApi  # noqa: E501
 
 
 class TestActionsApi(unittest.TestCase):
