@@ -57,7 +57,9 @@ generate_python_client:
 	  -o /local/clients/python \
 		--additional-properties generateSourceCodeOnly=true \
 	  --additional-properties packageName=aptible_client
-	touch ./clients/python/cloud_api_client/py.typed
+	mv ./clients/python/aptible_client/docs/* ./clients/python/docs/
+	mv ./clients/python/aptible_client/test/* ./clients/python/test/
+	mv ./clients/python/aptible_client_README.md ./clients/python/README.md
 
 generate_ruby_client:
 	docker run --rm \
