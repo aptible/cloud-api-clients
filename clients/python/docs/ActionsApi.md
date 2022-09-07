@@ -1,4 +1,4 @@
-# cloud_api_client.ActionsApi
+# aptible_client.ActionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,15 +19,15 @@ Action Create
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import actions_api
-from cloud_api_client.model.action_request import ActionRequest
-from cloud_api_client.model.action_response import ActionResponse
-from cloud_api_client.model.http_validation_error import HTTPValidationError
+import aptible_client
+from aptible_client.api import actions_api
+from aptible_client.model.action_request import ActionRequest
+from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.action_response import ActionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -37,12 +37,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = actions_api.ActionsApi(api_client)
     asset_id = "asset_id_example" # str | 
@@ -58,7 +58,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Action Create
         api_response = api_instance.action_create(asset_id, environment_id, organization_id, action_request)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling ActionsApi->action_create: %s\n" % e)
 ```
 
@@ -106,14 +106,14 @@ Action Get
 
 ```python
 import time
-import cloud_api_client
-from cloud_api_client.api import actions_api
-from cloud_api_client.model.action_response import ActionResponse
-from cloud_api_client.model.http_validation_error import HTTPValidationError
+import aptible_client
+from aptible_client.api import actions_api
+from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.action_response import ActionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     host = "http://localhost"
 )
 
@@ -123,12 +123,12 @@ configuration = cloud_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = cloud_api_client.Configuration(
+configuration = aptible_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with cloud_api_client.ApiClient(configuration) as api_client:
+with aptible_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = actions_api.ActionsApi(api_client)
     asset_id = "asset_id_example" # str | 
@@ -141,7 +141,7 @@ with cloud_api_client.ApiClient(configuration) as api_client:
         # Action Get
         api_response = api_instance.action_get(asset_id, environment_id, action_id, organization_id)
         pprint(api_response)
-    except cloud_api_client.ApiException as e:
+    except aptible_client.ApiException as e:
         print("Exception when calling ActionsApi->action_get: %s\n" % e)
 ```
 

@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.asset_input import AssetInput
+import aptible_client
+from aptible_client.model.asset_input import AssetInput
 
 
 class TestAssetInput(unittest.TestCase):

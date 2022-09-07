@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.connection_input import ConnectionInput
+import aptible_client
+from aptible_client.model.connection_input import ConnectionInput
 
 
 class TestConnectionInput(unittest.TestCase):

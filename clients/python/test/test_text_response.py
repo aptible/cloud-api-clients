@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.text_response import TextResponse
+import aptible_client
+from aptible_client.model.text_response import TextResponse
 
 
 class TestTextResponse(unittest.TestCase):

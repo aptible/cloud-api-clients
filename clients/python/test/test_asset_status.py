@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.asset_status import AssetStatus
+import aptible_client
+from aptible_client.model.asset_status import AssetStatus
 
 
 class TestAssetStatus(unittest.TestCase):

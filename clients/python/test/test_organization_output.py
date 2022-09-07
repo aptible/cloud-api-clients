@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.organization_output import OrganizationOutput
+import aptible_client
+from aptible_client.model.organization_output import OrganizationOutput
 
 
 class TestOrganizationOutput(unittest.TestCase):

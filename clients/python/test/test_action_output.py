@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.action_output import ActionOutput
+import aptible_client
+from aptible_client.model.action_output import ActionOutput
 
 
 class TestActionOutput(unittest.TestCase):

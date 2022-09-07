@@ -10,8 +10,8 @@
 
 import unittest
 
-import cloud_api_client
-from cloud_api_client.api.worker_api import WorkerApi  # noqa: E501
+import aptible_client
+from aptible_client.api.worker_api import WorkerApi  # noqa: E501
 
 
 class TestWorkerApi(unittest.TestCase):

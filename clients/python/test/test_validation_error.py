@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.location_inner import LocationInner
+import aptible_client
+from aptible_client.model.location_inner import LocationInner
 globals()['LocationInner'] = LocationInner
-from cloud_api_client.model.validation_error import ValidationError
+from aptible_client.model.validation_error import ValidationError
 
 
 class TestValidationError(unittest.TestCase):

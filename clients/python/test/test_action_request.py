@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import cloud_api_client
-from cloud_api_client.model.action_request import ActionRequest
+import aptible_client
+from aptible_client.model.action_request import ActionRequest
 
 
 class TestActionRequest(unittest.TestCase):
