@@ -10,7 +10,8 @@
 """
 
 
-__version__ = "1.0.0"
+from . import _version
+__version__ = _version.get_versions()["version"]
 
 # import ApiClient
 from aptible_client.api_client import ApiClient
