@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identifier** | **string** |  | 
 **Name** | **string** |  | 
-**Description** | **string** |  | 
+**Description** | Pointer to **string** |  | [optional] 
 **Types** | **[]string** |  | 
 **Actions** | [**map[string]AssetAction**](AssetAction.md) |  | 
 **UserParameters** | Pointer to **interface{}** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewAssetBundle
 
-`func NewAssetBundle(identifier string, name string, description string, types []string, actions map[string]AssetAction, ) *AssetBundle`
+`func NewAssetBundle(identifier string, name string, types []string, actions map[string]AssetAction, ) *AssetBundle`
 
 NewAssetBundle instantiates a new AssetBundle object
 This constructor will assign default values to properties that have it defined,
@@ -89,6 +89,11 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
+
+`func (o *AssetBundle) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetTypes
 

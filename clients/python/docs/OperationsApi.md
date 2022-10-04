@@ -1,4 +1,4 @@
-# aptible_client.OperationsApi
+# cloud_api_client.OperationsApi
 
 All URIs are relative to *http://localhost*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **operation_get**
-> [OperationOutput] operation_get(operation_id, organization_id)
+> OperationOutput operation_get(operation_id, organization_id)
 
 Operation Get
 
@@ -19,14 +19,14 @@ Operation Get
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import operations_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.operation_output import OperationOutput
+import cloud_api_client
+from cloud_api_client.api import operations_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.operation_output import OperationOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -36,12 +36,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = operations_api.OperationsApi(api_client)
     operation_id = "operation_id_example" # str | 
@@ -52,7 +52,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Operation Get
         api_response = api_instance.operation_get(operation_id, organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OperationsApi->operation_get: %s\n" % e)
 ```
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[OperationOutput]**](OperationOutput.md)
+[**OperationOutput**](OperationOutput.md)
 
 ### Authorization
 
@@ -98,14 +98,14 @@ Operation Update
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import operations_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.operation_update import OperationUpdate
+import cloud_api_client
+from cloud_api_client.api import operations_api
+from cloud_api_client.model.operation_update import OperationUpdate
+from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -115,12 +115,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = operations_api.OperationsApi(api_client)
     operation_id = "operation_id_example" # str | 
@@ -135,7 +135,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Operation Update
         api_response = api_instance.operation_update(operation_id, operation_update)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OperationsApi->operation_update: %s\n" % e)
 ```
 

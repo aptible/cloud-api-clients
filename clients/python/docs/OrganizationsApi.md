@@ -1,4 +1,4 @@
-# aptible_client.OrganizationsApi
+# cloud_api_client.OrganizationsApi
 
 All URIs are relative to *http://localhost*
 
@@ -23,13 +23,13 @@ Organization Delete
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import organizations_api
-from aptible_client.model.http_validation_error import HTTPValidationError
+import cloud_api_client
+from cloud_api_client.api import organizations_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -39,12 +39,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organizations_api.OrganizationsApi(api_client)
     organization_id = "organization_id_example" # str | 
@@ -54,7 +54,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Organization Delete
         api_response = api_instance.organization_delete(organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OrganizationsApi->organization_delete: %s\n" % e)
 ```
 
@@ -99,14 +99,14 @@ Organization Get
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import organizations_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.organization_output import OrganizationOutput
+import cloud_api_client
+from cloud_api_client.api import organizations_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.organization_output import OrganizationOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -116,12 +116,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organizations_api.OrganizationsApi(api_client)
     organization_id = "organization_id_example" # str | 
@@ -131,7 +131,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Organization Get
         api_response = api_instance.organization_get(organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OrganizationsApi->organization_get: %s\n" % e)
 ```
 
@@ -176,14 +176,14 @@ Organization Get Environments
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import organizations_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.environment_output import EnvironmentOutput
+import cloud_api_client
+from cloud_api_client.api import organizations_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.environment_output import EnvironmentOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -193,12 +193,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organizations_api.OrganizationsApi(api_client)
     organization_id = "organization_id_example" # str | 
@@ -208,7 +208,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Organization Get Environments
         api_response = api_instance.organization_get_environments(organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OrganizationsApi->organization_get_environments: %s\n" % e)
 ```
 
@@ -253,14 +253,14 @@ Organization Get Operations
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import organizations_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.operation_output import OperationOutput
+import cloud_api_client
+from cloud_api_client.api import organizations_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.operation_output import OperationOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -270,12 +270,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organizations_api.OrganizationsApi(api_client)
     organization_id = "organization_id_example" # str | 
@@ -287,7 +287,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Organization Get Operations
         api_response = api_instance.organization_get_operations(organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OrganizationsApi->organization_get_operations: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -296,7 +296,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Organization Get Operations
         api_response = api_instance.organization_get_operations(organization_id, asset_id=asset_id, environment_id=environment_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OrganizationsApi->organization_get_operations: %s\n" % e)
 ```
 
@@ -343,13 +343,13 @@ Organization List
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import organizations_api
-from aptible_client.model.organization_output import OrganizationOutput
+import cloud_api_client
+from cloud_api_client.api import organizations_api
+from cloud_api_client.model.organization_output import OrganizationOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -359,12 +359,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organizations_api.OrganizationsApi(api_client)
 
@@ -373,7 +373,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Organization List
         api_response = api_instance.organization_list()
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OrganizationsApi->organization_list: %s\n" % e)
 ```
 
@@ -414,15 +414,15 @@ Organization Update
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import organizations_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.organization_input import OrganizationInput
-from aptible_client.model.organization_output import OrganizationOutput
+import cloud_api_client
+from cloud_api_client.api import organizations_api
+from cloud_api_client.model.organization_input import OrganizationInput
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.organization_output import OrganizationOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -432,12 +432,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organizations_api.OrganizationsApi(api_client)
     organization_id = "organization_id_example" # str | 
@@ -453,7 +453,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Organization Update
         api_response = api_instance.organization_update(organization_id, organization_input)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling OrganizationsApi->organization_update: %s\n" % e)
 ```
 

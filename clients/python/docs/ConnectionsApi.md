@@ -1,4 +1,4 @@
-# aptible_client.ConnectionsApi
+# cloud_api_client.ConnectionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,15 +20,15 @@ Connection Create
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import connections_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.connection_input import ConnectionInput
-from aptible_client.model.connection_output import ConnectionOutput
+import cloud_api_client
+from cloud_api_client.api import connections_api
+from cloud_api_client.model.connection_output import ConnectionOutput
+from cloud_api_client.model.connection_input import ConnectionInput
+from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -38,12 +38,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = connections_api.ConnectionsApi(api_client)
     asset_id = "asset_id_example" # str | 
@@ -59,7 +59,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Connection Create
         api_response = api_instance.connection_create(asset_id, environment_id, organization_id, connection_input)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling ConnectionsApi->connection_create: %s\n" % e)
 ```
 
@@ -107,13 +107,13 @@ Connection Delete
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import connections_api
-from aptible_client.model.http_validation_error import HTTPValidationError
+import cloud_api_client
+from cloud_api_client.api import connections_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -123,12 +123,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = connections_api.ConnectionsApi(api_client)
     asset_id = "asset_id_example" # str | 
@@ -141,7 +141,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Connection Delete
         api_response = api_instance.connection_delete(asset_id, connection_id, environment_id, organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling ConnectionsApi->connection_delete: %s\n" % e)
 ```
 
@@ -189,14 +189,14 @@ Connection Get
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import connections_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.connection_output import ConnectionOutput
+import cloud_api_client
+from cloud_api_client.api import connections_api
+from cloud_api_client.model.connection_output import ConnectionOutput
+from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -206,12 +206,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = connections_api.ConnectionsApi(api_client)
     asset_id = "asset_id_example" # str | 
@@ -224,7 +224,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Connection Get
         api_response = api_instance.connection_get(asset_id, environment_id, connection_id, organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling ConnectionsApi->connection_get: %s\n" % e)
 ```
 

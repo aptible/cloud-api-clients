@@ -1,4 +1,4 @@
-# aptible_client.AssetsApi
+# cloud_api_client.AssetsApi
 
 All URIs are relative to *http://localhost*
 
@@ -21,15 +21,15 @@ Asset Create
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import assets_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.asset_output import AssetOutput
-from aptible_client.model.asset_input import AssetInput
+import cloud_api_client
+from cloud_api_client.api import assets_api
+from cloud_api_client.model.asset_output import AssetOutput
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.asset_input import AssetInput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -39,12 +39,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_api.AssetsApi(api_client)
     environment_id = "environment_id_example" # str | 
@@ -60,7 +60,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Asset Create
         api_response = api_instance.asset_create(environment_id, organization_id, asset_input)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling AssetsApi->asset_create: %s\n" % e)
 ```
 
@@ -107,13 +107,13 @@ Asset Delete
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import assets_api
-from aptible_client.model.http_validation_error import HTTPValidationError
+import cloud_api_client
+from cloud_api_client.api import assets_api
+from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -123,12 +123,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_api.AssetsApi(api_client)
     asset_id = "asset_id_example" # str | 
@@ -140,7 +140,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Asset Delete
         api_response = api_instance.asset_delete(asset_id, environment_id, organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling AssetsApi->asset_delete: %s\n" % e)
 ```
 
@@ -187,14 +187,14 @@ Asset Get
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import assets_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.asset_output import AssetOutput
+import cloud_api_client
+from cloud_api_client.api import assets_api
+from cloud_api_client.model.asset_output import AssetOutput
+from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -204,12 +204,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_api.AssetsApi(api_client)
     asset_id = "asset_id_example" # str | 
@@ -221,7 +221,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Asset Get
         api_response = api_instance.asset_get(asset_id, environment_id, organization_id)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling AssetsApi->asset_get: %s\n" % e)
 ```
 
@@ -268,15 +268,15 @@ Asset Update
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import assets_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.asset_output import AssetOutput
-from aptible_client.model.asset_input import AssetInput
+import cloud_api_client
+from cloud_api_client.api import assets_api
+from cloud_api_client.model.asset_output import AssetOutput
+from cloud_api_client.model.http_validation_error import HTTPValidationError
+from cloud_api_client.model.asset_input import AssetInput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -286,12 +286,12 @@ configuration = aptible_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient(configuration) as api_client:
+with cloud_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_api.AssetsApi(api_client)
     asset_id = "asset_id_example" # str | 
@@ -308,7 +308,7 @@ with aptible_client.ApiClient(configuration) as api_client:
         # Asset Update
         api_response = api_instance.asset_update(asset_id, environment_id, organization_id, asset_input)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling AssetsApi->asset_update: %s\n" % e)
 ```
 

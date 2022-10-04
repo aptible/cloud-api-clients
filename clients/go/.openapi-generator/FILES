@@ -1,11 +1,11 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
 api_actions.go
 api_assets.go
 api_connections.go
+api_default.go
 api_environments.go
 api_operations.go
 api_organizations.go
@@ -29,6 +29,7 @@ docs/ConnectionOutput.md
 docs/ConnectionStatus.md
 docs/ConnectionsApi.md
 docs/Data.md
+docs/DefaultApi.md
 docs/EnvironmentInput.md
 docs/EnvironmentOutput.md
 docs/EnvironmentsApi.md

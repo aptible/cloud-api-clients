@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **identifier** | **String** |  |  |
 | **name** | **String** |  |  |
-| **description** | **String** |  |  |
+| **description** | **String** |  | [optional] |
 | **types** | **Array&lt;String&gt;** |  |  |
 | **actions** | [**Hash&lt;String, AssetAction&gt;**](AssetAction.md) |  |  |
 | **user_parameters** | **Object** |  | [optional] |
