@@ -52,7 +52,10 @@ git checkout -B $NEW_BRANCH_NAME
 echo "Starting generation of clients"
 
 # install CLI tool for global usage and runt he command
-npm install @openapitools/openapi-generator-cli -g
+# currently pinned or will fail:
+# - slack thread: https://aptible.slack.com/archives/C03C2STPTDX/p1664896796815599
+# - slab doc ref: https://aptible.slab.com/posts/current-technical-debt-qagsi56t#h2dgy-open-api-client-generator-version
+npm install @openapitools/openapi-generator-cli@6.0.1 -g
 
 # generate python client
 openapi-generator-cli generate --skip-validate-spec \
