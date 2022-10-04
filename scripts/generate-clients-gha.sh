@@ -55,7 +55,8 @@ echo "Starting generation of clients"
 # currently pinned or will fail:
 # - slack thread: https://aptible.slack.com/archives/C03C2STPTDX/p1664896796815599
 # - slab doc ref: https://aptible.slab.com/posts/current-technical-debt-qagsi56t#h2dgy-open-api-client-generator-version
-npm install @openapitools/openapi-generator-cli@6.0.1 -g
+npm install @openapitools/openapi-generator-cli@2 -g
+openapi-generator-cli version-manager set 6.0.1
 
 # generate python client
 openapi-generator-cli generate --skip-validate-spec \
