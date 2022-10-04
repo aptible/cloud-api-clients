@@ -1,8 +1,8 @@
 .gitignore
-.openapi-generator-ignore
 ActionsApi.md
 AssetsApi.md
 ConnectionsApi.md
+DefaultApi.md
 EnvironmentsApi.md
 OperationsApi.md
 OrganizationsApi.md
@@ -12,6 +12,7 @@ WorkerApi.md
 apis/ActionsApi.ts
 apis/AssetsApi.ts
 apis/ConnectionsApi.ts
+apis/DefaultApi.ts
 apis/EnvironmentsApi.ts
 apis/OperationsApi.ts
 apis/OrganizationsApi.ts

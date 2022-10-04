@@ -1,5 +1,5 @@
 // TODO: better import syntax?
-import {BaseAPIRequestFactory, RequiredError} from './baseapi';
+import {BaseAPIRequestFactory, RequiredError, COLLECTION_FORMATS} from './baseapi';
 import {Configuration} from '../configuration';
 import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -128,13 +128,13 @@ export class OperationsApiResponseProcessor {
      * @params response Response returned by the server for a request to operationGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async operationGet(response: ResponseContext): Promise<Array<OperationOutput> > {
+     public async operationGet(response: ResponseContext): Promise<OperationOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<OperationOutput> = ObjectSerializer.deserialize(
+            const body: OperationOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<OperationOutput>", ""
-            ) as Array<OperationOutput>;
+                "OperationOutput", ""
+            ) as OperationOutput;
             return body;
         }
         if (isCodeInRange("422", response.httpStatusCode)) {
@@ -147,10 +147,10 @@ export class OperationsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<OperationOutput> = ObjectSerializer.deserialize(
+            const body: OperationOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<OperationOutput>", ""
-            ) as Array<OperationOutput>;
+                "OperationOutput", ""
+            ) as OperationOutput;
             return body;
         }
 

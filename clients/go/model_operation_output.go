@@ -19,8 +19,8 @@ type OperationOutput struct {
 	EnvironmentId string `json:"environment_id"`
 	UserId string `json:"user_id"`
 	OrganizationId string `json:"organization_id"`
-	OperationType NullableOperationType `json:"operation_type,omitempty"`
-	Status NullableOperationStatus `json:"status,omitempty"`
+	OperationType *OperationType `json:"operation_type,omitempty"`
+	Status *OperationStatus `json:"status,omitempty"`
 	AssetName string `json:"asset_name"`
 	AssetId string `json:"asset_id"`
 	AssetVersion string `json:"asset_version"`
@@ -125,88 +125,68 @@ func (o *OperationOutput) SetOrganizationId(v string) {
 	o.OrganizationId = v
 }
 
-// GetOperationType returns the OperationType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOperationType returns the OperationType field value if set, zero value otherwise.
 func (o *OperationOutput) GetOperationType() OperationType {
-	if o == nil || o.OperationType.Get() == nil {
+	if o == nil || o.OperationType == nil {
 		var ret OperationType
 		return ret
 	}
-	return *o.OperationType.Get()
+	return *o.OperationType
 }
 
 // GetOperationTypeOk returns a tuple with the OperationType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OperationOutput) GetOperationTypeOk() (*OperationType, bool) {
-	if o == nil {
+	if o == nil || o.OperationType == nil {
 		return nil, false
 	}
-	return o.OperationType.Get(), o.OperationType.IsSet()
+	return o.OperationType, true
 }
 
 // HasOperationType returns a boolean if a field has been set.
 func (o *OperationOutput) HasOperationType() bool {
-	if o != nil && o.OperationType.IsSet() {
+	if o != nil && o.OperationType != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetOperationType gets a reference to the given NullableOperationType and assigns it to the OperationType field.
+// SetOperationType gets a reference to the given OperationType and assigns it to the OperationType field.
 func (o *OperationOutput) SetOperationType(v OperationType) {
-	o.OperationType.Set(&v)
-}
-// SetOperationTypeNil sets the value for OperationType to be an explicit nil
-func (o *OperationOutput) SetOperationTypeNil() {
-	o.OperationType.Set(nil)
+	o.OperationType = &v
 }
 
-// UnsetOperationType ensures that no value is present for OperationType, not even an explicit nil
-func (o *OperationOutput) UnsetOperationType() {
-	o.OperationType.Unset()
-}
-
-// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *OperationOutput) GetStatus() OperationStatus {
-	if o == nil || o.Status.Get() == nil {
+	if o == nil || o.Status == nil {
 		var ret OperationStatus
 		return ret
 	}
-	return *o.Status.Get()
+	return *o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OperationOutput) GetStatusOk() (*OperationStatus, bool) {
-	if o == nil {
+	if o == nil || o.Status == nil {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *OperationOutput) HasStatus() bool {
-	if o != nil && o.Status.IsSet() {
+	if o != nil && o.Status != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given NullableOperationStatus and assigns it to the Status field.
+// SetStatus gets a reference to the given OperationStatus and assigns it to the Status field.
 func (o *OperationOutput) SetStatus(v OperationStatus) {
-	o.Status.Set(&v)
-}
-// SetStatusNil sets the value for Status to be an explicit nil
-func (o *OperationOutput) SetStatusNil() {
-	o.Status.Set(nil)
-}
-
-// UnsetStatus ensures that no value is present for Status, not even an explicit nil
-func (o *OperationOutput) UnsetStatus() {
-	o.Status.Unset()
+	o.Status = &v
 }
 
 // GetAssetName returns the AssetName field value
@@ -380,11 +360,11 @@ func (o OperationOutput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["organization_id"] = o.OrganizationId
 	}
-	if o.OperationType.IsSet() {
-		toSerialize["operation_type"] = o.OperationType.Get()
+	if o.OperationType != nil {
+		toSerialize["operation_type"] = o.OperationType
 	}
-	if o.Status.IsSet() {
-		toSerialize["status"] = o.Status.Get()
+	if o.Status != nil {
+		toSerialize["status"] = o.Status
 	}
 	if true {
 		toSerialize["asset_name"] = o.AssetName

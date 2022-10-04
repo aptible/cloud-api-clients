@@ -16,7 +16,7 @@ import (
 
 // AssetTerraformOutput struct for AssetTerraformOutput
 type AssetTerraformOutput struct {
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 	Sensitive bool `json:"sensitive"`
 	Structure interface{} `json:"structure,omitempty"`
 	Data interface{} `json:"data,omitempty"`
@@ -26,9 +26,8 @@ type AssetTerraformOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetTerraformOutput(name string, sensitive bool) *AssetTerraformOutput {
+func NewAssetTerraformOutput(sensitive bool) *AssetTerraformOutput {
 	this := AssetTerraformOutput{}
-	this.Name = name
 	this.Sensitive = sensitive
 	return &this
 }
@@ -41,28 +40,36 @@ func NewAssetTerraformOutputWithDefaults() *AssetTerraformOutput {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *AssetTerraformOutput) GetName() string {
-	if o == nil {
+	if o == nil || o.Name == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AssetTerraformOutput) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Name == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *AssetTerraformOutput) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *AssetTerraformOutput) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
 // GetSensitive returns the Sensitive field value
@@ -157,7 +164,7 @@ func (o *AssetTerraformOutput) SetData(v interface{}) {
 
 func (o AssetTerraformOutput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
 	if true {

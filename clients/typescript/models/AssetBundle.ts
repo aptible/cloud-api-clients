@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 export class AssetBundle {
     'identifier': string;
     'name': string;
-    'description': string;
+    'description'?: string;
     'types': Array<string>;
     'actions': { [key: string]: AssetAction; };
     'userParameters'?: any;

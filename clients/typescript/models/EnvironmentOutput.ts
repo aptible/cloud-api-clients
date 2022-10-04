@@ -16,7 +16,6 @@ import { HttpFile } from '../http/http';
 export class EnvironmentOutput {
     'name': string;
     'description'?: string;
-    'data': any;
     'id': string;
     'organization': OrganizationOutput;
     'awsAccountId'?: string;
@@ -34,12 +33,6 @@ export class EnvironmentOutput {
             "name": "description",
             "baseName": "description",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "data",
-            "baseName": "data",
-            "type": "any",
             "format": ""
         },
         {

@@ -33,8 +33,8 @@ type OperationsApi interface {
 	OperationGet(ctx context.Context, operationId string, organizationId string) ApiOperationGetRequest
 
 	// OperationGetExecute executes the request
-	//  @return []OperationOutput
-	OperationGetExecute(r ApiOperationGetRequest) ([]OperationOutput, *http.Response, error)
+	//  @return OperationOutput
+	OperationGetExecute(r ApiOperationGetRequest) (*OperationOutput, *http.Response, error)
 
 	/*
 	OperationUpdate Operation Update
@@ -60,7 +60,7 @@ type ApiOperationGetRequest struct {
 	organizationId string
 }
 
-func (r ApiOperationGetRequest) Execute() ([]OperationOutput, *http.Response, error) {
+func (r ApiOperationGetRequest) Execute() (*OperationOutput, *http.Response, error) {
 	return r.ApiService.OperationGetExecute(r)
 }
 
@@ -82,13 +82,13 @@ func (a *OperationsApiService) OperationGet(ctx context.Context, operationId str
 }
 
 // Execute executes the request
-//  @return []OperationOutput
-func (a *OperationsApiService) OperationGetExecute(r ApiOperationGetRequest) ([]OperationOutput, *http.Response, error) {
+//  @return OperationOutput
+func (a *OperationsApiService) OperationGetExecute(r ApiOperationGetRequest) (*OperationOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []OperationOutput
+		localVarReturnValue  *OperationOutput
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OperationsApiService.OperationGet")

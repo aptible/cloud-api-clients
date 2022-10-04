@@ -1,0 +1,7 @@
+from cloud_api_client.paths.api_v1_organizations_organization_id_environments_environment_id_assets_asset_id_connections_.post import ApiForpost
+
+
+class ApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetIdConnections(
+    ApiForpost,
+):
+    pass

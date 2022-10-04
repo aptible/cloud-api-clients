@@ -1,0 +1,11 @@
+from cloud_api_client.paths.api_v1_organizations_organization_id_environments_environment_id_assets_asset_id.get import ApiForget
+from cloud_api_client.paths.api_v1_organizations_organization_id_environments_environment_id_assets_asset_id.put import ApiForput
+from cloud_api_client.paths.api_v1_organizations_organization_id_environments_environment_id_assets_asset_id.delete import ApiFordelete
+
+
+class ApiV1OrganizationsOrganizationIdEnvironmentsEnvironmentIdAssetsAssetId(
+    ApiForget,
+    ApiForput,
+    ApiFordelete,
+):
+    pass

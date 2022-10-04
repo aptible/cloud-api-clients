@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **EnvironmentId** | **string** |  | 
 **UserId** | **string** |  | 
 **OrganizationId** | **string** |  | 
-**OperationType** | Pointer to [**NullableOperationType**](OperationType.md) |  | [optional] 
-**Status** | Pointer to [**NullableOperationStatus**](OperationStatus.md) |  | [optional] 
+**OperationType** | Pointer to [**OperationType**](OperationType.md) |  | [optional] 
+**Status** | Pointer to [**OperationStatus**](OperationStatus.md) |  | [optional] 
 **AssetName** | **string** |  | 
 **AssetId** | **string** |  | 
 **AssetVersion** | **string** |  | 
@@ -120,16 +120,6 @@ SetOperationType sets OperationType field to given value.
 
 HasOperationType returns a boolean if a field has been set.
 
-### SetOperationTypeNil
-
-`func (o *OperationOutput) SetOperationTypeNil(b bool)`
-
- SetOperationTypeNil sets the value for OperationType to be an explicit nil
-
-### UnsetOperationType
-`func (o *OperationOutput) UnsetOperationType()`
-
-UnsetOperationType ensures that no value is present for OperationType, not even an explicit nil
 ### GetStatus
 
 `func (o *OperationOutput) GetStatus() OperationStatus`
@@ -155,16 +145,6 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
-### SetStatusNil
-
-`func (o *OperationOutput) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *OperationOutput) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetAssetName
 
 `func (o *OperationOutput) GetAssetName() string`

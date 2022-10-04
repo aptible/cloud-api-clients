@@ -61,7 +61,7 @@ Each operation can use different server URL defined using `OperationServers` map
 An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
-```
+```golang
 ctx := context.WithValue(context.Background(), cloud_api_client.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
 *ConnectionsApi* | [**ConnectionCreate**](docs/ConnectionsApi.md#connectioncreate) | **Post** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Connection Create
 *ConnectionsApi* | [**ConnectionDelete**](docs/ConnectionsApi.md#connectiondelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Delete
 *ConnectionsApi* | [**ConnectionGet**](docs/ConnectionsApi.md#connectionget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Get
+*DefaultApi* | [**GetHealthcheck**](docs/DefaultApi.md#gethealthcheck) | **Get** /api/v1/system/health_check | Get Healthcheck
 *EnvironmentsApi* | [**EnvironmentCreate**](docs/EnvironmentsApi.md#environmentcreate) | **Post** /api/v1/organizations/{organization_id}/environments | Environment Create
 *EnvironmentsApi* | [**EnvironmentDelete**](docs/EnvironmentsApi.md#environmentdelete) | **Delete** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Delete
 *EnvironmentsApi* | [**EnvironmentGet**](docs/EnvironmentsApi.md#environmentget) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Get
@@ -102,7 +103,6 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**OrganizationGetOperations**](docs/OrganizationsApi.md#organizationgetoperations) | **Get** /api/v1/organizations/{organization_id}/operations/ | Organization Get Operations
 *OrganizationsApi* | [**OrganizationList**](docs/OrganizationsApi.md#organizationlist) | **Get** /api/v1/organizations/ | Organization List
 *OrganizationsApi* | [**OrganizationUpdate**](docs/OrganizationsApi.md#organizationupdate) | **Put** /api/v1/organizations/{organization_id} | Organization Update
-*UtilitiesApi* | [**GetPing**](docs/UtilitiesApi.md#getping) | **Get** /api/v1/debug/ping | Get Ping
 *UtilitiesApi* | [**GetUser**](docs/UtilitiesApi.md#getuser) | **Get** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**GetUserRole**](docs/UtilitiesApi.md#getuserrole) | **Get** /api/v1/debug/user_role_middleware_check | Get User Role
 *WorkerApi* | [**WorkerHealthCheck**](docs/WorkerApi.md#workerhealthcheck) | **Post** /api/v1/worker/health-check | Worker Health Check
