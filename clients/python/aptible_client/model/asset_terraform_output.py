@@ -81,8 +81,8 @@ class AssetTerraformOutput(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
             'sensitive': (bool,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'structure': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
@@ -93,8 +93,8 @@ class AssetTerraformOutput(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'sensitive': 'sensitive',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'structure': 'structure',  # noqa: E501
         'data': 'data',  # noqa: E501
     }
@@ -106,11 +106,10 @@ class AssetTerraformOutput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, sensitive, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, sensitive, *args, **kwargs):  # noqa: E501
         """AssetTerraformOutput - a model defined in OpenAPI
 
         Args:
-            name (str):
             sensitive (bool):
 
         Keyword Args:
@@ -144,6 +143,7 @@ class AssetTerraformOutput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str): [optional]  # noqa: E501
             structure (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
@@ -177,7 +177,6 @@ class AssetTerraformOutput(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
         self.sensitive = sensitive
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -199,11 +198,10 @@ class AssetTerraformOutput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, sensitive, *args, **kwargs):  # noqa: E501
+    def __init__(self, sensitive, *args, **kwargs):  # noqa: E501
         """AssetTerraformOutput - a model defined in OpenAPI
 
         Args:
-            name (str):
             sensitive (bool):
 
         Keyword Args:
@@ -237,6 +235,7 @@ class AssetTerraformOutput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str): [optional]  # noqa: E501
             structure (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
@@ -268,7 +267,6 @@ class AssetTerraformOutput(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
         self.sensitive = sensitive
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

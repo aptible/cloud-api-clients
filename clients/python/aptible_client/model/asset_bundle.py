@@ -89,9 +89,9 @@ class AssetBundle(ModelNormal):
         return {
             'identifier': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
             'types': ([str],),  # noqa: E501
             'actions': ({str: (AssetAction,)},),  # noqa: E501
+            'description': (str,),  # noqa: E501
             'user_parameters': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
@@ -103,9 +103,9 @@ class AssetBundle(ModelNormal):
     attribute_map = {
         'identifier': 'identifier',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'description': 'description',  # noqa: E501
         'types': 'types',  # noqa: E501
         'actions': 'actions',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'user_parameters': 'user_parameters',  # noqa: E501
     }
 
@@ -116,13 +116,12 @@ class AssetBundle(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, identifier, name, description, types, actions, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, identifier, name, types, actions, *args, **kwargs):  # noqa: E501
         """AssetBundle - a model defined in OpenAPI
 
         Args:
             identifier (str):
             name (str):
-            description (str):
             types ([str]):
             actions ({str: (AssetAction,)}):
 
@@ -157,6 +156,7 @@ class AssetBundle(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str): [optional]  # noqa: E501
             user_parameters (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
@@ -191,7 +191,6 @@ class AssetBundle(ModelNormal):
 
         self.identifier = identifier
         self.name = name
-        self.description = description
         self.types = types
         self.actions = actions
         for var_name, var_value in kwargs.items():
@@ -214,13 +213,12 @@ class AssetBundle(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, identifier, name, description, types, actions, *args, **kwargs):  # noqa: E501
+    def __init__(self, identifier, name, types, actions, *args, **kwargs):  # noqa: E501
         """AssetBundle - a model defined in OpenAPI
 
         Args:
             identifier (str):
             name (str):
-            description (str):
             types ([str]):
             actions ({str: (AssetAction,)}):
 
@@ -255,6 +253,7 @@ class AssetBundle(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str): [optional]  # noqa: E501
             user_parameters (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
@@ -287,7 +286,6 @@ class AssetBundle(ModelNormal):
 
         self.identifier = identifier
         self.name = name
-        self.description = description
         self.types = types
         self.actions = actions
         for var_name, var_value in kwargs.items():

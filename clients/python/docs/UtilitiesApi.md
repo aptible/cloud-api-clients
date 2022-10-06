@@ -4,71 +4,9 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_ping**](UtilitiesApi.md#get_ping) | **GET** /api/v1/debug/ping | Get Ping
 [**get_user**](UtilitiesApi.md#get_user) | **GET** /api/v1/debug/user_auth | Get User
 [**get_user_role**](UtilitiesApi.md#get_user_role) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
 
-
-# **get_ping**
-> TextResponse get_ping()
-
-Get Ping
-
-### Example
-
-
-```python
-import time
-import aptible_client
-from aptible_client.api import utilities_api
-from aptible_client.model.text_response import TextResponse
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
-    host = "http://localhost"
-)
-
-
-# Enter a context with an instance of the API client
-with aptible_client.ApiClient() as api_client:
-    # Create an instance of the API class
-    api_instance = utilities_api.UtilitiesApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get Ping
-        api_response = api_instance.get_ping()
-        pprint(api_response)
-    except aptible_client.ApiException as e:
-        print("Exception when calling UtilitiesApi->get_ping: %s\n" % e)
-```
-
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**TextResponse**](TextResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user**
 > bool, date, datetime, dict, float, int, list, str, none_type get_user()

@@ -1,4 +1,5 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
+import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
@@ -319,6 +320,46 @@ export class ObservableConnectionsApi {
 
 }
 
+import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
+export class ObservableDefaultApi {
+    private requestFactory: DefaultApiRequestFactory;
+    private responseProcessor: DefaultApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: DefaultApiRequestFactory,
+        responseProcessor?: DefaultApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new DefaultApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new DefaultApiResponseProcessor();
+    }
+
+    /**
+     * Get Healthcheck
+     */
+    public getHealthcheck(_options?: Configuration): Observable<TextResponse> {
+        const requestContextPromise = this.requestFactory.getHealthcheck(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getHealthcheck(rsp)));
+            }));
+    }
+
+}
+
 import { EnvironmentsApiRequestFactory, EnvironmentsApiResponseProcessor} from "../apis/EnvironmentsApi";
 export class ObservableEnvironmentsApi {
     private requestFactory: EnvironmentsApiRequestFactory;
@@ -527,7 +568,7 @@ export class ObservableOperationsApi {
      * @param operationId 
      * @param organizationId 
      */
-    public operationGet(operationId: string, organizationId: string, _options?: Configuration): Observable<Array<OperationOutput>> {
+    public operationGet(operationId: string, organizationId: string, _options?: Configuration): Observable<OperationOutput> {
         const requestContextPromise = this.requestFactory.operationGet(operationId, organizationId, _options);
 
         // build promise chain
@@ -744,28 +785,6 @@ export class ObservableUtilitiesApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new UtilitiesApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new UtilitiesApiResponseProcessor();
-    }
-
-    /**
-     * Get Ping
-     */
-    public getPing(_options?: Configuration): Observable<TextResponse> {
-        const requestContextPromise = this.requestFactory.getPing(_options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getPing(rsp)));
-            }));
     }
 
     /**

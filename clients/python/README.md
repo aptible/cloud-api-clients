@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *ConnectionsApi* | [**connection_create**](aptible_client/docs/ConnectionsApi.md#connection_create) | **POST** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/ | Connection Create
 *ConnectionsApi* | [**connection_delete**](aptible_client/docs/ConnectionsApi.md#connection_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Delete
 *ConnectionsApi* | [**connection_get**](aptible_client/docs/ConnectionsApi.md#connection_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id} | Connection Get
+*DefaultApi* | [**get_healthcheck**](aptible_client/docs/DefaultApi.md#get_healthcheck) | **GET** /api/v1/system/health_check | Get Healthcheck
 *EnvironmentsApi* | [**environment_create**](aptible_client/docs/EnvironmentsApi.md#environment_create) | **POST** /api/v1/organizations/{organization_id}/environments | Environment Create
 *EnvironmentsApi* | [**environment_delete**](aptible_client/docs/EnvironmentsApi.md#environment_delete) | **DELETE** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Delete
 *EnvironmentsApi* | [**environment_get**](aptible_client/docs/EnvironmentsApi.md#environment_get) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Get
@@ -101,7 +102,6 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**organization_get_operations**](aptible_client/docs/OrganizationsApi.md#organization_get_operations) | **GET** /api/v1/organizations/{organization_id}/operations/ | Organization Get Operations
 *OrganizationsApi* | [**organization_list**](aptible_client/docs/OrganizationsApi.md#organization_list) | **GET** /api/v1/organizations/ | Organization List
 *OrganizationsApi* | [**organization_update**](aptible_client/docs/OrganizationsApi.md#organization_update) | **PUT** /api/v1/organizations/{organization_id} | Organization Update
-*UtilitiesApi* | [**get_ping**](aptible_client/docs/UtilitiesApi.md#get_ping) | **GET** /api/v1/debug/ping | Get Ping
 *UtilitiesApi* | [**get_user**](aptible_client/docs/UtilitiesApi.md#get_user) | **GET** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**get_user_role**](aptible_client/docs/UtilitiesApi.md#get_user_role) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
 *WorkerApi* | [**worker_health_check**](aptible_client/docs/WorkerApi.md#worker_health_check) | **POST** /api/v1/worker/health-check | Worker Health Check
