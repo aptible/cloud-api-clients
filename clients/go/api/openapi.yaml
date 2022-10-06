@@ -874,11 +874,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/OperationOutput'
-                title: Response Operation Get Api V1 Organizations  Organization Id  Operations  Operation
-                  Id  Get
-                type: array
+                $ref: '#/components/schemas/OperationOutput'
           description: Successful Response
         "422":
           content:
@@ -1098,6 +1094,17 @@ paths:
       summary: Organization Get Operations
       tags:
       - organizations
+  /api/v1/system/health_check:
+    get:
+      operationId: get_healthcheck
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextResponse'
+          description: Successful Response
+      summary: Get Healthcheck
   /api/v1/debug/user_auth:
     get:
       operationId: get_user
@@ -1142,19 +1149,6 @@ paths:
       summary: Get User Role
       tags:
       - utilities
-  /api/v1/debug/ping:
-    get:
-      operationId: get_ping
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TextResponse'
-          description: Successful Response
-      summary: Get Ping
-      tags:
-      - utilities
 components:
   schemas:
     ActionRequest:
@@ -1184,7 +1178,6 @@ components:
               sensitive: true
               structure: ""
           environment:
-            data: "{}"
             aws_account_id: aws_account_id
             organization:
               aws_ou: aws_ou
@@ -1353,7 +1346,6 @@ components:
           title: User Parameters
       required:
       - actions
-      - description
       - identifier
       - name
       - types
@@ -1389,7 +1381,6 @@ components:
             sensitive: true
             structure: ""
         environment:
-          data: "{}"
           aws_account_id: aws_account_id
           organization:
             aws_ou: aws_ou
@@ -1558,7 +1549,6 @@ components:
         data:
           title: Data
       required:
-      - name
       - sensitive
       title: AssetTerraformOutput
       type: object
@@ -1659,7 +1649,6 @@ components:
       type: object
     EnvironmentOutput:
       example:
-        data: "{}"
         aws_account_id: aws_account_id
         organization:
           aws_ou: aws_ou
@@ -1677,9 +1666,6 @@ components:
         description:
           title: Description
           type: string
-        data:
-          title: Data
-          type: object
         id:
           format: uuid
           title: Id
@@ -1690,7 +1676,6 @@ components:
           title: Aws Account Id
           type: string
       required:
-      - data
       - id
       - name
       - organization

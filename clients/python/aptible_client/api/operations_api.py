@@ -39,7 +39,7 @@ class OperationsApi(object):
         self.api_client = api_client
         self.operation_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([OperationOutput],),
+                'response_type': (OperationOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
@@ -204,7 +204,7 @@ class OperationsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [OperationOutput]
+            OperationOutput
                 If the method is called asynchronously, returns the request
                 thread.
         """

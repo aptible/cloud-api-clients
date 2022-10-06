@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **operationGet**
-> Array<OperationOutput> operationGet()
+> OperationOutput operationGet()
 
 
 ### Example
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Array<OperationOutput>**
+**OperationOutput**
 
 ### Authorization
 

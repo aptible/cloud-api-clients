@@ -1,4 +1,5 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
+import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
 import { ActionOutput } from '../models/ActionOutput';
@@ -194,6 +195,33 @@ export class PromiseConnectionsApi {
 
 
 
+import { ObservableDefaultApi } from './ObservableAPI';
+
+import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
+export class PromiseDefaultApi {
+    private api: ObservableDefaultApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: DefaultApiRequestFactory,
+        responseProcessor?: DefaultApiResponseProcessor
+    ) {
+        this.api = new ObservableDefaultApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Get Healthcheck
+     */
+    public getHealthcheck(_options?: Configuration): Promise<TextResponse> {
+        const result = this.api.getHealthcheck(_options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
 import { ObservableEnvironmentsApi } from './ObservableAPI';
 
 import { EnvironmentsApiRequestFactory, EnvironmentsApiResponseProcessor} from "../apis/EnvironmentsApi";
@@ -303,7 +331,7 @@ export class PromiseOperationsApi {
      * @param operationId 
      * @param organizationId 
      */
-    public operationGet(operationId: string, organizationId: string, _options?: Configuration): Promise<Array<OperationOutput>> {
+    public operationGet(operationId: string, organizationId: string, _options?: Configuration): Promise<OperationOutput> {
         const result = this.api.operationGet(operationId, organizationId, _options);
         return result.toPromise();
     }
@@ -410,14 +438,6 @@ export class PromiseUtilitiesApi {
         responseProcessor?: UtilitiesApiResponseProcessor
     ) {
         this.api = new ObservableUtilitiesApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * Get Ping
-     */
-    public getPing(_options?: Configuration): Promise<TextResponse> {
-        const result = this.api.getPing(_options);
-        return result.toPromise();
     }
 
     /**

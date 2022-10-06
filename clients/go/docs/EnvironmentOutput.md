@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**Data** | **map[string]interface{}** |  | 
 **Id** | **string** |  | 
 **Organization** | [**OrganizationOutput**](OrganizationOutput.md) |  | 
 **AwsAccountId** | Pointer to **string** |  | [optional] 
@@ -15,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewEnvironmentOutput
 
-`func NewEnvironmentOutput(name string, data map[string]interface{}, id string, organization OrganizationOutput, ) *EnvironmentOutput`
+`func NewEnvironmentOutput(name string, id string, organization OrganizationOutput, ) *EnvironmentOutput`
 
 NewEnvironmentOutput instantiates a new EnvironmentOutput object
 This constructor will assign default values to properties that have it defined,
@@ -74,26 +73,6 @@ SetDescription sets Description field to given value.
 `func (o *EnvironmentOutput) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetData
-
-`func (o *EnvironmentOutput) GetData() map[string]interface{}`
-
-GetData returns the Data field if non-nil, zero value otherwise.
-
-### GetDataOk
-
-`func (o *EnvironmentOutput) GetDataOk() (*map[string]interface{}, bool)`
-
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetData
-
-`func (o *EnvironmentOutput) SetData(v map[string]interface{})`
-
-SetData sets Data field to given value.
-
 
 ### GetId
 

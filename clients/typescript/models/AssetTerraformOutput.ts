@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class AssetTerraformOutput {
-    'name': string;
+    'name'?: string;
     'sensitive': boolean;
     'structure'?: any;
     'data'?: any;

@@ -23,13 +23,6 @@ class TestUtilitiesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_get_ping(self):
-        """Test case for get_ping
-
-        Get Ping  # noqa: E501
-        """
-        pass
-
     def test_get_user(self):
         """Test case for get_user
 
