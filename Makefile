@@ -51,7 +51,7 @@ generate_openapi_json_go:
 
 generate_python_client:
 	docker run --rm \
-	  -v ${PWD}:/local openapitools/openapi-generator-cli generate --skip-validate-spec \
+	  -v ${PWD}:/local openapitools/openapi-generator-cli:v6.0.1 generate --skip-validate-spec \
 	  -i /local/openapi.json \
 	  -g python \
 	  -o /local/clients/python \
