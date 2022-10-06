@@ -63,12 +63,16 @@ openapi-generator-cli generate --skip-validate-spec \
   -i openapi.json \
   -g python \
   -o clients/python \
-  --additional-properties packageName=cloud_api_client
+  --additional-properties generateSourceCodeOnly=true \
+  --additional-properties packageName=aptible_client
 # post process and add required python deps for discovery
-touch clients/python/cloud_api_client/py.typed
+touch ./clients/python/aptible_client/py.typed
 # affix this so py.typed is discoverable
-echo "[options.package_data]" >> ./clients/python/setup.cfg
-echo "cloud_api_client = py.typed" >> ./clients/python/setup.cfg
+mv ./clients/python/aptible_client/docs/* ./clients/python/docs/
+mv ./clients/python/aptible_client/test/* ./clients/python/test/
+mv ./clients/python/aptible_client_README.md ./clients/python/README.md
+sed 's/__version__.*/from . import _version\n__version__ = _version.get_versions()["version"]/g' ./clients/python/aptible_client/__init__.py > /tmp/build__init__.py
+cp /tmp/build__init__.py ./clients/python/aptible_client/__init__.py
 
 # generate ruby client
 openapi-generator-cli generate --skip-validate-spec \

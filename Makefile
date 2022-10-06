@@ -49,13 +49,15 @@ generate_openapi_json_go:
 		source ./scripts/setenvs.sh && \
  		$(PYTHON) -m scripts.openapi.generate openapi_go.json
 
+# WARNING - when editing this makefile target please check the equivalent scripts/generate-clients-gha.sh
 generate_python_client:
+	# generateSourceCodeOnly - should be set to true because we want the setup.cfg to remain static for publishing
 	docker run --rm \
 	  -v ${PWD}:/local openapitools/openapi-generator-cli:v6.0.1 generate --skip-validate-spec \
 	  -i /local/openapi.json \
 	  -g python \
 	  -o /local/clients/python \
-		--additional-properties generateSourceCodeOnly=true \
+	  --additional-properties generateSourceCodeOnly=true \
 	  --additional-properties packageName=aptible_client
 	mv ./clients/python/aptible_client/docs/* ./clients/python/docs/
 	mv ./clients/python/aptible_client/test/* ./clients/python/test/
