@@ -12,6 +12,10 @@ import sys
 import unittest
 
 import aptible_client
+from aptible_client.model.operation_status import OperationStatus
+from aptible_client.model.operation_type import OperationType
+globals()['OperationStatus'] = OperationStatus
+globals()['OperationType'] = OperationType
 from aptible_client.model.operation_output import OperationOutput
 
 
