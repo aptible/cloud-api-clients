@@ -1,4 +1,4 @@
-# aptible_client.WorkerApi
+# cloud_api_client.WorkerApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,20 +17,20 @@ Worker Health Check
 
 ```python
 import time
-import aptible_client
-from aptible_client.api import worker_api
-from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.health_check_from_worker import HealthCheckFromWorker
+import cloud_api_client
+from cloud_api_client.api import worker_api
+from cloud_api_client.model.health_check_from_worker import HealthCheckFromWorker
+from cloud_api_client.model.http_validation_error import HTTPValidationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = aptible_client.Configuration(
+configuration = cloud_api_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with aptible_client.ApiClient() as api_client:
+with cloud_api_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = worker_api.WorkerApi(api_client)
     health_check_from_worker = HealthCheckFromWorker(
@@ -45,7 +45,7 @@ with aptible_client.ApiClient() as api_client:
         # Worker Health Check
         api_response = api_instance.worker_health_check(health_check_from_worker)
         pprint(api_response)
-    except aptible_client.ApiException as e:
+    except cloud_api_client.ApiException as e:
         print("Exception when calling WorkerApi->worker_health_check: %s\n" % e)
 ```
 
