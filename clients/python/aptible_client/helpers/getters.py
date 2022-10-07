@@ -16,13 +16,10 @@ def get_client_configuration() -> Configuration:
         try:
             tokens_json = open(str(Path.home() / ".aptible" / "tokens.json"), "r").read()
             local_token = json.loads(tokens_json).get(AUTH_API_URL)
-            return Configuration(
-                access_token=local_token,
-                host=CLOUD_API_URL,
-            )
         except Exception:
             print("Unable to retrieve tokens from aptible client's default location")
             raise
-
-# todo - function that does a get call based on attributes
-#        to help prevent getting multiple vpcs created unless they intend it
+    return Configuration(
+        access_token=local_token,
+        host=CLOUD_API_URL,
+    )
