@@ -28,7 +28,12 @@ def get_client_configuration() -> Configuration:
     )
 
 
-def update_environment(environments_api: EnvironmentsApi, environment_id: str, organization_id: str, logger: Logger) -> None:
+def update_environment(
+    environments_api: EnvironmentsApi,
+    environment_id: str,
+    organization_id: str,
+    logger: Logger
+) -> None:
     environment = environments_api.environment_get(environment_id, organization_id)
     environments_api.environment_update(
         environment_id=environment_id,
