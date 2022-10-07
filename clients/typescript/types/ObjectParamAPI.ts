@@ -1,4 +1,5 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http';
+import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
 import { ActionOutput } from '../models/ActionOutput';
@@ -366,6 +367,29 @@ export class ObjectConnectionsApi {
 
 }
 
+import { ObservableDefaultApi } from "./ObservableAPI";
+import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
+
+export interface DefaultApiGetHealthcheckRequest {
+}
+
+export class ObjectDefaultApi {
+    private api: ObservableDefaultApi
+
+    public constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor) {
+        this.api = new ObservableDefaultApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Get Healthcheck
+     * @param param the request object
+     */
+    public getHealthcheck(param: DefaultApiGetHealthcheckRequest = {}, options?: Configuration): Promise<TextResponse> {
+        return this.api.getHealthcheck( options).toPromise();
+    }
+
+}
+
 import { ObservableEnvironmentsApi } from "./ObservableAPI";
 import { EnvironmentsApiRequestFactory, EnvironmentsApiResponseProcessor} from "../apis/EnvironmentsApi";
 
@@ -589,7 +613,7 @@ export class ObjectOperationsApi {
      * Operation Get
      * @param param the request object
      */
-    public operationGet(param: OperationsApiOperationGetRequest, options?: Configuration): Promise<Array<OperationOutput>> {
+    public operationGet(param: OperationsApiOperationGetRequest, options?: Configuration): Promise<OperationOutput> {
         return this.api.operationGet(param.operationId, param.organizationId,  options).toPromise();
     }
 
@@ -732,9 +756,6 @@ export class ObjectOrganizationsApi {
 import { ObservableUtilitiesApi } from "./ObservableAPI";
 import { UtilitiesApiRequestFactory, UtilitiesApiResponseProcessor} from "../apis/UtilitiesApi";
 
-export interface UtilitiesApiGetPingRequest {
-}
-
 export interface UtilitiesApiGetUserRequest {
 }
 
@@ -752,14 +773,6 @@ export class ObjectUtilitiesApi {
 
     public constructor(configuration: Configuration, requestFactory?: UtilitiesApiRequestFactory, responseProcessor?: UtilitiesApiResponseProcessor) {
         this.api = new ObservableUtilitiesApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * Get Ping
-     * @param param the request object
-     */
-    public getPing(param: UtilitiesApiGetPingRequest = {}, options?: Configuration): Promise<TextResponse> {
-        return this.api.getPing( options).toPromise();
     }
 
     /**

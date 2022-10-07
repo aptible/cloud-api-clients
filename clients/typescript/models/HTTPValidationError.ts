@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { ValidationError } from '../models/ValidationError';
+import { ValidationError } from './ValidationError';
 import { HttpFile } from '../http/http';
 
 export class HTTPValidationError {

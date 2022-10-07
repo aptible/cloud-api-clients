@@ -9,35 +9,11 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { HTTPValidationError } from '../models/HTTPValidationError';
-import { TextResponse } from '../models/TextResponse';
 
 /**
  * no description
  */
 export class UtilitiesApiRequestFactory extends BaseAPIRequestFactory {
-
-    /**
-     * Get Ping
-     */
-    public async getPing(_options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // Path Params
-        const localVarPath = '/api/v1/debug/ping';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
 
     /**
      * Get User
@@ -112,35 +88,6 @@ export class UtilitiesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class UtilitiesApiResponseProcessor {
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to getPing
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async getPing(response: ResponseContext): Promise<TextResponse > {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: TextResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "TextResponse", ""
-            ) as TextResponse;
-            return body;
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: TextResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "TextResponse", ""
-            ) as TextResponse;
-            return body;
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
 
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content

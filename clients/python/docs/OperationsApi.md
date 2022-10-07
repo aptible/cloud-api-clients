@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **operation_get**
-> [OperationOutput] operation_get(operation_id, organization_id)
+> OperationOutput operation_get(operation_id, organization_id)
 
 Operation Get
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[OperationOutput]**](OperationOutput.md)
+[**OperationOutput**](OperationOutput.md)
 
 ### Authorization
 

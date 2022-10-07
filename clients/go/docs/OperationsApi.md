@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## OperationGet
 
-> []OperationOutput OperationGet(ctx, operationId, organizationId).Execute()
+> OperationOutput OperationGet(ctx, operationId, organizationId).Execute()
 
 Operation Get
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OperationsApi.OperationGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `OperationGet`: []OperationOutput
+    // response from `OperationGet`: OperationOutput
     fmt.Fprintf(os.Stdout, "Response from `OperationsApi.OperationGet`: %v\n", resp)
 }
 ```
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]OperationOutput**](OperationOutput.md)
+[**OperationOutput**](OperationOutput.md)
 
 ### Authorization
 

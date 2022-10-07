@@ -17,6 +17,7 @@
 from aptible_client.api.actions_api import ActionsApi
 from aptible_client.api.assets_api import AssetsApi
 from aptible_client.api.connections_api import ConnectionsApi
+from aptible_client.api.default_api import DefaultApi
 from aptible_client.api.environments_api import EnvironmentsApi
 from aptible_client.api.operations_api import OperationsApi
 from aptible_client.api.organizations_api import OrganizationsApi

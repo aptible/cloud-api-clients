@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 ## operation_get
 
-> <Array<OperationOutput>> operation_get(operation_id, organization_id)
+> <OperationOutput> operation_get(operation_id, organization_id)
 
 Operation Get
 
@@ -42,7 +42,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<OperationOutput>>, Integer, Hash)> operation_get_with_http_info(operation_id, organization_id)
+> <Array(<OperationOutput>, Integer, Hash)> operation_get_with_http_info(operation_id, organization_id)
 
 ```ruby
 begin
@@ -50,7 +50,7 @@ begin
   data, status_code, headers = api_instance.operation_get_with_http_info(operation_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<OperationOutput>>
+  p data # => <OperationOutput>
 rescue CloudApiClient::ApiError => e
   puts "Error when calling OperationsApi->operation_get_with_http_info: #{e}"
 end
@@ -65,7 +65,7 @@ end
 
 ### Return type
 
-[**Array&lt;OperationOutput&gt;**](OperationOutput.md)
+[**OperationOutput**](OperationOutput.md)
 
 ### Authorization
 

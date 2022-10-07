@@ -18,7 +18,7 @@ import (
 type AssetBundle struct {
 	Identifier string `json:"identifier"`
 	Name string `json:"name"`
-	Description string `json:"description"`
+	Description *string `json:"description,omitempty"`
 	Types []string `json:"types"`
 	Actions map[string]AssetAction `json:"actions"`
 	UserParameters interface{} `json:"user_parameters,omitempty"`
@@ -28,11 +28,10 @@ type AssetBundle struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetBundle(identifier string, name string, description string, types []string, actions map[string]AssetAction) *AssetBundle {
+func NewAssetBundle(identifier string, name string, types []string, actions map[string]AssetAction) *AssetBundle {
 	this := AssetBundle{}
 	this.Identifier = identifier
 	this.Name = name
-	this.Description = description
 	this.Types = types
 	this.Actions = actions
 	return &this
@@ -94,28 +93,36 @@ func (o *AssetBundle) SetName(v string) {
 	o.Name = v
 }
 
-// GetDescription returns the Description field value
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *AssetBundle) GetDescription() string {
-	if o == nil {
+	if o == nil || o.Description == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AssetBundle) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Description == nil {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *AssetBundle) HasDescription() bool {
+	if o != nil && o.Description != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *AssetBundle) SetDescription(v string) {
-	o.Description = v
+	o.Description = &v
 }
 
 // GetTypes returns the Types field value
@@ -207,7 +214,7 @@ func (o AssetBundle) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["name"] = o.Name
 	}
-	if true {
+	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
 	if true {

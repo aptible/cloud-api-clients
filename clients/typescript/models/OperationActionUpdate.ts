@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { ActionOutput } from '../models/ActionOutput';
+import { ActionOutput } from './ActionOutput';
 import { HttpFile } from '../http/http';
 
 export class OperationActionUpdate {

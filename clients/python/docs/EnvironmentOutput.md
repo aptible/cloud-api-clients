@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
-**data** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
 **id** | **str** |  | 
 **organization** | [**OrganizationOutput**](OrganizationOutput.md) |  | 
 **description** | **str** |  | [optional] 

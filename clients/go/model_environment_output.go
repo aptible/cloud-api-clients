@@ -18,7 +18,6 @@ import (
 type EnvironmentOutput struct {
 	Name string `json:"name"`
 	Description *string `json:"description,omitempty"`
-	Data map[string]interface{} `json:"data"`
 	Id string `json:"id"`
 	Organization OrganizationOutput `json:"organization"`
 	AwsAccountId *string `json:"aws_account_id,omitempty"`
@@ -28,10 +27,9 @@ type EnvironmentOutput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentOutput(name string, data map[string]interface{}, id string, organization OrganizationOutput) *EnvironmentOutput {
+func NewEnvironmentOutput(name string, id string, organization OrganizationOutput) *EnvironmentOutput {
 	this := EnvironmentOutput{}
 	this.Name = name
-	this.Data = data
 	this.Id = id
 	this.Organization = organization
 	return &this
@@ -99,30 +97,6 @@ func (o *EnvironmentOutput) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *EnvironmentOutput) SetDescription(v string) {
 	o.Description = &v
-}
-
-// GetData returns the Data field value
-func (o *EnvironmentOutput) GetData() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-
-	return o.Data
-}
-
-// GetDataOk returns a tuple with the Data field value
-// and a boolean to check if the value has been set.
-func (o *EnvironmentOutput) GetDataOk() (map[string]interface{}, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Data, true
-}
-
-// SetData sets field value
-func (o *EnvironmentOutput) SetData(v map[string]interface{}) {
-	o.Data = v
 }
 
 // GetId returns the Id field value
@@ -212,9 +186,6 @@ func (o EnvironmentOutput) MarshalJSON() ([]byte, error) {
 	}
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
-	}
-	if true {
-		toSerialize["data"] = o.Data
 	}
 	if true {
 		toSerialize["id"] = o.Id

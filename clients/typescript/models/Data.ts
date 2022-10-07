@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { ActionOutput } from '../models/ActionOutput';
-import { OperationActionUpdate } from '../models/OperationActionUpdate';
-import { OperationAssetUpdate } from '../models/OperationAssetUpdate';
-import { OperationFailure } from '../models/OperationFailure';
-import { OperationTerraformRunUpdate } from '../models/OperationTerraformRunUpdate';
+import { ActionOutput } from './ActionOutput';
+import { OperationActionUpdate } from './OperationActionUpdate';
+import { OperationAssetUpdate } from './OperationAssetUpdate';
+import { OperationFailure } from './OperationFailure';
+import { OperationTerraformRunUpdate } from './OperationTerraformRunUpdate';
 import { HttpFile } from '../http/http';
 
 export class Data {

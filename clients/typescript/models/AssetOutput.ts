@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { AssetParametersOutput } from '../models/AssetParametersOutput';
-import { AssetStatus } from '../models/AssetStatus';
-import { AssetTerraformOutput } from '../models/AssetTerraformOutput';
-import { ConnectionOutput } from '../models/ConnectionOutput';
-import { EnvironmentOutput } from '../models/EnvironmentOutput';
+import { AssetParametersOutput } from './AssetParametersOutput';
+import { AssetStatus } from './AssetStatus';
+import { AssetTerraformOutput } from './AssetTerraformOutput';
+import { ConnectionOutput } from './ConnectionOutput';
+import { EnvironmentOutput } from './EnvironmentOutput';
 import { HttpFile } from '../http/http';
 
 export class AssetOutput {

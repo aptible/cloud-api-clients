@@ -3,6 +3,7 @@ aptible_client/api/__init__.py
 aptible_client/api/actions_api.py
 aptible_client/api/assets_api.py
 aptible_client/api/connections_api.py
+aptible_client/api/default_api.py
 aptible_client/api/environments_api.py
 aptible_client/api/operations_api.py
 aptible_client/api/organizations_api.py
@@ -28,6 +29,7 @@ aptible_client/docs/ConnectionOutput.md
 aptible_client/docs/ConnectionStatus.md
 aptible_client/docs/ConnectionsApi.md
 aptible_client/docs/Data.md
+aptible_client/docs/DefaultApi.md
 aptible_client/docs/EnvironmentInput.md
 aptible_client/docs/EnvironmentOutput.md
 aptible_client/docs/EnvironmentsApi.md
@@ -104,6 +106,7 @@ aptible_client/test/test_connection_output.py
 aptible_client/test/test_connection_status.py
 aptible_client/test/test_connections_api.py
 aptible_client/test/test_data.py
+aptible_client/test/test_default_api.py
 aptible_client/test/test_environment_input.py
 aptible_client/test/test_environment_output.py
 aptible_client/test/test_environments_api.py
