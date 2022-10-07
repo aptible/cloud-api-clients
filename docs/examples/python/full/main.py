@@ -3,6 +3,7 @@ from typing import List, Optional
 
 from glom import glom
 
+# below is done to enable testing outside the scope of the project with ease
 import sys
 sys.path.insert(1, '../../../clients/python')
 from aptible_client.helpers import getters, logger_utils, waiters  # NOQA
@@ -13,17 +14,24 @@ if typing.TYPE_CHECKING:
 
 logger = logger_utils.setup_logger()
 
+VPC_NAME: str = "testing-aptible-client"
+
+CONTAINER_IMAGE: str = "quay.io/aptible/deploy-demo-app"
+CONTAINER_PORT: int = 5000
+CONTAINER_WEB_COMMAND: List[str] = ["gunicorn", "app:app", "-b", "0.0.0.0:5000", "--access-logfile", "-"]
+CONTAINER_WORKER_COMMAND: List[str] = ["python", "-m", "worker"]
+
 
 def main(
     environment_id: str,
     organization_id: str,
     web_fqdn_subdomain: str,
     web_fqdn_domain: str,
-    vpc_name: Optional[str] = "testing-aptible-client",
-    container_image: Optional[str] = "quay.io/aptible/deploy-demo-app",
-    container_http_port: Optional[int] = 5000,
-    container_web_command: Optional[List[str]] = ["gunicorn", "app:app", "-b", "0.0.0.0:5000", "--access-logfile", "-"],  # NOQA - mutable but ignore for typer hint
-    container_worker_command: Optional[List[str]] = ["python", "-m", "worker"], # NOQA - mutable but ignore for typer hint
+    vpc_name: Optional[str] = VPC_NAME,
+    container_image: Optional[str] = CONTAINER_IMAGE,
+    container_http_port: Optional[int] = CONTAINER_PORT,
+    container_web_command: Optional[List[str]] = CONTAINER_WEB_COMMAND,  # NOQA - mutable but ignore for typer hint
+    container_worker_command: Optional[List[str]] = CONTAINER_WORKER_COMMAND, # NOQA - mutable but ignore for typer hint
     do_unique_checks: Optional[bool] = True
 ):
     logger.info("Starting the full flow")
