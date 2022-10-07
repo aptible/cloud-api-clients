@@ -1,9 +1,10 @@
+import json
 import logging
 import time
 import os
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
-from .exceptions import AssetFailedException, AssetTimeoutException, EnvironmentNotFound
+from .exceptions import AssetFailedException, AssetTimeoutException, EnvironmentNotFound, AssetNotFoundException
 from ..api.assets_api import AssetsApi
 from ..api.environments_api import EnvironmentsApi
 from ..api_client import ApiClient
@@ -22,12 +23,12 @@ class Waiter:
     do_unique_checks: bool
 
     def __init__(
-        self,
-        configuration: Configuration,
-        environment_id: str = ENVIRONMENT_ID,
-        organization_id: str = ORGANIZATION_ID,
-        do_unique_checks: bool = True,
-        logger: logging.Logger = logging.getLogger(),
+            self,
+            configuration: Configuration,
+            environment_id: str = ENVIRONMENT_ID,
+            organization_id: str = ORGANIZATION_ID,
+            do_unique_checks: bool = True,
+            logger: logging.Logger = logging.getLogger(),
     ):
         self.environment_id = environment_id
         self.organization_id = organization_id
@@ -39,7 +40,11 @@ class Waiter:
 
     def _validate_environment_access(self):
         try:
-            environment = self.environments_api_instance.environment_get(self.environment_id, self.organization_id)
+            environment = self.environments_api_instance.environment_get(
+                self.environment_id,
+                self.organization_id,
+                _check_return_type=False
+            )
             if not environment:
                 raise EnvironmentNotFound(f"Unable to find environment id ({self.environment_id})"
                                           f"or cannot access it on organization {self.organization_id}")
@@ -57,20 +62,23 @@ class Waiter:
         if self.do_unique_checks:
             environment_assets = self.environments_api_instance.environment_get_assets(
                 self.environment_id,
-                self.organization_id
+                self.organization_id,
+                _check_return_type=False,
             )
-            self.logger.debug("querying environment assets if created previously")
+            self.logger.debug("Querying environment assets if created previously to avoid re-creation")
             for environment_asset in environment_assets:
-                if environment_asset.asset == asset and environment_asset.asset_parameters.data == asset_parameters:
-                    self.logger.info(f"found asset ({environment_asset.asset}) being searched: {environment_asset.id}")
+                if environment_asset.asset == asset and \
+                        environment_asset.status != "DESTROYED" and \
+                        'data' in environment_asset.current_asset_parameters and \
+                        asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items():
+                    self.logger.info(f"Found asset ({environment_asset.asset}) being searched: {environment_asset.id}")
                     return environment_asset
         return self.always_launch_asset_and_wait(asset, asset_parameters)
 
-    def wait_for_asset_to_be_deployed(
-        self,
-        asset_id: str,
-        environment_id: str = ENVIRONMENT_ID,
-        organization_id: str = ORGANIZATION_ID,
+    def wait_for_asset_to_be_status(
+            self,
+            asset_id: str,
+            status: Optional[str] = "DEPLOYED"
     ) -> Dict[str, Any]:
         # Automatically break after 25 mins no matter what
         breakout_time = time.time() + (25 * 60)
@@ -79,24 +87,38 @@ class Waiter:
 
         while time.time() < breakout_time and retries < max_retries:
             try:
-                asset_data = self.assets_api_instance.asset_get(asset_id, environment_id, organization_id, _check_return_type=False)
-                if str(asset_data['status']) == "DEPLOYED":
-                    self.logger.info(f"Asset is deployed ({asset_id})")
+                asset_data = self.assets_api_instance.asset_get(
+                    asset_id,
+                    self.environment_id,
+                    self.organization_id,
+                    _check_return_type=False
+                )
+                if str(asset_data['status']) == status:
+                    self.logger.info(f"Asset is '{status}': ({asset_id})")
                     return asset_data
                 if str(asset_data['status']) == "FAILED":
-                    raise AssetFailedException(f"Unable to create asset with ID ({asset_id}) in environment ({environment_id})")
+                    raise AssetFailedException(f"Unable to act on asset with ID ({asset_id}) in environment "
+                                               f"({self.environment_id})")
             except Exception:
-                self.logger.exception(f"Unable to create asset on environment id ({environment_id}) with exception")
+                self.logger.exception(f"Unable to act on asset on environment id ({self.environment_id}) "
+                                      f"with exception")
                 retries += 1
             time.sleep(10)
-            self.logger.info(f"Still waiting for asset to be deployed: {asset_id}")
+            if retries == max_retries:
+                self.logger.exception(
+                    f"Unable to create asset on environment id ({self.environment_id}) with exception"
+                )
+                raise AssetFailedException(f"Unable to create asset in environment ({self.environment_id} "
+                                           f"after {max_retries} attempts")
 
-        raise AssetTimeoutException(f"Waited for asset ({asset_id}) to deploy and it took too long! (25 mins)")
+            self.logger.info(f"Still waiting for asset to be status of '{status}': {asset_id}")
+
+        raise AssetTimeoutException(f"Waited for asset ({asset_id}) to deploy and it took too long! (25 minutes)")
 
     def always_launch_asset_and_wait(
-        self,
-        asset: str,
-        asset_parameters: Dict[str, Any],
+            self,
+            asset: str,
+            asset_parameters: Dict[str, Any],
     ):
         # Launch Asset
         asset_input = AssetInput(
@@ -114,5 +136,42 @@ class Waiter:
 
         # Wait until asset is ready so we can use data from it
         self.logger.info(f"Creating asset of type {asset}")
-        asset_data = self.wait_for_asset_to_be_deployed(asset_id)
+        asset_data = self.wait_for_asset_to_be_status(asset_id)
         return asset_data
+
+    def always_destroy_asset_and_wait(
+            self,
+            asset_id: str,
+    ):
+        self.assets_api_instance.asset_delete(
+            asset_id,
+            self.environment_id,
+            self.organization_id,
+            _check_return_type=False
+        )
+
+        # Wait until asset is ready so we can use data from it
+        self.logger.info(f"Destroying asset ({asset_id})")
+        asset_data = self.wait_for_asset_to_be_status(asset_id, status="DESTROYED")
+        return asset_data
+
+    def find_destroy_asset_and_wait(self, asset, asset_parameters: Dict[str, Any]):
+        environment_assets = self.environments_api_instance.environment_get_assets(
+            self.environment_id,
+            self.organization_id,
+            _check_return_type=False,
+        )
+        self.logger.debug("Querying environment assets if created previously for destruction")
+        for environment_asset in environment_assets:
+            if environment_asset.asset == asset and \
+                    environment_asset.status != "DESTROYED" and \
+                    'data' in environment_asset.current_asset_parameters and \
+                    asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items():
+                # check if asset_parameters passed in are a subset of the existing set in the DB, if so we're good to go
+                self.logger.info(f"Found asset ({environment_asset.asset}) being searched: {environment_asset.id}")
+                self.always_destroy_asset_and_wait(environment_asset.id)
+                return
+
+        self.logger.warning(
+            f"Unable to find non-destroyed asset ({asset}) with asset parameters {json.dumps(asset_parameters)}"
+        )

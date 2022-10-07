@@ -16,11 +16,13 @@ logger = logger_utils.setup_logger("vpc")
 VPC_NAME: str = "testing-aptible-client"
 
 
+
 def main(
     environment_id: str,
     organization_id: str,
     vpc_name: Optional[str] = VPC_NAME,
-    do_unique_checks: Optional[bool] = True
+    do_unique_checks: Optional[bool] = True,
+    cleanup: Optional[bool] = False,
 ):
     logger.info("Starting the create vpc flow")
     configuration = getters.get_client_configuration()
@@ -33,6 +35,10 @@ def main(
         do_unique_checks=do_unique_checks
     )
 
+    if cleanup:
+        cleanup_flow(waiter, vpc_name)
+        return
+
     # Launch VPC
     waiter.get_or_launch_asset_and_wait(
         asset="aws__vpc__latest",
@@ -41,3 +47,12 @@ def main(
         }
     )
 
+
+def cleanup_flow(waiter: waiters.Waiter, vpc_name: str):
+    # same as above, but backwards!
+    waiter.find_destroy_asset_and_wait(
+        asset="aws__vpc__latest",
+        asset_parameters={
+            "name": vpc_name
+        }
+    )
