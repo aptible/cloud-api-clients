@@ -1,18 +1,15 @@
 import json
 import logging
 import time
-import os
 from typing import Any, Dict, Optional
 
-from .exceptions import AssetFailedException, AssetTimeoutException, EnvironmentNotFound, AssetNotFoundException
+from .constants import ORGANIZATION_ID, ENVIRONMENT_ID
+from .exceptions import AssetFailedException, AssetTimeoutException, EnvironmentNotFound
 from ..api.assets_api import AssetsApi
 from ..api.environments_api import EnvironmentsApi
 from ..api_client import ApiClient
 from ..configuration import Configuration
 from ..model.asset_input import AssetInput
-
-ORGANIZATION_ID = os.getenv("ORGANIZATION_ID")
-ENVIRONMENT_ID = os.getenv("ENVIRONMENT_ID")
 
 
 class Waiter:
@@ -69,7 +66,7 @@ class Waiter:
             for environment_asset in environment_assets:
                 # if failed and not destroyed
                 # TODO - move to getter
-                if environment_asset.asset == asset and \
+                if environment_asset.asset.split("__")[0:2] == asset.split("__")[0:2] and \
                         environment_asset.status != "DESTROYED" and \
                         'data' in environment_asset.current_asset_parameters and \
                         asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items():
@@ -202,7 +199,7 @@ class Waiter:
         self.logger.debug("Querying environment assets if created previously for destruction")
         for environment_asset in environment_assets:
             # TODO - move to getter
-            if environment_asset.asset == asset and \
+            if environment_asset.asset.split("__")[0:2] == asset.split("__")[0:2] and \
                     environment_asset.status != "DESTROYED" and \
                     'data' in environment_asset.current_asset_parameters and \
                     asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items():

@@ -33,5 +33,5 @@ If running examples in the docs directory for Python, your working directory mus
 
 ```sh
 cd docs/examples/python
-python3 -m partials.vpc.cli --help
+python -m partials.vpc.cli --help
 ```
