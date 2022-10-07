@@ -104,7 +104,7 @@ def main(
     for acm_validation_record in acm_validation_records:
         acm_rr_name = acm_validation_record['resource_record_name']
         acm_rr_value = acm_validation_record['resource_record_value']
-        validation_fqdns.append(acm_rr_value)
+        validation_fqdns.append(acm_rr_name)
         print("========================================================================================")
         print("")
         print(f"ACM certificate created. To continue, create CNAME record for {acm_rr_name} with value {acm_rr_value}")
