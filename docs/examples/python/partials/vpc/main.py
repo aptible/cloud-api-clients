@@ -25,10 +25,9 @@ def main(
     cleanup: Optional[bool] = False,
 ):
     logger.info("Starting the create vpc flow")
-    configuration = getters.get_client_configuration()
     # Initialize the API and create a session
     waiter = waiters.Waiter(
-        configuration=configuration,
+        configuration=getters.get_client_configuration(),
         environment_id=environment_id,
         logger=logger,
         organization_id=organization_id,

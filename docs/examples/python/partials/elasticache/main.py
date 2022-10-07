@@ -19,18 +19,22 @@ def main(
     environment_id: str,
     organization_id: str,
     vpc_name: Optional[str] = VPC_NAME,
-    do_unique_checks: Optional[bool] = True
+    do_unique_checks: Optional[bool] = True,
+    cleanup: Optional[bool] = False
 ):
     logger.info("Starting the elasticache flow")
-    configuration = getters.get_client_configuration()
     # Initialize the API and create a session
     waiter = waiters.Waiter(
-        configuration=configuration,
+        configuration=getters.get_client_configuration(),
         environment_id=environment_id,
         logger=logger,
         organization_id=organization_id,
         do_unique_checks=do_unique_checks
     )
+
+    if cleanup:
+        cleanup_flow(waiter, vpc_name)
+        return
 
     # Launch VPC
     waiter.get_or_launch_asset_and_wait(
@@ -49,4 +53,24 @@ def main(
             "maintenance_window": "sun:10:00-sun:14:00",
             "vpc_name": vpc_name
         },
+    )
+
+
+def cleanup_flow(waiter: waiters.Waiter, vpc_name: str):
+    # same as above, but backwards!
+    waiter.find_destroy_asset_and_wait(
+        asset="aws__elasticache_redis__latest",
+        asset_parameters={
+            "name": "app-redis",
+            "snapshot_window": "00:00-01:00",
+            "maintenance_window": "sun:10:00-sun:14:00",
+            "vpc_name": vpc_name
+        },
+    )
+
+    waiter.find_destroy_asset_and_wait(
+        asset="aws__vpc__latest",
+        asset_parameters={
+            "name": vpc_name
+        }
     )
