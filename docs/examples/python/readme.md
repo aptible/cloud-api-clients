@@ -10,7 +10,7 @@ from aptible_client.helpers import misc, logger_utils, waiters
 
 # create a waiter that will help you deploy assets
 waiter = waiters.Waiter(
-    configuration=misc.get_client_configuration(),
+    configuration=misc.get_client_configuration(), # requires login with "aptible login" or env var of APTIBLE_TOKEN
     environment_id=os.getenv("ENVIRONMENT_ID"),
     logger=logger_utils.setup_logger("testing"),
     organization_id=os.getenv("ORGANIZATION_ID"),
