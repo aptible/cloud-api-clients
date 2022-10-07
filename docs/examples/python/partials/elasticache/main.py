@@ -19,7 +19,7 @@ def main(
     environment_id: str,
     organization_id: str,
     vpc_name: Optional[str] = VPC_NAME,
-    do_unique_checks: Optional[bool] = True,
+    force_new: Optional[bool] = True,
     cleanup: Optional[bool] = False
 ):
     logger.info("Starting the elasticache flow")
@@ -29,7 +29,7 @@ def main(
         environment_id=environment_id,
         logger=logger,
         organization_id=organization_id,
-        do_unique_checks=do_unique_checks
+        force_new=force_new
     )
 
     if cleanup:

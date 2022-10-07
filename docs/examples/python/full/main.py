@@ -32,7 +32,7 @@ def main(
     container_http_port: Optional[int] = CONTAINER_PORT,
     container_web_command: Optional[List[str]] = CONTAINER_WEB_COMMAND,  # NOQA - mutable but ignore for typer hint
     container_worker_command: Optional[List[str]] = CONTAINER_WORKER_COMMAND, # NOQA - mutable but ignore for typer hint
-    do_unique_checks: Optional[bool] = True
+    force_new: Optional[bool] = True
 ):
     logger.info("Starting the full flow")
     configuration = getters.get_client_configuration()
@@ -42,7 +42,7 @@ def main(
         environment_id=environment_id,
         logger=logger,
         organization_id=organization_id,
-        do_unique_checks=do_unique_checks
+        force_new=force_new
     )
 
     # Launch VPC
