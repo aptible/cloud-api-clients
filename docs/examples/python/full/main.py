@@ -12,7 +12,7 @@ if typing.TYPE_CHECKING:
     from clients.python.aptible_client.helpers import getters, logger_utils, waiters
 
 
-logger = logger_utils.setup_logger()
+logger = logger_utils.setup_logger("full")
 
 VPC_NAME: str = "testing-aptible-client"
 

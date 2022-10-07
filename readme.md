@@ -25,4 +25,13 @@ Or adding an entry like this to your `setup.cfg`:
 executioner-client @ git+ssh://git@github.com/aptible/cloud-api-clients.git#subdirectory=clients/python
 ```
 
+### Examples
+
+If running examples in the docs directory for Python, your working directory must be INSIDE of the python directory:
+
+```sh
+cd docs/examples/python
+python3 -m partials.vpc.cli --help
+```
+
 See the documentation [here for python usage](https://github.com/aptible/cloud-api-clients/tree/main/clients/python#installation--usage).
