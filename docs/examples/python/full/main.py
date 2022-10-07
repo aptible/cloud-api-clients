@@ -5,12 +5,12 @@ from glom import glom
 
 # below is done to enable testing outside the scope of the project with ease
 import sys
+
 sys.path.insert(1, '../../../clients/python')
 from aptible_client.helpers import getters, logger_utils, waiters  # NOQA
 
 if typing.TYPE_CHECKING:
     from clients.python.aptible_client.helpers import getters, logger_utils, waiters
-
 
 logger = logger_utils.setup_logger("full")
 
@@ -23,16 +23,18 @@ CONTAINER_WORKER_COMMAND: List[str] = ["python", "-m", "worker"]
 
 
 def main(
-    environment_id: str,
-    organization_id: str,
-    web_fqdn_subdomain: str,
-    web_fqdn_domain: str,
-    vpc_name: Optional[str] = VPC_NAME,
-    container_image: Optional[str] = CONTAINER_IMAGE,
-    container_http_port: Optional[int] = CONTAINER_PORT,
-    container_web_command: Optional[List[str]] = CONTAINER_WEB_COMMAND,  # NOQA - mutable but ignore for typer hint
-    container_worker_command: Optional[List[str]] = CONTAINER_WORKER_COMMAND, # NOQA - mutable but ignore for typer hint
-    force_new: Optional[bool] = True
+        environment_id: str,
+        organization_id: str,
+        web_fqdn_subdomain: str,
+        web_fqdn_domain: str,
+        vpc_name: Optional[str] = VPC_NAME,
+        container_image: Optional[str] = CONTAINER_IMAGE,
+        container_http_port: Optional[int] = CONTAINER_PORT,
+        container_web_command: Optional[List[str]] = CONTAINER_WEB_COMMAND,  # NOQA - mutable but ignore for typer hint
+        container_worker_command: Optional[List[str]] = CONTAINER_WORKER_COMMAND, # NOQA - mutable but ignore for typer hint
+        validation_method: Optional[str] = "DNS",
+        force_new: Optional[bool] = True,
+        cleanup: Optional[bool] = False
 ):
     logger.info("Starting the full flow")
     configuration = getters.get_client_configuration()
@@ -44,6 +46,16 @@ def main(
         organization_id=organization_id,
         force_new=force_new
     )
+
+    if cleanup:
+        cleanup_flow(
+            waiter,
+            web_fqdn_subdomain,
+            web_fqdn_domain,
+            vpc_name,
+            validation_method,
+        )
+        return
 
     # Launch VPC
     vpc_asset_data = waiter.get_or_launch_asset_and_wait(
@@ -77,7 +89,6 @@ def main(
 
     # Create ACM Certificate
     # TODO - add logger statements if someone opted to use DNS or EMAIL and explain consequences of each in a warn
-    validation_method = "DNS" # or "EMAIL"
     acm_asset_data = waiter.get_or_launch_asset_and_wait(
         asset="aws__acm_certificate__latest",
         asset_parameters={
@@ -86,7 +97,7 @@ def main(
         },
     )
 
-    acm_certificate_arn = glom(acm_asset_data, 'outputs.data.acm_certificate_arn')
+    acm_certificate_arn = glom(acm_asset_data, 'outputs.acm_certificate_arn.data')
     acm_validation_records = glom(acm_asset_data, 'outputs.dns_validation_records.data')
     validation_fqdns = []
     # TODO - explain what this is probably
@@ -190,3 +201,43 @@ def main(
     print("Provisioning complete! To finalize setup:")
     print(f"  * Create CNAME record for {ecs_service_dns} with value {ecs_lb_dns}")
     # Relax :-D
+
+
+def cleanup_flow(
+        waiter: waiters.Waiter,
+        web_fqdn_subdomain: str,
+        web_fqdn_domain: str,
+        vpc_name: Optional[str] = VPC_NAME,
+        validation_method: str = "DNS",
+):
+    waiter.find_destroy_asset_and_wait(
+        asset="aws__acm_certificate__latest",
+        asset_parameters={
+            "fqdn": f"{web_fqdn_subdomain}.{web_fqdn_domain}",
+            "validation_method": validation_method
+        },
+    )
+    waiter.find_destroy_asset_and_wait(
+        asset="aws__elasticache_redis__latest",
+        asset_parameters={
+            "name": "app-redis",
+            "snapshot_window": "00:00-01:00",
+            "maintenance_window": "sun:10:00-sun:14:00",
+            "vpc_name": vpc_name
+        },
+    )
+    waiter.find_destroy_asset_and_wait(
+        asset="aws__rds__latest",
+        asset_parameters={
+            "name": "app-database",
+            "engine": "postgres",
+            "engine_version": "13",
+            "vpc_name": vpc_name
+        },
+    )
+    waiter.find_destroy_asset_and_wait(
+        asset="aws__vpc__latest",
+        asset_parameters={
+            "name": vpc_name
+        }
+    )

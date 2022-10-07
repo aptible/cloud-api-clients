@@ -1,7 +1,6 @@
 import typing
-from typing import List, Optional
+from typing import Optional
 
-from glom import glom
 
 # below is done to enable testing outside the scope of the project with ease
 import sys
