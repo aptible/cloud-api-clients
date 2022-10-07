@@ -113,6 +113,27 @@ def main(
         },
     )
 
+    environment_secrets = [
+        {
+            "environment_variable": "DATABASE_URL",
+            "secret_arn": glom(rds_asset_data, 'outputs.uri_secret_arn.data'),
+            "secret_kms_arn": glom(rds_asset_data, 'outputs.rds_secrets_kms_key_arn.data'),
+            "secret_json_key": ""
+        },
+        {
+            "environment_variable": "TOKEN_SECRET",
+            "secret_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_secret_arn.data'),
+            "secret_kms_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_kms_key_arn.data'),
+            "secret_json_key": "token"
+        },
+        {
+            "environment_variable": "REDIS_URL",
+            "secret_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_secret_arn.data'),
+            "secret_kms_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_kms_key_arn.data'),
+            "secret_json_key": "dsn"
+        }
+    ]
+
     # Launch ECS Web Service
     ecs_web_asset_data = waiter.always_launch_asset_and_wait(
         asset="aws__ecs_web_service__latest",
@@ -136,26 +157,7 @@ def main(
             "lb_cert_subdomain": web_fqdn_subdomain,
 
             # Tell ECS what to name the environment variables for our database secret
-            "environment_secrets": [
-                {
-                    "environment_variable": "DATABASE_URL",
-                    "secret_arn": glom(rds_asset_data, 'outputs.uri_secret_arn.data'),
-                    "secret_kms_arn": glom(rds_asset_data, 'outputs.rds_secrets_kms_key_arn.data'),
-                    "secret_json_key": ""
-                },
-                {
-                    "environment_variable": "TOKEN_SECRET",
-                    "secret_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_secret_arn.data'),
-                    "secret_kms_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_kms_key_arn.data'),
-                    "secret_json_key": "token"
-                },
-                {
-                    "environment_variable": "REDIS_URL",
-                    "secret_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_secret_arn.data'),
-                    "secret_kms_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_kms_key_arn.data'),
-                    "secret_json_key": "dsn"
-                }
-            ]
+            "environment_secrets": environment_secrets
         },
     )
 
@@ -175,26 +177,7 @@ def main(
             "connects_to": [rds_asset_data.id, elasticache_asset_data.id],
 
             # Tell ECS what to name the environment variables for our database secret
-            "environment_secrets": [
-                {
-                    "environment_variable": "DATABASE_URL",
-                    "secret_arn": glom(rds_asset_data, 'outputs.uri_secret_arn.data'),
-                    "secret_kms_arn": glom(rds_asset_data, 'outputs.rds_secrets_kms_key_arn.data'),
-                    "secret_json_key": ""
-                },
-                {
-                    "environment_variable": "TOKEN_SECRET",
-                    "secret_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_secret_arn.data'),
-                    "secret_kms_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_kms_key_arn.data'),
-                    "secret_json_key": "token"
-                },
-                {
-                    "environment_variable": "REDIS_URL",
-                    "secret_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_secret_arn.data'),
-                    "secret_kms_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_kms_key_arn.data'),
-                    "secret_json_key": "dsn"
-                }
-            ]
+            "environment_secrets": environment_secrets
         },
     )
 
