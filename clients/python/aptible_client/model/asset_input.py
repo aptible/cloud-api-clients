@@ -84,6 +84,7 @@ class AssetInput(ModelNormal):
             'asset': (str,),  # noqa: E501
             'asset_version': (str,),  # noqa: E501
             'asset_parameters': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'connects_to': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -95,6 +96,7 @@ class AssetInput(ModelNormal):
         'asset': 'asset',  # noqa: E501
         'asset_version': 'asset_version',  # noqa: E501
         'asset_parameters': 'asset_parameters',  # noqa: E501
+        'connects_to': 'connects_to',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,6 +145,7 @@ class AssetInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            connects_to ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,6 +239,7 @@ class AssetInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            connects_to ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

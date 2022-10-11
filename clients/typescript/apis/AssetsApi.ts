@@ -304,13 +304,13 @@ export class AssetsApiResponseProcessor {
      * @params response Response returned by the server for a request to assetDelete
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async assetDelete(response: ResponseContext): Promise<any > {
+     public async assetDelete(response: ResponseContext): Promise<AssetOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: AssetOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "AssetOutput", ""
+            ) as AssetOutput;
             return body;
         }
         if (isCodeInRange("422", response.httpStatusCode)) {
@@ -323,10 +323,10 @@ export class AssetsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: AssetOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "AssetOutput", ""
+            ) as AssetOutput;
             return body;
         }
 

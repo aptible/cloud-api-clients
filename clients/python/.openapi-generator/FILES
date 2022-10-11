@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 aptible_client/__init__.py
 aptible_client/api/__init__.py
 aptible_client/api/actions_api.py

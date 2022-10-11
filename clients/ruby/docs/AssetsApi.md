@@ -83,7 +83,7 @@ end
 
 ## asset_delete
 
-> Object asset_delete(asset_id, environment_id, organization_id)
+> <AssetOutput> asset_delete(asset_id, environment_id, organization_id)
 
 Asset Delete
 
@@ -116,7 +116,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> asset_delete_with_http_info(asset_id, environment_id, organization_id)
+> <Array(<AssetOutput>, Integer, Hash)> asset_delete_with_http_info(asset_id, environment_id, organization_id)
 
 ```ruby
 begin
@@ -124,7 +124,7 @@ begin
   data, status_code, headers = api_instance.asset_delete_with_http_info(asset_id, environment_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <AssetOutput>
 rescue CloudApiClient::ApiError => e
   puts "Error when calling AssetsApi->asset_delete_with_http_info: #{e}"
 end
@@ -140,7 +140,7 @@ end
 
 ### Return type
 
-**Object**
+[**AssetOutput**](AssetOutput.md)
 
 ### Authorization
 

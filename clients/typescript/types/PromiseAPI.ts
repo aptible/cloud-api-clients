@@ -107,7 +107,7 @@ export class PromiseAssetsApi {
      * @param environmentId 
      * @param organizationId 
      */
-    public assetDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<any> {
+    public assetDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Promise<AssetOutput> {
         const result = this.api.assetDelete(assetId, environmentId, organizationId, _options);
         return result.toPromise();
     }

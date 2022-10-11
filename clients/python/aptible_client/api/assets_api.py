@@ -103,7 +103,7 @@ class AssetsApi(object):
         )
         self.asset_delete_endpoint = _Endpoint(
             settings={
-                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
+                'response_type': (AssetOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
@@ -441,7 +441,7 @@ class AssetsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            bool, date, datetime, dict, float, int, list, str, none_type
+            AssetOutput
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -40,7 +40,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/AssetOutput'
           description: Successful Response
         "422":
           content:
@@ -677,6 +678,7 @@ paths:
       - worker
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/:
     post:
+      deprecated: true
       operationId: connection_create
       parameters:
       - explode: false
@@ -733,6 +735,7 @@ paths:
       - connections
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/{connection_id}:
     delete:
+      deprecated: true
       operationId: connection_delete
       parameters:
       - explode: false
@@ -1190,6 +1193,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           user_defined: true
           asset_version: asset_version
+          operation_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset: asset
           connections:
@@ -1247,6 +1251,9 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             incoming_connection_asset: null
             status: null
+          connects_to:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           current_asset_parameters:
             data: "{}"
             iteration: 0
@@ -1356,6 +1363,9 @@ components:
         asset_parameters: "{}"
         asset_version: asset_version
         asset: asset
+        connects_to:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         asset:
           title: Asset
@@ -1366,6 +1376,12 @@ components:
         asset_parameters:
           title: Asset Parameters
           type: object
+        connects_to:
+          items:
+            format: uuid
+            type: string
+          title: Connects To
+          type: array
       required:
       - asset
       - asset_parameters
@@ -1393,6 +1409,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         user_defined: true
         asset_version: asset_version
+        operation_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset: asset
         connections:
@@ -1450,6 +1467,9 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           incoming_connection_asset: null
           status: null
+        connects_to:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         current_asset_parameters:
           data: "{}"
           iteration: 0
@@ -1472,6 +1492,13 @@ components:
             $ref: '#/components/schemas/ConnectionOutput'
           title: Connections
           type: array
+        connects_to:
+          default: []
+          items:
+            format: uuid
+            type: string
+          title: Connects To
+          type: array
         current_asset_parameters:
           $ref: '#/components/schemas/AssetParametersOutput'
         environment:
@@ -1487,6 +1514,10 @@ components:
           default: {}
           title: Outputs
           type: object
+        operation_id:
+          format: uuid
+          title: Operation Id
+          type: string
       required:
       - asset
       - asset_version

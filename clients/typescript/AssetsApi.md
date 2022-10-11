@@ -34,6 +34,9 @@ let body:.AssetsApiAssetCreateRequest = {
     asset: "asset_example",
     assetVersion: "assetVersion_example",
     assetParameters: {},
+    connectsTo: [
+      "connectsTo_example",
+    ],
   },
 };
 
@@ -75,7 +78,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **assetDelete**
-> any assetDelete()
+> AssetOutput assetDelete()
 
 
 ### Example
@@ -114,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**AssetOutput**
 
 ### Authorization
 
@@ -220,6 +223,9 @@ let body:.AssetsApiAssetUpdateRequest = {
     asset: "asset_example",
     assetVersion: "assetVersion_example",
     assetParameters: {},
+    connectsTo: [
+      "connectsTo_example",
+    ],
   },
 };
 

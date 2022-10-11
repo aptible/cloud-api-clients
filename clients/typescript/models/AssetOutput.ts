@@ -22,11 +22,13 @@ export class AssetOutput {
     'assetVersion': string;
     'id': string;
     'connections'?: Array<ConnectionOutput>;
+    'connectsTo'?: Array<string>;
     'currentAssetParameters': AssetParametersOutput;
     'environment': EnvironmentOutput;
     'status': AssetStatus;
     'userDefined': boolean;
     'outputs'?: { [key: string]: AssetTerraformOutput; };
+    'operationId'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -54,6 +56,12 @@ export class AssetOutput {
             "baseName": "connections",
             "type": "Array<ConnectionOutput>",
             "format": ""
+        },
+        {
+            "name": "connectsTo",
+            "baseName": "connects_to",
+            "type": "Array<string>",
+            "format": "uuid"
         },
         {
             "name": "currentAssetParameters",
@@ -84,6 +92,12 @@ export class AssetOutput {
             "baseName": "outputs",
             "type": "{ [key: string]: AssetTerraformOutput; }",
             "format": ""
+        },
+        {
+            "name": "operationId",
+            "baseName": "operation_id",
+            "type": "string",
+            "format": "uuid"
         }    ];
 
     static getAttributeTypeMap() {

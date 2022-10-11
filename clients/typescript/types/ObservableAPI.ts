@@ -152,7 +152,7 @@ export class ObservableAssetsApi {
      * @param environmentId 
      * @param organizationId 
      */
-    public assetDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<any> {
+    public assetDelete(assetId: string, environmentId: string, organizationId: string, _options?: Configuration): Observable<AssetOutput> {
         const requestContextPromise = this.requestFactory.assetDelete(assetId, environmentId, organizationId, _options);
 
         // build promise chain
