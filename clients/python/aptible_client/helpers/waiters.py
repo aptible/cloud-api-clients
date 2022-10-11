@@ -12,6 +12,10 @@ from ..configuration import Configuration
 from ..model.asset_input import AssetInput
 
 
+# ASSET DELIMITER is what we use to space an asset name for now `aws__vpc__latest`
+ASSET_DELIMITER = "__"
+
+
 class Waiter:
     assets_api_instance: AssetsApi
     environments_api_instance: EnvironmentsApi
@@ -66,7 +70,7 @@ class Waiter:
             for environment_asset in environment_assets:
                 # if failed and not destroyed
                 # TODO - move to getter
-                if environment_asset.asset.split("__")[0:2] == asset.split("__")[0:2] and \
+                if environment_asset.asset.split(ASSET_DELIMITER)[0:2] == asset.split(ASSET_DELIMITER)[0:2] and \
                         environment_asset.status != "DESTROYED" and \
                         'data' in environment_asset.current_asset_parameters and \
                         asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items():
@@ -134,7 +138,7 @@ class Waiter:
         asset_input = AssetInput(
             asset=asset,
             asset_parameters=asset_parameters,
-            asset_version=asset.split("__")[-1],
+            asset_version=asset.split(ASSET_DELIMITER)[-1],
         )
         api_response = self.assets_api_instance.asset_update(
             asset_id,
@@ -159,7 +163,7 @@ class Waiter:
         asset_input = AssetInput(
             asset=asset,
             asset_parameters=asset_parameters,
-            asset_version=asset.split("__")[-1],
+            asset_version=asset.split(ASSET_DELIMITER)[-1],
         )
         api_response = self.assets_api_instance.asset_create(
             self.environment_id,
@@ -199,7 +203,7 @@ class Waiter:
         self.logger.debug("Querying environment assets if created previously for destruction")
         for environment_asset in environment_assets:
             # TODO - move to getter
-            if environment_asset.asset.split("__")[0:2] == asset.split("__")[0:2] and \
+            if environment_asset.asset.split(ASSET_DELIMITER)[0:2] == asset.split(ASSET_DELIMITER)[0:2] and \
                     environment_asset.status != "DESTROYED" and \
                     'data' in environment_asset.current_asset_parameters and \
                     asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items():

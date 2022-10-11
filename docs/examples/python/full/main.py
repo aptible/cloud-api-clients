@@ -143,20 +143,16 @@ def main(
     environment_secrets = [
         {
             "environment_variable": "DATABASE_URL",
-            "secret_arn": glom(rds_asset_data, 'outputs.uri_secret_arn.data'),
-            "secret_kms_arn": glom(rds_asset_data, 'outputs.rds_secrets_kms_key_arn.data'),
-            "secret_json_key": ""
+            "secret_arn": glom(rds_asset_data, 'outputs.uri_secret_arn.data')
         },
         {
             "environment_variable": "TOKEN_SECRET",
             "secret_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_secret_arn.data'),
-            "secret_kms_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_kms_key_arn.data'),
             "secret_json_key": "token"
         },
         {
             "environment_variable": "REDIS_URL",
             "secret_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_secret_arn.data'),
-            "secret_kms_arn": glom(elasticache_asset_data, 'outputs.elasticache_token_kms_key_arn.data'),
             "secret_json_key": "dsn"
         }
     ]
