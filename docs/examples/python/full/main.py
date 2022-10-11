@@ -204,14 +204,12 @@ def main(
         },
     )
 
-    ecs_lb_url = glom(ecs_web_asset_data, 'outputs.load_balancer_url.data')[0]
-    ecs_service_dns = ecs_lb_url['service_dns']
-    ecs_lb_dns = ecs_lb_url['lb_dns']
+    ecs_lb_url = glom(ecs_web_asset_data, 'outputs.load_balancer_url.data')
 
     print("")
     print("========================================================================================")
     print("Provisioning complete! To finalize setup:")
-    print(f"  * Create CNAME record for {ecs_service_dns} with value {ecs_lb_dns}")
+    print(f"  * Create CNAME record for {web_fqdn_subdomain}.{web_fqdn_domain} with value {ecs_lb_url}")
     # Relax :-D
 
 
