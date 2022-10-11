@@ -21,12 +21,15 @@ module CloudApiClient
 
     attr_accessor :asset_parameters
 
+    attr_accessor :connects_to
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'asset' => :'asset',
         :'asset_version' => :'asset_version',
-        :'asset_parameters' => :'asset_parameters'
+        :'asset_parameters' => :'asset_parameters',
+        :'connects_to' => :'connects_to'
       }
     end
 
@@ -40,7 +43,8 @@ module CloudApiClient
       {
         :'asset' => :'String',
         :'asset_version' => :'String',
-        :'asset_parameters' => :'Object'
+        :'asset_parameters' => :'Object',
+        :'connects_to' => :'Array<String>'
       }
     end
 
@@ -75,6 +79,12 @@ module CloudApiClient
 
       if attributes.key?(:'asset_parameters')
         self.asset_parameters = attributes[:'asset_parameters']
+      end
+
+      if attributes.key?(:'connects_to')
+        if (value = attributes[:'connects_to']).is_a?(Array)
+          self.connects_to = value
+        end
       end
     end
 
@@ -113,7 +123,8 @@ module CloudApiClient
       self.class == o.class &&
           asset == o.asset &&
           asset_version == o.asset_version &&
-          asset_parameters == o.asset_parameters
+          asset_parameters == o.asset_parameters &&
+          connects_to == o.connects_to
     end
 
     # @see the `==` method
@@ -125,7 +136,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [asset, asset_version, asset_parameters].hash
+      [asset, asset_version, asset_parameters, connects_to].hash
     end
 
     # Builds the object from hash

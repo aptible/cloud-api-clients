@@ -19,6 +19,7 @@ type AssetInput struct {
 	Asset string `json:"asset"`
 	AssetVersion string `json:"asset_version"`
 	AssetParameters map[string]interface{} `json:"asset_parameters"`
+	ConnectsTo []string `json:"connects_to,omitempty"`
 }
 
 // NewAssetInput instantiates a new AssetInput object
@@ -113,6 +114,38 @@ func (o *AssetInput) SetAssetParameters(v map[string]interface{}) {
 	o.AssetParameters = v
 }
 
+// GetConnectsTo returns the ConnectsTo field value if set, zero value otherwise.
+func (o *AssetInput) GetConnectsTo() []string {
+	if o == nil || o.ConnectsTo == nil {
+		var ret []string
+		return ret
+	}
+	return o.ConnectsTo
+}
+
+// GetConnectsToOk returns a tuple with the ConnectsTo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssetInput) GetConnectsToOk() ([]string, bool) {
+	if o == nil || o.ConnectsTo == nil {
+		return nil, false
+	}
+	return o.ConnectsTo, true
+}
+
+// HasConnectsTo returns a boolean if a field has been set.
+func (o *AssetInput) HasConnectsTo() bool {
+	if o != nil && o.ConnectsTo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConnectsTo gets a reference to the given []string and assigns it to the ConnectsTo field.
+func (o *AssetInput) SetConnectsTo(v []string) {
+	o.ConnectsTo = v
+}
+
 func (o AssetInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -123,6 +156,9 @@ func (o AssetInput) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["asset_parameters"] = o.AssetParameters
+	}
+	if o.ConnectsTo != nil {
+		toSerialize["connects_to"] = o.ConnectsTo
 	}
 	return json.Marshal(toSerialize)
 }

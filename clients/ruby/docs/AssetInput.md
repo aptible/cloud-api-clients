@@ -7,6 +7,7 @@
 | **asset** | **String** |  |  |
 | **asset_version** | **String** |  |  |
 | **asset_parameters** | **Object** |  |  |
+| **connects_to** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -16,7 +17,8 @@ require 'cloud_api_client'
 instance = CloudApiClient::AssetInput.new(
   asset: null,
   asset_version: null,
-  asset_parameters: null
+  asset_parameters: null,
+  connects_to: null
 )
 ```
 

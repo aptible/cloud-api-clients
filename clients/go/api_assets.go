@@ -48,8 +48,8 @@ type AssetsApi interface {
 	AssetDelete(ctx context.Context, assetId string, environmentId string, organizationId string) ApiAssetDeleteRequest
 
 	// AssetDeleteExecute executes the request
-	//  @return interface{}
-	AssetDeleteExecute(r ApiAssetDeleteRequest) (interface{}, *http.Response, error)
+	//  @return AssetOutput
+	AssetDeleteExecute(r ApiAssetDeleteRequest) (*AssetOutput, *http.Response, error)
 
 	/*
 	AssetGet Asset Get
@@ -218,7 +218,7 @@ type ApiAssetDeleteRequest struct {
 	organizationId string
 }
 
-func (r ApiAssetDeleteRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiAssetDeleteRequest) Execute() (*AssetOutput, *http.Response, error) {
 	return r.ApiService.AssetDeleteExecute(r)
 }
 
@@ -242,13 +242,13 @@ func (a *AssetsApiService) AssetDelete(ctx context.Context, assetId string, envi
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *AssetsApiService) AssetDeleteExecute(r ApiAssetDeleteRequest) (interface{}, *http.Response, error) {
+//  @return AssetOutput
+func (a *AssetsApiService) AssetDeleteExecute(r ApiAssetDeleteRequest) (*AssetOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  *AssetOutput
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.AssetDelete")

@@ -228,7 +228,7 @@ export class ObjectAssetsApi {
      * Asset Delete
      * @param param the request object
      */
-    public assetDelete(param: AssetsApiAssetDeleteRequest, options?: Configuration): Promise<any> {
+    public assetDelete(param: AssetsApiAssetDeleteRequest, options?: Configuration): Promise<AssetOutput> {
         return this.api.assetDelete(param.assetId, param.environmentId, param.organizationId,  options).toPromise();
     }
 

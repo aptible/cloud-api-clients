@@ -8,11 +8,13 @@ Name | Type | Description | Notes
 **AssetVersion** | **string** |  | 
 **Id** | **string** |  | 
 **Connections** | Pointer to [**[]ConnectionOutput**](ConnectionOutput.md) |  | [optional] [default to []]
+**ConnectsTo** | Pointer to **[]string** |  | [optional] [default to []]
 **CurrentAssetParameters** | [**AssetParametersOutput**](AssetParametersOutput.md) |  | 
 **Environment** | [**EnvironmentOutput**](EnvironmentOutput.md) |  | 
 **Status** | [**AssetStatus**](AssetStatus.md) |  | 
 **UserDefined** | **bool** |  | 
 **Outputs** | Pointer to [**map[string]AssetTerraformOutput**](AssetTerraformOutput.md) |  | [optional] [default to {}]
+**OperationId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -118,6 +120,31 @@ SetConnections sets Connections field to given value.
 
 HasConnections returns a boolean if a field has been set.
 
+### GetConnectsTo
+
+`func (o *AssetOutput) GetConnectsTo() []string`
+
+GetConnectsTo returns the ConnectsTo field if non-nil, zero value otherwise.
+
+### GetConnectsToOk
+
+`func (o *AssetOutput) GetConnectsToOk() (*[]string, bool)`
+
+GetConnectsToOk returns a tuple with the ConnectsTo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectsTo
+
+`func (o *AssetOutput) SetConnectsTo(v []string)`
+
+SetConnectsTo sets ConnectsTo field to given value.
+
+### HasConnectsTo
+
+`func (o *AssetOutput) HasConnectsTo() bool`
+
+HasConnectsTo returns a boolean if a field has been set.
+
 ### GetCurrentAssetParameters
 
 `func (o *AssetOutput) GetCurrentAssetParameters() AssetParametersOutput`
@@ -222,6 +249,31 @@ SetOutputs sets Outputs field to given value.
 `func (o *AssetOutput) HasOutputs() bool`
 
 HasOutputs returns a boolean if a field has been set.
+
+### GetOperationId
+
+`func (o *AssetOutput) GetOperationId() string`
+
+GetOperationId returns the OperationId field if non-nil, zero value otherwise.
+
+### GetOperationIdOk
+
+`func (o *AssetOutput) GetOperationIdOk() (*string, bool)`
+
+GetOperationIdOk returns a tuple with the OperationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperationId
+
+`func (o *AssetOutput) SetOperationId(v string)`
+
+SetOperationId sets OperationId field to given value.
+
+### HasOperationId
+
+`func (o *AssetOutput) HasOperationId() bool`
+
+HasOperationId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

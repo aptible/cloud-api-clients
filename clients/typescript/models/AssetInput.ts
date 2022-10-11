@@ -16,6 +16,7 @@ export class AssetInput {
     'asset': string;
     'assetVersion': string;
     'assetParameters': any;
+    'connectsTo'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -37,6 +38,12 @@ export class AssetInput {
             "baseName": "asset_parameters",
             "type": "any",
             "format": ""
+        },
+        {
+            "name": "connectsTo",
+            "baseName": "connects_to",
+            "type": "Array<string>",
+            "format": "uuid"
         }    ];
 
     static getAttributeTypeMap() {

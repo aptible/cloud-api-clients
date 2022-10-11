@@ -30,11 +30,14 @@ type ConnectionsApi interface {
 	@param environmentId
 	@param organizationId
 	@return ApiConnectionCreateRequest
+
+	Deprecated
 	*/
 	ConnectionCreate(ctx context.Context, assetId string, environmentId string, organizationId string) ApiConnectionCreateRequest
 
 	// ConnectionCreateExecute executes the request
 	//  @return ConnectionOutput
+	// Deprecated
 	ConnectionCreateExecute(r ApiConnectionCreateRequest) (*ConnectionOutput, *http.Response, error)
 
 	/*
@@ -46,11 +49,14 @@ type ConnectionsApi interface {
 	@param environmentId
 	@param organizationId
 	@return ApiConnectionDeleteRequest
+
+	Deprecated
 	*/
 	ConnectionDelete(ctx context.Context, assetId string, connectionId string, environmentId string, organizationId string) ApiConnectionDeleteRequest
 
 	// ConnectionDeleteExecute executes the request
 	//  @return interface{}
+	// Deprecated
 	ConnectionDeleteExecute(r ApiConnectionDeleteRequest) (interface{}, *http.Response, error)
 
 	/*
@@ -99,6 +105,8 @@ ConnectionCreate Connection Create
  @param environmentId
  @param organizationId
  @return ApiConnectionCreateRequest
+
+Deprecated
 */
 func (a *ConnectionsApiService) ConnectionCreate(ctx context.Context, assetId string, environmentId string, organizationId string) ApiConnectionCreateRequest {
 	return ApiConnectionCreateRequest{
@@ -112,6 +120,7 @@ func (a *ConnectionsApiService) ConnectionCreate(ctx context.Context, assetId st
 
 // Execute executes the request
 //  @return ConnectionOutput
+// Deprecated
 func (a *ConnectionsApiService) ConnectionCreateExecute(r ApiConnectionCreateRequest) (*ConnectionOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -224,6 +233,8 @@ ConnectionDelete Connection Delete
  @param environmentId
  @param organizationId
  @return ApiConnectionDeleteRequest
+
+Deprecated
 */
 func (a *ConnectionsApiService) ConnectionDelete(ctx context.Context, assetId string, connectionId string, environmentId string, organizationId string) ApiConnectionDeleteRequest {
 	return ApiConnectionDeleteRequest{
@@ -238,6 +249,7 @@ func (a *ConnectionsApiService) ConnectionDelete(ctx context.Context, assetId st
 
 // Execute executes the request
 //  @return interface{}
+// Deprecated
 func (a *ConnectionsApiService) ConnectionDeleteExecute(r ApiConnectionDeleteRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
