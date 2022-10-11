@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Asset** | **string** |  | 
 **AssetVersion** | **string** |  | 
 **AssetParameters** | **map[string]interface{}** |  | 
+**ConnectsTo** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -86,6 +87,31 @@ and a boolean to check if the value has been set.
 
 SetAssetParameters sets AssetParameters field to given value.
 
+
+### GetConnectsTo
+
+`func (o *AssetInput) GetConnectsTo() []string`
+
+GetConnectsTo returns the ConnectsTo field if non-nil, zero value otherwise.
+
+### GetConnectsToOk
+
+`func (o *AssetInput) GetConnectsToOk() (*[]string, bool)`
+
+GetConnectsToOk returns a tuple with the ConnectsTo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectsTo
+
+`func (o *AssetInput) SetConnectsTo(v []string)`
+
+SetConnectsTo sets ConnectsTo field to given value.
+
+### HasConnectsTo
+
+`func (o *AssetInput) HasConnectsTo() bool`
+
+HasConnectsTo returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

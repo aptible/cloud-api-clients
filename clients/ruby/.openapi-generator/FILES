@@ -93,7 +93,6 @@ lib/cloud_api_client/models/organization_output.rb
 lib/cloud_api_client/models/text_response.rb
 lib/cloud_api_client/models/validation_error.rb
 lib/cloud_api_client/version.rb
-spec/api/default_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
 spec/spec_helper.rb

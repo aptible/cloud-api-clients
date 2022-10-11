@@ -103,7 +103,9 @@ class AssetOutput(ModelNormal):
             'status': (AssetStatus,),  # noqa: E501
             'user_defined': (bool,),  # noqa: E501
             'connections': ([ConnectionOutput],),  # noqa: E501
+            'connects_to': ([str],),  # noqa: E501
             'outputs': ({str: (AssetTerraformOutput,)},),  # noqa: E501
+            'operation_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -120,7 +122,9 @@ class AssetOutput(ModelNormal):
         'status': 'status',  # noqa: E501
         'user_defined': 'user_defined',  # noqa: E501
         'connections': 'connections',  # noqa: E501
+        'connects_to': 'connects_to',  # noqa: E501
         'outputs': 'outputs',  # noqa: E501
+        'operation_id': 'operation_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -174,7 +178,9 @@ class AssetOutput(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             connections ([ConnectionOutput]): [optional] if omitted the server will use the default value of []  # noqa: E501
+            connects_to ([str]): [optional] if omitted the server will use the default value of []  # noqa: E501
             outputs ({str: (AssetTerraformOutput,)}): [optional] if omitted the server will use the default value of {}  # noqa: E501
+            operation_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,7 +283,9 @@ class AssetOutput(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             connections ([ConnectionOutput]): [optional] if omitted the server will use the default value of []  # noqa: E501
+            connects_to ([str]): [optional] if omitted the server will use the default value of []  # noqa: E501
             outputs ({str: (AssetTerraformOutput,)}): [optional] if omitted the server will use the default value of {}  # noqa: E501
+            operation_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

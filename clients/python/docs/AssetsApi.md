@@ -53,6 +53,9 @@ with aptible_client.ApiClient(configuration) as api_client:
         asset="asset_example",
         asset_version="asset_version_example",
         asset_parameters={},
+        connects_to=[
+            "connects_to_example",
+        ],
     ) # AssetInput | 
 
     # example passing only required values which don't have defaults set
@@ -97,7 +100,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **asset_delete**
-> bool, date, datetime, dict, float, int, list, str, none_type asset_delete(asset_id, environment_id, organization_id)
+> AssetOutput asset_delete(asset_id, environment_id, organization_id)
 
 Asset Delete
 
@@ -110,6 +113,7 @@ import time
 import aptible_client
 from aptible_client.api import assets_api
 from aptible_client.model.http_validation_error import HTTPValidationError
+from aptible_client.model.asset_output import AssetOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -155,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bool, date, datetime, dict, float, int, list, str, none_type**
+[**AssetOutput**](AssetOutput.md)
 
 ### Authorization
 
@@ -301,6 +305,9 @@ with aptible_client.ApiClient(configuration) as api_client:
         asset="asset_example",
         asset_version="asset_version_example",
         asset_parameters={},
+        connects_to=[
+            "connects_to_example",
+        ],
     ) # AssetInput | 
 
     # example passing only required values which don't have defaults set

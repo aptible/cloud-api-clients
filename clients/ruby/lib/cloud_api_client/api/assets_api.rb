@@ -102,7 +102,7 @@ module CloudApiClient
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [AssetOutput]
     def asset_delete(asset_id, environment_id, organization_id, opts = {})
       data, _status_code, _headers = asset_delete_with_http_info(asset_id, environment_id, organization_id, opts)
       data
@@ -113,7 +113,7 @@ module CloudApiClient
     # @param environment_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(AssetOutput, Integer, Hash)>] AssetOutput data, response status code and response headers
     def asset_delete_with_http_info(asset_id, environment_id, organization_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetsApi.asset_delete ...'
@@ -148,7 +148,7 @@ module CloudApiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'AssetOutput'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']

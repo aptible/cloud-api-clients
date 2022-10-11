@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## AssetDelete
 
-> interface{} AssetDelete(ctx, assetId, environmentId, organizationId).Execute()
+> AssetOutput AssetDelete(ctx, assetId, environmentId, organizationId).Execute()
 
 Asset Delete
 
@@ -114,7 +114,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.AssetDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `AssetDelete`: interface{}
+    // response from `AssetDelete`: AssetOutput
     fmt.Fprintf(os.Stdout, "Response from `AssetsApi.AssetDelete`: %v\n", resp)
 }
 ```
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**AssetOutput**](AssetOutput.md)
 
 ### Authorization
 

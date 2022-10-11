@@ -23,6 +23,8 @@ module CloudApiClient
 
     attr_accessor :connections
 
+    attr_accessor :connects_to
+
     attr_accessor :current_asset_parameters
 
     attr_accessor :environment
@@ -33,6 +35,8 @@ module CloudApiClient
 
     attr_accessor :outputs
 
+    attr_accessor :operation_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -40,11 +44,13 @@ module CloudApiClient
         :'asset_version' => :'asset_version',
         :'id' => :'id',
         :'connections' => :'connections',
+        :'connects_to' => :'connects_to',
         :'current_asset_parameters' => :'current_asset_parameters',
         :'environment' => :'environment',
         :'status' => :'status',
         :'user_defined' => :'user_defined',
-        :'outputs' => :'outputs'
+        :'outputs' => :'outputs',
+        :'operation_id' => :'operation_id'
       }
     end
 
@@ -60,11 +66,13 @@ module CloudApiClient
         :'asset_version' => :'String',
         :'id' => :'String',
         :'connections' => :'Array<ConnectionOutput>',
+        :'connects_to' => :'Array<String>',
         :'current_asset_parameters' => :'AssetParametersOutput',
         :'environment' => :'EnvironmentOutput',
         :'status' => :'AssetStatus',
         :'user_defined' => :'Boolean',
-        :'outputs' => :'Hash<String, AssetTerraformOutput>'
+        :'outputs' => :'Hash<String, AssetTerraformOutput>',
+        :'operation_id' => :'String'
       }
     end
 
@@ -107,6 +115,12 @@ module CloudApiClient
         end
       end
 
+      if attributes.key?(:'connects_to')
+        if (value = attributes[:'connects_to']).is_a?(Array)
+          self.connects_to = value
+        end
+      end
+
       if attributes.key?(:'current_asset_parameters')
         self.current_asset_parameters = attributes[:'current_asset_parameters']
       end
@@ -127,6 +141,10 @@ module CloudApiClient
         if (value = attributes[:'outputs']).is_a?(Hash)
           self.outputs = value
         end
+      end
+
+      if attributes.key?(:'operation_id')
+        self.operation_id = attributes[:'operation_id']
       end
     end
 
@@ -187,11 +205,13 @@ module CloudApiClient
           asset_version == o.asset_version &&
           id == o.id &&
           connections == o.connections &&
+          connects_to == o.connects_to &&
           current_asset_parameters == o.current_asset_parameters &&
           environment == o.environment &&
           status == o.status &&
           user_defined == o.user_defined &&
-          outputs == o.outputs
+          outputs == o.outputs &&
+          operation_id == o.operation_id
     end
 
     # @see the `==` method
@@ -203,7 +223,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [asset, asset_version, id, connections, current_asset_parameters, environment, status, user_defined, outputs].hash
+      [asset, asset_version, id, connections, connects_to, current_asset_parameters, environment, status, user_defined, outputs, operation_id].hash
     end
 
     # Builds the object from hash
