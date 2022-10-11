@@ -7,12 +7,15 @@ from glom import glom
 import sys
 
 sys.path.insert(1, '../../../clients/python')
-from aptible_client.helpers import misc, logger_utils, waiters  # NOQA
+from aptible_client.helpers import constants, misc, logger_utils, waiters  # NOQA
 
 if typing.TYPE_CHECKING:
-    from clients.python.aptible_client.helpers import misc, logger_utils, waiters
+    from clients.python.aptible_client.helpers import constants, misc, logger_utils, waiters
 
 logger = logger_utils.setup_logger("full")
+
+ENVIRONMENT_ID = constants.ENVIRONMENT_ID
+ORGANIZATION_ID = constants.ORGANIZATION_ID
 
 VPC_NAME: str = "testing-aptible-client"
 
@@ -22,11 +25,13 @@ CONTAINER_WEB_COMMAND: List[str] = ["gunicorn", "app:app", "-b", "0.0.0.0:5000",
 CONTAINER_WORKER_COMMAND: List[str] = ["python", "-m", "worker"]
 
 
+# We can add `typer.Option` defaults to each value to make it a bit easier to use as a CLI (but this really
+# is meant to be standalone) - see https://typer.tiangolo.com/tutorial/options/help/
 def main(
-        environment_id: str,
-        organization_id: str,
         web_fqdn_subdomain: str,
         web_fqdn_domain: str,
+        environment_id: Optional[str] = ENVIRONMENT_ID,
+        organization_id: Optional[str] = ORGANIZATION_ID,
         vpc_name: Optional[str] = VPC_NAME,
         container_image: Optional[str] = CONTAINER_IMAGE,
         container_http_port: Optional[int] = CONTAINER_PORT,
@@ -36,6 +41,17 @@ def main(
         force_new: Optional[bool] = True,
         cleanup: Optional[bool] = False
 ):
+    """
+    Will deploy an ECS web cluster, ECS worker cluster, and surrounding resources (database, cache, and DNS resources).
+
+    This script will need you to open up your DNS provider and enter corresponding CNAME records. There will be a
+    prompt that says something like: "ACM certificate created. ...  To continue, create CNAME record for X
+    with value Y". You must then add your DNS records for X key and Y value to proceed. These links should help you
+    for the following providers: Cloudflare
+    (https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/#create-dns-records) and
+    AWS Route 53
+    (https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html).
+    """
     logger.info("Starting the full flow")
     configuration = misc.get_client_configuration()
     # Initialize the API and create a session
