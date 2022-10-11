@@ -4,7 +4,7 @@ import time
 from typing import Any, Dict, Optional
 
 from .constants import ORGANIZATION_ID, ENVIRONMENT_ID
-from .exceptions import AssetFailedException, AssetTimeoutException, EnvironmentNotFound
+from .exceptions import AssetFailedException, AssetTimeoutException, EnvironmentNotFoundException
 from ..api.assets_api import AssetsApi
 from ..api.environments_api import EnvironmentsApi
 from ..api_client import ApiClient
@@ -43,7 +43,7 @@ class Waiter:
                 _check_return_type=False
             )
             if not environment:
-                raise EnvironmentNotFound(f"Unable to find environment id ({self.environment_id})"
+                raise EnvironmentNotFoundException(f"Unable to find environment id ({self.environment_id}) "
                                           f"or cannot access it on organization {self.organization_id}")
         except Exception:
             self.logger.exception("Unable to validate environment with error")

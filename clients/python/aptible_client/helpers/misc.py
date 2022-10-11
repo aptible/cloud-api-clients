@@ -4,6 +4,7 @@ from logging import Logger
 from pathlib import Path
 
 from .constants import AUTH_API_URL, CLOUD_API_URL
+from .exceptions import TokensNotFoundException
 from .logger_utils import setup_logger
 from ..api.environments_api import EnvironmentsApi
 from ..configuration import Configuration
@@ -18,12 +19,15 @@ def get_client_configuration(logger: Logger = setup_logger()) -> Configuration:
     local_token = os.getenv("APTIBLE_TOKEN")
     if local_token is None:
         try:
-            tokens_json = open(str(Path.home() / ".aptible" / "tokens.json"), "r").read()
-            local_token = json.loads(tokens_json).get(AUTH_API_URL)
-        except Exception:
-            logger.exception("Unable to retrieve tokens from aptible client's default location. "
-                             "Run 'aptible login' to create your token file")
-            raise
+            tokens_json_raw = open(str(Path.home() / ".aptible" / "tokens.json"), "r").read()
+            tokens_json = json.loads(tokens_json_raw)
+            if not tokens_json.get(AUTH_API_URL):
+                raise Exception(f"AUTH_API_URL ({AUTH_API_URL}) key not found in json tokens")
+            local_token = tokens_json.get(AUTH_API_URL)
+        except Exception as e:
+            error_message = "Unable to retrieve tokens from aptible client's default location"
+            logger.exception(f"{error_message} Run 'aptible login' to create your token file")
+            raise TokensNotFoundException(error_message) from e
     return Configuration(
         access_token=local_token,
         host=CLOUD_API_URL,

@@ -10,5 +10,9 @@ class AssetTimeoutException(BaseException):
     pass
 
 
-class EnvironmentNotFound(BaseException):
+class EnvironmentNotFoundException(BaseException):
+    pass
+
+
+class TokensNotFoundException(BaseException):
     pass
