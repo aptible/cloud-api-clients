@@ -32,19 +32,14 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.APTIBLE_ROBOT_PRIVATE_SSH_KEY }}
 
-      # 1 - clean the working client directory to prepare for regeneration and prepare helpers
-      #     by copying them over
-      - name: Clean clients and prepare helpers
-        run: |
-          make clean_clients
 
-      # 2 - Install dependencies to setup the repo
+      # 1 - Install dependencies to setup the repo
       - name: Install dependencies
         run: |
           make reclone
           pip install -e .[dev]
 
-      # 3a - Generate openapi.json for everything but go
+      # 2a - Generate openapi.json for everything but go
       - name: generate openapi.json for reuse
         run: |
           source ./scripts/setenvs.sh
@@ -52,7 +47,7 @@ jobs:
         env:
           BUNDLE_DIRECTORY: "/home/runner/work/cloud-api-clients/cloud-api-clients/bundles"
 
-      # 3b - Generate openapi.json for go only
+      # 2b - Generate openapi.json for go only
       - name: generate openapi.json for reuse (for Go)
         env:
           BUNDLE_DIRECTORY: "/home/runner/work/cloud-api-clients/cloud-api-clients/bundles"
@@ -62,7 +57,7 @@ jobs:
           python -m scripts.openapi.generate openapi_go.json
 
 
-      # 4 - Generate the separate clients! and push them up
+      # 3 - Generate the separate clients! and push them up
       - run: ./scripts/generate-clients-gha.sh
         env:
           # Needed to open pull request
