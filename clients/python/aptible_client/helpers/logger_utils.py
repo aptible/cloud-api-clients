@@ -3,7 +3,7 @@ import time
 from typing import Optional
 
 
-def setup_logger(name_prefix: Optional[str]) -> logging.Logger:
+def setup_logger(name_prefix: Optional[str] = "") -> logging.Logger:
     if name_prefix:
         name_prefix += "-"
     logging.basicConfig(
