@@ -4,13 +4,13 @@ from logging import Logger
 from pathlib import Path
 
 from .constants import AUTH_API_URL, CLOUD_API_URL
-from ..api.assets_api import AssetsApi
+from .logger_utils import setup_logger
 from ..api.environments_api import EnvironmentsApi
 from ..configuration import Configuration
 from ..model.environment_input import EnvironmentInput
 
 
-def get_client_configuration() -> Configuration:
+def get_client_configuration(logger: Logger = setup_logger()) -> Configuration:
     """
 
     :return:
@@ -21,7 +21,8 @@ def get_client_configuration() -> Configuration:
             tokens_json = open(str(Path.home() / ".aptible" / "tokens.json"), "r").read()
             local_token = json.loads(tokens_json).get(AUTH_API_URL)
         except Exception:
-            print("Unable to retrieve tokens from aptible client's default location")
+            logger.exception("Unable to retrieve tokens from aptible client's default location. "
+                             "Run 'aptible login' to create your token file")
             raise
     return Configuration(
         access_token=local_token,
