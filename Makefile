@@ -34,7 +34,12 @@ clean_bundles:
 generate_clients: clean_clients reclone generate_openapi_json generate_openapi_json_go generate_python_client generate_ruby_client generate_go_client generate_typescript_client
 
 clean_clients:
-	rm -rf ./clients
+	mv clients/python/aptible_client/helpers .
+	rm -rf clients
+	mkdir -p clients/python/aptible_client/helpers
+	mkdir -p ./clients/python/docs
+	mkdir -p ./clients/python/test
+	mv helpers clients/python/aptible_client/
 
 generate_openapi_json:
 	export BUNDLE_DIRECTORY=$(BUNDLE_DIRECTORY) && \
@@ -68,16 +73,16 @@ generate_python_client:
 
 generate_ruby_client:
 	docker run --rm \
-	  -v ${PWD}:/local openapitools/openapi-generator-cli generate --skip-validate-spec \
+	  -v ${PWD}:/local openapitools/openapi-generator-cli:v6.0.1 generate --skip-validate-spec \
 	  -i /local/openapi.json \
 	  -g ruby \
 	  -o /local/clients/ruby \
-	  --additional-properties gemName=cloud_api_client
+	  --additional-properties gemName=cloud_api_client \
 	  --additional-properties useAutoload=true
 
 generate_go_client:
 	docker run --rm \
-	  -v ${PWD}:/local openapitools/openapi-generator-cli generate --skip-validate-spec \
+	  -v ${PWD}:/local openapitools/openapi-generator-cli:v6.0.1 generate --skip-validate-spec \
 	  -i /local/openapi_go.json \
 	  -g go \
 	  -o /local/clients/go \
@@ -90,7 +95,7 @@ generate_go_client:
 
 generate_typescript_client:
 	docker run --rm \
-	  -v ${PWD}:/local openapitools/openapi-generator-cli generate --skip-validate-spec \
+	  -v ${PWD}:/local openapitools/openapi-generator-cli:v6.0.1 generate --skip-validate-spec \
 	  -i /local/openapi.json \
 	  -g typescript \
 	  -o /local/clients/typescript \
