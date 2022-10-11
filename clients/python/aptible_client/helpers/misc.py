@@ -4,6 +4,7 @@ from logging import Logger
 from pathlib import Path
 
 from .constants import AUTH_API_URL, CLOUD_API_URL
+from ..api.assets_api import AssetsApi
 from ..api.environments_api import EnvironmentsApi
 from ..configuration import Configuration
 from ..model.environment_input import EnvironmentInput
@@ -29,13 +30,13 @@ def get_client_configuration() -> Configuration:
 
 
 def update_environment(
-    environments_api: EnvironmentsApi,
+    environments_api_instance: EnvironmentsApi,
     environment_id: str,
     organization_id: str,
     logger: Logger
 ) -> None:
-    environment = environments_api.environment_get(environment_id, organization_id)
-    environments_api.environment_update(
+    environment = environments_api_instance.environment_get(environment_id, organization_id)
+    environments_api_instance.environment_update(
         environment_id=environment_id,
         organization_id=organization_id,
         environment_input=EnvironmentInput(
