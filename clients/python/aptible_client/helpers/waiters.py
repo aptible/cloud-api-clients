@@ -12,8 +12,7 @@ from ..configuration import Configuration
 from ..model.asset_input import AssetInput
 
 
-# ASSET DELIMITER is what we use to space an asset name for now `aws__vpc__latest`
-ASSET_DELIMITER = "__"
+logger = logging.getLogger()
 
 
 class Waiter:
@@ -29,7 +28,6 @@ class Waiter:
             environment_id: str = ENVIRONMENT_ID,
             organization_id: str = ORGANIZATION_ID,
             force_new: bool = True,
-            logger: logging.Logger = logging.getLogger(),
     ):
         self.environment_id = environment_id
         self.organization_id = organization_id

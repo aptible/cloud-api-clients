@@ -1,3 +1,4 @@
+import logging
 import json
 import os
 from logging import Logger
@@ -5,13 +6,15 @@ from pathlib import Path
 
 from .constants import AUTH_API_URL, CLOUD_API_URL
 from .exceptions import TokensNotFoundException
-from .logger_utils import setup_logger
 from ..api.environments_api import EnvironmentsApi
 from ..configuration import Configuration
 from ..model.environment_input import EnvironmentInput
 
 
-def get_client_configuration(logger: Logger = setup_logger()) -> Configuration:
+logger: Logger = logging.getLogger(__name__)
+
+
+def get_client_configuration() -> Configuration:
     """
 
     :return:
@@ -38,7 +41,6 @@ def update_environment(
     environments_api_instance: EnvironmentsApi,
     environment_id: str,
     organization_id: str,
-    logger: Logger
 ) -> None:
     environment = environments_api_instance.environment_get(environment_id, organization_id)
     environments_api_instance.environment_update(
