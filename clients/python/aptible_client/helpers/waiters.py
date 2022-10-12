@@ -71,7 +71,7 @@ class Waiter:
                 asset_parameters=asset_parameters,
                 assets_list=environment_assets
             )
-            if environment_asset.status == "FAILED":
+            if environment_asset and environment_asset.status == "FAILED":
                 # relaunch asset if failed to try to kick-start it
                 self.logger.info(f"Found failed asset ({environment_asset.asset}) being searched and "
                                  f"relaunching: {environment_asset.id}")

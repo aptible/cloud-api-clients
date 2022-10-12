@@ -40,7 +40,7 @@ def get_client_configuration() -> Configuration:
 
 def environments_matched_by_params_in_list(asset: str, asset_parameters: Dict[str, Any], assets_list: List[Any]) -> Any:
     for environment_asset in assets_list:
-        # if failed and not destroyed
+        # if using the same asset name prefix (non version), not destroyed, and same set of asset parameters
         if environment_asset.asset.split(ASSET_DELIMITER)[0:2] == asset.split(ASSET_DELIMITER)[0:2] and \
                 environment_asset.status != "DESTROYED" and \
                 'data' in environment_asset.current_asset_parameters and \
