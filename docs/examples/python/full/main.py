@@ -1,3 +1,4 @@
+import logging
 import typing
 from typing import List, Optional
 
@@ -12,7 +13,8 @@ from aptible_client.helpers import constants, misc, logger_utils, waiters  # NOQ
 if typing.TYPE_CHECKING:
     from clients.python.aptible_client.helpers import constants, misc, logger_utils, waiters
 
-logger = logger_utils.setup_logger("full")
+logger_utils.setup_root_logger("full")
+logger = logging.getLogger(__name__)
 
 ENVIRONMENT_ID = constants.ENVIRONMENT_ID
 ORGANIZATION_ID = constants.ORGANIZATION_ID
@@ -38,7 +40,7 @@ def main(
         container_web_command: Optional[List[str]] = CONTAINER_WEB_COMMAND,  # NOQA - mutable but ignore for typer hint
         container_worker_command: Optional[List[str]] = CONTAINER_WORKER_COMMAND, # NOQA - mutable but ignore for typer hint
         validation_method: Optional[str] = "DNS",
-        force_new: Optional[bool] = True,
+        force_new: Optional[bool] = False,
         cleanup: Optional[bool] = False
 ):
     """
@@ -58,7 +60,6 @@ def main(
     waiter = waiters.Waiter(
         configuration=configuration,
         environment_id=environment_id,
-        logger=logger,
         organization_id=organization_id,
         force_new=force_new
     )
