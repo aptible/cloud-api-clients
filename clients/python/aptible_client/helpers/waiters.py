@@ -71,18 +71,19 @@ class Waiter:
                 asset_parameters=asset_parameters,
                 assets_list=environment_assets
             )
-            if environment_asset and environment_asset.status == "FAILED":
-                # relaunch asset if failed to try to kick-start it
-                self.logger.info(f"Found failed asset ({environment_asset.asset}) being searched and "
-                                 f"relaunching: {environment_asset.id}")
-                return self.relaunch_failed_asset_and_wait(environment_asset.id, asset, asset_parameters)
-            # it was previously deployed or is deploying, return it
-            self.logger.info(f"Found asset ({environment_asset.asset}) being searched: {environment_asset.id}")
-            return self.assets_api_instance.asset_get(
-                environment_asset.id,
-                self.environment_id,
-                self.organization_id
-            )
+            if environment_asset:
+                if environment_asset.status == "FAILED":
+                    # relaunch asset if failed to try to kick-start it
+                    self.logger.info(f"Found failed asset ({environment_asset.asset}) being searched and "
+                                     f"relaunching: {environment_asset.id}")
+                    return self.relaunch_failed_asset_and_wait(environment_asset.id, asset, asset_parameters)
+                # it was previously deployed or is deploying, return it
+                self.logger.info(f"Found asset ({environment_asset.asset}) being searched: {environment_asset.id}")
+                return self.assets_api_instance.asset_get(
+                    environment_asset.id,
+                    self.environment_id,
+                    self.organization_id
+                )
         return self.always_launch_asset_and_wait(asset, asset_parameters)
 
     def wait_for_asset_to_be_status(
