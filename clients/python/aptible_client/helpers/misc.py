@@ -1,17 +1,21 @@
+import logging
 import json
 import os
 from logging import Logger
 from pathlib import Path
+from typing import Any, Dict, List
 
-from .constants import AUTH_API_URL, CLOUD_API_URL
+from .constants import AUTH_API_URL, CLOUD_API_URL, ASSET_DELIMITER
 from .exceptions import TokensNotFoundException
-from .logger_utils import setup_logger
 from ..api.environments_api import EnvironmentsApi
 from ..configuration import Configuration
 from ..model.environment_input import EnvironmentInput
 
 
-def get_client_configuration(logger: Logger = setup_logger()) -> Configuration:
+logger: Logger = logging.getLogger(__name__)
+
+
+def get_client_configuration() -> Configuration:
     """
 
     :return:
@@ -34,11 +38,21 @@ def get_client_configuration(logger: Logger = setup_logger()) -> Configuration:
     )
 
 
+def environments_matched_by_params_in_list(asset: str, asset_parameters: Dict[str, Any], assets_list: List[Any]) -> Any:
+    for environment_asset in assets_list:
+        # if failed and not destroyed
+        if environment_asset.asset.split(ASSET_DELIMITER)[0:2] == asset.split(ASSET_DELIMITER)[0:2] and \
+                environment_asset.status != "DESTROYED" and \
+                'data' in environment_asset.current_asset_parameters and \
+                asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items():
+            return environment_asset
+    return None
+
+
 def update_environment(
     environments_api_instance: EnvironmentsApi,
     environment_id: str,
     organization_id: str,
-    logger: Logger
 ) -> None:
     environment = environments_api_instance.environment_get(environment_id, organization_id)
     environments_api_instance.environment_update(

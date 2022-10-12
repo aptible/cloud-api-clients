@@ -1,3 +1,4 @@
+import logging
 import typing
 
 
@@ -16,7 +17,8 @@ if typing.TYPE_CHECKING:
 ENVIRONMENT_ID = constants.ENVIRONMENT_ID
 ORGANIZATION_ID = constants.ORGANIZATION_ID
 
-logger = logger_utils.setup_logger("upgrade_environment")
+logger_utils.setup_root_logger("upgrade_environment")
+logger = logging.getLogger(__name__)
 
 VPC_NAME: str = "testing-aptible-client"
 
@@ -33,7 +35,6 @@ def main(
     waiter = waiters.Waiter(
         configuration=misc.get_client_configuration(),
         environment_id=environment_id,
-        logger=logger,
         organization_id=organization_id,
         force_new=False
     )
