@@ -105,7 +105,6 @@ class AssetOutput(ModelNormal):
             'connections': ([ConnectionOutput],),  # noqa: E501
             'connects_to': ([str],),  # noqa: E501
             'outputs': ({str: (AssetTerraformOutput,)},),  # noqa: E501
-            'operation_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -124,7 +123,6 @@ class AssetOutput(ModelNormal):
         'connections': 'connections',  # noqa: E501
         'connects_to': 'connects_to',  # noqa: E501
         'outputs': 'outputs',  # noqa: E501
-        'operation_id': 'operation_id',  # noqa: E501
     }
 
     read_only_vars = {
