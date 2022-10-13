@@ -1193,7 +1193,6 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           user_defined: true
           asset_version: asset_version
-          operation_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset: asset
           connections:
@@ -1409,7 +1408,6 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         user_defined: true
         asset_version: asset_version
-        operation_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset: asset
         connections:
@@ -1514,10 +1512,6 @@ components:
           default: {}
           title: Outputs
           type: object
-        operation_id:
-          format: uuid
-          title: Operation Id
-          type: string
       required:
       - asset
       - asset_version

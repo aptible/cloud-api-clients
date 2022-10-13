@@ -178,7 +178,6 @@ class AssetOutput(ModelNormal):
             connections ([ConnectionOutput]): [optional] if omitted the server will use the default value of []  # noqa: E501
             connects_to ([str]): [optional] if omitted the server will use the default value of []  # noqa: E501
             outputs ({str: (AssetTerraformOutput,)}): [optional] if omitted the server will use the default value of {}  # noqa: E501
-            operation_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,7 +282,6 @@ class AssetOutput(ModelNormal):
             connections ([ConnectionOutput]): [optional] if omitted the server will use the default value of []  # noqa: E501
             connects_to ([str]): [optional] if omitted the server will use the default value of []  # noqa: E501
             outputs ({str: (AssetTerraformOutput,)}): [optional] if omitted the server will use the default value of {}  # noqa: E501
-            operation_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
