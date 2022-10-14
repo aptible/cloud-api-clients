@@ -1,7 +1,7 @@
 import json
 import logging
 import time
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, List
 
 from .constants import ORGANIZATION_ID, ENVIRONMENT_ID, ASSET_DELIMITER
 from .exceptions import AssetFailedException, AssetTimeoutException, EnvironmentNotFoundException
@@ -55,8 +55,11 @@ class Waiter:
     def get_or_launch_asset_and_wait(
         self,
         asset: str,
-        asset_parameters: Dict[str, Any]
+        asset_parameters: Dict[str, Any],
+        connects_to: Optional[List[str]] = None,
     ):
+        if not connects_to:
+            connects_to = []
         # get if found
         # launch and wait if not
         if not self.force_new:
@@ -69,14 +72,20 @@ class Waiter:
             environment_asset = environments_matched_by_params_in_list(
                 asset=asset,
                 asset_parameters=asset_parameters,
-                assets_list=environment_assets
+                assets_list=environment_assets,
+                connects_to=connects_to,
             )
             if environment_asset:
                 if environment_asset.status == "FAILED":
                     # relaunch asset if failed to try to kick-start it
                     self.logger.info(f"Found failed asset ({environment_asset.asset}) being searched and "
                                      f"relaunching: {environment_asset.id}")
-                    return self.relaunch_failed_asset_and_wait(environment_asset.id, asset, asset_parameters)
+                    return self.relaunch_failed_asset_and_wait(
+                        environment_asset.id,
+                        asset,
+                        asset_parameters,
+                        connects_to
+                    )
                 # it was previously deployed or is deploying, return it
                 self.logger.info(f"Found asset ({environment_asset.asset}) being searched: {environment_asset.id}")
                 return self.assets_api_instance.asset_get(
@@ -84,7 +93,7 @@ class Waiter:
                     self.environment_id,
                     self.organization_id
                 )
-        return self.always_launch_asset_and_wait(asset, asset_parameters)
+        return self.always_launch_asset_and_wait(asset, asset_parameters, connects_to)
 
     def wait_for_asset_to_be_status(
             self,
@@ -132,11 +141,15 @@ class Waiter:
             asset_id: str,
             asset: str,
             asset_parameters: Dict[str, Any],
+            connects_to: Optional[List[str]] = None
     ):
+        if not connects_to:
+            connects_to = []
         asset_input = AssetInput(
             asset=asset,
             asset_parameters=asset_parameters,
             asset_version=asset.split(ASSET_DELIMITER)[-1],
+            connects_to=connects_to
         )
         api_response = self.assets_api_instance.asset_update(
             asset_id,
@@ -156,12 +169,16 @@ class Waiter:
             self,
             asset: str,
             asset_parameters: Dict[str, Any],
+            connects_to: Optional[List[str]] = None
     ):
+        if not connects_to:
+            connects_to = []
         # Launch Asset
         asset_input = AssetInput(
             asset=asset,
             asset_parameters=asset_parameters,
             asset_version=asset.split(ASSET_DELIMITER)[-1],
+            connects_to=connects_to
         )
         api_response = self.assets_api_instance.asset_create(
             self.environment_id,

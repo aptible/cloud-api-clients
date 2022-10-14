@@ -173,8 +173,6 @@ def main(
             "container_port": container_http_port,
             "container_command": container_web_command,
 
-            "connects_to": [rds_asset_data.id, elasticache_asset_data.id],
-
             # Connect our SSL Certificate
             "lb_cert_arn": glom(acm_asset_data, 'outputs.acm_certificate_arn.data'),
             "lb_cert_domain": web_fqdn_domain,
@@ -183,6 +181,7 @@ def main(
             # Tell ECS what to name the environment variables for our database secret
             "environment_secrets": environment_secrets
         },
+        connects_to=[rds_asset_data.id, elasticache_asset_data.id]
     )
 
     # Launch ECS Worker Service
@@ -198,11 +197,11 @@ def main(
             "container_name": "aptible-demo",
             "container_image": container_image,
             "container_command": container_worker_command,
-            "connects_to": [rds_asset_data.id, elasticache_asset_data.id],
 
             # Tell ECS what to name the environment variables for our database secret
             "environment_secrets": environment_secrets
         },
+        connects_to=[rds_asset_data.id, elasticache_asset_data.id]
     )
 
     ecs_lb_url = glom(ecs_web_asset_data, 'outputs.load_balancer_url.data')

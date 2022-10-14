@@ -3,7 +3,7 @@ import json
 import os
 from logging import Logger
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from .constants import AUTH_API_URL, CLOUD_API_URL, ASSET_DELIMITER
 from .exceptions import TokensNotFoundException
@@ -38,13 +38,21 @@ def get_client_configuration() -> Configuration:
     )
 
 
-def environments_matched_by_params_in_list(asset: str, asset_parameters: Dict[str, Any], assets_list: List[Any]) -> Any:
+def environments_matched_by_params_in_list(
+    asset: str,
+    asset_parameters: Dict[str, Any],
+    assets_list: List[Any],
+    connects_to: Optional[List[str]] = None
+) -> Any:
+    if not connects_to:
+        connects_to = []
     for environment_asset in assets_list:
         # if using the same asset name prefix (non version), not destroyed, and same set of asset parameters
         if environment_asset.asset.split(ASSET_DELIMITER)[0:2] == asset.split(ASSET_DELIMITER)[0:2] and \
                 environment_asset.status != "DESTROYED" and \
                 'data' in environment_asset.current_asset_parameters and \
-                asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items():
+                asset_parameters.items() <= environment_asset.current_asset_parameters['data'].items() and \
+                set(environment_asset.connects_to) == set(connects_to):
             return environment_asset
     return None
 
