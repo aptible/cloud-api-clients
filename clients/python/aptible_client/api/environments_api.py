@@ -100,7 +100,7 @@ class EnvironmentsApi(object):
         )
         self.environment_delete_endpoint = _Endpoint(
             settings={
-                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
+                'response_type': (EnvironmentOutput,),
                 'auth': [
                     'HTTPBearer'
                 ],
@@ -585,7 +585,7 @@ class EnvironmentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            bool, date, datetime, dict, float, int, list, str, none_type
+            EnvironmentOutput
                 If the method is called asynchronously, returns the request
                 thread.
         """

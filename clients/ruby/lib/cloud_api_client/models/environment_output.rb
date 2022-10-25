@@ -25,6 +25,8 @@ module CloudApiClient
 
     attr_accessor :aws_account_id
 
+    attr_accessor :deleted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -32,7 +34,8 @@ module CloudApiClient
         :'description' => :'description',
         :'id' => :'id',
         :'organization' => :'organization',
-        :'aws_account_id' => :'aws_account_id'
+        :'aws_account_id' => :'aws_account_id',
+        :'deleted' => :'deleted'
       }
     end
 
@@ -48,7 +51,8 @@ module CloudApiClient
         :'description' => :'String',
         :'id' => :'String',
         :'organization' => :'OrganizationOutput',
-        :'aws_account_id' => :'String'
+        :'aws_account_id' => :'String',
+        :'deleted' => :'Boolean'
       }
     end
 
@@ -92,6 +96,10 @@ module CloudApiClient
       if attributes.key?(:'aws_account_id')
         self.aws_account_id = attributes[:'aws_account_id']
       end
+
+      if attributes.key?(:'deleted')
+        self.deleted = attributes[:'deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -110,6 +118,10 @@ module CloudApiClient
         invalid_properties.push('invalid value for "organization", organization cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -119,6 +131,7 @@ module CloudApiClient
       return false if @name.nil?
       return false if @id.nil?
       return false if @organization.nil?
+      return false if @deleted.nil?
       true
     end
 
@@ -131,7 +144,8 @@ module CloudApiClient
           description == o.description &&
           id == o.id &&
           organization == o.organization &&
-          aws_account_id == o.aws_account_id
+          aws_account_id == o.aws_account_id &&
+          deleted == o.deleted
     end
 
     # @see the `==` method
@@ -143,7 +157,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, id, organization, aws_account_id].hash
+      [name, description, id, organization, aws_account_id, deleted].hash
     end
 
     # Builds the object from hash

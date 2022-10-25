@@ -26,6 +26,9 @@ export class OperationOutput {
     'assetParameters'?: any;
     'id': string;
     'executionId'?: string;
+    'requestId': string;
+    'clientIp'?: string;
+    'tokenData'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -95,6 +98,24 @@ export class OperationOutput {
             "baseName": "execution_id",
             "type": "string",
             "format": "uuid"
+        },
+        {
+            "name": "requestId",
+            "baseName": "request_id",
+            "type": "string",
+            "format": "uuid"
+        },
+        {
+            "name": "clientIp",
+            "baseName": "client_ip",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "tokenData",
+            "baseName": "token_data",
+            "type": "any",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

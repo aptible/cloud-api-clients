@@ -21,17 +21,19 @@ type EnvironmentOutput struct {
 	Id string `json:"id"`
 	Organization OrganizationOutput `json:"organization"`
 	AwsAccountId *string `json:"aws_account_id,omitempty"`
+	Deleted bool `json:"deleted"`
 }
 
 // NewEnvironmentOutput instantiates a new EnvironmentOutput object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentOutput(name string, id string, organization OrganizationOutput) *EnvironmentOutput {
+func NewEnvironmentOutput(name string, id string, organization OrganizationOutput, deleted bool) *EnvironmentOutput {
 	this := EnvironmentOutput{}
 	this.Name = name
 	this.Id = id
 	this.Organization = organization
+	this.Deleted = deleted
 	return &this
 }
 
@@ -179,6 +181,30 @@ func (o *EnvironmentOutput) SetAwsAccountId(v string) {
 	o.AwsAccountId = &v
 }
 
+// GetDeleted returns the Deleted field value
+func (o *EnvironmentOutput) GetDeleted() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Deleted
+}
+
+// GetDeletedOk returns a tuple with the Deleted field value
+// and a boolean to check if the value has been set.
+func (o *EnvironmentOutput) GetDeletedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Deleted, true
+}
+
+// SetDeleted sets field value
+func (o *EnvironmentOutput) SetDeleted(v bool) {
+	o.Deleted = v
+}
+
 func (o EnvironmentOutput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -195,6 +221,9 @@ func (o EnvironmentOutput) MarshalJSON() ([]byte, error) {
 	}
 	if o.AwsAccountId != nil {
 		toSerialize["aws_account_id"] = o.AwsAccountId
+	}
+	if true {
+		toSerialize["deleted"] = o.Deleted
 	}
 	return json.Marshal(toSerialize)
 }

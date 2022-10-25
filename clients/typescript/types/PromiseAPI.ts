@@ -251,7 +251,7 @@ export class PromiseEnvironmentsApi {
      * @param environmentId 
      * @param organizationId 
      */
-    public environmentDelete(environmentId: string, organizationId: string, _options?: Configuration): Promise<any> {
+    public environmentDelete(environmentId: string, organizationId: string, _options?: Configuration): Promise<EnvironmentOutput> {
         const result = this.api.environmentDelete(environmentId, organizationId, _options);
         return result.toPromise();
     }
@@ -331,18 +331,8 @@ export class PromiseOperationsApi {
      * @param operationId 
      * @param organizationId 
      */
-    public operationGet(operationId: string, organizationId: string, _options?: Configuration): Promise<OperationOutput> {
+    public operationGet(operationId: string, organizationId: string, _options?: Configuration): Promise<any> {
         const result = this.api.operationGet(operationId, organizationId, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Operation Update
-     * @param operationId 
-     * @param operationUpdate 
-     */
-    public operationUpdate(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Promise<any> {
-        const result = this.api.operationUpdate(operationId, operationUpdate, _options);
         return result.toPromise();
     }
 
@@ -398,7 +388,7 @@ export class PromiseOrganizationsApi {
      * @param assetId 
      * @param environmentId 
      */
-    public organizationGetOperations(organizationId: string, assetId?: string, environmentId?: string, _options?: Configuration): Promise<Array<OperationOutput>> {
+    public organizationGetOperations(organizationId: string, assetId?: string, environmentId?: string, _options?: Configuration): Promise<any> {
         const result = this.api.organizationGetOperations(organizationId, assetId, environmentId, _options);
         return result.toPromise();
     }
@@ -474,6 +464,16 @@ export class PromiseWorkerApi {
         responseProcessor?: WorkerApiResponseProcessor
     ) {
         this.api = new ObservableWorkerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Operation Update
+     * @param operationId 
+     * @param operationUpdate 
+     */
+    public operationUpdate(operationId: string, operationUpdate: OperationUpdate, _options?: Configuration): Promise<any> {
+        const result = this.api.operationUpdate(operationId, operationUpdate, _options);
+        return result.toPromise();
     }
 
     /**

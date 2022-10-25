@@ -11,10 +11,13 @@ Name | Type | Description | Notes
 **asset_id** | **str** |  | 
 **asset_version** | **str** |  | 
 **id** | **str** |  | 
+**request_id** | **str** |  | 
 **operation_type** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **status** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **asset_parameters** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
 **execution_id** | **str** |  | [optional] 
+**client_ip** | **str** |  | [optional] 
+**token_data** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

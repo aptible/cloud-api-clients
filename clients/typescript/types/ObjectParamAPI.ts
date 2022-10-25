@@ -523,7 +523,7 @@ export class ObjectEnvironmentsApi {
      * Environment Delete
      * @param param the request object
      */
-    public environmentDelete(param: EnvironmentsApiEnvironmentDeleteRequest, options?: Configuration): Promise<any> {
+    public environmentDelete(param: EnvironmentsApiEnvironmentDeleteRequest, options?: Configuration): Promise<EnvironmentOutput> {
         return this.api.environmentDelete(param.environmentId, param.organizationId,  options).toPromise();
     }
 
@@ -587,21 +587,6 @@ export interface OperationsApiOperationGetRequest {
     organizationId: string
 }
 
-export interface OperationsApiOperationUpdateRequest {
-    /**
-     * 
-     * @type string
-     * @memberof OperationsApioperationUpdate
-     */
-    operationId: string
-    /**
-     * 
-     * @type OperationUpdate
-     * @memberof OperationsApioperationUpdate
-     */
-    operationUpdate: OperationUpdate
-}
-
 export class ObjectOperationsApi {
     private api: ObservableOperationsApi
 
@@ -613,16 +598,8 @@ export class ObjectOperationsApi {
      * Operation Get
      * @param param the request object
      */
-    public operationGet(param: OperationsApiOperationGetRequest, options?: Configuration): Promise<OperationOutput> {
+    public operationGet(param: OperationsApiOperationGetRequest, options?: Configuration): Promise<any> {
         return this.api.operationGet(param.operationId, param.organizationId,  options).toPromise();
-    }
-
-    /**
-     * Operation Update
-     * @param param the request object
-     */
-    public operationUpdate(param: OperationsApiOperationUpdateRequest, options?: Configuration): Promise<any> {
-        return this.api.operationUpdate(param.operationId, param.operationUpdate,  options).toPromise();
     }
 
 }
@@ -731,7 +708,7 @@ export class ObjectOrganizationsApi {
      * Organization Get Operations
      * @param param the request object
      */
-    public organizationGetOperations(param: OrganizationsApiOrganizationGetOperationsRequest, options?: Configuration): Promise<Array<OperationOutput>> {
+    public organizationGetOperations(param: OrganizationsApiOrganizationGetOperationsRequest, options?: Configuration): Promise<any> {
         return this.api.organizationGetOperations(param.organizationId, param.assetId, param.environmentId,  options).toPromise();
     }
 
@@ -796,6 +773,21 @@ export class ObjectUtilitiesApi {
 import { ObservableWorkerApi } from "./ObservableAPI";
 import { WorkerApiRequestFactory, WorkerApiResponseProcessor} from "../apis/WorkerApi";
 
+export interface WorkerApiOperationUpdateRequest {
+    /**
+     * 
+     * @type string
+     * @memberof WorkerApioperationUpdate
+     */
+    operationId: string
+    /**
+     * 
+     * @type OperationUpdate
+     * @memberof WorkerApioperationUpdate
+     */
+    operationUpdate: OperationUpdate
+}
+
 export interface WorkerApiWorkerHealthCheckRequest {
     /**
      * 
@@ -810,6 +802,14 @@ export class ObjectWorkerApi {
 
     public constructor(configuration: Configuration, requestFactory?: WorkerApiRequestFactory, responseProcessor?: WorkerApiResponseProcessor) {
         this.api = new ObservableWorkerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Operation Update
+     * @param param the request object
+     */
+    public operationUpdate(param: WorkerApiOperationUpdateRequest, options?: Configuration): Promise<any> {
+        return this.api.operationUpdate(param.operationId, param.operationUpdate,  options).toPromise();
     }
 
     /**

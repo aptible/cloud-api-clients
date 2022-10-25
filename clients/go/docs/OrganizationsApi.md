@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ## OrganizationGetOperations
 
-> []OperationOutput OrganizationGetOperations(ctx, organizationId).AssetId(assetId).EnvironmentId(environmentId).Execute()
+> interface{} OrganizationGetOperations(ctx, organizationId).AssetId(assetId).EnvironmentId(environmentId).Execute()
 
 Organization Get Operations
 
@@ -247,7 +247,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsApi.OrganizationGetOperations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `OrganizationGetOperations`: []OperationOutput
+    // response from `OrganizationGetOperations`: interface{}
     fmt.Fprintf(os.Stdout, "Response from `OrganizationsApi.OrganizationGetOperations`: %v\n", resp)
 }
 ```
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]OperationOutput**](OperationOutput.md)
+**interface{}**
 
 ### Authorization
 

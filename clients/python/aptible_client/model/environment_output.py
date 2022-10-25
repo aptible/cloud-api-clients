@@ -90,6 +90,7 @@ class EnvironmentOutput(ModelNormal):
             'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'organization': (OrganizationOutput,),  # noqa: E501
+            'deleted': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'aws_account_id': (str,),  # noqa: E501
         }
@@ -103,6 +104,7 @@ class EnvironmentOutput(ModelNormal):
         'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
         'organization': 'organization',  # noqa: E501
+        'deleted': 'deleted',  # noqa: E501
         'description': 'description',  # noqa: E501
         'aws_account_id': 'aws_account_id',  # noqa: E501
     }
@@ -114,13 +116,14 @@ class EnvironmentOutput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, id, organization, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, id, organization, deleted, *args, **kwargs):  # noqa: E501
         """EnvironmentOutput - a model defined in OpenAPI
 
         Args:
             name (str):
             id (str):
             organization (OrganizationOutput):
+            deleted (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -189,6 +192,7 @@ class EnvironmentOutput(ModelNormal):
         self.name = name
         self.id = id
         self.organization = organization
+        self.deleted = deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -209,13 +213,14 @@ class EnvironmentOutput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, id, organization, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, id, organization, deleted, *args, **kwargs):  # noqa: E501
         """EnvironmentOutput - a model defined in OpenAPI
 
         Args:
             name (str):
             id (str):
             organization (OrganizationOutput):
+            deleted (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -282,6 +287,7 @@ class EnvironmentOutput(ModelNormal):
         self.name = name
         self.id = id
         self.organization = organization
+        self.deleted = deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

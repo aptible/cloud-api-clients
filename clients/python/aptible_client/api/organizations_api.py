@@ -23,7 +23,6 @@ from aptible_client.model_utils import (  # noqa: F401
 )
 from aptible_client.model.environment_output import EnvironmentOutput
 from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.operation_output import OperationOutput
 from aptible_client.model.organization_input import OrganizationInput
 from aptible_client.model.organization_output import OrganizationOutput
 
@@ -194,7 +193,7 @@ class OrganizationsApi(object):
         )
         self.organization_get_operations_endpoint = _Endpoint(
             settings={
-                'response_type': ([OperationOutput],),
+                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [
                     'HTTPBearer'
                 ],
@@ -653,7 +652,7 @@ class OrganizationsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [OperationOutput]
+            bool, date, datetime, dict, float, int, list, str, none_type
                 If the method is called asynchronously, returns the request
                 thread.
         """

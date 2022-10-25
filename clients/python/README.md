@@ -95,7 +95,6 @@ Class | Method | HTTP request | Description
 *EnvironmentsApi* | [**environment_get_connections**](aptible_client/docs/EnvironmentsApi.md#environment_get_connections) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Environment Get Connections
 *EnvironmentsApi* | [**environment_update**](aptible_client/docs/EnvironmentsApi.md#environment_update) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Update
 *OperationsApi* | [**operation_get**](aptible_client/docs/OperationsApi.md#operation_get) | **GET** /api/v1/organizations/{organization_id}/operations/{operation_id} | Operation Get
-*OperationsApi* | [**operation_update**](aptible_client/docs/OperationsApi.md#operation_update) | **PUT** /api/v1/operations/{operation_id} | Operation Update
 *OrganizationsApi* | [**organization_delete**](aptible_client/docs/OrganizationsApi.md#organization_delete) | **DELETE** /api/v1/organizations/{organization_id} | Organization Delete
 *OrganizationsApi* | [**organization_get**](aptible_client/docs/OrganizationsApi.md#organization_get) | **GET** /api/v1/organizations/{organization_id} | Organization Get
 *OrganizationsApi* | [**organization_get_environments**](aptible_client/docs/OrganizationsApi.md#organization_get_environments) | **GET** /api/v1/organizations/{organization_id}/environments | Organization Get Environments
@@ -104,6 +103,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**organization_update**](aptible_client/docs/OrganizationsApi.md#organization_update) | **PUT** /api/v1/organizations/{organization_id} | Organization Update
 *UtilitiesApi* | [**get_user**](aptible_client/docs/UtilitiesApi.md#get_user) | **GET** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**get_user_role**](aptible_client/docs/UtilitiesApi.md#get_user_role) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
+*WorkerApi* | [**operation_update**](aptible_client/docs/WorkerApi.md#operation_update) | **PUT** /api/v1/operations/{operation_id} | Operation Update
 *WorkerApi* | [**worker_health_check**](aptible_client/docs/WorkerApi.md#worker_health_check) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 

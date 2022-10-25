@@ -19,6 +19,7 @@ export class EnvironmentOutput {
     'id': string;
     'organization': OrganizationOutput;
     'awsAccountId'?: string;
+    'deleted': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -51,6 +52,12 @@ export class EnvironmentOutput {
             "name": "awsAccountId",
             "baseName": "aws_account_id",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "deleted",
+            "baseName": "deleted",
+            "type": "boolean",
             "format": ""
         }    ];
 

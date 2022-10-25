@@ -96,7 +96,6 @@ Class | Method | HTTP request | Description
 *EnvironmentsApi* | [**EnvironmentGetConnections**](docs/EnvironmentsApi.md#environmentgetconnections) | **Get** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Environment Get Connections
 *EnvironmentsApi* | [**EnvironmentUpdate**](docs/EnvironmentsApi.md#environmentupdate) | **Put** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Update
 *OperationsApi* | [**OperationGet**](docs/OperationsApi.md#operationget) | **Get** /api/v1/organizations/{organization_id}/operations/{operation_id} | Operation Get
-*OperationsApi* | [**OperationUpdate**](docs/OperationsApi.md#operationupdate) | **Put** /api/v1/operations/{operation_id} | Operation Update
 *OrganizationsApi* | [**OrganizationDelete**](docs/OrganizationsApi.md#organizationdelete) | **Delete** /api/v1/organizations/{organization_id} | Organization Delete
 *OrganizationsApi* | [**OrganizationGet**](docs/OrganizationsApi.md#organizationget) | **Get** /api/v1/organizations/{organization_id} | Organization Get
 *OrganizationsApi* | [**OrganizationGetEnvironments**](docs/OrganizationsApi.md#organizationgetenvironments) | **Get** /api/v1/organizations/{organization_id}/environments | Organization Get Environments
@@ -105,6 +104,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**OrganizationUpdate**](docs/OrganizationsApi.md#organizationupdate) | **Put** /api/v1/organizations/{organization_id} | Organization Update
 *UtilitiesApi* | [**GetUser**](docs/UtilitiesApi.md#getuser) | **Get** /api/v1/debug/user_auth | Get User
 *UtilitiesApi* | [**GetUserRole**](docs/UtilitiesApi.md#getuserrole) | **Get** /api/v1/debug/user_role_middleware_check | Get User Role
+*WorkerApi* | [**OperationUpdate**](docs/WorkerApi.md#operationupdate) | **Put** /api/v1/operations/{operation_id} | Operation Update
 *WorkerApi* | [**WorkerHealthCheck**](docs/WorkerApi.md#workerhealthcheck) | **Post** /api/v1/worker/health-check | Worker Health Check
 
 

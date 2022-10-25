@@ -207,7 +207,7 @@ module CloudApiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :asset_id 
     # @option opts [String] :environment_id 
-    # @return [Array<OperationOutput>]
+    # @return [Object]
     def organization_get_operations(organization_id, opts = {})
       data, _status_code, _headers = organization_get_operations_with_http_info(organization_id, opts)
       data
@@ -218,7 +218,7 @@ module CloudApiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :asset_id 
     # @option opts [String] :environment_id 
-    # @return [Array<(Array<OperationOutput>, Integer, Hash)>] Array<OperationOutput> data, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def organization_get_operations_with_http_info(organization_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsApi.organization_get_operations ...'
@@ -247,7 +247,7 @@ module CloudApiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<OperationOutput>'
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']

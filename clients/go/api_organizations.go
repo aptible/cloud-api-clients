@@ -71,8 +71,8 @@ type OrganizationsApi interface {
 	OrganizationGetOperations(ctx context.Context, organizationId string) ApiOrganizationGetOperationsRequest
 
 	// OrganizationGetOperationsExecute executes the request
-	//  @return []OperationOutput
-	OrganizationGetOperationsExecute(r ApiOrganizationGetOperationsRequest) ([]OperationOutput, *http.Response, error)
+	//  @return interface{}
+	OrganizationGetOperationsExecute(r ApiOrganizationGetOperationsRequest) (interface{}, *http.Response, error)
 
 	/*
 	OrganizationList Organization List
@@ -451,7 +451,7 @@ func (r ApiOrganizationGetOperationsRequest) EnvironmentId(environmentId string)
 	return r
 }
 
-func (r ApiOrganizationGetOperationsRequest) Execute() ([]OperationOutput, *http.Response, error) {
+func (r ApiOrganizationGetOperationsRequest) Execute() (interface{}, *http.Response, error) {
 	return r.ApiService.OrganizationGetOperationsExecute(r)
 }
 
@@ -471,13 +471,13 @@ func (a *OrganizationsApiService) OrganizationGetOperations(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return []OperationOutput
-func (a *OrganizationsApiService) OrganizationGetOperationsExecute(r ApiOrganizationGetOperationsRequest) ([]OperationOutput, *http.Response, error) {
+//  @return interface{}
+func (a *OrganizationsApiService) OrganizationGetOperationsExecute(r ApiOrganizationGetOperationsRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []OperationOutput
+		localVarReturnValue  interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsApiService.OrganizationGetOperations")

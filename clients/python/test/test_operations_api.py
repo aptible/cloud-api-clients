@@ -30,13 +30,6 @@ class TestOperationsApi(unittest.TestCase):
         """
         pass
 
-    def test_operation_update(self):
-        """Test case for operation_update
-
-        Operation Update  # noqa: E501
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

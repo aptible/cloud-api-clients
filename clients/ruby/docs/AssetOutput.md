@@ -14,7 +14,6 @@
 | **status** | [**AssetStatus**](AssetStatus.md) |  |  |
 | **user_defined** | **Boolean** |  |  |
 | **outputs** | [**Hash&lt;String, AssetTerraformOutput&gt;**](AssetTerraformOutput.md) |  | [optional] |
-| **operation_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -31,8 +30,7 @@ instance = CloudApiClient::AssetOutput.new(
   environment: null,
   status: null,
   user_defined: null,
-  outputs: null,
-  operation_id: null
+  outputs: null
 )
 ```
 

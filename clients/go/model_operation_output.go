@@ -27,13 +27,16 @@ type OperationOutput struct {
 	AssetParameters map[string]interface{} `json:"asset_parameters,omitempty"`
 	Id string `json:"id"`
 	ExecutionId *string `json:"execution_id,omitempty"`
+	RequestId string `json:"request_id"`
+	ClientIp *string `json:"client_ip,omitempty"`
+	TokenData interface{} `json:"token_data,omitempty"`
 }
 
 // NewOperationOutput instantiates a new OperationOutput object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOperationOutput(environmentId string, userId string, organizationId string, assetName string, assetId string, assetVersion string, id string) *OperationOutput {
+func NewOperationOutput(environmentId string, userId string, organizationId string, assetName string, assetId string, assetVersion string, id string, requestId string) *OperationOutput {
 	this := OperationOutput{}
 	this.EnvironmentId = environmentId
 	this.UserId = userId
@@ -42,6 +45,7 @@ func NewOperationOutput(environmentId string, userId string, organizationId stri
 	this.AssetId = assetId
 	this.AssetVersion = assetVersion
 	this.Id = id
+	this.RequestId = requestId
 	return &this
 }
 
@@ -369,6 +373,95 @@ func (o *OperationOutput) SetExecutionId(v string) {
 	o.ExecutionId = &v
 }
 
+// GetRequestId returns the RequestId field value
+func (o *OperationOutput) GetRequestId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RequestId
+}
+
+// GetRequestIdOk returns a tuple with the RequestId field value
+// and a boolean to check if the value has been set.
+func (o *OperationOutput) GetRequestIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RequestId, true
+}
+
+// SetRequestId sets field value
+func (o *OperationOutput) SetRequestId(v string) {
+	o.RequestId = v
+}
+
+// GetClientIp returns the ClientIp field value if set, zero value otherwise.
+func (o *OperationOutput) GetClientIp() string {
+	if o == nil || o.ClientIp == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClientIp
+}
+
+// GetClientIpOk returns a tuple with the ClientIp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperationOutput) GetClientIpOk() (*string, bool) {
+	if o == nil || o.ClientIp == nil {
+		return nil, false
+	}
+	return o.ClientIp, true
+}
+
+// HasClientIp returns a boolean if a field has been set.
+func (o *OperationOutput) HasClientIp() bool {
+	if o != nil && o.ClientIp != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClientIp gets a reference to the given string and assigns it to the ClientIp field.
+func (o *OperationOutput) SetClientIp(v string) {
+	o.ClientIp = &v
+}
+
+// GetTokenData returns the TokenData field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *OperationOutput) GetTokenData() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.TokenData
+}
+
+// GetTokenDataOk returns a tuple with the TokenData field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *OperationOutput) GetTokenDataOk() (*interface{}, bool) {
+	if o == nil || o.TokenData == nil {
+		return nil, false
+	}
+	return &o.TokenData, true
+}
+
+// HasTokenData returns a boolean if a field has been set.
+func (o *OperationOutput) HasTokenData() bool {
+	if o != nil && o.TokenData != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTokenData gets a reference to the given interface{} and assigns it to the TokenData field.
+func (o *OperationOutput) SetTokenData(v interface{}) {
+	o.TokenData = v
+}
+
 func (o OperationOutput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -403,6 +496,15 @@ func (o OperationOutput) MarshalJSON() ([]byte, error) {
 	}
 	if o.ExecutionId != nil {
 		toSerialize["execution_id"] = o.ExecutionId
+	}
+	if true {
+		toSerialize["request_id"] = o.RequestId
+	}
+	if o.ClientIp != nil {
+		toSerialize["client_ip"] = o.ClientIp
+	}
+	if o.TokenData != nil {
+		toSerialize["token_data"] = o.TokenData
 	}
 	return json.Marshal(toSerialize)
 }

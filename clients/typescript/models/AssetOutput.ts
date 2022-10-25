@@ -28,7 +28,6 @@ export class AssetOutput {
     'status': AssetStatus;
     'userDefined': boolean;
     'outputs'?: { [key: string]: AssetTerraformOutput; };
-    'operationId'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -92,12 +91,6 @@ export class AssetOutput {
             "baseName": "outputs",
             "type": "{ [key: string]: AssetTerraformOutput; }",
             "format": ""
-        },
-        {
-            "name": "operationId",
-            "baseName": "operation_id",
-            "type": "string",
-            "format": "uuid"
         }    ];
 
     static getAttributeTypeMap() {
