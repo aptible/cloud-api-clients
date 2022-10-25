@@ -96,10 +96,13 @@ class OperationOutput(ModelNormal):
             'asset_id': (str,),  # noqa: E501
             'asset_version': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'request_id': (str,),  # noqa: E501
             'operation_type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'status': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'asset_parameters': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'execution_id': (str,),  # noqa: E501
+            'client_ip': (str,),  # noqa: E501
+            'token_data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -115,10 +118,13 @@ class OperationOutput(ModelNormal):
         'asset_id': 'asset_id',  # noqa: E501
         'asset_version': 'asset_version',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'request_id': 'request_id',  # noqa: E501
         'operation_type': 'operation_type',  # noqa: E501
         'status': 'status',  # noqa: E501
         'asset_parameters': 'asset_parameters',  # noqa: E501
         'execution_id': 'execution_id',  # noqa: E501
+        'client_ip': 'client_ip',  # noqa: E501
+        'token_data': 'token_data',  # noqa: E501
     }
 
     read_only_vars = {
@@ -128,7 +134,7 @@ class OperationOutput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, environment_id, user_id, organization_id, asset_name, asset_id, asset_version, id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, environment_id, user_id, organization_id, asset_name, asset_id, asset_version, id, request_id, *args, **kwargs):  # noqa: E501
         """OperationOutput - a model defined in OpenAPI
 
         Args:
@@ -139,6 +145,7 @@ class OperationOutput(ModelNormal):
             asset_id (str):
             asset_version (str):
             id (str):
+            request_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -175,6 +182,8 @@ class OperationOutput(ModelNormal):
             status (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             asset_parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             execution_id (str): [optional]  # noqa: E501
+            client_ip (str): [optional]  # noqa: E501
+            token_data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -213,6 +222,7 @@ class OperationOutput(ModelNormal):
         self.asset_id = asset_id
         self.asset_version = asset_version
         self.id = id
+        self.request_id = request_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -233,7 +243,7 @@ class OperationOutput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, environment_id, user_id, organization_id, asset_name, asset_id, asset_version, id, *args, **kwargs):  # noqa: E501
+    def __init__(self, environment_id, user_id, organization_id, asset_name, asset_id, asset_version, id, request_id, *args, **kwargs):  # noqa: E501
         """OperationOutput - a model defined in OpenAPI
 
         Args:
@@ -244,6 +254,7 @@ class OperationOutput(ModelNormal):
             asset_id (str):
             asset_version (str):
             id (str):
+            request_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -280,6 +291,8 @@ class OperationOutput(ModelNormal):
             status (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             asset_parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             execution_id (str): [optional]  # noqa: E501
+            client_ip (str): [optional]  # noqa: E501
+            token_data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -316,6 +329,7 @@ class OperationOutput(ModelNormal):
         self.asset_id = asset_id
         self.asset_version = asset_version
         self.id = id
+        self.request_id = request_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

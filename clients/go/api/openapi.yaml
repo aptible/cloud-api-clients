@@ -287,7 +287,7 @@ paths:
               $ref: '#/components/schemas/ActionRequest'
         required: true
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
@@ -480,7 +480,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/EnvironmentOutput'
           description: Successful Response
         "422":
           content:
@@ -652,30 +653,6 @@ paths:
       summary: Environment Create
       tags:
       - environments
-  /api/v1/worker/health-check:
-    post:
-      operationId: worker_health_check
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/HealthCheckFromWorker'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      summary: Worker Health Check
-      tags:
-      - worker
   /api/v1/organizations/{organization_id}/environments/{environment_id}/assets/{asset_id}/connections/:
     post:
       deprecated: true
@@ -876,8 +853,7 @@ paths:
         "200":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/OperationOutput'
+              schema: {}
           description: Successful Response
         "422":
           content:
@@ -889,42 +865,6 @@ paths:
       - HTTPBearer: []
       - HTTPBearer: []
       summary: Operation Get
-      tags:
-      - operations
-  /api/v1/operations/{operation_id}:
-    put:
-      operationId: operation_update
-      parameters:
-      - explode: false
-        in: path
-        name: operation_id
-        required: true
-        schema:
-          format: uuid
-          title: Operation Id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OperationUpdate'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - HTTPBearer: []
-      summary: Operation Update
       tags:
       - operations
   /api/v1/organizations/{organization_id}:
@@ -1078,12 +1018,7 @@ paths:
         "200":
           content:
             application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/OperationOutput'
-                title: Response Organization Get Operations Api V1 Organizations  Organization
-                  Id  Operations  Get
-                type: array
+              schema: {}
           description: Successful Response
         "422":
           content:
@@ -1097,6 +1032,66 @@ paths:
       summary: Organization Get Operations
       tags:
       - organizations
+  /api/v1/worker/health-check:
+    post:
+      operationId: worker_health_check
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HealthCheckFromWorker'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Worker Health Check
+      tags:
+      - worker
+  /api/v1/operations/{operation_id}:
+    put:
+      operationId: operation_update
+      parameters:
+      - explode: false
+        in: path
+        name: operation_id
+        required: true
+        schema:
+          format: uuid
+          title: Operation Id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationUpdate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Operation Update
+      tags:
+      - worker
   /api/v1/system/health_check:
     get:
       operationId: get_healthcheck
@@ -1181,6 +1176,7 @@ components:
               sensitive: true
               structure: ""
           environment:
+            deleted: true
             aws_account_id: aws_account_id
             organization:
               aws_ou: aws_ou
@@ -1193,60 +1189,71 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           user_defined: true
           asset_version: asset_version
-          operation_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset: asset
           connections:
           - outgoing_connection_asset: null
             operations:
-            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               operation_type: ""
-              asset_name: asset_name
               asset_parameters: "{}"
-              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               asset_version: asset_version
-              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_name: asset_name
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              token_data: ""
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              client_ip: client_ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               status: ""
-            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               operation_type: ""
-              asset_name: asset_name
               asset_parameters: "{}"
-              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               asset_version: asset_version
-              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_name: asset_name
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              token_data: ""
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              client_ip: client_ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               status: ""
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             incoming_connection_asset: null
             status: null
           - outgoing_connection_asset: null
             operations:
-            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               operation_type: ""
-              asset_name: asset_name
               asset_parameters: "{}"
-              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               asset_version: asset_version
-              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_name: asset_name
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              token_data: ""
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              client_ip: client_ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               status: ""
-            - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               operation_type: ""
-              asset_name: asset_name
               asset_parameters: "{}"
-              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               asset_version: asset_version
-              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              asset_name: asset_name
+              user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              token_data: ""
+              organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              client_ip: client_ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               status: ""
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             incoming_connection_asset: null
@@ -1260,16 +1267,19 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           status: null
         operation:
-          execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           operation_type: ""
-          asset_name: asset_name
           asset_parameters: "{}"
-          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset_version: asset_version
-          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_name: asset_name
+          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          token_data: ""
+          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          client_ip: client_ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           status: ""
         parameters: "{}"
       properties:
@@ -1397,6 +1407,7 @@ components:
             sensitive: true
             structure: ""
         environment:
+          deleted: true
           aws_account_id: aws_account_id
           organization:
             aws_ou: aws_ou
@@ -1409,60 +1420,71 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         user_defined: true
         asset_version: asset_version
-        operation_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset: asset
         connections:
         - outgoing_connection_asset: null
           operations:
-          - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             operation_type: ""
-            asset_name: asset_name
             asset_parameters: "{}"
-            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             asset_version: asset_version
-            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_name: asset_name
+            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            token_data: ""
+            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            client_ip: client_ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             status: ""
-          - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             operation_type: ""
-            asset_name: asset_name
             asset_parameters: "{}"
-            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             asset_version: asset_version
-            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_name: asset_name
+            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            token_data: ""
+            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            client_ip: client_ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             status: ""
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           incoming_connection_asset: null
           status: null
         - outgoing_connection_asset: null
           operations:
-          - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             operation_type: ""
-            asset_name: asset_name
             asset_parameters: "{}"
-            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             asset_version: asset_version
-            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_name: asset_name
+            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            token_data: ""
+            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            client_ip: client_ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             status: ""
-          - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             operation_type: ""
-            asset_name: asset_name
             asset_parameters: "{}"
-            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             asset_version: asset_version
-            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            asset_name: asset_name
+            user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            token_data: ""
+            organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            client_ip: client_ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             status: ""
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           incoming_connection_asset: null
@@ -1514,10 +1536,6 @@ components:
           default: {}
           title: Outputs
           type: object
-        operation_id:
-          format: uuid
-          title: Operation Id
-          type: string
       required:
       - asset
       - asset_version
@@ -1603,27 +1621,33 @@ components:
       example:
         outgoing_connection_asset: null
         operations:
-        - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           operation_type: ""
-          asset_name: asset_name
           asset_parameters: "{}"
-          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset_version: asset_version
-          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_name: asset_name
+          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          token_data: ""
+          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          client_ip: client_ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           status: ""
-        - execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           operation_type: ""
-          asset_name: asset_name
           asset_parameters: "{}"
-          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset_version: asset_version
-          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          asset_name: asset_name
+          user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          token_data: ""
+          organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          client_ip: client_ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           status: ""
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         incoming_connection_asset: null
@@ -1680,6 +1704,7 @@ components:
       type: object
     EnvironmentOutput:
       example:
+        deleted: true
         aws_account_id: aws_account_id
         organization:
           aws_ou: aws_ou
@@ -1706,7 +1731,11 @@ components:
         aws_account_id:
           title: Aws Account Id
           type: string
+        deleted:
+          title: Deleted
+          type: boolean
       required:
+      - deleted
       - id
       - name
       - organization
@@ -1787,16 +1816,19 @@ components:
       type: object
     OperationOutput:
       example:
-        execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         environment_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         operation_type: ""
-        asset_name: asset_name
         asset_parameters: "{}"
-        user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset_version: asset_version
-        organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         asset_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        execution_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        asset_name: asset_name
+        user_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        token_data: ""
+        organization_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        client_ip: client_ip
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        request_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         status: ""
       properties:
         environment_id:
@@ -1838,6 +1870,15 @@ components:
           format: uuid
           title: Execution Id
           type: string
+        request_id:
+          format: uuid
+          title: Request Id
+          type: string
+        client_ip:
+          title: Client Ip
+          type: string
+        token_data:
+          title: Token Data
       required:
       - asset_id
       - asset_name
@@ -1845,6 +1886,7 @@ components:
       - environment_id
       - id
       - organization_id
+      - request_id
       - user_id
       title: OperationOutput
       type: object

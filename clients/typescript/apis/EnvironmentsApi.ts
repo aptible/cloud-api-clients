@@ -410,13 +410,13 @@ export class EnvironmentsApiResponseProcessor {
      * @params response Response returned by the server for a request to environmentDelete
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async environmentDelete(response: ResponseContext): Promise<any > {
+     public async environmentDelete(response: ResponseContext): Promise<EnvironmentOutput > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: EnvironmentOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "EnvironmentOutput", ""
+            ) as EnvironmentOutput;
             return body;
         }
         if (isCodeInRange("422", response.httpStatusCode)) {
@@ -429,10 +429,10 @@ export class EnvironmentsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: EnvironmentOutput = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "EnvironmentOutput", ""
+            ) as EnvironmentOutput;
             return body;
         }
 

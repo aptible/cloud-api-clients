@@ -10,7 +10,6 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { EnvironmentOutput } from '../models/EnvironmentOutput';
 import { HTTPValidationError } from '../models/HTTPValidationError';
-import { OperationOutput } from '../models/OperationOutput';
 import { OrganizationInput } from '../models/OrganizationInput';
 import { OrganizationOutput } from '../models/OrganizationOutput';
 
@@ -384,13 +383,13 @@ export class OrganizationsApiResponseProcessor {
      * @params response Response returned by the server for a request to organizationGetOperations
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async organizationGetOperations(response: ResponseContext): Promise<Array<OperationOutput> > {
+     public async organizationGetOperations(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<OperationOutput> = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<OperationOutput>", ""
-            ) as Array<OperationOutput>;
+                "any", ""
+            ) as any;
             return body;
         }
         if (isCodeInRange("422", response.httpStatusCode)) {
@@ -403,10 +402,10 @@ export class OrganizationsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<OperationOutput> = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<OperationOutput>", ""
-            ) as Array<OperationOutput>;
+                "any", ""
+            ) as any;
             return body;
         }
 

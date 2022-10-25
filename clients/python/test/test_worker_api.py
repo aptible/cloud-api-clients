@@ -23,6 +23,13 @@ class TestWorkerApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_operation_update(self):
+        """Test case for operation_update
+
+        Operation Update  # noqa: E501
+        """
+        pass
+
     def test_worker_health_check(self):
         """Test case for worker_health_check
 

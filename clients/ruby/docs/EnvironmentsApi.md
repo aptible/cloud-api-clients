@@ -84,7 +84,7 @@ end
 
 ## environment_delete
 
-> Object environment_delete(environment_id, organization_id)
+> <EnvironmentOutput> environment_delete(environment_id, organization_id)
 
 Environment Delete
 
@@ -116,7 +116,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> environment_delete_with_http_info(environment_id, organization_id)
+> <Array(<EnvironmentOutput>, Integer, Hash)> environment_delete_with_http_info(environment_id, organization_id)
 
 ```ruby
 begin
@@ -124,7 +124,7 @@ begin
   data, status_code, headers = api_instance.environment_delete_with_http_info(environment_id, organization_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <EnvironmentOutput>
 rescue CloudApiClient::ApiError => e
   puts "Error when calling EnvironmentsApi->environment_delete_with_http_info: #{e}"
 end
@@ -139,7 +139,7 @@ end
 
 ### Return type
 
-**Object**
+[**EnvironmentOutput**](EnvironmentOutput.md)
 
 ### Authorization
 

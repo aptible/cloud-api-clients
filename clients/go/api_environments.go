@@ -46,8 +46,8 @@ type EnvironmentsApi interface {
 	EnvironmentDelete(ctx context.Context, environmentId string, organizationId string) ApiEnvironmentDeleteRequest
 
 	// EnvironmentDeleteExecute executes the request
-	//  @return interface{}
-	EnvironmentDeleteExecute(r ApiEnvironmentDeleteRequest) (interface{}, *http.Response, error)
+	//  @return EnvironmentOutput
+	EnvironmentDeleteExecute(r ApiEnvironmentDeleteRequest) (*EnvironmentOutput, *http.Response, error)
 
 	/*
 	EnvironmentGet Environment Get
@@ -251,7 +251,7 @@ type ApiEnvironmentDeleteRequest struct {
 	organizationId string
 }
 
-func (r ApiEnvironmentDeleteRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiEnvironmentDeleteRequest) Execute() (*EnvironmentOutput, *http.Response, error) {
 	return r.ApiService.EnvironmentDeleteExecute(r)
 }
 
@@ -273,13 +273,13 @@ func (a *EnvironmentsApiService) EnvironmentDelete(ctx context.Context, environm
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *EnvironmentsApiService) EnvironmentDeleteExecute(r ApiEnvironmentDeleteRequest) (interface{}, *http.Response, error) {
+//  @return EnvironmentOutput
+func (a *EnvironmentsApiService) EnvironmentDeleteExecute(r ApiEnvironmentDeleteRequest) (*EnvironmentOutput, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  *EnvironmentOutput
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnvironmentsApiService.EnvironmentDelete")

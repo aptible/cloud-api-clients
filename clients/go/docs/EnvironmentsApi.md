@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## EnvironmentDelete
 
-> interface{} EnvironmentDelete(ctx, environmentId, organizationId).Execute()
+> EnvironmentOutput EnvironmentDelete(ctx, environmentId, organizationId).Execute()
 
 Environment Delete
 
@@ -113,7 +113,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EnvironmentsApi.EnvironmentDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EnvironmentDelete`: interface{}
+    // response from `EnvironmentDelete`: EnvironmentOutput
     fmt.Fprintf(os.Stdout, "Response from `EnvironmentsApi.EnvironmentDelete`: %v\n", resp)
 }
 ```
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**EnvironmentOutput**](EnvironmentOutput.md)
 
 ### Authorization
 

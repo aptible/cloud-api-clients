@@ -102,7 +102,6 @@ Class | Method | HTTP request | Description
 *CloudApiClient::EnvironmentsApi* | [**environment_get_connections**](docs/EnvironmentsApi.md#environment_get_connections) | **GET** /api/v1/organizations/{organization_id}/environments/{environment_id}/connections | Environment Get Connections
 *CloudApiClient::EnvironmentsApi* | [**environment_update**](docs/EnvironmentsApi.md#environment_update) | **PUT** /api/v1/organizations/{organization_id}/environments/{environment_id} | Environment Update
 *CloudApiClient::OperationsApi* | [**operation_get**](docs/OperationsApi.md#operation_get) | **GET** /api/v1/organizations/{organization_id}/operations/{operation_id} | Operation Get
-*CloudApiClient::OperationsApi* | [**operation_update**](docs/OperationsApi.md#operation_update) | **PUT** /api/v1/operations/{operation_id} | Operation Update
 *CloudApiClient::OrganizationsApi* | [**organization_delete**](docs/OrganizationsApi.md#organization_delete) | **DELETE** /api/v1/organizations/{organization_id} | Organization Delete
 *CloudApiClient::OrganizationsApi* | [**organization_get**](docs/OrganizationsApi.md#organization_get) | **GET** /api/v1/organizations/{organization_id} | Organization Get
 *CloudApiClient::OrganizationsApi* | [**organization_get_environments**](docs/OrganizationsApi.md#organization_get_environments) | **GET** /api/v1/organizations/{organization_id}/environments | Organization Get Environments
@@ -111,6 +110,7 @@ Class | Method | HTTP request | Description
 *CloudApiClient::OrganizationsApi* | [**organization_update**](docs/OrganizationsApi.md#organization_update) | **PUT** /api/v1/organizations/{organization_id} | Organization Update
 *CloudApiClient::UtilitiesApi* | [**get_user**](docs/UtilitiesApi.md#get_user) | **GET** /api/v1/debug/user_auth | Get User
 *CloudApiClient::UtilitiesApi* | [**get_user_role**](docs/UtilitiesApi.md#get_user_role) | **GET** /api/v1/debug/user_role_middleware_check | Get User Role
+*CloudApiClient::WorkerApi* | [**operation_update**](docs/WorkerApi.md#operation_update) | **PUT** /api/v1/operations/{operation_id} | Operation Update
 *CloudApiClient::WorkerApi* | [**worker_health_check**](docs/WorkerApi.md#worker_health_check) | **POST** /api/v1/worker/health-check | Worker Health Check
 
 

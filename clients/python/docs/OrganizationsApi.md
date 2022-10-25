@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **organization_get_operations**
-> [OperationOutput] organization_get_operations(organization_id)
+> bool, date, datetime, dict, float, int, list, str, none_type organization_get_operations(organization_id)
 
 Organization Get Operations
 
@@ -256,7 +256,6 @@ import time
 import aptible_client
 from aptible_client.api import organizations_api
 from aptible_client.model.http_validation_error import HTTPValidationError
-from aptible_client.model.operation_output import OperationOutput
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -311,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[OperationOutput]**](OperationOutput.md)
+**bool, date, datetime, dict, float, int, list, str, none_type**
 
 ### Authorization
 

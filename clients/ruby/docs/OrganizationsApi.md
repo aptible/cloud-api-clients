@@ -215,7 +215,7 @@ end
 
 ## organization_get_operations
 
-> <Array<OperationOutput>> organization_get_operations(organization_id, opts)
+> Object organization_get_operations(organization_id, opts)
 
 Organization Get Operations
 
@@ -250,7 +250,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<OperationOutput>>, Integer, Hash)> organization_get_operations_with_http_info(organization_id, opts)
+> <Array(Object, Integer, Hash)> organization_get_operations_with_http_info(organization_id, opts)
 
 ```ruby
 begin
@@ -258,7 +258,7 @@ begin
   data, status_code, headers = api_instance.organization_get_operations_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<OperationOutput>>
+  p data # => Object
 rescue CloudApiClient::ApiError => e
   puts "Error when calling OrganizationsApi->organization_get_operations_with_http_info: #{e}"
 end
@@ -274,7 +274,7 @@ end
 
 ### Return type
 
-[**Array&lt;OperationOutput&gt;**](OperationOutput.md)
+**Object**
 
 ### Authorization
 

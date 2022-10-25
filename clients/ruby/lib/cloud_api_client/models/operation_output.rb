@@ -37,6 +37,12 @@ module CloudApiClient
 
     attr_accessor :execution_id
 
+    attr_accessor :request_id
+
+    attr_accessor :client_ip
+
+    attr_accessor :token_data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -50,7 +56,10 @@ module CloudApiClient
         :'asset_version' => :'asset_version',
         :'asset_parameters' => :'asset_parameters',
         :'id' => :'id',
-        :'execution_id' => :'execution_id'
+        :'execution_id' => :'execution_id',
+        :'request_id' => :'request_id',
+        :'client_ip' => :'client_ip',
+        :'token_data' => :'token_data'
       }
     end
 
@@ -72,7 +81,10 @@ module CloudApiClient
         :'asset_version' => :'String',
         :'asset_parameters' => :'Object',
         :'id' => :'String',
-        :'execution_id' => :'String'
+        :'execution_id' => :'String',
+        :'request_id' => :'String',
+        :'client_ip' => :'String',
+        :'token_data' => :'Object'
       }
     end
 
@@ -81,6 +93,7 @@ module CloudApiClient
       Set.new([
         :'operation_type',
         :'status',
+        :'token_data'
       ])
     end
 
@@ -142,6 +155,18 @@ module CloudApiClient
       if attributes.key?(:'execution_id')
         self.execution_id = attributes[:'execution_id']
       end
+
+      if attributes.key?(:'request_id')
+        self.request_id = attributes[:'request_id']
+      end
+
+      if attributes.key?(:'client_ip')
+        self.client_ip = attributes[:'client_ip']
+      end
+
+      if attributes.key?(:'token_data')
+        self.token_data = attributes[:'token_data']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -176,6 +201,10 @@ module CloudApiClient
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @request_id.nil?
+        invalid_properties.push('invalid value for "request_id", request_id cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -189,6 +218,7 @@ module CloudApiClient
       return false if @asset_id.nil?
       return false if @asset_version.nil?
       return false if @id.nil?
+      return false if @request_id.nil?
       true
     end
 
@@ -207,7 +237,10 @@ module CloudApiClient
           asset_version == o.asset_version &&
           asset_parameters == o.asset_parameters &&
           id == o.id &&
-          execution_id == o.execution_id
+          execution_id == o.execution_id &&
+          request_id == o.request_id &&
+          client_ip == o.client_ip &&
+          token_data == o.token_data
     end
 
     # @see the `==` method
@@ -219,7 +252,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [environment_id, user_id, organization_id, operation_type, status, asset_name, asset_id, asset_version, asset_parameters, id, execution_id].hash
+      [environment_id, user_id, organization_id, operation_type, status, asset_name, asset_id, asset_version, asset_parameters, id, execution_id, request_id, client_ip, token_data].hash
     end
 
     # Builds the object from hash

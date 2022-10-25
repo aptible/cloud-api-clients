@@ -15,12 +15,15 @@ Name | Type | Description | Notes
 **AssetParameters** | Pointer to **map[string]interface{}** |  | [optional] 
 **Id** | **string** |  | 
 **ExecutionId** | Pointer to **string** |  | [optional] 
+**RequestId** | **string** |  | 
+**ClientIp** | Pointer to **string** |  | [optional] 
+**TokenData** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewOperationOutput
 
-`func NewOperationOutput(environmentId string, userId string, organizationId string, assetName string, assetId string, assetVersion string, id string, ) *OperationOutput`
+`func NewOperationOutput(environmentId string, userId string, organizationId string, assetName string, assetId string, assetVersion string, id string, requestId string, ) *OperationOutput`
 
 NewOperationOutput instantiates a new OperationOutput object
 This constructor will assign default values to properties that have it defined,
@@ -295,6 +298,86 @@ SetExecutionId sets ExecutionId field to given value.
 
 HasExecutionId returns a boolean if a field has been set.
 
+### GetRequestId
+
+`func (o *OperationOutput) GetRequestId() string`
+
+GetRequestId returns the RequestId field if non-nil, zero value otherwise.
+
+### GetRequestIdOk
+
+`func (o *OperationOutput) GetRequestIdOk() (*string, bool)`
+
+GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestId
+
+`func (o *OperationOutput) SetRequestId(v string)`
+
+SetRequestId sets RequestId field to given value.
+
+
+### GetClientIp
+
+`func (o *OperationOutput) GetClientIp() string`
+
+GetClientIp returns the ClientIp field if non-nil, zero value otherwise.
+
+### GetClientIpOk
+
+`func (o *OperationOutput) GetClientIpOk() (*string, bool)`
+
+GetClientIpOk returns a tuple with the ClientIp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClientIp
+
+`func (o *OperationOutput) SetClientIp(v string)`
+
+SetClientIp sets ClientIp field to given value.
+
+### HasClientIp
+
+`func (o *OperationOutput) HasClientIp() bool`
+
+HasClientIp returns a boolean if a field has been set.
+
+### GetTokenData
+
+`func (o *OperationOutput) GetTokenData() interface{}`
+
+GetTokenData returns the TokenData field if non-nil, zero value otherwise.
+
+### GetTokenDataOk
+
+`func (o *OperationOutput) GetTokenDataOk() (*interface{}, bool)`
+
+GetTokenDataOk returns a tuple with the TokenData field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTokenData
+
+`func (o *OperationOutput) SetTokenData(v interface{})`
+
+SetTokenData sets TokenData field to given value.
+
+### HasTokenData
+
+`func (o *OperationOutput) HasTokenData() bool`
+
+HasTokenData returns a boolean if a field has been set.
+
+### SetTokenDataNil
+
+`func (o *OperationOutput) SetTokenDataNil(b bool)`
+
+ SetTokenDataNil sets the value for TokenData to be an explicit nil
+
+### UnsetTokenData
+`func (o *OperationOutput) UnsetTokenData()`
+
+UnsetTokenData ensures that no value is present for TokenData, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

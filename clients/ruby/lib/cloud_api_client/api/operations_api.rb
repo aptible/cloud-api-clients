@@ -23,7 +23,7 @@ module CloudApiClient
     # @param operation_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [OperationOutput]
+    # @return [Object]
     def operation_get(operation_id, organization_id, opts = {})
       data, _status_code, _headers = operation_get_with_http_info(operation_id, organization_id, opts)
       data
@@ -33,7 +33,7 @@ module CloudApiClient
     # @param operation_id [String] 
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OperationOutput, Integer, Hash)>] OperationOutput data, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def operation_get_with_http_info(operation_id, organization_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OperationsApi.operation_get ...'
@@ -64,7 +64,7 @@ module CloudApiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'OperationOutput'
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
@@ -82,78 +82,6 @@ module CloudApiClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OperationsApi#operation_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Operation Update
-    # @param operation_id [String] 
-    # @param operation_update [OperationUpdate] 
-    # @param [Hash] opts the optional parameters
-    # @return [Object]
-    def operation_update(operation_id, operation_update, opts = {})
-      data, _status_code, _headers = operation_update_with_http_info(operation_id, operation_update, opts)
-      data
-    end
-
-    # Operation Update
-    # @param operation_id [String] 
-    # @param operation_update [OperationUpdate] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def operation_update_with_http_info(operation_id, operation_update, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OperationsApi.operation_update ...'
-      end
-      # verify the required parameter 'operation_id' is set
-      if @api_client.config.client_side_validation && operation_id.nil?
-        fail ArgumentError, "Missing the required parameter 'operation_id' when calling OperationsApi.operation_update"
-      end
-      # verify the required parameter 'operation_update' is set
-      if @api_client.config.client_side_validation && operation_update.nil?
-        fail ArgumentError, "Missing the required parameter 'operation_update' when calling OperationsApi.operation_update"
-      end
-      # resource path
-      local_var_path = '/api/v1/operations/{operation_id}'.sub('{' + 'operation_id' + '}', CGI.escape(operation_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(operation_update)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'Object'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"OperationsApi.operation_update",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OperationsApi#operation_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

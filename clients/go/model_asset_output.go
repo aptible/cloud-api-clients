@@ -26,7 +26,6 @@ type AssetOutput struct {
 	Status AssetStatus `json:"status"`
 	UserDefined bool `json:"user_defined"`
 	Outputs *map[string]AssetTerraformOutput `json:"outputs,omitempty"`
-	OperationId *string `json:"operation_id,omitempty"`
 }
 
 // NewAssetOutput instantiates a new AssetOutput object
@@ -317,38 +316,6 @@ func (o *AssetOutput) SetOutputs(v map[string]AssetTerraformOutput) {
 	o.Outputs = &v
 }
 
-// GetOperationId returns the OperationId field value if set, zero value otherwise.
-func (o *AssetOutput) GetOperationId() string {
-	if o == nil || o.OperationId == nil {
-		var ret string
-		return ret
-	}
-	return *o.OperationId
-}
-
-// GetOperationIdOk returns a tuple with the OperationId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AssetOutput) GetOperationIdOk() (*string, bool) {
-	if o == nil || o.OperationId == nil {
-		return nil, false
-	}
-	return o.OperationId, true
-}
-
-// HasOperationId returns a boolean if a field has been set.
-func (o *AssetOutput) HasOperationId() bool {
-	if o != nil && o.OperationId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOperationId gets a reference to the given string and assigns it to the OperationId field.
-func (o *AssetOutput) SetOperationId(v string) {
-	o.OperationId = &v
-}
-
 func (o AssetOutput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -380,9 +347,6 @@ func (o AssetOutput) MarshalJSON() ([]byte, error) {
 	}
 	if o.Outputs != nil {
 		toSerialize["outputs"] = o.Outputs
-	}
-	if o.OperationId != nil {
-		toSerialize["operation_id"] = o.OperationId
 	}
 	return json.Marshal(toSerialize)
 }

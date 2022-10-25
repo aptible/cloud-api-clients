@@ -35,8 +35,6 @@ module CloudApiClient
 
     attr_accessor :outputs
 
-    attr_accessor :operation_id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -49,8 +47,7 @@ module CloudApiClient
         :'environment' => :'environment',
         :'status' => :'status',
         :'user_defined' => :'user_defined',
-        :'outputs' => :'outputs',
-        :'operation_id' => :'operation_id'
+        :'outputs' => :'outputs'
       }
     end
 
@@ -71,8 +68,7 @@ module CloudApiClient
         :'environment' => :'EnvironmentOutput',
         :'status' => :'AssetStatus',
         :'user_defined' => :'Boolean',
-        :'outputs' => :'Hash<String, AssetTerraformOutput>',
-        :'operation_id' => :'String'
+        :'outputs' => :'Hash<String, AssetTerraformOutput>'
       }
     end
 
@@ -142,10 +138,6 @@ module CloudApiClient
           self.outputs = value
         end
       end
-
-      if attributes.key?(:'operation_id')
-        self.operation_id = attributes[:'operation_id']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -210,8 +202,7 @@ module CloudApiClient
           environment == o.environment &&
           status == o.status &&
           user_defined == o.user_defined &&
-          outputs == o.outputs &&
-          operation_id == o.operation_id
+          outputs == o.outputs
     end
 
     # @see the `==` method
@@ -223,7 +214,7 @@ module CloudApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [asset, asset_version, id, connections, connects_to, current_asset_parameters, environment, status, user_defined, outputs, operation_id].hash
+      [asset, asset_version, id, connections, connects_to, current_asset_parameters, environment, status, user_defined, outputs].hash
     end
 
     # Builds the object from hash

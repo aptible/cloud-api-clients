@@ -15,6 +15,9 @@
 | **asset_parameters** | **Object** |  | [optional] |
 | **id** | **String** |  |  |
 | **execution_id** | **String** |  | [optional] |
+| **request_id** | **String** |  |  |
+| **client_ip** | **String** |  | [optional] |
+| **token_data** | **Object** |  | [optional] |
 
 ## Example
 
@@ -32,7 +35,10 @@ instance = CloudApiClient::OperationOutput.new(
   asset_version: null,
   asset_parameters: null,
   id: null,
-  execution_id: null
+  execution_id: null,
+  request_id: null,
+  client_ip: null,
+  token_data: null
 )
 ```
 
